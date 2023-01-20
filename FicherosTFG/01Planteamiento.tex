@@ -1,0 +1,54 @@
+% !TeX encoding = ISO-8859-1
+
+\chapter{Definición de la ecuación de onda}
+\label{cha:Comenzamos}
+!!!!Explicar porque modela una onda\\
+Comenzaremos dando una definición general de la ecuación de ondas en $\mathbb{R}^n$, con $n \geq 1$
+
+
+
+\begin{equation}
+	u_{tt}- c^2 \bigtriangleup u = f , x\in \mathbb{R}^n, t\in\mathbb{R}
+\end{equation}
+
+Con $f$ es una función de valores reales, $c>0$ constante de propagación y el operador 
+\begin{equation}
+	\bigtriangleup u = \sum_{j=1}^{N}\frac{\delta^2u}{\delta x^2_j}
+\end{equation}
+
+que es conocida como el Laplaciano. En este tipo de ecuaciones la variable $t$ denota el tiempo transcurrido y las variables $x_i, i=1,...,n$ denotan la posición de la onda en cada direcciones del espacio $\mathbb{R}^n$. \\
+
+Podemos observar que son lineales y siempre que $f\not\equiv 0$ la ecuación será no homogénea, es decir tendrá termino independiente.\\
+
+
+
+
+Comenzaremos hablando de las ecuación de onda de una dimensión puesto que esas son las mas sencillas de trabajar, luego intentaremos generalizar los resultados obtenidos\\
+La ecuación se definirá entonces de la forma:
+\begin{equation}
+ u_{tt}=c^2u_{xx}
+\end{equation}
+Para poder tratar con este tipo de ecuaciones de manera mas sencilla usualmente las clasificamos, en elípticas, hiperbólicas y parabólicas, para ellos tendremos que ponerla en forma estándar. Aunque se pueden clasificar y estandarizar siempre nosotros por simplicidad lo haremos solo para el segundo orden.\\
+Una ecuación de segundo orden en forma estándar sería como sigue:
+\begin{equation}
+	Au_{tt}+Bu_{tx}+Cu_{xx}+Du_{t}+Eu_{x}+Fu= G
+\end{equation}
+donde, $A,B,C,D,E,F,G$ son constantes o funciones de variables t y x.\\
+Clasificaremos dependiendo de  las ecuaciones características relativas a la EDP:
+
+\begin{definicion}[label={clasificacion},nameref={Title or anything else}]{Clasificación de las EDP de segundo orden}	Si en todos los puntos $(x,y)$ de una región $W\in \mathbb{R}^2$ se cumple que:
+	\begin{itemize}
+		\item $B^2(x,y)-4A(x,y)C(x,y)>0$, entonces la EDP (n*) se dice hiperbólica.
+		\item $B^2(x,y)-4A(x,y)C(x,y)=0$, entonces la EDP (n*) se dice parabólica.
+		\item $B^2(x,y)-4A(x,y)C(x,y)<0$, entonces la EDP (n*) se dice elíptica.
+		
+	\end{itemize}
+\end{definicion}
+
+
+
+Pongamos ahora nuestra ecuación de esa forma:\\
+Vemos que $A=1, C=-c^2, G=f$ y cada una de las demás variables es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
+Este tipo de clasificación de las ecuaciones se usa para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
+
+

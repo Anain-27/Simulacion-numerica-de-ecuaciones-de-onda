@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: TFGPrincipal.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+A level-1 auxiliary file: dedicatoria.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: resumen.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: agradecimientos.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: 00introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: 01planteamiento.aux
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+A level-1 auxiliary file: 02Previos.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: 03PrimeraParte.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: 04SegundaParte.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: 05conclusiones.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Database file #1: bibliografia.bib
+Warning--I didn't find a database entry for "multicategorySVM"
+You've used 3 entries,
+            1791 wiz_defined-function locations,
+            477 strings with 3971 characters,
+and the built_in function-call counts, 552 in all, are:
+= -- 48
+> -- 16
+< -- 0
++ -- 7
+- -- 4
+* -- 27
+:= -- 92
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 29
+empty$ -- 63
+format.name$ -- 4
+if$ -- 123
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 5
+newline$ -- 18
+num.names$ -- 3
+pop$ -- 15
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 8
+stack$ -- 0
+substring$ -- 25
+swap$ -- 3
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 5
+width$ -- 4
+write$ -- 33
+(There was 1 warning)
