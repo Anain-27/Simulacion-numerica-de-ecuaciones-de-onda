@@ -81,9 +81,14 @@ Despejando la aproximación con mayor nivel en tiempo, obtenemos:
 \end{equation}
 Esta expresión define el método que utilizaremos, dejando a un lado las condiciones de frontera \eqref{eq:frontera1},\eqref{eq:frontera2} y \eqref{eq:frontera3}.\\
 
- Ahora nos centraremos en dichas condiciones.
-  \eqref{eq:frontera1} nos dará los valores de los nodos $u_{j,0}=f(x_j)=f_j$ para $$j=0,1,\dots,m$$.\\ 
+ Ahora nos centraremos en dichas condiciones.\eqref{eq:frontera1} nos dará los valores de los nodos 
+ \begin{equation*}
+ 	\begin{array}{lcr}
+ 		u_{j,0}=f(x_j)=f_j, & \text{    para    } & j=0,1,\dots,m.
+ 	\end{array}
+ \end{equation*}
   Por otra parte, las condiciones de tipo Dirichlet \eqref{eq:frontera3} quedarán como $u_{0,r}=u_{m,r}=0 $ para $r=0,1,\dots,n$.\\
+  
   Para la condición que falta \ref{eq:frontera2} utilizaremos, $u_{j,1}=u_{j,0}+g(x_j)=u_{j,0}+g_j$, que servirá para cualquier orden de las funciones $f$ y $g$. Para esta podría haber muchas mas opciones, por ejemplo, si sabemos que la función $f(x)$ es de orden 2 podríamos utilizar: $u_{j,1}=u_{j,0}+kg(x_j)+ \frac{c^2k^2}{2}f''(x(j))$. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
   
 Nuestro esquema al completo quedaría:

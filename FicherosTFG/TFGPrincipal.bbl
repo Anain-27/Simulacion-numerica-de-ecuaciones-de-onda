@@ -22,8 +22,14 @@ Patricia Camarena.
   hacia una cuerda que vibra.
 \newblock 2004.
 
-\bibitem{Software}
+\bibitem{MartinDomingo}
+Agust{\'i}n.
+\newblock Apuntes de vibraciones y ondas.
 
+\bibitem{Software}
+Shoichiro Nakamura.
+\newblock {\em Métodos numéricos aplicados con software}.
+\newblock Prentice-Hall Hispanoamericana, México [etc.], 1992.
 
 \bibitem{smith1988analisis}
 W.A. Smith and F.J.S. Bernabe.
@@ -35,11 +41,6 @@ Stefan Bilbao.
 \newblock {\em Numerical Sound Synthesis: Finite Difference Schemes and
   Simulation in Musical Acoustics}.
 \newblock Wiley Publishing, 2009.
-
-\bibitem{quarteroni2010numerical}
-A.~Quarteroni.
-\newblock {\em Numerical Models for Differential Problems}.
-\newblock MS\&A. Springer Milan, 2010.
 
 \bibitem{Carreo2012AcercaDA}
 Juan Carlos~Solares Carre{\~n}o and Rosalba~Mendoza Su{\'a}res.
@@ -81,7 +82,7 @@ John~C. Strikwerda.
 \newblock Society for Industrial and Applied Mathematics, 2004.
 
 \bibitem{Stig}
-Stig Larsson and Vidar Thomée.
+Stig Larsson and Vidar Thom{\'e}e.
 \newblock {\em Partial differential equations with numerical methods},
   volume~45.
 \newblock Springer, Berlin, 1st softcover pr. edition, 2009.

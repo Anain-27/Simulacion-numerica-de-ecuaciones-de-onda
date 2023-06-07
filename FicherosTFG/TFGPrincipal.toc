@@ -7,18 +7,22 @@
 \contentsline {section}{\numberline {2.2}Producto interior y suma por partes en $L^2$}{4}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Dominio de Dependencia}{8}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Definici\'on de la ecuaci\'on de onda}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Ecuaciones de transporte}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}La energ\IeC {\'\i }a en la ecuaci\'on de ondas}{13}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Tipos de soluciones}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}M\'etodos principales de resoluci\'on}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}M\'etodo de diferencias finitas}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Consistencia}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}An\'alisis de Von Neumann}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Esquema como dos ecuaciones de transporte}{22}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Ley de energ\IeC {\'\i }a discreta}{22}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Comparativa en python}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Comparar cambiando $\mu $}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Comparar cambiando la energ\IeC {\'\i }a}{25}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusiones}{27}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Anexo}{29}{appendix.A}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{31}{appendix*.2}%
+\contentsline {section}{\numberline {3.1}Ecuaci\'on de onda de segundo orden}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Ecuaciones de transporte}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}La energ\IeC {\'\i }a en la ecuaci\'on de ondas}{15}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Tipos de soluciones}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}M\'etodos principales de resoluci\'on}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}M\'etodo de diferencias finitas}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Consistencia}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}An\'alisis de Von Neumann}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Esquema como dos ecuaciones de transporte}{24}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Ley de energ\IeC {\'\i }a discreta}{24}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Comparativa en python}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Comparar cambiando $\mu $}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Comparar cambiando la energ\IeC {\'\i }a}{27}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{29}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Anexo}{31}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Resoluci\'on num\'erica}{31}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Wave}{34}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Imagenes}{36}{section.A.3}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{39}{appendix*.2}%

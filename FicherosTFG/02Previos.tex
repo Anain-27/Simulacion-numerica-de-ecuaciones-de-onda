@@ -3,8 +3,6 @@
 \chapter{Definición de la ecuación de onda}
 \label{cha:Comenzamos}
 
-!!!!Explicar porque modela una onda, sacado de \citep{Camarena2004LaTD} y como se puede separar como dos de transporte, con sentido opuesto\\
-
 Comenzaremos dando una introducción a la ecuación de ondas en $\mathbb{R}^n$, con $n \geq 1$ \citep{Wazwaz,AnIntroduction}
 
 
@@ -22,20 +20,48 @@ es conocida como el Laplaciano. En este tipo de ecuaciones la variable $t$ denot
 
 Podemos observar que se trata de una ecuación lineal y, siempre que $f\not\equiv 0$, la ecuación será no homogénea, es decir, tendrá termino independiente.\\
 
+\section{Ecuación de onda de segundo orden}
+Ya que nos hemos situado en la ecuación de onda, nosotros nos centraremos en la de segundo orden, es decir, una sola dimensión en el espacio. Comenzaremos explicando el modelado de dicha función, apoyándonos en \citep{Camarena2004LaTD, MartinDomingo}.
 
+Supongamos que tenemos una cuerda uniforme y tensa, sujeta por los extremos, tal como lo estaría, por ejemplo, en una guitarra. Esta cuerda estaría colocada en nuestro esquema en el eje $X$ entre $0$ y $l$, siendo $l$ el largo de la misma. Así vemos que cada punto de la cuerda se desplazará en el tiempo. Por lo tanto la función que describa el movimiento de la cuerda será del tipo $u(x,t)$.\\
 
+Nuestra cuerda en un instante $t$ podría tener una forma parecida a alguna de las siguientes\\
+\includegraphics[scale=0.45]{Ejemplo1.png}
+\includegraphics[scale=0.45]{Ejemplo2.png}\\
 
-Comenzaremos hablando, por simplicidad, de las ecuación de onda en dimensión uno. En este caso la ecuación se puede escribir de la siguiente forma:
+Supongamos que la cuerda no está en reposo habrán una fuerza tensora $T$, producidas por los puntos en los que está sujeta. Nos apoyaremos en la siguiente figura para ver como se describiría la ecuación: 
+
+\begin{center}
+	\includegraphics[scale=0.6]{modelado.png}
+\end{center}
+
+Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto la fuerza tensora que produce cada pu, no tendrán la misma dirección y sentido opuesto, sino que tendrán componente vertical.  Las componentes verticales son:
+
+$$T_y= -Tsen(\alpha), $$
+$$T'_y= Tsen(\beta).$$
+
+Luego la fuerza vertical quedaría $F=T(sen(\beta)-sen(\alpha))$, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos decir $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\alpha) \approxeq tan(\alpha)$ quedando
+
+$$F=T(tan(\beta)-tan(\alpha)).$$
+
+Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos $x$ y $x+\Delta x$ respectivamente, entonces podemos expresarlos como la primera derivada en los puntos correspondientes $tan(\alpha)=u_x(x,t)$ y $tan(\beta)=u_x(x+\Delta x,t)$. Obtenemos $F=T(u_x(x+\Delta x,t)-u_x(x,t))$.\\
+Aplicando ahora la segunda Ley de Newton, la fuerza debe ser la masa por la aceleración. Luego será la masa $\rho_l \Delta S$, donde $\rho_l $ es la densidad lineal de masa de la cuerda y como estamos en un ambiente diferencial podemos aproximar $\Delta S \approxeq \Delta x $, y la aceleración $u_{tt}(x,t)$. Reestructurando la ecuación queda:
+
+$$u_{tt}(x,t)=\frac{T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}$$
+
+Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{T}{\rho_l}$ la ecuación queda de la siguiente forma:
 \begin{equation}\label{eq:basica}
 	u_{tt}=c^2u_{xx}.
 \end{equation}
 
-Usualmente las ecuaciones en derivadas parciales se clasifican en: elípticas, hiperbólicas y parabólicas. Para ello tendremos que estandarizarla. Aunque las ecuaciones se pueden clasificar y estandarizar siempre, nosotros por simplicidad lo haremos solo para las de segundo orden.(Buscar la referencia)\\
+
+Ahora  las ecuaciones en derivadas parciales se clasifican en: elípticas, hiperbólicas y parabólicas. Para ello tendremos que estandarizarla. Aunque las ecuaciones se pueden clasificar y estandarizar siempre, nosotros por simplicidad lo haremos solo para las de segundo orden.
+\newpage
 Una ecuación de segundo orden en forma estándar sería como sigue:
 \begin{equation}\label{eq:estandarizacion}
 	Au_{tt}+Bu_{tx}+Cu_{xx}+Du_{t}+Eu_{x}+Fu= G,
 \end{equation}
-donde $A,B,C,D,E,F,G$ funciones de variables t y x.\\
+donde $A,B,C,D,E,F,G$ son funciones de variables x y t.\\
 Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones características relativas a la ecuación en derivadas parciales (EDP):
 
 \begin{definicion}[label={clasificacion},nameref={Title or anything else}]{Clasificación de las EDP de segundo orden}	
@@ -49,7 +75,7 @@ Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones caracte
 	\end{itemize}
 \end{definicion}
 
-Vemos que en \eqref{eq:basica} $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
+Vemos que en \eqref{eq:basica}, $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
 Este tipo de clasificación de las ecuaciones se usa para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
 
 
