@@ -1,0 +1,822 @@
+% !TeX encoding = ISO-8859-1
+
+\chapter{SUPPORT VECTOR MACHINE}
+\label{cha:SVM}
+
+Dentro del aprendizaje supervisado se encuentran un conjunto de modelos que se conocen como SVM (Support Vector Machine) que fueron propuestos por Vladimir Vapnik y sus colaboradores, \citep{boser1992} donde se construye un clasificador de datos binario, es decir, en dos grupos distintos.\\
+
+
+El SVM parte de un conjunto de datos, a los que pasaremos a denotar como observaciones, que se expresan en forma de dupla como $(\textbf{x}_{i},y_{i})$ para $i=1,\dots,n$ con $\textbf{x}_{i}\in\Omega\subset\mathbb{R}^{m}$ e $y_{i}$ perteneciente a un conjunto formado por dos elementos Y=\{-1,1\}. Dicho conjunto puede dividirse en dos subgrupos definidos por los valores de $y_{i}$, los cuales verifican que $y=1$, o bien, $y=-1$. A estos dos subgrupos se les pasará a denominar clases, siendo el objetivo del SVM hallar un hiperplano que las separe.\\
+
+En sus orígenes, el SVM fue desarrollado como un clasificador lineal. Posteriormente mediante el uso de la función kernel, la cual se definirá en la Subsección \ref{LNS} , se pudieron aplicar los casos en donde el separador construido no se correspondía con una función lineal, \cite{cortes1995support}.\\
+%corine Cortes, Vapnik  Vladimir y por otro lado el señor con el nomre raro berhand y smola.
+
+
+%@ARTICLE Cortes, C., Vapnik, V. Support-vector networks. Mach Learn 20, 273?297 (1995). https://doi.org/10.1007/BF00994018
+
+Las aplicaciones del SVM se encuentran en diversos campos como medicina (\cite{RAKHMETULAYEVA2018231},\cite{8452888}), biología (\cite{CAI2004373},\cite{Noble1SV}) y la industria (\cite{refId0},\cite{OTCHERE2021108182}), en general, este tipo de modelos es usado para resolver problemas de clasificación y regresión. A continuación se expondrá un ejemplo del empleo del SVM. Suponga que un hospital desea hacer un estudio para diagnosticar el cáncer de mama, en el cual participan 10000 pacientes y esta institución poseía información clínica acerca de estos. Los pacientes se dividían en dos grupos esencialmente, en uno de ellos los integrantes padecían cáncer de mama y en el otro no tenían dicha enfermedad. El objetivo era ver que características podían ayudar a los sanitarios a diagnosticar con mayor eficacia el cáncer de mama. En este caso, las clases corresponderían con adolecer el cáncer de mama o no poseerlo.\\
+
+El SVM posee diferentes formulaciones en función de la relación que tengan las clases entre sí. Estas relaciones se pueden clasificar esencialmente en dos categorías:
+
+\begin{itemize}
+	\item Separables linealmente: Si se puede definir un hiperplano de separación que permita separar ambas clases entre sí.
+	\item No separables linealmente: Si no existe hiperplano de separación que permita separar una clase de la otra. 
+\end{itemize}
+
+A lo largo de esta sección, se expondrán las diferentes formulaciones existentes y el desarrollo de las mismas. Se incluirá un apartado para el caso en el que las clases sean cuasi-separables, esto es, que las clases se puedan separar mediante un hiperplano, pero que existan algunos errores de clasificación. Esencialmente es similar al caso linealmente separables, pero se utilizarán unas variables de holgura que permitirán penalizar a las observaciones que no puedan clasificarse correctamente. Empezaremos por el primero de los casos previamente expuestos.	
+
+
+\section{CASO LINEALMENTE SEPARABLE}\label{SVMLS}
+
+En esta sección se buscará un hiperplano que separe las observaciones en las dos clases existentes, sin encontrarnos errores de clasificación. Este caso es conocido como linealmente separable. Este hiperplano viene dado por la siguiente expresión
+\begin{equation}\label{hiperplano}
+H(\textbf{x})=(v_{1}x_{1}+...+v_{m}x_{m}) + a= <\textbf{v},\textbf{x}> + a,
+\end{equation}
+donde $a\in \mathbb{R}$ es una constante, $\textbf{v}\in\mathbb{R}^m$ es el vector normal que define el hiperplano y $<\cdot, \cdot>$ es el producto escalar entre dos vectores.\\
+
+El hiperplano nos dividirá el espacio en dos zonas, al sustituir en este los valores de $(\textbf{x}_{i},y_{i})$ el resultado será positivo o negativo en función de en que zona se encuentre. En este trabajo para facilitar la notación, en la zona positiva se encontrarán las observaciones con valor $y_{i}=1$ y en la zona negativa las observaciones con $y_{i}=-1$. Por lo tanto se tienen las dos siguientes expresiones
+\begin{equation*}
+<\textbf{v},\textbf{x}_{i}> + \hspace{2mm} a \geq 0, \text{ si } y_{i}=1, \quad \text{para} \quad i=1,\dots,n,
+\end{equation*}
+
+\begin{equation*}
+<\textbf{v},\textbf{x}_{i}> + \hspace{2mm} a \leq 0, \text{ si } y_{i}=-1, \quad \text{para} \quad i=1,\dots,n.
+\end{equation*}
+
+Las ecuaciones anteriores, se pueden comprimir en una sola añadiendo el término $y_{i}$, obteniendo la expresión
+\begin{equation}\label{hiperplano2}\nonumber
+y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 0,   \qquad \text{para } i=1,\dots ,n.
+\end{equation}
+
+
+
+\begin{figure}[h]	
+	\centering
+	\subfloat[]{
+		\includegraphics[width=0.5\textwidth]{datoshiperplanoseparables.eps}
+		\label{figura211}		
+	}
+	\subfloat[]{
+		
+		\includegraphics[width=0.5\textwidth]{margen.eps}	
+		\label{figura212}
+	}
+	\caption{En la Figura \ref{figura211} se puede observar un hiperplano que separa dos clases. Por otro lado la Figura \ref{figura212} corresponde con una representación gráfica del concepto de margen dado en la Definición \ref{definicionmargen}}
+\end{figure}
+
+A continuación se define el concepto de margen, el cual se usará para formular el problema de hallar el hiperplano que separe las clases.\\
+
+\begin{definicion}[label={definicionmargen},nameref={Title or anything else}]{Margen:}
+	\textit{Sea $\Omega$ un conjunto de observaciones y $H$ un hiperplano que separe dichas observaciones en dos clases distintas.  Llamaremos margen ($\tau$) de un hiperplano $H$ a la distancia mínima que hay entre dicho hiperplano y el elemento más cercano de las clases que separa. Un ejemplo gráfico de esto viene en la Figura \ref{figura212} }	
+\end{definicion}
+
+\newpage
+
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\includegraphics[width=0.5\textwidth]{infinitoshiperplanos.eps}	
+	\label{figura22}	
+	\caption{En la figura se representan múltiples hiperplanos que separan dos clases}
+\end{wrapfigure}
+
+
+Hay infinitos hiperplanos que separen las dos clases. El SVM busca el hiperplano que verifique que su margen sea máximo, por lo tanto la distancia de la observación más cercana al hiperplano será mínima. Antes de definir la distancia de un punto a un hiperplano, explicaremos el concepto de norma dual, ya que será usado posteriormente.\\	
+
+\begin{definicion}[label={normadual},nameref={Title or anything else}]{Norma Dual}
+	Sea $\norm{\cdot}$ la norma definida en el  espacio donde se encuentran los elementos de la dupla $(\textbf{x}_{i},y_{i})$ con $\textbf{x}_{i}\in\Omega\subset\mathbb{R}^{m}$ e $y_{i}\in\{-1,1\}$. Definimos la norma dual $\norm{\cdot}^{\circ}$ como 
+	$$\norm{\textbf{z}}^{\circ}=\text{max}\{<\textbf{z},\textbf{x}>,\norm{\textbf{x}}=1\}.$$	
+\end{definicion}
+
+
+A continuación daremos la definición de distancia de un punto a un hiperplano.\\
+
+\begin{definicion}[label={distanciapuntohiperplano},nameref={Title or anything else}]{Distancia de un punto a un hiperplano}
+	Sea $\norm{\cdot}$ una norma definida en $ \mathbb{R}^{m}$. La distancia de un punto $\textbf{x}$  y un hiperplano $H=<\textbf{v},\textbf{x}>+a$ es la menor distancia entre este punto y los infinitos puntos que constituyen $H$, lo cual se calcula como 
+	$$D(\textbf{x},H)=\frac{\abs{H(\textbf{x})}}{\norm{\textbf{v}}^{\circ}},$$
+	donde $\norm{\cdot}^{\circ}$ denota a la norma dual de $\norm{\cdot}$ .	
+\end{definicion}
+
+En SVM el objetivo es encontrar un hiperplano que separe ambas clases y que maximmice la distancia al elemento más cercano, es decir, que maximice el margen, por tanto el problema a resolver sería el siguiente
+
+\begin{alignat*}{3}
+ \quad & \text{max} \hspace{2mm}\stackbin[i]{}{\text{min}}   \quad && \frac{y_{i}(<\textbf{v},\textbf{x}_{i}>+a)}{\norm{\textbf{v}}^{\circ}} &&\\
+& \text{s.a:}   \quad && y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 0, \quad \quad && i=1,\dots,n. 
+\end{alignat*}
+
+La función que calcula la distancia mínima, es decir, 
+
+$$D(\textbf{x},H)=\stackbin[i]{}{\text{min}}\frac{y_{i}H(\textbf{x}_{i})}{\norm{\textbf{v}}^{\circ}}= \stackbin[i]{}{\text{min}}\frac{y_{i}(<\textbf{v},\textbf{x}_{i}>+a)}{\norm{\textbf{v}}^{\circ}},$$
+es una función homogénea de grado 0, por tanto $D(\delta\textbf{x},\delta H)=D(\textbf{x},H)$ para $\delta>0$, por tanto la solución del problema anterior es equivalente a la solución del siguiente problema  
+\begin{alignat*}{3}
+\quad & \text{max} \hspace{2mm}\stackbin[i]{}{\text{min}}   \quad && \frac{\delta y_{i}(<\textbf{v},\textbf{x}_{i}>+ a)}{\norm{\delta\textbf{v}}^{\circ}} &&\\
+& \text{s.a:}   \quad && \delta y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 0, \quad \quad && i=1,\dots,n. 
+\end{alignat*}
+
+Busquemos una cota para la restricción anterior. Existen dos posibilidades, que $y_{i}=1$ o $y_{i}=-1$, pasamos a desarrollar ambos casos
+
+\begin{itemize}
+	\item Si $y_{i}=1$, sustituyendo se obtiene que $\delta(<\textbf{v},\textbf{x}_{i}>+a)\geq0$, por tanto se puede decir que existe un $ \epsilon_{1}\in\mathbb{R}$ con $\epsilon_{1}\geq0$ tal que $\delta(<\textbf{v},\textbf{x}_{i}>+a)\geq \epsilon_{1}$.
+	\item Si $y_{i}=-1$ entonces se tiene que $-\delta(<\textbf{v},\textbf{x}_{i}>+a)\geq0$, o lo que es lo mismo, existe un $\epsilon_{2}\in\mathbb{R}$ con $\epsilon_{2}\geq0$ tal que $-\delta(<\textbf{v},\textbf{x}_{i}>+a)\geq-\epsilon_{2}$.
+\end{itemize}
+
+Podemos concluir que existe un valor $\epsilon\in\mathbb{R}$ con $\epsilon=\min\{\epsilon_{1},\epsilon_{2}\}$, que verifica la expresión  $\delta y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq \epsilon$. Podemos escoger el valor de $\delta$ como $\epsilon$ sin pérdida de generalidad, por tanto, obtendríamos la siguiente ecuación
+\begin{equation}\label{hiperplanooptimo}
+y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 1,   \qquad i=1,\dots ,n.
+\end{equation}
+
+Se puede reescribir el problema a resolver como el siguiente
+\begin{alignat*}{3}
+\textbf{(P0)} \quad & \text{max} \hspace{2mm}\stackbin[i]{}{\text{min}}  \quad && \frac{y_{i}H(\textbf{x}_{i})}{\norm{\textbf{v}}^{\circ}} &&\\
+& \text{s.a:}   \quad && y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq1, \quad i=1,\dots,n. &&
+\end{alignat*}
+
+Veamos una expresión equivalente de la función objetivo del problema \textbf{(P0)}, debido a que las restricciones de dicho problema implican que  $y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq1$ para $i=1,\dots,n$, es decir, $y_{i}H(\textbf{x}_{i})\geq1$ y como se está minimizando en función de $i$ entonces obtendríamos  $\text{max}\frac{1}{\norm{\textbf{v}}^{\circ}}$.\\
+
+ En este trabajo se usará la 2-norma, debido a que la norma dual de la 2-norma es ella misma, en lo que sigue no utilizaremos la notación de norma dual. Si se hubiese establecido otra norma el desarrollo que sigue tendría que hacerse con la norma dual de la norma elegida. De lo dicho previamente en este párrafo se deduce que el margen sea máximo es equivalente a encontrar el menor valor de $\norm{\textbf{v}}^{\circ}$. Por tanto, el objetivo será minimizar $\norm{\textbf{v}}_{2}$, para simplificar cálculos se usará como función objetivo la expresión $\frac{1}{2}\norm{\textbf{v}}_{2}^{2}$ en vez de $\norm{\textbf{v}}_{2}$,  dado que es equivalente minimizar una expresión que otra, así pues tenemos el siguiente problema.
+\begin{alignat*}{3}
+\textbf{(P1)} \quad & \text{min}   \quad && \frac{1}{2}\norm{\textbf{v}}_{2}^{2} &&\\
+& \text{s.a:}   \quad && y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 1, \quad && i=1,\dots,n.
+\end{alignat*}
+
+Al obtener la expresión del hiperplano óptimo veremos que éste se puede deducir a partir de los vectores soporte, los cuales definiremos a continuación.\\
+
+%Sabemos que la distancia de un punto $c$, de un hiperplano $H$, a dicho éste viene dada por $\frac{\abs{H(c)}}{\norm{\textbf{v}}_{2}}$, siendo $\abs{\cdot}$ el valor absoluto y $\norm{\cdot}_{2}$ la norma-2, para facilitar la notación se denotará de ahora en adelante como $\norm{\cdot}$. \\
+
+%Por tanto, la distancia entre cualquier elemento de la dupla $(\textbf{x}_{i},y_{i})$ para $i=1,\dots,n$ y el hiperplano $H$ es mayor o igual que la distancia correspondiente al margen, es decir
+%\begin{equation}\label{margen}
+%\frac{y_{i}H(\textbf{x}_{i})}{\norm{\textbf{v}}}\geq \tau.
+%\end{equation}
+
+\begin{definicion}[label={vectoresoporte},nameref={Title or anything else}]{Vectores Soporte}
+	\textit{Sea $(\textbf{x}_{i},y_{i})$ con $\textbf{x}_{i}\in\mathbb{R}^{m}$ e $y_{i}\in\{1,-1\}$ tal que $i=1,\dots,n$. Existe un hiperplano $H$ que separa la clase $y=1$ de $y=-1$. Llamaremos vectores soporte, a aquellos valores de la dupla $(\textbf{x}_{i},y_{i})$ que verifiquen la igualdad en la ecuación \eqref{hiperplanooptimo}.}
+\end{definicion}
+
+
+\begin{figure}[h]	
+	\centering
+	
+	\includegraphics[width=0.65\textwidth]{vectorsoporte}	
+	\label{figura23}	
+	\caption{En la figura, los tres puntos rojos representan a los vectores soporte del hiperplano que separa las dos clases.}
+\end{figure}
+
+
+
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\includegraphics[width=0.5\textwidth]{vectorsoporte}	
+%	\label{figura32}	
+%	\caption{En la figura, los dos puntos rojos representan a los vectores soporte del hiperplano que separa las dos clases.}
+%\end{wrapfigure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=0.5\textwidth]{datoscuasiseparablehiperplano}
+%\caption{Ejemplo de un hiperplano que separa ambas clases, pero no están perfectamente separadas.}	
+%\end{figure}
+
+%escribo caracterización convexidad de segundo orden y demuestro ¿pongo el teorema del valor medio, potgo la caracterizaciónde un orden?, por último demuestro que la convexidad de la función cuadrática, y  restricción?.
+
+%Por tanto, el problema para hallar el hiperplano óptimo es equivalente a buscar el valor mínimo de $\norm{\textbf{v}}$, sujeto a la expresión \eqref{hiperplanooptimo}. Para simplificar cálculos, se usará como función objetivo la expresión $\frac{1}{2}\norm{\textbf{v}}^{2}$ en vez de $\norm{\textbf{v}}$,  dado que es análogo minimizar una expresión que otra, así pues tenemos el siguiente problema.
+%\begin{alignat*}{3}
+%\textbf{(P1)} \quad & \text{min}   \quad && \frac{1}{2}\norm{\textbf{v}}^{2} &&\\
+%& \text{s.a}   \quad && y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 1 \quad &&\\
+%& \quad && i=1,\dots,n
+%\end{alignat*}
+
+Nos encontramos ante un problema con $n+1$ variables y $n$ restricciones, usaremos la relajación Lagrangiana para facilitar la resolución del problema, para ello se definirá lo que es la relajación de un problema.
+
+\begin{definicion}[label={definicionrelajacionproblema},nameref={Title or anything else}]{Relajación de un problema}
+	
+	\textit{Sea un problema de programación entera} 
+	\begin{alignat*}{3}
+	\textbf{(PP)} \quad & \text{min}   \quad && f(\textbf{x}) && \\
+	& \text{s.a:}   \quad && g_{i}(\textbf{x}) \leq 0, \quad i=1,\dots,n, && \\
+	&\quad  && \textbf{x}\in X\in\mathbb{Z}^{m}, &&
+	\end{alignat*}
+	
+	\textit{se dice que} 
+	\begin{alignat*}{3}
+	\textbf{(RP)} \quad & \text{min}   \quad &&q(\textbf{x}) && \\
+	& \text{s.a:}   \quad && g_{i}(\textbf{x}) \leq 0, \quad i=1,\dots,n, && \\
+	&\quad  && \textbf{x}\in T\in\mathbb{Z}^{m},  &&
+	\end{alignat*}
+	
+	\textit{es una relajación de} \textbf{(PP)} \textit{si se verifica:}
+	\begin{itemize}
+		\item $X\subseteq T$.
+		\item $q(\textbf{x})\leq f(\textbf{x}), \forall \textbf{x}\in X$.
+	\end{itemize}
+	
+	
+\end{definicion}
+
+Al querer aplicar la relajación lagrangiana, la relajación del problema vendrá dada por la función de Lagrange que se define a continuación. Así se pasa a un problema sin restricciones y con $2n+1$ variables, correspondiendo $n$ de ellas a multiplicadores de Lagrange.\\
+
+\begin{definicion}[label={definicionfuncionlagrange},nameref={Title or anything else}]{Función de Lagrange}
+	\textit{Sea un problema de programación entera}
+	\begin{alignat*}{3}
+	\textbf{(PP)} \quad & \text{min}   \quad && f(\textbf{x}) && \\
+	& \text{s.a:}   \quad && g_{i}(\textbf{x}) \leq 0, \quad i=1,\dots,n,  && \\
+	&\quad  && \textbf{x}\in \mathbb{Z}^{m}, \quad &&
+	\end{alignat*}
+	
+	\textit{su función de Lagrange viene dada por} 
+	\begin{equation}\label{definicionlagrange}\nonumber
+	L(\textbf{x},\boldsymbol{\alpha})=f(\textbf{x}) + \sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}),
+	\end{equation}
+	
+	\textit{donde $\alpha_{i}\geq0$ para $i=1,\dots,n$ son los multiplicadores de Lagrange. }
+\end{definicion}
+
+En este sentido la función de Lagrange del problema \textbf{(P1)} es la siguiente
+\begin{equation}\label{lagrange}
+L(\textbf{v},a,\boldsymbol{\alpha})=\frac{1}{2}\norm{\textbf{v}}_{2}^{2}-\sum_{i=1}^{n}\alpha_{i}(y_{i}(<\textbf{v},\textbf{x}_{i}>+a)-1),
+\end{equation}
+con $\alpha_{i}\geq 0$. El símbolo negativo del sumatorio en la expersión (\ref{lagrange}) \space se debe a que las restricciones en el problema \textbf{(P1)}, a diferencia del problema \textbf{(PP)} dado en la Definición de función de Lagrange (\ref{definicionlagrange}) , son mayores o iguales que 0.\\
+
+Veamos que el siguiente problema \textbf{(RLP)} es una relajación de \textbf{(PP)} que llamaremos relajación lagrangiana
+\begin{alignat*}{3}
+\textbf{(RLP)} \quad & \text{min}   \quad && f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}) && \\
+&  \quad && \textbf{x}\in \mathbb{Z}^{m}, \quad i=1,\dots,n. && \\
+\end{alignat*}
+%\begin{equation}
+%\begin{split}
+%& \text{máx}   \quad  \inf L(\textbf{v},a,\boldsymbol{\alpha})=\frac{1}{2}\norm{\textbf{v}}^{2}-\sum_{i=1}^{n}\alpha_{i}(y_{i}(<\textbf{v},\textbf{x}_{i}>+a)-1) \\
+%& \alpha_{i}\geq 0 \quad  i=1,\dots,n\\
+%\end{split}
+%\end{equation}
+\begin{corolario}
+	\textit{}
+	\textit{El problema} \textbf{(RLP)} \textit{es una relajación de} \textbf{(PP)} \textit{, para $\alpha_{i}\geq 0$ con $i=1,\dots ,n$.}	
+\end{corolario}
+
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Para la demostración, veremos si se verifica la definición de relajación dada en  \ref{definicionrelajacionproblema}. Si \textbf{(RLP)} fuera relajación de \textbf{(PP)} se debería verificar que la región factible del primer problema debe ser, al menos, tan grande como la del problema \textbf{(PP)}, esto se verifica, ya que el conjunto de puntos factibles del problema \textbf{(PP)} son puntos factibles en el problema \textbf{(RLP)}, puesto que no hay ninguna restricción y el conjunto de valores son los mismos.\\
+
+Por otro lado, se debe cumplir que la función objetivo del problema \textbf{(RLP)} sea menor o igual que la de \textbf{(PP)}, esto es cierto ya que la función $g_{i}(\textbf{x})\leq 0$ entonces $\stackbin[i=1]{n}{\sum}\alpha_{i}g_{i}(\textbf{x})\leq 0$.
+
+\begin{equation}\nonumber
+f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}) \leq f(\textbf{x}).
+\end{equation}
+$\hfill\square$\\
+
+Obtenida la relajación del problema \textbf{(PP)}, pasamosa a desarollar el problema dual de \textbf{(PP)} ya que su resolución es más sencilla y como demostraremos más adelante, su resolución implica también obtener la solución del problema primal \textbf{(PP)}. Para conseguir el problema dual de \textbf{(PP)} definimos antes una función a la que llamaremos función dual y cuya expresión será la siguiente
+\begin{equation}\label{funciondual}\nonumber
+\Theta(\boldsymbol{\alpha})=\stackbin[\textbf{x}]{}{\text{inf}}\hspace{2mm} L(\textbf{x},\boldsymbol{\alpha})=\stackbin[\textbf{x}]{}{\text{inf}} \hspace{2mm} f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}).
+\end{equation}
+
+Por lo tanto la expresión del problema dual es la siguiente
+% En la expresión anterior se busca el máximo valor posible en función de la variable $\boldsymbol{\alpha}$, debido a que $g_{i}(\textbf{x})\leq0$ y $\alpha_{i}\geq0$ entonces $\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x})\leq0$, con esto podemos concluir que
+%$$f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x})\leq f(\textbf{x}),$$
+%por ello, para que la función de Lagrange tenga valor máximo debe cumplirse que $\alpha_{i}=0$ con $i=1,\dots,n$, por lo tanto $\Theta(\textbf{x})=f(\textbf{x})$ si se verifican las restricciones del problema \textbf{(PP)}, luego obtenemos que 
+%\begin{alignat*}{3}
+%\textbf{(PP)}\quad & \min_{\textbf{x}}   \quad && \max_{\boldsymbol{\alpha}} \quad f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}) && \\
+%&\quad  && \textbf{x}\in \mathbb{Z}^{m},\quad \alpha_{i}\geq0, \quad i=1,\dots,n. 
+%\end{alignat*}
+%El dual de este problema tiene la siguiente expresión 
+\begin{alignat*}{3}
+\textbf{(PD)}\quad & \stackbin[\boldsymbol{\alpha}]{}{\text{max}}  \quad &&\stackbin[\textbf{x}]{}{\text{inf}} \quad f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}) && \\
+&\quad  && \textbf{x}\in \mathbb{Z}^{m},\quad \alpha_{i}\geq0, \quad i=1,\dots,n. &&
+\end{alignat*}
+
+Sustituyendo los datos del caso que estamos tratando obtenemos
+\begin{alignat*}{3}
+\textbf{(PD1)} \quad & \stackbin[\boldsymbol{\alpha}]{}{\text{max}}  \quad &&\stackbin[\textbf{v}]{}{\text{inf}} \hspace{2mm}  \frac{1}{2}\norm{\textbf{v}}_{2}^{2}-\sum_{i=1}^{n}\alpha_{i}(y_{i}(<\textbf{v},\textbf{x}_{i}>+a)-1)  &&\\
+& \quad &&  \alpha_{i}\geq 0, \quad  i=1,\dots,n. \quad && 
+\end{alignat*}
+
+A continuación se expondrá el Teorema de Karush-Kuhn-Tacker, el cual aplicaremos para buscar la solución el problema primal, pero antes de pasar a ello se verán conceptos básicos necesarios para la demostración de dicho teorema. Por otro lado, se mostrará la relación entre la solución del problema dual \textbf{(PD1)} y el problema primal \textbf{(P1)}. Para esto último, se necesita demostrar el siguiente teorema.\\
+
+\begin{teorema}[label={teorema311},nameref={Title or anything else}]
+	\textit{}
+	\textit{Sean $\boldsymbol{\alpha}$ y \textbf{x} vectores que satisfacen las restricciones del problema dual} \textbf{(PD)}\textit{ y del primal} \textbf{(PP)} \textit{respectivamente, es decir, $g_{i}(\textbf{x})\leq 0$ y $\alpha_{i}\geq 0$, con $i=1,\dots,n$, entonces $\varphi(\boldsymbol{\alpha}) \leq f(\textbf{x})$, siendo} $$\varphi(\boldsymbol{\alpha})=\stackbin[\textbf{x}]{}{\text{inf}} \hspace{2mm}\textbf{L(x,$\boldsymbol{\alpha}$)}\hspace{2mm}.$$
+	
+\end{teorema}
+
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Para la demostración bastará con desarrollar la expresión.
+
+$$\varphi(\boldsymbol{\alpha})= \stackbin[\textbf{x}\in\mathbb{R}^{m}]{}{\text{inf}} \hspace{2mm} L(\textbf{x},\boldsymbol{\alpha}) = \stackbin[\textbf{x}\in\mathbb{R}^{m}]{}{\text{inf}} \hspace{2mm} f(\textbf{x}) + \sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}).$$
+
+Por hipótesis, sabemos que $\alpha_{i}\geq0$ y $g_{i}(\textbf{x})\leq0$ para $i=1,\dots,n$ y por tanto $\alpha_{i}g_{i}(\textbf{x})\leq0$, luego $\stackbin[i=1]{n}{\sum}\alpha_{i}g_{i}(\textbf{x})\leq0$.  Aplicando esta desigualdad obtenemos \\
+$$\varphi(\boldsymbol{\alpha})= \stackbin[\textbf{x}\in\mathbb{R}^{m}]{}{\text{inf}} \hspace{2mm} f(\textbf{x}) + \sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x})\leq \stackbin[\textbf{x}\in\mathbb{R}^{m}]{}{\text{inf}} \hspace{2mm} f(\textbf{x}). $$
+
+Por último, se deduce que  $$\stackbin[\textbf{x}\in\mathbb{R}^{m}]{}{\text{inf}} \hspace{2mm} f(\textbf{x})\leq f(\textbf{x}).$$
+$\hfill\square$
+
+% revisar si las variables en el teorema están bien puestas.
+
+Del Teorema \ref{teorema311} se pueden deducir 2 corolarios.\\
+
+\begin{corolario}
+	\textit{}
+	\textit{El problema dual} \textbf{(PD)} \textit{está acotado superiormente por el problema primal} \textbf{(PP)}.	
+\end{corolario}
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Puesto que la función $\varphi(\boldsymbol{\alpha})$ corresponde con la función objetivo del problema dual y $f(\textbf{x})$ con la del problema primal, aplicando el Teorema \ref{teorema311} tenemos que 
+$$\varphi(\boldsymbol{\alpha})\leq f(\textbf{x}).$$
+$\hfill\square$\\
+
+\begin{corolario}[label={corolario313},nameref={Title or anything else}]
+	\textit{}
+	\textit{Sea} \textbf{(PP)}\textit{ el problema primal dado en la Definición \ref{definicionrelajacionproblema} con $\textbf{x}^{*}$ un punto factible y} \textbf{(PD)} \textit{su correspondiente problema dual con $\boldsymbol{\alpha}^{*}$ un punto factible de este. Se verifica que si $\varphi(\boldsymbol{\alpha}^{*})=f(\textbf{x}^{*})$, entonces $\boldsymbol{\alpha}^{*}$ y $\textbf{x}^{*}$ son soluciones óptimas de} \textbf{(PD)} \textit{y} \textbf{(PP)} \textit{respectivamente}.
+\end{corolario}
+
+
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Sabemos que $\varphi(\boldsymbol{\alpha})\leq f(\textbf{x})$ por el Teorema \ref{teorema311} para todo \textbf{x} factible primal y $\boldsymbol{\alpha}$ factible dual. Entonces $$\stackbin[\boldsymbol{\alpha}]{}{\text{sup}}\hspace{2mm}\varphi(\boldsymbol{\alpha}) \leq \stackbin[\textbf{x}]{}{\text{inf}}\hspace{2mm} f(\textbf{x}),$$
+con lo cual sí existe $\textbf{x}^{*}$ y $\boldsymbol{\alpha}^{*}$ soluciones primal y dual factibles respectivamente tales que  $$\varphi(\boldsymbol{\alpha}) = f(\textbf{x}).$$\\\
+\textbf{COMENTARIO: MODIFICAR EL PÁRRAFO SIGUIENTE COMO SE DICE EN LA CORRECCIÓN}
+%Supongamos que 
+%$$\varphi(\boldsymbol{\alpha}) = f(\textbf{x}),$$
+%analicemos ambas funciones, el conjunto formado por $\varphi(\cdot)$ está compuesto por supremos al estar maximizándose. Por otro lado, el conjunto $f(\cdot)$ los constituyen ínfimos al estar minimizándose la función objetivo. Por tanto, al darse la igualdad anterior poseemos un conjunto de ínfimos igual a un conjunto de supremos,
+
+ es decir, que $\varphi({\boldsymbol{\alpha})}$ es el menor valor entre los supremos, entonces es el máximo.  Análogamente vemos que el valor de $f(\textbf{x})$ es un mínimo.\\
+ Al verificarse las funciones objetivos, $\boldsymbol{\alpha}$ y $\textbf{x}$ son soluciones factibles de sus respectivos problemas.
+$\hfill\square$\\
+
+A partir del Corolario \ref{corolario313}, se puede deducir que si se cumplen las hipótesis del corolario, es posible saber la solución de un problema y de su problema dual partiendo solo de una ellas. En el caso que se trata en esta subsección vamos a resolver el problema \textbf{(PD1)}, y a partir de este, obtendremos la solución de \textbf{(P1)}.\\
+
+Pasemos a ver algunos conceptos que se necesitan conocer para la demostración del Teorema de Karush-Kuhn-Tucker.\\
+
+\begin{definicion}{Función Convexa}
+	\textit{Sea $f$: $X \subseteq \mathbb{R}^{m} \rightarrow \mathbb{R}$ una función derivable con $X$ un conjunto 
+		convexo no vacío. Decimos que $f$ es una función convexa en $\chi$ si y solo si $\forall \textbf{x},\textbf{y} \in X,\hspace{1mm} \lambda \in [0,1]$ se tiene que $f(\lambda \textbf{x}+ (1-\lambda)\textbf{y}) \leq \lambda f(\textbf{x})+(1-\lambda)f(\textbf{y})$.} \\
+	
+	\textit{Decimos que la función $f$ es estrictamente convexa cuando $f(\lambda \textbf{x}+ (1-\lambda)\textbf{y}) < \lambda f(\textbf{x})+(1-\lambda)f(\textbf{y})$.}	
+\end{definicion}
+En este caso, es fácil comprobar que las restricciones y la función objetivo del problema \textbf{(PD1)} son convexas, y al tratarse de funciones polinómicas son diferenciables.\\
+
+A continuación, se definen lo que es un punto crítico y un vector gradiente.\\
+
+\begin{definicion}{Punto Crítico}
+	\textit{Sea $f:X\subset \mathbb{R}^{m}\rightarrow \mathbb{R}$ una función derivable y sea $\textbf{x}=(x_{1},\dots,x_{m})\in X$ un punto. Se dice que $\textbf{x}$ es un punto crítico, si sus derivadas parciales son cero, es decir} 
+	
+	\textit{$$\frac{\partial f (\textbf{x})}{\partial x_{i}}=0, \hspace{2mm} \text{para $i=1,\dots,m.$}$$}
+\end{definicion}
+
+\begin{definicion}{Vector Gradiente}
+	\textit{Sea $f:X\subset \mathbb{R}^{m}\rightarrow \mathbb{R}$ una función derivable y sea $\textbf{x}=(x_{1},\dots,x_{m})\in X$ un punto. Se define el vector gradiente de la función $f$ en el punto $(x_{1},\dots,x_{m})$ como }
+	
+	\textit{$$\nabla f (\textbf{x})= \left(\frac{\partial f(\textbf{x})}{\partial x_{1}},\dots,\frac{\partial f(\textbf{x})}{\partial x_{m}} \right)_{.}$$}
+\end{definicion}
+Por último veremos el siguiente teorema, para comprobar que en una función convexa, el mínimo local es global.\\
+
+\begin{teorema}[label={teoremaconvexidad},nameref={Title or anything else}]
+	\textit{Sea $f:X\subset\mathbb{R}^{m}\rightarrow \mathbb{R}$ una función derivable y convexa, entonces se verifica que el mínimo local de $f$ es también un mínimo global.}	
+\end{teorema}
+
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Supongamos que \textbf{x} es un mínimo local, entonces existe $r\in\mathbb{R}$ con $r>0$ tal que $f(\textbf{x})\leq f(\textbf{y})$ para todo $\textbf{y}\in X\cap B(\textbf{x},r)$ siendo $B(\textbf{x},r)$ una bola centrada en el punto \textbf{x} con radio $r$.\\
+
+Supongamos también que existe un mínimo global $ \textbf{u}\in X$, por tanto, $f(\textbf{u})\leq f(\textbf{x})$. Consideremos un vector $\textbf{z}\in X$ construido de la siguiente forma
+\begin{equation}\nonumber
+\textbf{z}=(1-\lambda)\textbf{x}+\lambda \textbf{u},
+\end{equation}
+ con $\lambda>0$ suficientemente pequeño para pertenecer a la bola, entonces $\textbf{z}\in X\cap B(\textbf{x},r)$, pero esto se contradice con que $\textbf{x}$ sea mínimo local en $B(\textbf{x},r)$, puesto que 
+ \begin{equation}\nonumber
+f(\textbf{z})=(1-\lambda)f(\textbf{x})+\lambda(\textbf{u})<(1-\lambda)f(\textbf{x})+\lambda f(\textbf{x})=f(\textbf{x}).
+\end{equation}
+
+Concluimos así que si $\textbf{x}$ es mínimo local en $X$, entonces también un mínimo global.
+
+$\hfill\square$\\
+
+
+Ahora con los conceptos anteriores explicados, podemos pasar a demostrar el Teorema de Karush-Kuhn-Tucker.\\  
+
+\begin{teorema}[label={teorema312},nameref={Title or anything else}]{KARUSH-KUHN-TUCKER}
+	\textit{Sea $\textbf{x}^{*}$ un punto factible para el problema} \textbf{(PP)} \textit{, las funciones $f:\mathbb{R}^{m}\rightarrow \mathbb{R}$, \  $g_{i}:\mathbb{R}^{m}\rightarrow \mathbb{R}$ con $i=1,\dots,n$ \space funciones convexas y diferenciables. Si existen constantes $\alpha_{i}\geq0$, tales que} 
+	
+	\begin{equation}\label{condicion1}
+	\frac{\partial f(\textbf{x}^{*})}{\partial x_{j}} + \sum_{i=1}^{n}\alpha_{i}\frac{\partial g_{i}(\textbf{x}^{*})}{\partial x_{j}}=0, \text{\textit{ para $j=1,\dots,m$}} ,
+	\end{equation}
+	
+	\begin{equation}\label{condicion2}
+	\alpha_{i}g_{i}(\textbf{x}^{*})=0, \text{ \textit{para $i=1,\dots,n$}} , 
+	\end{equation}
+	\textit{entonces el punto $\textbf{x}^{*}$ es un mínimo global del problema primal.}	
+\end{teorema}
+
+
+{\raggedright\textbf{DEMOSTRACIÓN:}}
+
+Sea 
+$$L(\textbf{x},\boldsymbol{\alpha})= f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}),$$
+la función de Lagrange correspondiente al problema \textbf{(PP)}, al ser $f$ y $g_{i}$ funciones convexas por hipótesis, $L(\textbf{x},\boldsymbol{\alpha})$ también lo es por ser suma de funciones convexas.\\
+
+
+Se puede observar que la expresión \eqref{condicion1} es equivalente a que el vector gradiente de $L(\textbf{x}^{*},\boldsymbol{\alpha})$ sea 0,  es decir $\nabla L(\textbf{x}^{*},\boldsymbol{\alpha})=0$, luego $\textbf{x}^{*}$ es un punto crítico. Al ser $L$ una función convexa el punto crítico se trata de un mínimo y por tanto $L(\textbf{x}^{*},\boldsymbol{\alpha})\leq L(\textbf{x},\boldsymbol{\alpha})$ para $\forall \textbf{x}\in \mathbb{R}^{m}$.\\
+
+% \textbf{NO SE SI PONER EN VEZ DE ESO, $\Omega$}\\
+
+Como $\alpha_{i}g_{i}(\textbf{x}^{*})=0$ para $i=1,\dots,n$, entonces $\stackbin[i=1]{n}{\sum}\alpha_{i}g_{i}(\textbf{x}^{*})=0$. Por otro lado, sabemos que para el problema \textbf{(PP)} se verifica la restricción $g_{i}(x)\leq 0$ para $i=1,\dots,n$ con $\textbf{x}\in \Omega$ y $\alpha_{i}\geq0$, luego $\alpha_{i}g_{i}(x)\leq0$.\\
+
+Aplicando \eqref{condicion1} y \eqref{condicion2} tenemos que
+\begin{equation}\nonumber
+f(\textbf{x}^{*})=f(\textbf{x}^{*})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x}^{*})=L(\textbf{x}^{*},\alpha)\leq L(\textbf{x},\alpha)=f(\textbf{x})+\sum_{i=1}^{n}\alpha_{i}g_{i}(\textbf{x})\leq f(\textbf{x}).
+\end{equation}
+$\hfill\square$\\
+%no se como carajos demostrarlo
+
+La primera de las condiciones del Teorema de Karush-Kuhn-Tucker (\ref{condicion1}) corresponde con el ínfimo de la función de Lagrange, que en el caso que se está estudiando es en función de las variables $\textbf{\textbf{v}}$ y $a$, por otro lado, la segunda condición es necesaria, ya que se busca que la función objetivo del problema primal y la del dual sean iguales para aplicar el Corolario \ref{corolario313}.\\
+
+Aplicamos la primera de las condiciones KKT, como tenemos solamente la función de Lagrange hacemos las derivadas parciales con respecto $\textbf{v}$ y $a$:\\
+\begin{equation}\label{derivada1}
+\frac{\partial L(\textbf{v}^{*},a^{*},\boldsymbol{\alpha}^{*})}{\partial \textbf{v}}= \textbf{v}^{*}-\sum_{i=1}^{n}\alpha_{i}^{*}\textbf{x}_{i}y_{i}=0, \qquad i=1,\dots,n,
+\end{equation}
+
+\begin{equation}\label{derivada2}
+\frac{\partial L(\textbf{v}^{*},a^{*},\boldsymbol{\alpha}^{*})}{\partial a}=- \sum_{i=1}^{n}\alpha_{i}^{*}y_{i}=0, \qquad i=1,\dots,n.
+\end{equation}
+
+
+De la ecuación \eqref{derivada1} se puede deducir que:
+\begin{equation}\label{conclusionderivada1}
+\textbf{v}^{*}= \sum_{i=1}^{n}\alpha_{i}^{*}\textbf{x}_{i}y_{i}.
+\end{equation}
+A continuación aplicamos la segunda de las condiciones KKT obteniendo lo siguiente:
+\begin{equation}\label{segundacondicion2}
+\alpha_{i}^{*}(1-y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*}))=0.
+\end{equation}
+
+%es -g, porque parte de un problema en la que g<=0 y en nuestro caso es g>=0
+
+Sustituimos las ecuaciones \eqref{derivada2} y \eqref{conclusionderivada1} en \eqref{lagrange}:\\
+\begin{equation}\label{desarrollolagrange}\nonumber
+\begin{split}
+L(\textbf{v},a,\boldsymbol{\alpha})& =\frac{1}{2}<\textbf{v}^{*},\textbf{v}^{*}>-\sum_{i=1}^{n}\alpha_{i}^{*}(y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})-1)=\\
+&=\frac{1}{2}<\textbf{v}^{*},\textbf{v}^{*}>-\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}<\textbf{v}^{*},\textbf{x}_{i}> -\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}a^{*} + \sum_{i=1}^{n}\alpha_{i}^{*}=\\
+&=\frac{1}{2}\left(\sum_{i=1}^{n}\alpha_{i}^{*}\textbf{x}_{i}y_{i}\right)\left(\sum_{j=1}^{n}\alpha_{j}^{*}\textbf{x}_{j}y_{j}\right)- \left(\sum_{i=1}^{n}\alpha_{i}^{*}\textbf{x}_{i}y_{i}\right)\left(\sum_{j=1}^{n}\alpha_{j}^{*}\textbf{x}_{j}y_{j}\right) +\sum_{i=1}^{n}\alpha_{i}^{*}=\\
+&=-\frac{1}{2}\left(\sum_{i=1}^{n}\alpha_{i}^{*}\textbf{x}_{i}y_{i}\right)\left(\sum_{j=1}^{n}\alpha_{j}^{*}\textbf{x}_{j}y_{j}\right)=\\
+&=\sum_{i=1}^{n}\alpha_{i}^{*}-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}^{*}\alpha_{j}^{*}y_{i}y_{j}<\textbf{x}_{i}\textbf{x}_{j}>.
+\end{split}
+\end{equation}
+
+%no se si la puedo de notar así
+
+Como resultado de la primera condición podemos construir el problema dual que se muestra a continuación, en función únicamente de los multiplicadores de Lagrange
+%\begin{equation}\label{problemafinalseparable}
+%\begin{split}
+%& \text{máx}   \quad \sum_{i=1}^{n}\alpha_{i}-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\textbf{x}_{i}\textbf{x}_{j}> \qquad x\in \Omega,y \in Y\\
+%& \text{s.a}   \quad  \sum_{i=1}^{n}\alpha_{i}y_{i}=0 \quad  i=1,\dots,n\\
+%&\qquad  \alpha_{i}\geq 0, i=1,\dots,n
+%\end{split}
+%\end{equation}
+\begin{alignat*}{3}
+\textbf{(PD2)} \quad & \stackbin[\boldsymbol{\alpha}]{}{\text{max}} \quad && \sum_{i=1}^{n}\alpha_{i}-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\textbf{x}_{i}\textbf{x}_{j}> \qquad&& \\
+& \text{s.a:}   \quad && \sum_{i=1}^{n}\alpha_{i}y_{i}=0, \quad && \\
+&\qquad && \alpha_{i}\geq 0,\quad i,j=1,\dots,n.
+\end{alignat*}
+
+Al resolver el problema \textbf{(PD2)} se obtiene el valor de $\boldsymbol{\alpha}$, que sustituyendo en la expresión \eqref{conclusionderivada1} nos daría el valor de $\textbf{v}^{*}$, por tanto solo faltaría conocer el valor de $a$ para conseguir la expresión del hiperplano definido como \eqref{hiperplanooptimo}.\\
+
+Volviendo a la expresión deducida de la segunda condición del Teorema KKT \eqref{segundacondicion2}, podemos concluir que cuando $\alpha_{i}>0$, entonces $1-y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})=0$, por lo que 
+\begin{equation}\label{deduccioncondicion2}
+\begin{split}
+y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})=1.
+\end{split}
+\end{equation}
+
+Las observaciones $(\textbf{x}_{i},y_{i})$ que verifiquen dicha expresión son lo que previamente definimos como vectores soporte. De la expresión \eqref{deduccioncondicion2} se puede despejar el valor de $a$
+\begin{equation}\label{a}\nonumber
+\begin{split}
+a^{*}=y_{i}-<\textbf{v}^{*},\textbf{x}_{i}>,
+\end{split}
+\end{equation}
+es decir, la traslación del hiperplano depende de los vectores soporte y por tanto la expresión del hiperplano óptimo viene dado en función de estos. El hiperplano óptimo sería el siguiente
+\begin{equation}\label{hiperplanofinalseparable}
+H(\textbf{x})=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}<\textbf{x}_{i},\textbf{x}> +y_{i}-<\textbf{v}^{*},\textbf{x}_{i}>,   \qquad i=1,\dots ,n.
+\end{equation}
+
+Se concluye por la Definición \ref{vectoresoporte} que las duplas $(\textbf{x}_{i},y_{i})$ para $i=1,\dots,n$ que les corresponda $\alpha_{i}>0$ son vectores soporte, por tanto el hiperplano de separación está definido a partir de vectores soporte.\\
+
+Hallado el hiperplano de separación gracias a la aplicación de la relajación Lagrangiana y al Teroema de KKT, se podría separar el conjunto de observaciones $(\textbf{x}_{i},y_{i})$ para $i=1,\dots,n$ en las dos clases existentes, siempre que las observaciones sean linealmente separables. A continuacion veremos el caso en el que el conjunto de datos es cuasi-separable.
+
+
+
+
+%poner que es mejor con la suma de los vectores soporte.
+\newpage
+\section{CASO CUASI-SEPARABLE}\label{subseccioncuasi}
+
+Como se explicó a principio de sección, el tipo de formulación del SVM depende de la relación que tengan las observaciones $(\textbf{x}_{i},y_{i})$, y por tanto de si se pueden separar las clases con hiperplanos o no. En esta subsección se desarrollará el caso en el que no es posible separar las clases mediante un hiperplano, y como resultado se encontrarán algunas observaciones mal clasificadas.\\
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.65\textwidth]{datoscuasiseparablehiperplano.eps}
+	\caption{Ejemplo de observaciones mal clasificadas después de tratar de separar las clases mediante un hiperplano.}	
+\end{figure}
+
+Dichos errores de clasificaciones serán expresados mediante una nueva variable, $\xi_{i}\geq0$ para $i=1,\dots,n$ la cual estará asociada a la observación $i$ de la dupla $(\textbf{x},\textbf{y})$ y su valor corresponde con la desviación al hiplerplano separador. En función del valor de $\xi_{i}$, se puede extraer información de la posición de la observación $(\textbf{x}_{i},y_{i})$. En concreto distinguimos los casos $\xi_{i}=0$, $\xi_{i}\in(0,1)$, $\xi_{i}\geq1$. Más concretamente:
+%xisten tres posibilidades, que $\xi_{i}=0$, \hspace{0.5mm} $\xi_{i}\in(0,1)$ o $\xi_{i}\geq1$, esto se debe a que el hiperplano separador es de la forma (\ref{deduccioncondicion2}).
+\begin{itemize}
+	\item Si $\xi_{i}=0$ entonces $(\textbf{x}_{i},y_{i})$ está bien clasificado y nos encontraríamos en el caso anteriormente explicado.
+	\item Si $\xi_{i}\in(0,1)$, $(\textbf{x}_{i},y_{i})$ se encontraría en el lado correcto del hiperplano separador, pero la distancia a este sería inferior al margen, es decir, la observación se encontraría entre el hiperplano separador y el hiperplano soporte.
+	\item Si $\xi_{i}\geq1$ entonces $(\textbf{x}_{i},y_{i})$ se encontraría en el lado opuesto del hiperplano que separa a su clase, por lo que estaría mal clasificado.
+\end{itemize} 
+
+Si tuviéramos una serie de observaciones que no fueran linealmente separables, no podríamos aplicar el modelo dado por el problema \textbf{(P1)}, puesto que dicho problema sería infactible, por lo que el hiperplano separador no tendría la expresión (\ref{hiperplano}). El uso de la variable $\boldsymbol{\xi}$, previamente definida, implica que algunas observaciones pueden hallarse en un semiespacio distinto al de su clase, por ello existe la posibilidad de que la distancia de la observación al hiperplano separador sea inferior a 1, a diferencia del caso en el que las observaciones fueran linealmente separables. Por tanto la expresión del hiperplano separador sería la siguiente
+\begin{equation}\label{hiperplanocuasi}\nonumber
+\begin{split}
+y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 1-\xi_{i}.
+\end{split}
+\end{equation}
+
+%no tengo muy claro porque el signo negativo
+
+Se puede deducir que cuantas más observaciones se encuentren mal clasificadas, mayor será $\stackbin[i=1]{n}{\sum} \xi_{i}$, de modo que la función objetivo no puede ser análoga a la del caso anterior, ya que ahora no solo hay que maximizar el margen, sino que también hay que minimizar la suma de $\boldsymbol{\xi}_{i}$. La función objetivo sería la siguiente
+\begin{equation}\label{funcionobjetivomincuasi}
+\begin{split}
+\frac{1}{2}\norm{\textbf{v}}_{2}^{2} + C\sum_{i=1}^{n}\xi_{i},
+\end{split}
+\end{equation}
+con $C$ una constante que permite regular en que grado se prima minimizar $\norm{\textbf{v}}_{2}$ sobre minimizar la suma de $\xi_{i}$ o viceversa. Así si $C$ es un valor muy elevado, usualmente conducirán a valores de $\xi_{i}$ pequeños. En el caso contrario, valores de $C$ pequeños admitirían valores de $\xi_{i}$ elevados. El problema a resolver sería 
+%\begin{equation}\label{cuasiproblema1}
+%\begin{split}
+%& \text{min}   \quad  \frac{1}{2}\norm{\textbf{v}}^{2}+C\sum_{i=1}^{n}\xi_{i} \\
+%& \text{s.a}   \quad  y_{i}(<\textbf{v},\textbf{x}_{i}> + a)-1 + \xi_{i} \geq 0\\
+%& \quad \quad \xi_{i}\geq 0 \quad i=1,\dots,n 
+%\end{split}
+%\end{equation}
+\begin{alignat*}{3}
+\textbf{(PPC)} \quad & \text{min}   \quad && \frac{1}{2}\norm{\textbf{v}}_{2}^{2}+C\sum_{i=1}^{n}\xi_{i} \qquad&& \\
+& \text{s.a:}   \quad && y_{i}(<\textbf{v},\textbf{x}_{i}>+a)\geq 1-\xi_{i}, \quad && \\
+&\qquad && \xi_{i}\geq 0, \quad i=1,\dots,n.
+\end{alignat*}
+
+Al igual que se razonó en el caso linealmente separable, aplicamos la relajación lagrangiana, siendo la función de Lagrange en este caso
+\begin{equation}\label{Lagrangecuasi}
+L(\textbf{v},a,\boldsymbol{\xi},\boldsymbol{\alpha},\boldsymbol{\beta})=\frac{1}{2}\norm{\textbf{v}}_{2}^{2}+ C\sum_{i=1}^{n}\xi_{i}-\sum_{i=1}^{n}\alpha_{i}[y_{i}(<\textbf{v},\textbf{x}_{i}>+a)-1+\xi_{i}]-\sum_{i=1}^{n}\beta_{i}\xi_{i},
+\end{equation}
+ahora se tienen dos tipos diferentes de multiplicadores de lagrange, $\alpha_{i},\beta_{i}\geq 0$ para \newline$i=1,\dots,n$, debido a que el problema \textbf{(PPC)} tiene dos grupos de restricciones.\\
+
+De nuevo como en el caso anterior, aplicamos el Teorema de Karush-Kuhn-Tucker \ref{teorema312} . Primero se desarrollará la primera de las condiciones, \eqref{condicion1}, para ello hacemos la derivada de \eqref{Lagrangecuasi} con respecto a las variables $\textbf{v},a$ y $\xi_{i}$:
+%entiendo que lo hago respecto a las componentes,porque no está expresado en ningún momento como el conjunto no?
+
+\begin{equation}\label{condicion1cuasi1}
+\begin{split}
+& \frac{\partial L(\textbf{v}^{*},a^{*},\boldsymbol{\xi}^{*},\boldsymbol{\alpha}^{*},\boldsymbol{\beta})}{\partial \textbf{v}}=\textbf{v}^{*}-\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}\textbf{x}_{i}=0,  \qquad i=1,\dots,n,  \\
+\end{split}
+\end{equation}
+
+\begin{equation}\label{condicion1cuasi2}
+\begin{split}
+& \frac{\partial L(\textbf{v}^{*},a^{*},\boldsymbol{\xi}^{*},\boldsymbol{\alpha}^{*},\boldsymbol{\beta})}{\partial a} =-\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}=0,  \qquad i=1,\dots,n,  \\
+\end{split}
+\end{equation}
+
+\begin{equation}\label{condicion1cuasi3}
+\begin{split}
+& \frac{\partial L(\textbf{v}^{*},a^{*},\boldsymbol{\xi}^{*},\boldsymbol{\alpha},\boldsymbol{\beta})}{\partial \boldsymbol{\xi}_{i}}=C-\alpha_{i}^{*}-\beta_{i}=0,  \qquad i=1,\dots,n.
+\end{split}
+\end{equation}
+
+De las expresiones anteriores se pueden sacar algunas conclusiones. De \eqref{condicion1cuasi1} concluimos que:
+\begin{equation}\label{deduccioncondicion1cuasi1}
+\textbf{v}^{*}=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}\textbf{x}_{i}, \quad i=1,\dots,n.
+\end{equation}
+
+Por otro lado de \eqref{condicion1cuasi2} y \eqref{condicion1cuasi3} se deduce respectivamente que:
+\begin{equation}\label{deduccioncondicion1cuasi2}
+\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}=0,  \qquad i=1,\dots,n,
+\end{equation}
+\begin{equation}\label{deduccioncondicion1cuasi3}
+C=\alpha_{i}^{*}+\beta_{i},  \qquad i=1,\dots,n.
+\end{equation}
+
+A continuación construimos, realizando los cálculos pertinentes, la segunda condición del Teorema KKT, \eqref{condicion2}. En el caso que se está tratando se obtienen dos ecuaciones, una por cada restricción de nuestro problema \textbf{(PPC)}:
+
+\begin{equation}\label{condicion2cuasi1}
+\alpha_{i}^{*}[y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})-1+\xi_{i}^{*}]=0, \qquad i=1,\dots,n ,
+\end{equation}
+
+\begin{equation}\label{condicion2cuasi2}
+\beta_{i}\xi_{i}^{*}=0, \qquad i=1,\dots,n. 
+\end{equation}
+
+Sustituimos \eqref{deduccioncondicion1cuasi1}\space ,\space  \eqref{deduccioncondicion1cuasi2}\space y \space \eqref{deduccioncondicion1cuasi3} en la expresión (\ref{Lagrangecuasi}):
+\begin{equation}\label{desarrollolagrangecuasi}\nonumber
+\begin{split}
+L(\textbf{v},a,\boldsymbol{\xi},\boldsymbol{\alpha},\boldsymbol{\beta})&
+=\frac{1}{2}\norm{\textbf{v}}_{2}^{2}+ C\sum_{i=1}^{n}\xi_{i}-\sum_{i=1}^{n}\alpha_{i}[y_{i}(<\textbf{v},\textbf{x}_{i}>+a)-1+\xi_{i}]-\sum_{i=1}^{n}\beta_{i}\xi_{i}=\\
+&=\frac{1}{2}<\textbf{v},\textbf{v}>-\sum_{i=1}^{n}\alpha_{i}y_{i}<\textbf{v},\textbf{x}_{i}>+\sum_{i=1}^{n}\alpha_{i}+\sum_{i=1}^{n}\xi_{i}(C-\alpha_{i}-\beta_{i})=\\
+&=\frac{1}{2}\left(\sum_{i=1}^{n}\alpha_{i}y_{i}\textbf{x}_{i}\right)\left(\sum_{j=1}^{n}\alpha_{j}y_{j}\textbf{x}_{j}\right)-\left(\sum_{i=1}^{n}\alpha_{i}y_{i}\textbf{x}_{i}\right)\left(\sum_{j=1}^{n}\alpha_{j}y_{j}\textbf{x}_{j}\right)+\sum_{i=1}^{n}\alpha_{i}=\\
+&=-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\textbf{x}_{i},\textbf{x}_{j}>+\sum_{i=1}^{n}\alpha_{i}.
+\end{split}
+\end{equation}
+
+Se consigue una expresión en función de $\alpha_{i}\geq0$ para $i=1,\dots,n$, siendo esta variable desconocida. A partir de \eqref{deduccioncondicion1cuasi3} se deduce que $\alpha_{i}\leq C$, debido a $\beta_{i}\geq 0$ para $i=1,\dots,n$. Luego el problema a resolver es el siguiente
+%\begin{equation}\label{problemafinalcuasi}
+%\begin{split}
+%& \text{máx}   \quad -\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\textbf{x}_{i},\textbf{x}_{j}>+\sum_{i=1}^{n}\alpha_{i} \qquad \textbf{x}_{i}\in \Omega,y \in Y\\
+%& \text{s.a}   \quad  \sum_{i=1}^{n}\alpha_{i}y_{i}=0 \quad  i=1,\dots,n\\
+%&\qquad  0\leq \alpha_{i}\leq C, i=1,\dots,n
+%\end{split}
+%\end{equation}
+\begin{alignat*}{3}
+\textbf{(PDC)} \quad &  \stackbin[\boldsymbol{\alpha}]{}{\text{max}}   \quad && -\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\textbf{x}_{i},\textbf{x}_{j}>+\sum_{i=1}^{n}\alpha_{i} \quad&&  \\
+& \text{s.a:}   \quad && \sum_{i=1}^{n}\alpha_{i}^{*}y_{i}=0, \quad &&\\
+&\qquad && 0\leq \alpha_{i}\leq C,\quad  i=1,\dots,n.
+\end{alignat*}
+
+Análogo al caso de clases linealmente separables para hallar el hiperplano separador hay que sustituir la expresión \eqref{deduccioncondicion1cuasi1} en \eqref{hiperplano} obteniendo
+\begin{equation}\label{hiperplanonecesariosiguientecaso}
+H(x)=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}<\textbf{x}_{i},\textbf{x}> + a. 
+\end{equation}
+
+El valor de $a$ depende de $\alpha_{i}$ para $i=1,\dots,n$ como se puede observar en la expresión anterior, esto se debe a que $\alpha_{i}\in[0,C]$ para $i=1,\dots,n$. Estudiaremos para que valores de $\alpha_{i}$ está definida $a$.\\
+
+Existen tres posibles casos, $\alpha_{i}=0$, \hspace{1mm} $\alpha_{i}=C$ \hspace{1mm} o \hspace{1mm} $0<\alpha_{i}<C$.  \hspace{1mm} Analicemos estas tres situaciones.
+
+\begin{itemize}
+	\item Si $\alpha=0$, por la expresión \eqref{deduccioncondicion1cuasi3} se obtiene que $\beta_{i}=C$, y puesto que $\beta_{i}\xi_{i}^{*}=0$ (consecuencia de la segunda condición del Teorema KKT \ref{teorema312}) se deduce que $\xi_{i}^{*}=0$. Por tanto, se puede concluir que todas las observaciones $(\textbf{x}_{i},y_{i})$ con $\alpha_{i}=0$ se encuentran bien clasificadas.
+	\item Si $\alpha =C$ entonces obtenemos que $\beta_{i}=0$ de la expresión \eqref{deduccioncondicion1cuasi3}, por tanto $\xi_{i}$ puede ser mayor que cero debido a \eqref{condicion2cuasi2}. Si $xi_{i}>0$, entonces la observación $(\textbf{x}_{i},y_{i})$ está mal clasificada puede ocurrir dos situaciones, que se encuentre mal clasificado porque se encuentre en el lado opuesto del hiperplano separador como en la Figura \ref{figura242}, o que se encuentre en el lado correcto del hiperplano separador, pero no se encuentre en el semiespacio definido por el hiperplano soporte de su clase como se muestra en la Figura \ref{figura241} .
+	\item Si $\alpha\in(0,C)$, se puede deducir de la expresión \eqref{deduccioncondicion1cuasi3} que $\beta_{i}\neq0$, por lo que se concluye que $\xi_{i}=0$ de \eqref{condicion2cuasi2}. De la expresión \eqref{condicion2cuasi1} se deduce que 
+	\begin{equation*}
+	y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})-1=0,
+	\end{equation*}
+	por lo que las observaciones $(\textbf{x}_{i},y_{i})$ con un valor asociado de $\alpha$ perteneciente al intervalo $(0,C)$ son vectores soporte.
+\end{itemize}
+%Si $\alpha_{i}=0$ entonces por la expresión \eqref{deduccioncondicion1cuasi3} se obtiene que $\beta_{i}=C$, y puesto que $\beta_{i}\xi_{i}^{*}=0$, consecuencia de la segunda condición del Teorema KKT \ref{teorema312} , y $\beta_{i}\neq0$ entonces $\xi_{i}^{*}=0$. Ya que el valor asociado a la desviación $\xi_{i}$ es 0, nos encontraríamos en el caso descrito en la sección anterior \ref{SVMLS} , y por tanto la expresión del hiperplano óptimo es
+%$$H(\textbf{x})=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}<\textbf{x}_{i},\textbf{x}> +y_{i}-<\textbf{v}^{*},\textbf{x}_{i}>,   \qquad i=1,\dots ,n.$$
+
+%Estudiemos el caso en el que $\alpha_{i}=C$, debido a \eqref{condicion2cuasi1} se deduce que 
+%\begin{equation*}
+%y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})-1+\xi_{i}^{*}=0,
+%\end{equation*}
+%por lo que despejando $\xi_{i}^{*}$ obtenemos 
+%\begin{equation}\label{valorholgura final}
+%\xi_{i}^{*}=1-y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*}).
+%\end{equation}
+
+%Aquí se pueden considerar dos situaciones distintas, que $x_{i}$ esté bien clasificado, o que esté mal clasificado.\\
+\begin{figure}[h]	
+	\centering
+	\subfloat[]{
+		
+		\includegraphics[width=0.5\textwidth]{cuasi22}
+		\label{figura241}	
+	}
+	\subfloat[]{
+		
+		\includegraphics[width=0.5\textwidth]{cuasi11}	
+		\label{figura242}
+	}
+	\caption{Las imágenes corresponden a los casos en los que $x_{i}$ se encuentre bien clasificado \ref{figura241} o que esté mal clasificado \ref{figura242}}
+\end{figure}
+
+%En la primera de las situaciones expuestas anteriormente, al estar bien clasificado tendríamos que $y_{i}H(\textbf{v},\textbf{x}_{i})\geq0$, por lo que el valor de $\xi_{i}^{*}$ pasaría a ser 1 menos la distancia de la observación al margen.
+%$$\xi_{i}^{*}=1-\abs{<\textbf{v}^{*},\textbf{x}_{i}>+a^{*}}.$$
+
+%En el caso de que esté mal clasificado se tendría que $y_{i}H(\textbf{v},\textbf{x}_{i})\leq 0$, por lo que su desviación pasaría a ser la dstancia de la observación al hiperplano más la distancia del margen al hiperplano, es decir, 1. Por tanto su expresión sería la siguiente
+%$$\xi_{i}^{*}=1+\abs{<\textbf{v}^{*},\textbf{x}_{i}>+a^{*}}.$$
+
+%Por último estudiemos el caso en el que $0<\alpha_{i}<C$, se puede deducir de la expresión \eqref{deduccioncondicion1cuasi3} que $\beta_{i}\neq0$, por lo que se concluye que $\xi_{i}=0$ de \eqref{condicion2cuasi2}. De la expresión \eqref{condicion2cuasi1} se deduce que 
+%\begin{equation*}
+%y_{i}(<\textbf{v}^{*},\textbf{x}_{i}>+a^{*})-1=0,
+%\end{equation*}
+%y despejando $a^{*}$ obtenemos 
+%\begin{equation*}
+%a^{*}=y_{i}-<\textbf{v}^{*},\textbf{x}_{i}>.
+%\end{equation*}
+
+%Al ya conocer la expresión de $a^{*}$ y $\textbf{v}^{*}$ se puede expresar el hiperplano óptimo como 
+
+%\begin{equation*}
+%H(\textbf{x})=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}<\textbf{x}_{i},\textbf{x}> +y_{i}-<\textbf{v}^{*},\textbf{x}_{i}>,   \qquad i=1,\dots ,n.
+%\end{equation*}
+
+Después de formular el problema en el caso cuasi-separable, de manera muy similar al caso anterior, y desarrollar las distintas soluciones en función de los posibles valores de $\alpha_{i}$ y de $\xi_{i}$, solo nos faltaría por estudiar el caso en el que las observaciones sean linealmente no separables pero no se use un modelo lineal que posibilite la utilización de desviaciones, el cual se expondrá en la siguiente sección.
+
+\section{CASO LINEALMENTE NO SEPARABLE}\label{LNS}
+
+
+En las secciones anteriores se ha explorado la posibilidad de que exista un hiperplano que separe ambas clases, y en caso de que no existiera se permitían errores de clasificación, es decir, había observaciones mal clasificadas. No siempre obtendremos buenos resultados permitiendo errores de clasificación, por ello, en esta sección se buscará transformar el espacio en el que se encuentren las observaciones $(\textbf{x}_{i},y_{i})$ con $\textbf{x}_{i}\in\Omega\subset\mathbb{R}^{m}$ e $y_{i}\in\{0,1\}$ para $i=1,\dots,n$, en otro espacio usualmente de mayor dimensión en el que sí se puedan separar las clases mediante un hiperplano.\\
+
+
+Para ello definiremos la función no lineal $\Phi$ que será la que transformará los elementos $\textbf{x}\in\Omega\subset\mathbb{R}^{n}$ a otra dimensión superior
+\begin{alignat*}{3}
+\boldsymbol{\Phi}: \Omega\subset\mathbb{R}^{n}  & \rightarrow \quad && W \subset \mathbb{R}^{k}\\
+\quad \textbf{x} 			& \rightarrow \quad &&  (\Phi_{1}(\textbf{x}),\dots, \Phi_{k}(\textbf{x})),
+\end{alignat*}
+donde  $\Phi_{i}$ con $i=1,\dots,k$ son funciones no lineales  por tanto ahora el hiperplano no lineal que se busca es
+%y $\Phi_{1}(x)$ corresponderá al término independiente $a$ usado en \eqref{hiperplano}, 
+\begin{equation*}
+H(\textbf{x})=(v_{1}\Phi_{1}(\textbf{x})+\dots+ v_{k}\Phi_{k}(\textbf{x}))=<\textbf{v},\boldsymbol{\Phi}(\textbf{x})>.
+\end{equation*}
+
+Antes de indagar en la metodología para hallar el hiperplano, veremos un ejemplo que permitirá comprender mejor lo anteriormente explicado. Se considera el siguiente conjunto de observaciones.
+
+
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.45\textwidth]{datosnoseparables.eps}
+	\label{figura25}
+\end{wrapfigure}
+
+Como se puede observar, no hay forma de separar los conjuntos formados por las estrellas y los cuadrados mediante un hiperplano, sin embargo, una parábola si podría separar estos conjuntos.\\
+%\vspace{5mm}
+
+
+\begin{wrapfigure}{r}{1.05\linewidth}
+	\begin{center}
+	{
+			\includegraphics[width=0.48\textwidth]{datosnoseparableslinealmentehiperplano.eps}	
+			\label{figura26}
+	}	
+	\end{center}
+		
+\end{wrapfigure}
+\newpage
+Para llevar las observaciones a un espacio superior, definimos una función $\Phi$, en este caso, su expresión es $\Phi(x_{1},x_{2})=(x_{1},x_{2},x_{3})$  con $x_{3}=3$ si el resto de la división $\frac{x_{2}}{2}$ es 0 y $x_{3}=-3$ en caso contrario. Tras aplicar esta función la representación de los datos se correspondería con la figura \ref{figura261}, mientras que la imagen \ref{figura262} representa a los conjuntos separados mediante un hiperplano en una dimensión superior.\\
+%\textbf{COMENTARIO: MIRAR PORQUE COÑO NO VA ESTA IMAGEN}
+\textbf{COMENTARIO: No me salen las imágenes como antes, tengo que mirar porque.}
+\begin{figure}[h]	
+	\centering
+	\subfloat[]{
+		
+		\includegraphics[width=0.45\textwidth]{datosnoseparablesdimension.eps}
+		\label{figura261}	
+	}
+	\subfloat[]{
+		
+		\includegraphics[width=0.48\textwidth]{datosnoseparablesdimensionhiperplano.eps}
+		\label{figura262}
+	}
+	\caption{}
+\end{figure}
+
+
+Después de este ejemplo ilustrativo, pasaremos a definir lo que denotaremos a partir de ahora como función Kernel y será utilizada en lugar del producto escalar $<\cdot,\cdot>$.\\
+
+\begin{definicion}{Función Kernel}
+	\textit{Sea $\boldsymbol{\Phi}:\Omega\subset\mathbb{R}^{n} \rightarrow W$ una función que transforma los valores de $\Omega$ a un espacio $W$. Se define la función Kernel como la función    $K:\Omega\times\Omega \rightarrow \mathbb{R}$ con $(\textbf{x},\textbf{y})\in\Omega\times\Omega$ tal que verifique} 
+	
+	$$K(\textbf{x},\textbf{y})=<\boldsymbol{\Phi}(\textbf{x}),\boldsymbol{\Phi}(\textbf{y})>=\Phi_{1}(\textbf{x})\Phi_{1}(\textbf{y})+\dots+\Phi_{k}(\textbf{x})\Phi_{k}(\textbf{y}).$$
+\end{definicion}
+
+En el siguiente teorema se verá que es posible transforma un conjunto de entrada de dimensión finita a otro de dimensión infinita.\\
+
+\begin{teorema}[label={teorema313},nameref={Title or anything else}]{Aronszajn}
+	\textit{Para cualquier función $K:\Omega \times \Omega \rightarrow \mathbb{R}$ que sea simétrica y semidefinida positiva, existe un espacio de Hilbert y una función $\Phi:\Omega \rightarrow W$ tal que}
+	
+	$$K(\textbf{x},\textbf{y})=<\Phi(\textbf{x}),\Phi(\textbf{y})>, \hspace{2mm} \forall \textbf{x},\textbf{y}\in \Omega.$$ 	
+\end{teorema} 
+
+La demostración del anterior teorema se puede encontrar en \cite{aronszajn50reproducing}. De este teorema se deduce que no es necesario saber la expresión de la función $\Phi$ para conocer $K$, basta comprobar que $K$ es simétrica y definida positiva para poder decir que existe un producto escalar de funciones $\Phi$ que lo defina.\\
+
+Teniendo en cuenta que en el espacio transformado $W$ sí existe un hiperplano que separe las clases, se puede deducir que el problema a resolver sería análogo al caso en el que los datos sean linealmente separables pero teniendo en cuenta la función de transformación $\Phi$, con lo cual se tendría 
+\begin{alignat*}{3}
+\quad & \stackbin[\boldsymbol{\alpha}]{}{\text{max}} \quad && \sum_{i=1}^{n}\alpha_{i}-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}<\Phi(\textbf{x}_{i})\Phi(\textbf{x}_{j})> \qquad&& \\
+& \text{s.a:}   \quad && \sum_{i=1}^{n}\alpha_{i}y_{i}=0, \quad && \\
+&\qquad && \alpha_{i}\geq 0,\quad i,j=1,\dots,n.
+\end{alignat*}
+
+Aplicando la función Kernel $K(\cdot,\cdot)$ definida previamente, el problema a resolver sería el siguiente
+\begin{alignat*}{3}
+\textbf{(PD-NS)} \quad &  \stackbin[\boldsymbol{\alpha}]{}{\text{max}}  \quad && \sum_{i=1}^{n}\alpha_{i}-\frac{1}{2}\sum_{i,j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}K(\textbf{x}_{i},\textbf{x}_{j})\qquad&& \\
+& \text{s.a:}   \quad && \sum_{i=1}^{n}\alpha_{i}y_{i}=0, \quad && \\
+&\qquad && \alpha_{i}\geq 0,\quad i=1,\dots,n.
+\end{alignat*}
+
+%\eqref{derivada2}
+
+\textbf{COMENTARIO: CAMBIAR EL PÁRRAFO DE ABAJO COMO LO QUIERE MARTA.}\\
+
+El hiperplano óptimo para separar las clases en el espacio $W$ vendría dado por la expresión \eqref{hiperplanooptimo}, su deducción es similar al caso anterior donde el hiperplano venía dado por la expresión \eqref{hiperplanonecesariosiguientecaso}, con la sustitución de la función Kernel, en donde se encontraba el producto escalar
+\begin{equation*}\label{vnoseparable}
+\textbf{v}^{*}=\sum_{i=1}^{n}\alpha_{i}^{*}y_{i}K(\textbf{x}_{i},\textbf{x}).
+\end{equation*}
+
+Equivalentemente al caso linealmente separable, se deduce que la variable $a^{*}$ viene dada por 
+\begin{equation*}\label{anoseparable}
+a^{*}=y_{i}-K(\textbf{v}^{*},\textbf{x}_{i}).
+\end{equation*}
+
+Luego el hiperplano separador le corresponde la siguiente expresión
+
+\begin{equation*}\label{hiperplanonoseparable}
+H(\textbf{x})= \sum_{i=1}^{n}\alpha_{i}^{*}y_{i}K(\textbf{x}_{i},\textbf{x})+y_{i}-K(\textbf{v}^{*},\textbf{x}_{i}).
+\end{equation*}
+
+En conclusión, hemos hallado un hiperplano que separa las dos clases con ayuda de la función $\Phi$, que transporta las observaciones a otro espacio, y aplicando la función Kernel la cual sustituirá al producto escalar usado en los casos anteriores. Salvo a estos dos cambios, el problema a resolver es análogo al caso donde las observaciones sean linealmente separables.
+
+
+% ----------------------------------------------------------------------
+
+%@article{article,
+%author = {Carrizosa, Emilio and Romero Morales, Dolores},
+%year = {2013},
+%month = {01},
+%pages = {150?165},
+%title = {Supervised classification and mathematical optimization},
+%volume = {40},
+%journal = {Computers & Operations Research},
+%}

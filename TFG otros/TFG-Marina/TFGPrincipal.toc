@@ -1,0 +1,25 @@
+\babel@toc {british}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}SUPPORT VECTOR MACHINE}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}CASO LINEALMENTE SEPARABLE}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}CASO CUASI-SEPARABLE}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}CASO LINEALMENTE NO SEPARABLE}{24}{section.2.3}%
+\contentsline {chapter}{\numberline {3}SVM MULTICLASE}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}M\'ETODO INDIRECTO}{30}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}One vs One (OVO)}{30}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}One vs All (OVA)}{32}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Directed Acyclic Graph SVM (DAGSVM)}{34}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}M\'ETODO DIRECTO}{39}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Modelo Weston-Watkins}{39}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Modelo Crammer-Singer}{45}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}EXPERIMENTOS COMPUTACIONALES}{51}{chapter.4}%
+\contentsline {section}{\numberline {4.1}CONJUNTOS DE ENTRENAMIENTO}{51}{section.4.1}%
+\contentsline {section}{\numberline {4.2}RESULTADOS PREVIOS}{52}{section.4.2}%
+\contentsline {chapter}{\numberline {5}POR AHORA NADA}{55}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Lo siguiente}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Otra cosa m\'as}{55}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Una subcosa}{55}{subsection.5.2.1}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{57}{chapter.6}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{59}{chapter*.21}%

@@ -1,0 +1,168 @@
+\begin{thebibliography}{10}
+
+\bibitem{ABESHIGEO}
+S.~Abe.
+\newblock Analysis of multiclass support vector machines.
+\newblock {\em International Conference on Computational Intelligence for
+  Modelling Control and Automation}, 01 2003.
+
+\bibitem{AGARWAL}
+N.~Agarwal, V.~Balasubramanian, and C.~Jawahar.
+\newblock Improving multiclass classification by deep networks using dagsvm and
+  triplet loss.
+\newblock {\em Pattern Recognition Letters}, 112, 07 2018.
+
+\bibitem{aronszajn50reproducing}
+N.~Aronszajn.
+\newblock Theory of reproducing kernels.
+\newblock {\em Transactions of the American Mathematical Society},
+  68(3):337--404, 1950.
+
+\bibitem{article}
+G.~Betancourt.
+\newblock Las m\'aquinas de soporte vectorial (svms).
+\newblock {\em Scientia Et Technica}, 01 2005.
+
+\bibitem{article4}
+J.~A. Blanco.~V\'ictor and P.~Justo.
+\newblock Optimal arrangements of hyperplanes for svm-based multiclass
+  classification.
+\newblock {\em Advances in Data Analysis and Classification}, 14, 07 2019.
+
+\bibitem{boser1992}
+B.~E. Boser, I.~M. Guyon, and V.~N. Vapnik.
+\newblock A training algorithm for optimal margin classifiers.
+\newblock In D.~Haussler, editor, {\em Proceedings of the 5th Annual Workshop
+  on Computational Learning Theory (COLT'92)}, Pittsburgh, PA, USA, July 1992.
+  ACM Press.
+
+\bibitem{BENNET}
+E.~Bredensteiner and K.~Bennett.
+\newblock Multicategory classification by support vector machines.
+\newblock {\em Computational Optimization and Applications}, 12, 09 1999.
+
+\bibitem{CAI2004373}
+Y.-D. Cai, P.-W. Ricardo, C.-H. Jen, and K.-C. Chou.
+\newblock Application of svm to predict membrane protein types.
+\newblock {\em Journal of Theoretical Biology}, 226(4):373--376, 2004.
+
+\bibitem{unknown}
+E.~Carmona.
+\newblock {\em Tutorial sobre M\'aquinas de Vectores Soporte (SVM)}.
+\newblock 11 2016.
+
+\bibitem{article6}
+O.~Chapelle, V.~Vapnik, O.~Bousquet, and S.~Mukherjee.
+\newblock Choosing multiple parameters for support vector machines.
+\newblock {\em Machine Learning}, 46, 05 2001.
+
+\bibitem{cortes1995support}
+C.~Cortes and V.~Vapnik.
+\newblock Support vector networks.
+\newblock {\em Machine Learning}, 20, 1995.
+
+\bibitem{article2}
+K.~Crammer, Y.~Singer, N.~Cristianini, J.~Shawe-Taylor, and B.~Williamson.
+\newblock On the algorithmic implementation of multiclass kernel-based vector
+  machines.
+\newblock {\em J. Mach. Learn. Res}, 2, 01 2002.
+
+\bibitem{Friedman:96}
+J.~H. Friedman.
+\newblock Technical report, Department of Statistics, Stanford University.
+
+\bibitem{6126481}
+T.~Gao and D.~Koller.
+\newblock Discriminative learning of relaxed hierarchy for large-scale visual
+  recognition.
+\newblock In {\em 2011 International Conference on Computer Vision}, pages
+  2072--2079, 2011.
+
+\bibitem{991427}
+C.-W. Hsu and C.-J. Lin.
+\newblock A comparison of methods for multiclass support vector machines.
+\newblock {\em IEEE Transactions on Neural Networks}, 13(2):415--425, 2002.
+
+\bibitem{1005608}
+B.~Kijsirikul and N.~Ussivakul.
+\newblock Multiclass support vector machines using adaptive directed acyclic
+  graph.
+\newblock In {\em Proceedings of the 2002 International Joint Conference on
+  Neural Networks. IJCNN'02 (Cat. No.02CH37290)}, volume~1, pages 980--985
+  vol.1, 2002.
+
+\bibitem{supportvectormachinesapplications}
+Y.~Ma and G.~Guo.
+\newblock {\em Support Vector Machines Applications}.
+\newblock 9 2014.
+
+\bibitem{MARTINEZ2014464}
+J.~Mart\'inez, C.~Iglesias, J.~Mat\'ias, J.~Taboada, and M.~Ara\'ujo.
+\newblock Solving the slate tile classification problem using a dagsvm
+  multiclassification algorithm based on svm binary classifiers with a
+  one-versus-all approach.
+\newblock {\em Applied Mathematics and Computation}, 230:464--472, 2014.
+
+\bibitem{Noble1SV}
+W.~S. Noble.
+\newblock 1 support vector machine applications in computational biology.
+
+\bibitem{OTCHERE2021108182}
+D.~A. Otchere, T.~O. {Arbi Ganat}, R.~Gholami, and S.~Ridha.
+\newblock Application of supervised machine learning paradigms in the
+  prediction of petroleum reservoir properties: Comparative analysis of ann and
+  svm models.
+\newblock {\em Journal of Petroleum Science and Engineering}, 200:108182, 2021.
+
+\bibitem{DBLP:journals/corr/Panda016}
+P.~Panda and K.~Roy.
+\newblock Attention tree: Learning hierarchies of visual features for
+  large-scale image recognition.
+\newblock {\em CoRR}, abs/1608.00611, 2016.
+
+\bibitem{article1}
+J.~Platt, N.~Cristianini, and J.~Shawe-Taylor.
+\newblock Large margin dags for multiclass classification.
+\newblock {\em Advances in neural information processing systems}, 12, 03 2000.
+
+\bibitem{RAKHMETULAYEVA2018231}
+S.~Rakhmetulayeva, K.~Duisebekova, A.~Mamyrbekov, D.~Kozhamzharova,
+  G.~Astaubayeva, and K.~Stamkulova.
+\newblock Application of classification algorithm based on svm for determining
+  the effectiveness of treatment of tuberculosis.
+\newblock {\em Procedia Computer Science}, 130:231--238, 2018.
+\newblock The 9th International Conference on Ambient Systems, Networks and
+  Technologies (ANT 2018) / The 8th International Conference on Sustainable
+  Energy Information Technology (SEIT-2018) / Affiliated Workshops.
+
+\bibitem{refId0}
+{Rostami, Hamidey}, {Dantan, Jean-Yves}, and {Homri, Lazhar}.
+\newblock Review of data mining applications for quality assessment in
+  manufacturing industry: support vector machines.
+\newblock {\em Int. J. Metrol. Qual. Eng.}, 6(4):401, 2015.
+
+\bibitem{8452888}
+Y.~Shen, C.~Wu, C.~Liu, Y.~Wu, and N.~Xiong.
+\newblock Oriented feature selection svm applied to cancer prediction in
+  precision medicine.
+\newblock {\em IEEE Access}, 6:48510--48521, 2018.
+
+\bibitem{article5}
+F.~Takahashi and S.~Abe.
+\newblock Optimizing directed acyclic graph support vector machines.
+\newblock {\em Artificial Neural Networks in Pattern Recognition (ANNPR)}, 01
+  2003.
+
+\bibitem{5178670}
+Y.-C.~F. Wang and D.~Casasent.
+\newblock A support vector hierarchical method for multi-class classification
+  and rejection.
+\newblock In {\em 2009 International Joint Conference on Neural Networks},
+  pages 3281--3288, 2009.
+
+\bibitem{Weston-Watkins}
+J.~Weston and C.~Watkins.
+\newblock Multi-class support vector machine.
+\newblock 03 1999.
+
+\end{thebibliography}

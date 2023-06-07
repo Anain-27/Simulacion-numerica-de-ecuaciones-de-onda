@@ -1,0 +1,41 @@
+% !TeX encoding = ISO-8859-1
+
+\chapter{Historia y planteamiento de la ecuación}
+
+La dinámica de ondas en aguas poco profundas está modelada por diferentes ecuaciones de evolución no lineal, por ejemplo, la  ecuación Korteweg-de Vries (KdV), la  ecuación Gardner, la  ecuación Peregrine, etc. En Matemáticas Aplicadas, Física Teórica y Ciencias de la Ingeniería, estas ecuaciones desempeñan un papel crucial debido a sus diversas propiedades y estructuras matemáticas y físicas.
+La obtención de las soluciones exactas de estas ecuaciones son complejas debido a que solo clases restringidas de estas ecuaciones se resuelven por medios analíticos. Las soluciones numéricas de estas ecuaciones diferenciales parciales (EDPs) no lineales son beneficiosas para examinar diversos fenómenos físicos. La ecuación Benjamin-Bona-Mahony (BBM):
+
+$$u_{t}+u_{x}+auu_{x}-bu_{xxt}=0$$
+
+es una alternativa a la ecuación de KdV, y describe la propagación unidireccional de ondas largas de pequeña amplitud no lineales en la superficie del agua en un canal. La ecuación BBM no sólo es conveniente para las ondas de aguas poco profundas, sino también para las ondas hidromagnéticas, las ondas acústicas, ondas de presión en burbujas de gas-líquido, y por lo tanto, tiene más ventajas en comparación con la ecuación de KdV. La ecuación BBM fue planteada por primera vez por Peregrine  \cite{peregrine1}. \\
+
+Para la solución de la ecuación BBM se han utilizado varias técnicas numéricas, en particular, el método de las diferencias finitas \cite{ej3}, el método de descomposición de Adomian \cite{ej4}, diferentes métodos de elementos finitos \cite{ej1,ej2} , etc.\\
+
+
+Realmente, cuando se intenta definir la propagación de ondas largas de pequeña amplitud en un medio dispersivo no lineal, suele ser necesario considerar mecanismos de disipación para reflejar completamente situaciones reales. En la mayoría de casos, los mecanismos que conducen
+a la degradación de la onda son bastante complejos y no tienen fácil interpretación.\\
+
+ La ecuación de Benjamin-Bona-Mahony-Burgers (BBMB) viene dada por:
+\begin{equation} \label{ec_1}
+    u_{t}-u_{xxt}-\alpha u_{xx} + \beta u_{x} +uu_{x}=0,\quad a\leq x \leq b ,\quad 0\leq t \leq T,
+\end{equation}
+con la condición inicial:
+\begin{equation}
+    u(x,0)=f(x), \quad a\leq x \leq b,
+\end{equation}\label{condinicial}
+y condiciones de contorno
+\begin{equation}
+    u(a,t)=0, \quad u(b,t)=0,
+\end{equation}\label{condcontorno}
+\begin{equation}
+    u_{x}(a,t)=0, \quad u_{x}(b,t)=0.
+\end{equation}  
+  
+donde $\alpha$ y $\beta$ son constantes reales positivas y $u(x,t)$ es una función de valor real que representa la velocidad del fluido en la dirección horizontal. Esta ecuación describe el avance de ondas largas de pequeña amplitud en medios dispersivos no lineales.\\
+
+ La ecuación BBMB ha sido discutida y analizada numéricamente por muchos autores. Yin y Pıao \cite{piao3} usaron el método de elementos finitos basado en B-spline cuadráticos para la variable espacial.
+
+
+En este trabajo, nos centramos en estudiar el método de Galerkin basado en B-spline cuadráticos para la ecuación de BBMB.
+
+

@@ -1,19 +1,144 @@
-% !TeX encoding = ISO-8859-1
+% !TeX encoding = ISO-8859 -1
 
-\chapter{Tipos de soluciones}
-\label{cha:preliminares}
+\chapter{Definición de la ecuación de onda}
+\label{cha:Comenzamos}
 
-\section{Sus tipos}
+!!!!Explicar porque modela una onda, sacado de \citep{Camarena2004LaTD} y como se puede separar como dos de transporte, con sentido opuesto\\
 
-Las ecuaciones hiperbólicas en general no se pueden resolver con métodos tradicionales exactos de resolución, (ejemplos de métodos). Para que se pudiesen resolver de manera exacta tendrían que cumplir unas condiciones muy concretas y en la practica no nos resultarían muy útiles, al no modelar la realidad. Esto nos lleva a la creación de métodos numéricos que consiguen resolverlas de una manera no exacta.
-En la actualidad para las ecuaciones hiperbólicas el método mas usado es el de los volúmenes finitos, y por ello comenzaremos por el mismo.
+Comenzaremos dando una introducción a la ecuación de ondas en $\mathbb{R}^n$, con $n \geq 1$ \citep{Wazwaz,AnIntroduction}
 
-\section{Método de los volúmenes finitos}
 
-El método de los volúmenes finitos 
+
+\begin{equation}\label{eq:onda}
+	u_{tt}- c^2 \bigtriangleup u = f , x\in \Omega \subset \mathbb{R}^n,\ \ \  t\in[0,+\infty].
+\end{equation}
+
+Donde $f$ es una función de valores reales, $c>0$ es una constante de propagación y el operador 
+\begin{equation}
+	\bigtriangleup u = \sum_{j=1}^{N}\frac{\delta^2u}{\delta x^2_j},
+\end{equation}
+
+es conocida como el Laplaciano. En este tipo de ecuaciones la variable $t$ denota el tiempo transcurrido y las variables $x_i, i=1,...,n$ denotan la posición de la onda en cada dirección del espacio $\mathbb{R}^n$. \\
+
+Podemos observar que se trata de una ecuación lineal y, siempre que $f\not\equiv 0$, la ecuación será no homogénea, es decir, tendrá termino independiente.\\
+
+
+
+
+Comenzaremos hablando, por simplicidad, de las ecuación de onda en dimensión uno. En este caso la ecuación se puede escribir de la siguiente forma:
+\begin{equation}\label{eq:basica}
+	u_{tt}=c^2u_{xx}.
+\end{equation}
+
+Usualmente las ecuaciones en derivadas parciales se clasifican en: elípticas, hiperbólicas y parabólicas. Para ello tendremos que estandarizarla. Aunque las ecuaciones se pueden clasificar y estandarizar siempre, nosotros por simplicidad lo haremos solo para las de segundo orden.(Buscar la referencia)\\
+Una ecuación de segundo orden en forma estándar sería como sigue:
+\begin{equation}\label{eq:estandarizacion}
+	Au_{tt}+Bu_{tx}+Cu_{xx}+Du_{t}+Eu_{x}+Fu= G,
+\end{equation}
+donde $A,B,C,D,E,F,G$ funciones de variables t y x.\\
+Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones características relativas a la ecuación en derivadas parciales (EDP):
+
+\begin{definicion}[label={clasificacion},nameref={Title or anything else}]{Clasificación de las EDP de segundo orden}	
+	
+	Si en todos los puntos $(x,t)$ de una región $\Omega\subset \mathbb{R}^2$ se cumple que:
+	\begin{itemize}
+		\item $B^2(x,t)-4A(x,t)C(x,t)>0$, entonces la EDP \eqref{eq:estandarizacion} se dice hiperbólica.
+		\item $B^2(x,t)-4A(x,t)C(x,t)=0$, entonces la EDP \eqref{eq:estandarizacion} se dice parabólica.
+		\item $B^2(x,t)-4A(x,t)C(x,t)<0$, entonces la EDP \eqref{eq:estandarizacion} se dice elíptica.
+		
+	\end{itemize}
+\end{definicion}
+
+Vemos que en \eqref{eq:basica} $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
+Este tipo de clasificación de las ecuaciones se usa para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
+
+
+
+
+
+\section{Ecuaciones de transporte}
+\label{sec:Ecuaciontransporte}
+
+Una vez definida nuestra ecuación de onda, es interesante ver que esta se puede descomponer en dos ecuaciones de transporte. Para ello comenzaremos suponiendo que la solución $u(x,t)$ se puede descomponer en dos funciones de propagación, donde $c$ sabemos que es la velocidad de la onda,
+
+\begin{equation}\label{eq:propagacion}
+	u(x,t)=p^+(x+ct)+p^-(x-ct),
+\end{equation}
+aquí llamamos $p^+$ a la propagación hacia la derecha y $p^-$ hacia la izquierda. Ahora veremos como se comportan las mismas al derivarlas. 
+
+\begin{equation*}
+	\begin{split}
+		u_t&= \frac{d}{dt}(p^+(x+ct)+p^-(x-ct))=cp_t^+(x+ct)-cp_t^-(x-ct),\\
+		u_{tt}&= \frac{d^2}{dt^2}(p^+(x+ct)+p^-(x-ct))=c^2p_{tt}^+(x+ct)+c^2p_{tt}^-(x-ct),\\
+		u_x&= \frac{d}{dx}(p^+(x+ct)+p^-(x-ct))=p_x^+(x+ct)+p_x^-(x-ct),\\
+		u_{xx}&= \frac{d^2}{dx^2}(p^+(x+ct)+p^-(x-ct))=p_{xx}^+(x+ct)+p_{xx}^-(x-ct).
+	\end{split}
+\end{equation*}
+
+
+Por lo tanto la ecuación nos queda de la siguiente forma,
+
+\begin{equation}\label{eq:transporte}
+	c^2p_{tt}^+(x+ct)+c^2p_{tt}^-(x-ct)=c^2(p_{xx}^+(x+ct)+p_{xx}^-(x-ct))
+\end{equation}
+
+
+
+
+\section{La energía en la ecuación de ondas}
+\label{sec:energiaondas}
+
+En esta sección nos centraremos en analizar la ley de energía an la ecuación de ondas. Para poder ver como se comportará la energía en nuestro esquema deberemos comenzar viéndolo en la ecuación \eqref{eq:basica}, suponiendo que en este caso el espacio está definido sobre todo $\mathbb{R}$.\\
+ Para poder obtener el la energía de la ecuación haremos el producto interior \ref{Inner} de la misma con $u_t$ (PORQUE SE HACE ESTO?):
+
+\begin{equation*}
+	\left<u_{t},u_{tt}\right> = c^2\left<u_{t},u_{xx}\right>
+\end{equation*} 
+
+
+Para poder obtener cada uno de los términos de la energía tendremos que ponerlo de la forma $\frac{d}{dt}\left(\cdot\right)$, comenzaremos por el termino de la izquierda. Comencemos desarrollándolo:
+
+$$\left<u_{t},u_{tt}\right>=\int_{\mathbb{R}}u_{t}u_{tt}dx=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}.dx$$
+
+
+Utilizando la integración por partes en una de las integrales obtendremos,
+$$\left<u_{t},u_{tt}\right>=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{tt}u_{t}dx + \left.u_{tt}^2\right|_\mathbb{R}.$$
+Como $\left.u_{tt}^2\right|_\mathbb{R}=0$ y utilizando la regla de la cadena tenemos que
+
+$$\left<u_{t},u_{tt}\right>=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{tt}u_{t}dx=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}+u_{tt}u_{t} dx=\frac{1}{2}\int_{\mathbb{R}}\frac{d}{dt}u_{t}u_{t} dx .$$
+
+Por último, al ser $\frac{d}{dt}$ independiente de $x$, suponiendo que se dan en $u$ y en $u_t$ condiciones de continuidad adecuadas y utilizando la definición de norma \ref{Inner},
+
+$$\left<u_{t},u_{tt}\right>=\frac{d}{dt}\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{t} dx = \frac{d}{dt}\frac{1}{2}||u_{t}||^2 dx.$$
+
+
+Ahora nos centraremos en el termino de la derecha, y de manera totalmente análoga al anterior,
+
+$$\left<u_{t},u_{xx}\right>=\frac{d}{dt}\frac{1}{2}\int_{\mathbb{R}}u_{x}u_{x} dx = \frac{d}{dt}\frac{1}{2}||u_{x}||^2 dx,$$
+
+por consiguiente nos quedaría,
+
+$$0= \frac{d}{dt}\left( \frac{1}{2}||u_t||^2+\frac{c^2}{2}||u_x||^2\right).$$
+
+
+(EXPLICAR PORQUE CADA TERMINO ES ASÍ O REFERENCIAR)\\
+Ahora podremos separar en energía cinética $\mathfrak{T}= \frac{1}{2}||u_t||^2$ y la energía potencial $\mathfrak{B} = \frac{\mu^2}{2}||u_x||^2 $ de donde se sigue que la energía total será
+$$\mathfrak{H}= \mathfrak{T}+ \mathfrak{B}= \frac{1}{2}||u_t||^2 +\frac{\mu^2}{2}||u_x||^2 .$$
+Por otro lado, tenemos que $\frac{d}{dt}\mathfrak{H}=0$, ya que tanto $\mathfrak{T}$, como $\mathfrak{B}$ son no negativas implicará que 
+
+
+
+\begin{equation*}
+	\begin{array}{ccc}   
+		\mathfrak{H}(t)= \mathfrak{H}(0) \geq 0,\ \ \ \  &  ||u_t||_\mathbb{R}\leq \sqrt{2\mathfrak{H}(0)}  & \ \ \text{y}\ \ \ ||u_x||_\mathbb{R}\leq \frac{\sqrt{2\mathfrak{H}(0)}}{2}.
+	\end{array}
+\end{equation*}
+
+Vemos que esto nos impone ciertas restricciones a nuestra ecuación, estos se traducirán a condiciones de contorno en nuestro esquema.
 
 
 
 
 % ----------------------------------------------------------------------
+
 

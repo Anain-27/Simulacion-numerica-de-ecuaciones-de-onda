@@ -1,0 +1,22 @@
+@article{article,
+author = {Boser, Bernhard and Guyon, Isabelle and Vapnik, Vladimir},
+year = {1996},
+month = {08},
+pages = {},
+title = {A Training Algorithm for Optimal Margin Classifier},
+volume = {5},
+journal = {Proceedings of the Fifth Annual ACM Workshop on Computational Learning Theory},
+doi = {10.1145/130385.130401}
+}
+
+
+CORINE CORTES, VLADIMIR VAPNIK 1995
+
+@article{article,
+author = {Schölkopf, Bernhard and Smola, Alex and Smola, Alexander and Smola, A},
+year = {2002},
+month = {04},
+pages = {},
+title = {Support Vector Machines and Kernel Algorithms},
+journal = {Encyclopedia of Biostatistics, 5328-5335 (2005)}
+}
