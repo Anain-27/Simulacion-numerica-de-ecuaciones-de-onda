@@ -1,43 +1,17 @@
 % !TeX encoding = ISO-8859-1
 
-\chapter{Tipos de soluciones}
-\label{cha:preliminares}
+\chapter{Resolución numérica de la ecuación de onda}
+\label{cha:Diferenciasfinitas}
 
 \section{Métodos principales de resolución}
 
-Las ecuaciones en derivadas parciales, en general, no se pueden resolver con métodos exactos de resolución, como separación de variables, transformada de Fourier, etc. Para que se pudiesen resolver tendrían que ser muy sencillas y, en la practica, al no modelar bien la realidad, no nos resultarían muy útiles. Esto nos lleva a la creación de métodos numéricos que consiguen resolverlas de una manera aproximada.\\
+Las ecuaciones en derivadas parciales, en general, no se pueden resolver con métodos exactos, como separación de variables, transformada de Fourier, etc. Con la excepción de ecuaciones muy sencillas sobre dominios espaciales no acotados o muy estructurados, como intervalos, rectángulos o esferas,que en la practica pueden no resultar útiles para capturar todos los matices de la realidad. Esto nos lleva a la creación de métodos numéricos que consiguen resolverlas de una manera aproximada,pero con errores tan pequeños como sea preciso siempre que podamos asumir el coste computacional.\\
 
 En este apartado nos centraremos en el método de diferencias finitas, y veremos las características principales que nos atañen del mismo. Más tarde, en el capítulo 5, implementaremos este método en Python.
 
 \section{Método de diferencias finitas}
 
-Este método consiste principalmente en la aproximación en tiempo y en espacio de nuestro problema de contorno con valores iniciales para la ecuación de onda, en este caso elegimos las condiciones de contorno mas usadas, más tarde nos centraremos en ellas:
-
-\newpage
-
-\begin{equation}\label{ecuaciononda}
-	\begin{array}{lc}   
-		u_{tt}-c^2u_{xx}=0, & (x,t)\in (0,l)\times(0,\infty),
-	\end{array}
-\end{equation} 
-\begin{equation}\label{eq:frontera1}
-	\begin{array}{lc}   
-	u(x,0)=f(x), &   x\in [0,l],
-\end{array}
-\end{equation} 
-\begin{equation}\label{eq:frontera2}
-	\begin{array}{lc}   
-		u_t(x,0)=g(x), &  x \in[0,l],
-	\end{array}
-\end{equation} 
-\begin{equation}\label{eq:frontera3}
-	\begin{array}{lc}   
-		u(0,t)=u_t(l,t)=0, &  t\in[0,\infty[.
-	\end{array}
-\end{equation} 
-
-Estas última condición, \eqref{eq:frontera3}, se llaman de tipo Dirichlet homogeneas.\\
-
+Este método consiste principalmente en el uso de cocientes incrementales para la aproximación en tiempo y en espacio de nuestro problema de contorno con valores iniciales para la ecuación de onda \eqref{ecuaciononda},\eqref{eq:frontera1},\eqref{eq:frontera2},\eqref{eq:frontera3}.
 Vamos a crear un mallado tal y como en \ref{Mallado}, para hacer una discretización del problema.
 
 $$\begin{array}{lcc}   
@@ -46,13 +20,13 @@ $$\begin{array}{lcc}
 \end{array} $$
 En este caso elegimos un entero m y el tamaño de paso de tiempo correspondiente $k>0$. El tamaño de paso del espacio será $h=\frac{l}{m}$ y con esto haremos un mallado del tipo $(x_j,t_r)$.\\
 
-Vemos que los puntos del interior podrían escribirse como:
+Vemos que los puntos $(x_j,t_r)$ del interior del dominio espacio temporal podrían escribirse como:
 \begin{equation}\label{eq:ondaxt}
 	u_{tt}(x_j,t_r)=c^2u_{xx}(x_j,t_r).
 \end{equation}
 
-En lo que sigue, denotaremos la aproximación como , $u(x_j,t_r)\approx u_{j,r}$.\\
- Ahora el método se construirá optando por un esquema del tipo explícito en espacio, utilizando una aproximación centrada tanto en espacio como en tiempo.
+En lo que sigue, nos propondremos calcular un conjunto de valores, denotados $u_{j,r}\in \mathbb{R}$ que verifiquen de forma aproximada la igualdad anterior , $u(x_j,t_r)\approx u_{j,r}$.\\
+ Para ello el método se construirá optando por un esquema del tipo explícito en espacio, utilizando una aproximación centrada tanto en espacio como en tiempo.
 
 \begin{equation}\label{eq:aprox1}
  u_{xx}(x_j,t_r) \approx \frac{u_{j+1,r} - 2u_{j,r} +u_{j-1,r}}{h^2},
@@ -62,12 +36,12 @@ En lo que sigue, denotaremos la aproximación como , $u(x_j,t_r)\approx u_{j,r}$.
 	 u_{tt}(x_j,t_r) \approx \frac{u_{j,r+1} - 2u_{j,r} +u_{j,r-1}}{k^2}.
 \end{equation}
 
-Ahora sustituyendo las expresiones \eqref{eq:aprox1},\eqref{eq:aprox2} en la ecuación de ondas \eqref{eq:ondaxt} nos queda el esquema.
+Ahora sustituyendo las expresiones \eqref{eq:aprox1},\eqref{eq:aprox2} en la ecuación de onda \eqref{eq:ondaxt} nos queda el esquema.
 \begin{equation}\label{eq:ondametodo}
 	\frac{u_{j,r+1} - 2u_{j,r} +u_{j,r-1}}{k^2} = c^2 \frac{u_{j+1,r} - 2u_{j,r} +u_{j-1,r}}{h^2}.
 \end{equation} 
 
-En estos casos se tiende a tomar $\mu  = \frac{ck}{h}$, por lo que se tendría:
+Es usual definir $\mu  = \frac{ck}{h}$, con lo que se tendría:
 
 $$ u_{j,r+1} - 2u_{j,r} +u_{j,r-1} = \mu ^2 u_{j+1,r} - 2 \mu^2 u_{j,r} +\mu u_{j-1,r},$$
 
@@ -79,17 +53,17 @@ Despejando la aproximación con mayor nivel en tiempo, obtenemos:
 \begin{equation}\label{eq:ondadespejado}
 	u_{j,r+1} = \mu ^2( u_{j+1,r}+u_{j-1,r})  + 2(1-\mu^2)  u_{j,r} -  u_{j,r-1}.
 \end{equation}
-Esta expresión define el método que utilizaremos, dejando a un lado las condiciones de frontera \eqref{eq:frontera1},\eqref{eq:frontera2} y \eqref{eq:frontera3}.\\
+Esta expresión define el método que utilizaremos, dejando a un lado las condiciones de contorno \eqref{eq:frontera1},\eqref{eq:frontera2} y \eqref{eq:frontera3}.\\
 
- Ahora nos centraremos en dichas condiciones.\eqref{eq:frontera1} nos dará los valores de los nodos 
+A continuación nos centraremos en dichas condiciones, siguiendo \citep{strauss}.En primer lugar la condición inicial \eqref{eq:frontera1} nos dará los valores de los nodos 
  \begin{equation*}
  	\begin{array}{lcr}
- 		u_{j,0}=f(x_j)=f_j, & \text{    para    } & j=0,1,\dots,m.
+ 		u_{j,0}=f(x_j), & \text{    para    } & j=0,1,\dots,m.
  	\end{array}
  \end{equation*}
   Por otra parte, las condiciones de tipo Dirichlet \eqref{eq:frontera3} quedarán como $u_{0,r}=u_{m,r}=0 $ para $r=0,1,\dots,n$.\\
   
-  Para la condición que falta \ref{eq:frontera2} utilizaremos, $u_{j,1}=u_{j,0}+g(x_j)=u_{j,0}+g_j$, que servirá para cualquier orden de las funciones $f$ y $g$. Para esta podría haber muchas mas opciones, por ejemplo, si sabemos que la función $f(x)$ es de orden 2 podríamos utilizar: $u_{j,1}=u_{j,0}+kg(x_j)+ \frac{c^2k^2}{2}f''(x(j))$. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
+  Para la condición que falta \ref{eq:frontera2} utilizaremos, haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$, que servirá ya sean las $f$ y $g$ derivables o no. Para esta podría haber muchas mas opciones. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
   
 Nuestro esquema al completo quedaría:
 
@@ -98,12 +72,12 @@ Nuestro esquema al completo quedaría:
 \end{equation} 
 \begin{equation}\label{eq:esquemafrontera1}
 	\begin{array}{lc}   
-			u_{j,0}=f(x_j)=f_j, &   j=0,1,\dots,m,
+			u_{j,0}=f(x_j), &   j=0,1,\dots,m,
 	\end{array}
 \end{equation} 
 \begin{equation}\label{eq:esquemafrontera2}
 	\begin{array}{lc}   
-		u_{j,1}=u_{j,0}+g(x_j)=u_{j,0}+g_j, &  j=0,1,\dots,m,
+		u_{j,1}=u_{j,0}+k g(x_j)=, &  j=0,1,\dots,m,
 	\end{array}
 \end{equation} 
 \begin{equation}\label{eq:esquemafrontera3}
@@ -122,15 +96,15 @@ Nuestro esquema al completo quedaría:
 \section{Consistencia}
 
 Para poder comprobar el orden del esquema que hemos elegido \eqref{eq:ondadespejado} vamos a hacer un análisis de la consistencia, que comenzaremos dividiendo la ecuación \eqref{eq:ondametodo} de la siguiente forma,
-$$\underbrace{\frac{u_{j,r+1}-2u_{j,r}+u_{j,r-1}}{k^2}}_{(1)}-c^2\underbrace{\frac{u_{j+1,r}-2u_{j,r}+u_{j-1,r}}{h^2}}_{(2)}=0.$$
-Haremos ahora el desarrollo de Taylor para cada una de las componentes anteriores, para las derivadas a partir de orden dos  $u_{xxx}=u_{3x}$ y $u_{ttt}=u_{3t}$ respectivamente. 
+$$\underbrace{\frac{u(j,r+1)-2u(j,r)+u(j,r-1)}{k^2}}_{(1)}-c^2\underbrace{\frac{u(j+1,r)-2u(j,r)+u(j-1,r)}{h^2}}_{(2)}=0.$$
+Haremos ahora el desarrollo de Taylor para cada una de las componentes anteriores,denotando para las derivadas a partir de orden dos  $u_{xxx}=u_{3x}$ y $u_{ttt}=u_{3t}$ respectivamente. Suponiendo que nuestra solución $u$ sea suficientemente regular, es decir, que se pueda derivar tantas veces como haga fatal obtendremos.
 \begin{equation*}
 	\begin{split}
-		u_{i+1,j}=&\ u+hu_{x}+h^2\frac{u_{xx}}{2}+h^3\frac{u_{3x}}{3!}+h^4\frac{u_{4x}}{4!}+h^5\frac{u_{5x}}{5!}+O(h^6),\\
-		u_{i-1,j}=&\ u-hu_{x}+h^2\frac{u_{xx}}{2}-h^3\frac{u_{3x}}{3!}+h^4\frac{u_{4x}}{4!}-h^5\frac{u_{5x}}{5!}+O(h^6),\\
-		u_{i,j+1}=&\ u+ku_{t}+k^2\frac{u_{tt}}{2}+k^3\frac{u_{3t}}{3!}+k^4\frac{u_{4t}}{4!}+k^5\frac{u_{5t}}{5!}+O(k^6),\\
-		u_{i,j+1}=&\ u-ku_{t}+k^2\frac{u_{tt}}{2}-k^3\frac{u_{3t}}{3!}+k^4\frac{u_{4t}}{4!}-k^5\frac{u_{5t}}{5!}+O(k^6),\\ 
-		u_{i,j}\ \ =&\ u.
+		u(j+1,r)=&\ u+hu_{x}+h^2\frac{u_{xx}}{2}+h^3\frac{u_{3x}}{3!}+h^4\frac{u_{4x}}{4!}+h^5\frac{u_{5x}}{5!}+O(h^6),\\
+		u(j-1,r)=&\ u-hu_{x}+h^2\frac{u_{xx}}{2}-h^3\frac{u_{3x}}{3!}+h^4\frac{u_{4x}}{4!}-h^5\frac{u_{5x}}{5!}+O(h^6),\\
+		u(j,r+1)=&\ u+ku_{t}+k^2\frac{u_{tt}}{2}+k^3\frac{u_{3t}}{3!}+k^4\frac{u_{4t}}{4!}+k^5\frac{u_{5t}}{5!}+O(k^6),\\
+		u_(j,r-1)=&\ u-ku_{t}+k^2\frac{u_{tt}}{2}-k^3\frac{u_{3t}}{3!}+k^4\frac{u_{4t}}{4!}-k^5\frac{u_{5t}}{5!}+O(k^6),\\ 
+		u(j,r)\ \ =&\ u.
 	\end{split}
 \end{equation*}
 
@@ -151,7 +125,7 @@ Sustituyendo en nuestro esquema nos quedará:
 	\end{split}
 \end{equation*}
 
-Como $u_{tt}=c^2u_{xx}$ por hipótesis, entonces
+Como estamos evaluando la solución exacta en cada punto tendremos $u_{tt}=c^2u_{xx}$, entonces
 \begin{equation*}
 	\begin{split}
 		\ &u_{ttt}=c^2u_{xxt},\\
@@ -171,8 +145,8 @@ De aquí deducimos, $u_{4x}=\frac{u_{4t}}{c^4}$ y por tanto:
 
 \begin{equation*}
 	\begin{split}
-		T_{h,k}u=&u_{tt}+2\frac{k^2 u_{4t}}{4!}-c^2u_{xx}-2c^2\frac{h^2 u_{4x}}{4!}+O(k^4 - h^4) = \\
-		=&2\frac{k^2 u_{4t}}{4!}-2c^2\frac{h^2 u_{4t}}{4!c^4}+O(k^4 - h^4)=\\
+		T_{h,k}u=&u_{tt}+2\frac{k^2 u_{4t}}{4!}-c^2u_{xx}-2c^2\frac{h^2 u_{4x}}{4!}+O(k^4)+O(h^4) = \\9
+		=&2\frac{k^2 u_{4t}}{4!}-2c^2\frac{h^2 u_{4t}}{4!c^4}+O(k^4)+O(h^4)=\\
 		=& \frac{2}{4!}(k^2-\frac{h^2}{c^2})u_{4t}+O(k^4)+O(h^4)=\\
 		=& O(k^2)+O(h^2).		
 	\end{split}
@@ -187,32 +161,35 @@ Así hemos comprobado que el esquema tiene orden de consistencia dos en espacio y
 
 \section{Análisis de Von Neumann}
 
-En la utilización de métodos multipaso, como el esquema que nos centramos en este trabajo, los errores pueden ser mucho mayores de lo que podría esperarse a causa de las cotas de error global. En este error interviene un aumento del error propagado y a menudo incrementa al disminuir la longitud de paso. Puede estar relacionado con varias factores como el método de inicialización, el truncamiento local y errores de redondeo. Esto se conoce como \textbf{inestabilidad}.
+En la utilización de métodos multipaso, como el esquema que nos centramos en este trabajo, los errores globales finalmente observados pueden ser mucho mayores de lo que podría esperarse a partir del orden de consistencia local estudiado anteriormente. Esto es debido a que en el error global interviene un aumento del error que se propaga y que, a menudo, incluso se incrementa al disminuir la longitud de paso. Puede estar relacionado con varias factores como el método de inicialización, el truncamiento local y errores de redondeo. Esto se conoce como \textbf{inestabilidad}.
 
-En esta sección nos centraremos en el análisis de Estabilidad de Fourier o Von Neumman. Este aunque no garantizará la estabilidad total del esquema, ya que esto no lo hace ningún método ni análisis de los que podríamos elegir, suele dar muy buenos resultados en la practica, y es el más empleado.\\
+En esta sección nos centraremos en el análisis de Estabilidad de Fourier o Von Neumman. Este aunque no garantizará la estabilidad total del esquema, suele dar muy buenos resultados en la practica, y es el más empleado.\\
 Podemos encontrar diversas notaciones y formas de hacer este análisis en libros clásicos y modernos, véase \cite{Software, smith1988analisis}.\\
 
 Comenzamos relacionando cada solución numérica del esquema con la solución exacta y el error del mismo, de la forma:
 \begin{equation}\label{eq:num,ex,error}
-	u_{j,r}=u(x_j,t_r)+\epsilon_{j,r}
+	u_{j,r}=u(x_j,t_r)+\varepsilon_{j,r}
 \end{equation}
 
-donde $\epsilon_{j,r}$ denotará el error en cada uno de los puntos del retículo que hemos formado.\\
+donde $\varepsilon_{j,r}$ denotará el error en cada uno de los puntos del retículo que hemos formado.\\
 
 
 Ahora  vamos a aplicarlo a la ecuación de onda, para profundizar en la estabilidad del esquema \eqref{esquemacompletoonda}. Haciendo uso del termino del error como hemos visto en \eqref{eq:num,ex,error}, lo sustituimos en el esquema, esta vez utilizando \eqref{eq:ondametodo}.
 
 \begin{equation*}
-	\resizebox{\linewidth}{!}{$\left(\frac{u(x_j,t_{r+1}) - 2u(x_{j},t_{r}) +u(x_j,t_{r-1})}{k^2} - c^2 \frac{u(x_{j+1},t_{r}) - 2u(x_{j},t_{r}) +u(x_{j-1},t_{r})}{h^2}\right)+\left(\frac{\epsilon_{j,r+1} - 2v_{j,r} +\epsilon_{j,r-1}}{k^2} - c^2 \frac{\epsilon_{j+1,r} - 2\epsilon_{j,r} +\epsilon_{j-1,r}}{h^2}\right)=0 $}
+	\begin{split}
+			&\left(\frac{u(x_j,t_{r+1}) - 2u(x_{j},t_{r}) +u(x_j,t_{r-1})}{k^2} - c^2 \frac{u(x_{j+1},t_{r}) - 2u(x_{j},t_{r}) +u(x_{j-1},t_{r})}{h^2}\right)+\\
+			&+\left(\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}\right)=0 
+	\end{split}
 \end{equation*}
 
 Como cualquier esquema numérico lineal se satisface de manera exacta por $u(x_{j},t_{r})$, los errores también serán soluciones de la ecuación discretizada, obteniendo.\\
 
 \begin{equation*}
-	\frac{\epsilon_{j,r+1} - 2v_{j,r} +\epsilon_{j,r-1}}{k^2} - c^2 \frac{\epsilon_{j+1,r} - 2\epsilon_{j,r} +\epsilon_{j-1,r}}{h^2}=0
+	\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}=0
 \end{equation*}
 
-Tomando la solución de tipo onda $u_{j,r}=g^re^{ij\beta h}$ donde g denota el factor de amplitud y $\beta$ se corresponderá al número de onda de la ecuación de Fourier.
+Tomando la solución de tipo onda $\varepsilon_{j,r}=g^re^{ij\beta h}$ donde i es la unidad imaginaria, g denota el factor de amplitud y $\beta$ se corresponderá con el número de onda de la ecuación de Fourier.
 Vamos a sustituirlo en la ecuación anterior, quedando:
 
 \begin{equation*}
@@ -251,22 +228,28 @@ $A=\left(1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right)\right)$ vemos que nos qued
 
 
 
-Al ser $g$ el factor de ampliación, es una relación del espacio y el tiempo y si se alejase demasiado de $0$, las perturbaciones se amplificarán con el tiempo. Por lo tanto necesitaremos $|g|\leq 1 $, es decir,
+Al ser $g$ el factor de ampliación, es una relación del espacio y el tiempo y si se alejase demasiado de $0$, las perturbaciones se amplificarán con el tiempo. Por lo tanto necesitaremos $|g|\leq 1 $, es decir, vamos a estudiar una condición suficiente (llamada condición CFL) para que
  
-$$\left| A\pm \sqrt{A^2-1} \right|\leq 1 $$
+$$\left| A\pm \sqrt{A^2-1} \right|\leq 1. $$
  	
 Vamos a ver que pasará dependiendo de los valores posibles de $A$. Como $2\mu ^2sin^2\left(\frac{\beta h}{2}\right) \geq 0$ tendremos que $A\leq1$.
 
 \begin{itemize}
-	\item Si $A<-1$:\\ La solución $g-1 = A-\sqrt{A^2-1}<-1$ y por lo tanto siempre se da $|g_1|>1$ y el esquema será en cualquier caso inestable.
+	\item Si $A<-1$:\\ La solución $g = A-\sqrt{A^2-1}<-1$ y por lo tanto siempre se da $|g|>1$ y el esquema será en cualquier caso inestable.
 	
-	\item Si $ -1\leq A\leq 1$:\\ Tenemos que 
-	$$ -1\leq 1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right)\leq 1$$
-	$$1\geq 1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right) \geq 0$$
-	Y como para cualesquiera $\beta, h$ se tiene que $1\geq sin^2\left(\frac{\beta h}{2}\right)\geq 0$ se dará $1\geq \mu^2\geq 0$, y al darse $\mu  = \frac{ck}{h}>0$ por definición, llegamos a la condición CFL:
-	
-	$$ 1\geq \mu  \geq 0$$
-	Así que en este caso el esquema será estable.		
+	\item Si $ -1\leq A\leq 1$:\\ Definimos $s^2 \triangleq sin^2\left(\frac{\beta h}{2}\right)$, con esto tenemos
+	$$0\leq s^2\leq 1,$$
+	luego,
+	$$0\leq 2\mu^2s^2\leq 2\mu^2,$$
+	$$0\geq -2\mu^2s^2\geq -2\mu^2,$$
+	$$1\geq 1- 2\mu^2s^2\leq\underbrace{1-2\mu^2\geq-1}_{(1)}.$$
+	Veamos cual es la condición necesaria para que se de $(1)$,
+	 $$1-2\mu^2\geq-1,$$
+	 $$2\mu^2\leq2,$$
+	 \begin{equation}\label{mu}
+	 	\mu\leq 1.
+	 \end{equation}
+	 llegamos que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, la condición CFL.		
 \end{itemize}
 Por lo tanto nuestro esquema será condicionalmente estable.
 En este caso, tal y como podemos extraer de \citep{AnIntroduction}, mirando el dominio de dependencia (\ref{domdep}) nos damos cuenta de que, cuando se de la igualdad a uno, este coincidirá con los puntos de nuestra discretización, es decir, dependerá del menor número de puntos posibles, mientras cumple la condición CFL.\\
@@ -277,54 +260,83 @@ En la comparativa del capítulo siguiente cambiaremos $\mu$ para ilustrar como af
 
 
 
-\section{Esquema como dos ecuaciones de transporte}	
-Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} la ecuación de ondas se puede separar en dos ecuaciones de tipo transporte \eqref{eq:propagacion}. Ahora nos centraremos en ver como quedaría nuestro esquema para cada una de ellas, para su implementación en Python.\\
+\section{Resolución numérica para las soluciones de tipo viajero}	
+\label{Ondaviajera}
+Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} de la ecuación de onda se puedesn obtener dos soluciones de tipo onda viajera \eqref{eq:propagacion}. Ahora nos centraremos en implementar numéricamente dichas soluciones.\\
 
-Comenzamos viendo cada una de las funciones $w$ de dimensión 2 que quedan definidas con nuestras funciones $p^+,p^-$, usamos estas ya que es imprescindible para la implementación que estén definidas en los puntos de nuestro mallado.
+Querremos ver dichas soluciones en cada uno de nuestro puntos del mallado, para ello llamaremos a las aproximaciones de las mismas en cada unos de los puntos como
 
 \begin{equation*}
 	\begin{split}
-		w^+(x_j,t_r)&=p^+(x_j+ct_r)\\
-		w^-(x_j,t_r)&=p^-(x_j-ct_r)
+		w^+(x_j,t_r)&=p_+(x_j-ct_r),\\
+		w^-(x_j,t_r)&=p_-(x_j+ct_r).
 	\end{split}
 \end{equation*} 
 
-Ahora tomaremos las aproximaciones tal y como hicimos con la solución $u$, quedando
+Ahora tendremos que la aproximación de la solución de $u$ será,
+\begin{equation}\label{eq:aproximacionw}
+	u_{j,r}=w^+_{j,r}+w^-_{j,r}.
+\end{equation}
 
-$$u_{j,r}=w^+_{j,r}+w^+_{j,r}$$ 
-(INTRODUCIR COMO METO ESTO EN MI ESQUEMA )
+Partiendo de las representaciones de las soluciones \eqref{repp-} y \eqref{repp+}, aproximaremos $w^+_{j,r}$ y $w^-_{j,r}$. Esto lo haremos primeramente separando en dos la integral, trabajemos con $p_-(x_j+ct_r)$:
+
+\begin{equation*}
+	\begin{split}
+		p_-(x_j+ct_r)&=\frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j+ct_r}g(s)\partial s =\\
+		&= \frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j}g(s)\partial s + \frac{1}{2c}\int_{x_j}^{x_j+ct_r}g(s)\partial s
+	\end{split}
+\end{equation*}
+
+Realizamos una aproximación de cada una de las integrales utilizando el método del trapecio y los puntos ya definidos en el mallado. El tamaño de paso en la primera integral será $h$, y en la segunda será $ck$, por tanto la aproximación es.
+\begin{equation*}
+	\begin{split}
+		w^-_{j,r}&= \frac{1}{2}f(x_j+ct_r) + \frac{h}{4c}\left(g(x_0)+2\sum_{i=1}^{j-1}g(x_i)+ g(x_j)\right)\\
+		& + \frac{ck}{4c}\left(g(x_j+ct_0)+2\sum_{i=1}^{r-1}g(x_j+ct_i)+ g(x_j+ct_r)\right)
+	\end{split}
+\end{equation*}
+
+Por otro lado trabajando con $p_+(x_j+ct_r)$, por como hemos definido las aproximaciones \eqref{eq:aproximacionw} podemos simplemente utilizar:
+\begin{equation*}
+	\begin{split}
+		w^+_{j,r}=u_{j,r}-w^-_{j,r}
+	\end{split}
+\end{equation*}
+
+Con esto ya podríamos implementar cada una de las soluciones, para ver como se comportan las mismas a comparación de $u$.
+
 
 
 
 
 
 \section{Ley de energía discreta}
+\label{energiadiscreta}
 
 En este punto nos preguntamos como se traducirían esta ley de energía a nuestro esquema. En este caso al ser el esquema discreto, tendremos que usar la definición de suma por partes \ref{Inner},
 en lugar de la del producto interior anteriormente utilizada en la sección \ref{sec:energiaondas}.\\
 
  Vamos a comenzar tomando como dominio mallado \ref{Mallado}, sabiendo que queremos hacer la suma por partes en el eje de la posición definimos $D$ los puntos del mismo. Veremos cuales son las condiciones que deberán cumplir nuestro esquema, utilizando la función $\delta$ definida en \ref{defdelta}, será.
 
-$$\left<\delta_tu,\delta_{tt}u\right>_D= c^2 \left<\delta_t u,\delta_{xx}u\right>_D. $$
+$$\left<\delta_tu,\delta_{tt}u\right>'_D= c^2 \left<\delta_t u,\delta_{xx}u\right>'_D. $$
 
 Siguiendo la notación que tomabamos en \ref{SumaPartes}, para cada $r=1,\dots,n$ tendremos:
 
 \begin{equation}\label{energia}
-	\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>_D= c^2 \left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>_D. 
+	\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>'_D= c^2 \left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D. 
 \end{equation}
 
-Ahora para desarrollar la parte derecha de la igualdad usaremos la observación \eqref{delta2} y posteriormente la definición \ref{SumaPartes}.
+Ahora para desarrollar la parte derecha de la igualdad usaremos la observación \ref{derivada2} y posteriormente la definición \ref{SumaPartes}.
 
 
 \begin{equation}\label{deltaxx}
 	\begin{split}
-		\left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>_D &\underset{\eqref{delta2}}{=} \left<\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right>_D\\
-		\underset{\eqref{eq:rep2}}{=}-\left<\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right>_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r})
+		\left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D &\underset{\ref{derivada2}}{=} \left<\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right>'_D\\
+		\underset{\eqref{eq:rep2}}{=}-\left<\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right>'_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r})
 	\end{split}
 \end{equation}
 
 Insertando esto en la ecuación \eqref{energia} nos quedaría:
-$$\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>_D + c^2 \left<\delta_t u_{\cdot,r},\delta_{x+}\delta_{t}u_{\cdot,r}\right>_D = -c^2(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})+ c^2(\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}). $$
+$$\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>'_D + c^2 \left<\delta_t u_{\cdot,r},\delta_{x+}\delta_{t}u_{\cdot,r}\right>'_D = -c^2(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})+ c^2(\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}). $$
 
 
 Denotando al termino de la derecha como $\mathfrak{b}$ tendremos que

@@ -1,10 +1,400 @@
 % !TeX encoding = ISO-8859-1
 
-\chapter{Comparativa en python}
-\label{cha:comparativa}
+\chapter{Modelado en Python y comparativa}
+\label{cha:Comparativa}
+En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos cómo varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de cómo afectan las condiciones de estabilidad \eqref{mu}, y de conservación de la energía \eqref{energiacero}.
 
-\section{Comparar cambiando $\mu$}
-Cambio $\mu$
+\section{Soluciones}
+En esta sección comenzaremos señalando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$.
+
+
+\subsection{$f(x)= sin(x)$, $g(x)=0$}
+\label{subsec:sin(x)}
+Cuando la posición inicial depende del seno y la velocidad inicial es $0$, se puede observar como nuestra solución oscila sin llegar a parar, al no tener en cuenta nuestro sistema \eqref{esquemacompletoonda}, fuerzas externas como el rozamiento. 
+
+\newpage
+	
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno1.png}
+		\caption{Posición inicial de la cuerda.}
+		\label{fig:Seno1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno2.png}
+		\caption{La cuerda comienza a bajar.}
+		\label{fig:Seno2}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno3.png}
+		\caption{Sigue bajando hasta llegar a la posición de máxima amplitud.}
+		\label{fig:Seno3}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno4.png}
+		\caption{La cuerda comienza a subir de nuevo.}
+		\label{fig:Seno4}
+	\end{minipage}
+\end{figure}
+
+\begin{wrapfigure}[4]{r}{0.45\textwidth}
+	\vspace{-2cm}
+	\includegraphics[width=0.45\textwidth]{Seno5.png}
+	\caption{Se puede escuchar este sonido en el archivo figura5-5.wav adjunto.}
+	\label{fig:Seno5}
+	
+\end{wrapfigure}
+
+\vspace{2cm}
+
+Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo.
+
+
+\newpage
+
+
+\subsection{$f(x)$ tipo Struck, $g(x)=0$}
+Cuando la posición inicial es de tipo Struck, es decir, un pico en la zona central de la cuerda, y la velocidad inicial es $0$, la solución no es tan suave, al ser $f$ no derivable. 
+
+\vspace{2cm}
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico1.png}
+		\caption{Posición inicial de la cuerda.}
+		\label{fig:Pico1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico2.png}
+		\caption{Se crean picos en la cuerda.\\}
+		\label{fig:Pico2}
+	\end{minipage}
+\end{figure}
+\vspace{1.5cm}
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico3.png}
+		\caption{}
+		\label{fig:Pico3}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico4.png}
+		\caption{}
+		\label{fig:Pico4}
+	\end{minipage}
+\end{figure}
+\newpage
+En este caso la forma de la onda en cada punto no es tan regular, y cambia mucho dependiendo del punto que observemos, como ejemplo visualizaremos el movimiento de los puntos $x=0.07$  y $x=0.5$.\\
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico5.png}
+		\caption{Archivo figura5-10.wav}
+		\label{fig:Pico5}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico6.png}
+		\caption{Archivo figura5-11.wav}
+		\label{fig:Pico6}
+	\end{minipage}
+\end{figure}
+
+Se observa que la onda cambia bastante, y por ende, el sonido producido.(CAMBIAR FRASE)
+
+
+\subsection{$f(x)= 0$, $g(x)$ tipo Struck}
+
+
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-2.2cm}
+	\includegraphics[width=0.45\textwidth]{Planog.png}
+	\caption{Velocidad inicial.}
+	\label{fig:Planog}
+	
+\end{wrapfigure}
+
+\vspace{1cm}
+
+En este caso partimos de una onda en reposo, con una velocidad inicial tipo Struck. A la derecha vemos una gráfica de la forma que tiene esta velocidad inicial.\\ 
+
+\begin{wrapfigure}[4]{r}{0.45\textwidth}
+	\vspace{-1.6cm}
+	\includegraphics[width=0.45\textwidth]{Plano0.png}
+	\caption{Posición inicial de la cuerda.}
+	\label{fig:Plano0}
+	
+\end{wrapfigure}
+\vspace{1.2cm}
+En esta imagen vemos la posición inicial. Dependiendo del número de puntos que elijamos en nuestro mallado, podremos ver que la solución se hace más suave, lo ilustraremos eligiendo 50 y 200 puntos en el eje espacial.
+
+\newpage
+Muestra de la solución con $m=50$.
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano1.png}
+		\caption{}
+		\label{fig:Plano1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano2.png}
+		\caption{}
+		\label{fig:Plano2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano3.png}
+		\caption{}
+		\label{fig:Plano3}
+	\end{minipage}
+\end{figure}
+
+Muestra de la solución con $m=200$:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano4.png}
+		\caption{}
+		\label{fig:Plano4}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano5.png}
+		\caption{}
+		\label{fig:Plano5}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano6.png}
+		\caption{}
+		\label{fig:Plano6}
+	\end{minipage}
+\end{figure}
+
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-1.5cm}
+	\includegraphics[width=0.45\textwidth]{Planoonda.png}
+	\caption{Archivo figura5-20.wav}
+	\label{fig:PlanoOnda}
+	
+\end{wrapfigure}
+
+\vspace{1cm}
+Aún así, para los puntos en los que hacemos la resolución, el movimiento de la onda será prácticamente idéntico y la diferencia en el audio indistinguible.(CAMBIO FRASE) Un ejemplo es el esquema de la derecha.\\
+
+
+\subsection{\textbf{$f(x)= sin(2x)$}, $g(x)=0$}
+En cada uno de los casos anteriores, tal y como hemos dicho al principio de la sección, $c=440$ y como solo hay dos nodos, puntos en los que la amplitud es siempre $0$, en todos los casos la frecuencia será $440Hz$. Esta frecuencia corresponde a un La central (4ª octava), la hemos elegido al ser la más usual para ejemplificar este tipo de modelado.\\
+Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2x)$, La frecuencia se corresponderá a un La de 5ª octava.
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{2Seno1.png}
+		\caption{Posición inicial.}
+		\label{fig:2Seno1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+ 		\includegraphics[width=\textwidth]{2Seno2.png}
+		\caption{}
+		\label{fig:2Seno2}
+	\end{minipage}
+\end{figure}
+
+Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $x$, \ref{subsec:sin(x)},  y seno de $2x$. Vemos claramente que llega a su máxima amplitud el doble de veces.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{2Seno3.png}
+		\caption{$sin(x)$ en $x=0.5$ Archivo figura5-5.wav}
+		\label{fig:2Seno3}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{2Seno4.png}
+		\caption{$sin(2x)$ en $x=0.25$ Archivo figura5-24.wav}
+		\label{fig:2Seno4}
+	\end{minipage}
+\end{figure}
+
+\section{Soluciones tipo onda viajera}
+
+En esta sección nuestro objetivo será ejemplificar lo explicado en la sección  \ref{Ondaviajera}. Utilizando de nuevo la función seno, las soluciones de tipo onda viajera en los siguientes casos serían:
+
+\newpage
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav1.png}
+		\caption{Superpuestas ambas soluciones.\\$\ $\\ }
+		\label{fig:Senotrav1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav2.png}
+		\caption{Coloreada de azul la solución que se desplaza a la derecha y de rojo la que se desplaza hacia la izquierda.}
+		\label{fig:Senotrav2}
+	\end{minipage}
+\end{figure}
+
+\vspace{2cm}
+
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-2.5cm}
+	\includegraphics[width=0.45\textwidth]{Senotrav3.png}
+	\caption{Movimiento de las soluciones de tipo onda viajera. }
+	\label{fig:Senotrav3}
+	
+\end{wrapfigure}
+
+Comprobamos que la suma de ambas soluciones nos da la posición de la cuerda en cada instante, coloreada de negro.\\
+
+\vspace{1.5cm}
+Esto se comprueba de manera incluso más clara con la función $sen(2x)$.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav4.png}
+		\caption{}
+		\label{fig:Senotrav4}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav6.png}
+		\caption{}
+		\label{fig:Senotrav5}
+	\end{minipage}
+\end{figure}
+\newpage
+
+\section{Comparacón variando el valor de $\mu$}
+Ahora veremos como cambiando el parámetro $\mu$, las soluciones obtenidas propagarán inestabilidades.
+
+\subsection{$\mu\ll 1$}
+Cuando elegimos $\mu$ mucho menor que $1$, es decir, alejándonos de la solución óptima, poco a poco comienzan a generarse inestabilidades. Comparemos la solución con $\mu = 1$, para $f(x)$ de tipo Struck.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Piconormal.png}
+		\caption{Solución para $\mu=1$.}
+		\label{fig:Piconormal}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picomu0.1.png}
+		\caption{Solución para $\mu=0.1$.}
+		\label{fig:Picomu0.1}
+	\end{minipage}
+\end{figure}
+En la imagen de la derecha podemos observar las inestabilidades en forma de ondas por toda la cuerda. Por otro lado, vemos claramente las diferencias en las imágenes del movimiento de la onda dependiendo del tiempo, con  el punto $x=0.5$ fijado.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.png}
+		\caption{Movimiento de la onda para $\mu=1$. Archivo figura5-32.wav}
+		\label{fig:Picoonda}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu0.1.png}
+		\caption{Movimiento de la onda para $\mu=0.1$. Archivo figura5-33.wav}
+		\label{fig:Picoondamu0.1}
+	\end{minipage}
+\end{figure}
+Aún viendo claramente las inestabilidades de forma gráfica, no es tan fácil escucharlas en los archivos de audio adjuntos.
+
+
+\subsection{$\mu>1$}
+Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar cómo se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico38.png}
+		\caption{Comienzo de las inestabilidades.}
+
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico58.png}
+		\caption{Solución para $\mu=0.1$.\\}
+		\label{fig:Picomu1.1}
+	\end{minipage}
+\end{figure}
+En este caso, a mayor sea $m$ antes se propagarán las inestabilidades, por ello hemos elegido $m=40$, para observar cómo cambia la onda dependiendo del tiempo.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.png}
+		\caption{Movimiento de la onda para $\mu=1$.}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.1.png}
+		\caption{Movimiento de la onda para $\mu=0.1$. Archivo fig5-38.wav}
+		\label{fig:Picoondamu1.1}
+	\end{minipage}
+\end{figure}
+\newpage
+
+Si intentamos reproducir el sonido de esta última situación no se escuchará nada, puesto que las inestabilidades son tan grandes que hacen imposible su escucha, dos causas posibles son:
+\begin{itemize}
+	\item  El guardado en el formato .wav, puesto que cuando la amplitud es mayor que $1$, no lo capta de manera adecuada.
+	\item La frecuencia, al ser tan elevada, es imposible de escuchar para el oído humano.
+\end{itemize}
+
+
 \section{Comparar cambiando la energía}
 Cambio la energía y separo 
 

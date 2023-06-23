@@ -1,11 +1,11 @@
 % !TeX encoding = ISO-8859-1
 
 \chapter{Anexo}
-
+\label{cha:Anexo}
 En este capítulo anexaremos el código realizado en Python.\\
 
 \section{Resolución numérica}
-Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviendo la ecuación de ondas en ese contexto.
+Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviendo la ecuación de onda en ese contexto.
  \begin{verbatim}
  	import numpy as np
  	import time
@@ -15,32 +15,40 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	
  	#Funciones necesarias
  	
- 	# Para inicializar los valores iniciales que dependen de la derivada lo haremos con una aproximación progresiva del tiempo
+ 	# Para inicializar los valores iniciales que dependen de la 
+ 	#derivada lo haremos con una aproximación progresiva del tiempo
  	def g(x):
  	return 0
  	
  	
  	# Condición de contorno en el eje de posición tipo seno
  	def f(x):
- 	return np.sin(np.pi * x)  # Tener cuidado con la función por si se sale del rango
+ 	return np.sin(np.pi * x)  # Tener cuidado con la función
+ 	 por si se sale del rango
  	
  	
  	
- 	# Definimos una función para usar en el método explícito y poder cambiarlo de manera rápida si hace falta
- 	def Explicito(x1, x2, x3, x4,mu):  # Si queremos hacerlo en un file independiente tendremos que añadir el mu
+ 	# Definimos una función para usar en el método explícito y
+ 	# poder cambiarlo de manera rápida si hace falta
+ 	# Si queremos hacerlo en un file independiente tendremos 
+ 	# que añadir el mu
+ 	def Explicito(x1, x2, x3, x4,mu): 
  	return  mu ** 2 * (x1 + x2) + 2 * (1- mu ** 2) * x3 - x4
  	
  	
  	start = time.time()
- 	print("Vamos a hacer una resolución numérica de la ecuación de onda u_tt-c^2u_xx=0")
+ 	print("Vamos a hacer una resolución numérica de la 
+ 	ecuación de onda u_tt-c^2u_xx=0")
  	print("Introduce c:")
  	c= float(input())
- 	print("Introduce el nombre del directorio donde quieres guardar los archivos:")
+ 	print("Introduce el nombre del directorio donde quieres 
+ 	guardar los archivos:")
  	directorio=input()
  	
  	
  	#Creamos una carpeta en la que se guardarán los datos
- 	home = 'C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects\\pythonProject2'
+ 	home = 'C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects
+ 	\\pythonProject2'
  	directoriofinal=home+'\\'+directorio+'\\'
  	#Si existe el directorio lo borra
  	try:
@@ -53,10 +61,12 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	#Constantes necesarias
  	l=1
  	tmax= 1
- 	m = int(l*3)# Constante representativa del número de trozos en los que separamos el espacio
+ 	m = int(l*3)# Constante representativa del número de trozos
+ 	# en los que separamos el espacio
  	h=l/m  #Cambiamos la h para que sea entera
  	
- 	k =h/c #Lo tomamos de esta forma para ganar en exactitud pagina 133 numerical sound synthesis
+ 	k =h/c #Lo tomamos de esta forma para ganar en exactitud 
+ 	#pagina 133 numerical sound synthesis
  	#k =h/c * 0.01
  	#k =h/c * 0.1
  	#k =h/c * 0.5
@@ -69,7 +79,8 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	if mu>1 :
  	raise Exception('Mu es mayor que 1')
  	print(f'n{n}, c{c}, k{k}, h{h}, m{m}, mu{mu}')
- 	# Creamos un mallado de puntos en los que aproximaremos la solución
+ 	# Creamos un mallado de puntos en los que aproximaremos 
+ 	#la solución
  	x= np.linspace(0,l,num=m +1)
  	t= np.linspace(0,tmax,num=n +1)
  	
@@ -80,7 +91,8 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	u = np.empty((m + 1, n + 1), float)
  	
  	
- 	# Añadimos antes que nada los nodos conocidos por las condiciones de contorno
+ 	# Añadimos antes que nada los nodos conocidos por las 
+ 	# condiciones de contorno
  	
  	u[:, 0] = f(x)
  	
@@ -88,7 +100,8 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	
  	u[m, :] = np.zeros(n + 1)
  	aux=[0]
- 	# Para inicializar los valores iniciales que dependen de la derivada lo haremos con una aproximación progresiva del tiempo
+ 	# Para inicializar los valores iniciales que dependen de la 
+ 	derivada lo haremos con una aproximación progresiva del tiempo
  	for i in range(1, m):
  	u[i, 1] = u[i, 0] + k * g(x[i])
  	aux.append(g(x[i]))
@@ -96,13 +109,10 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	aux.append(g(x[m]))
  	
  	print(u[:,1])
- 	# Por otro lado si nuestra función inicial f es C^2 podemos hacerlo de esta otra forma
- 	# Para tener un error bastante mas pequeño
- 	# for i in range(1,m):
- 	# u[i,1]=u[i,0]+k*g(x[i])+ (c^2*k*2/2)f''(x[i])        Meter la derivada de f
  	
  	for j in range(2, n + 1):
- 	u[1:m, j] = Explicito(u[2:m+1,j-1], u[0:m-1,j-1], u[1:m,j-1], u[1:m,j-2],mu)
+ 	u[1:m, j] = Explicito(u[2:m+1,j-1], u[0:m-1,j-1], u[1:m,j-1],
+ 	u[1:m,j-2],mu)
  	
  	end = time.time()
  	
@@ -118,7 +128,9 @@ Comenzamos implementando el esquema \eqref{esquemacompletoonda} y así resolviend
  	np.save(directoriofinal+'u', u)
  	np.save(directoriofinal+'x', x)
  	np.save(directoriofinal+'t', t)
- 	np.save(directoriofinal+'constantes', [c, m,h,n,k,mu,tmax] ) #Meter en cons las constantes que necesitemos para usarlas luego en el guardado
+ 	np.save(directoriofinal+'constantes', [c, m,h,n,k,mu,tmax] ) 
+ 	# Guardar en cons las constantes que necesitemos para usarlas 
+ 	luego en el guardado
  \end{verbatim}
  Al final guardamos los datos obtenidos para su posterior procesado.
  
@@ -135,7 +147,8 @@ Creo ahora un archivo de audio a partir de los datos anteriores y lo guardo en u
 	
 	
 	#Creamos el directorio
-	directorio='C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects\\pythonProject2\\'+dir+'\\'
+	directorio='C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects
+	\\pythonProject2\\'+dir+'\\'
 	
 	
 	#Añadimos los datos
@@ -143,7 +156,8 @@ Creo ahora un archivo de audio a partir de los datos anteriores y lo guardo en u
 	datos = np.load(directorio+'u.npy', mmap_mode='r')
 	t = np.load(directorio+'t.npy', mmap_mode='r')
 	x = np.load(directorio+'x.npy', mmap_mode='r')
-	[f, m1,h1,n1,k1,mu,tmax]= np.load(directorio+'constantes.npy', mmap_mode='r')
+	[f, m1,h1,n1,k1,mu,tmax]= np.load(directorio+'constantes.npy',
+	 mmap_mode='r')
 	
 	m1=int(m1)
 	n1=int(n1)
@@ -155,15 +169,19 @@ Creo ahora un archivo de audio a partir de los datos anteriores y lo guardo en u
 	
 	
 	# Escogiendo un punto en particular
-	# Comprobamos donde está el punto de mayor amplitud en el instante inicial y en ese punto es donde veremos como se mueve la onda.
+	# Comprobamos donde está el punto de mayor amplitud en el
+	# instante inicial y en ese punto es donde veremos como 
+	# se mueve la onda.
 	pos_readout= np.where(datos[:,0]==max(datos[:,0]))[0][0]
 	
 	if pos_readout==0:
 	pos_readout= 50
 	print('Cambio la posicion a 0.5')
 	
-	wave_table = datos[pos_readout] # Elijo un punto en el espacio en el que veremos el movimiento de la cuerda
-	wave_table2 = datos[pos_readout+1] # Elijo un punto en el espacio en el que veremos el movimiento de la cuerda
+	wave_table = datos[pos_readout] # Elijo un punto en el 
+	#espacio en el que veremos el movimiento de la cuerda
+	wave_table2 = datos[pos_readout+1] # Elijo un punto en el
+	# espacio en el que veremos el movimiento de la cuerda
 	output = np.interp(t_necesario,  t, wave_table)
 	
 	
@@ -176,7 +194,9 @@ Creo ahora un archivo de audio a partir de los datos anteriores y lo guardo en u
 	#output = np.interp(t_necesario,  t, wave_table)
 	
 	
-	#Vamos a modificar los limites para que suene a un nivel de volumen adecuado, para ello teben ser en torno al orden e-1 o e-2
+	#Vamos a modificar los limites para que suene a un nivel
+	# de volumen adecuado, para ello teben ser en torno al 
+	# orden e-1 o e-2
 	#gain= 0
 	#amplitud = 10** (gain/20)
 	#output *=amplitud
@@ -189,7 +209,7 @@ Creo ahora un archivo de audio a partir de los datos anteriores y lo guardo en u
 	write(directorio+f'Sonido.wav',sample_rate,output)
 \end{verbatim}
 
-\section{Imagenes}
+\section{Imágenes}
 Creamos y guardamos las imágenes de la posición de la cuerda en varios instantes de tiempo y de los cambios de posición de la onda en un punto del eje $X$ durante un periodo de tiempo.
 
 \begin{verbatim}
@@ -204,7 +224,8 @@ Creamos y guardamos las imágenes de la posición de la cuerda en varios instantes
 	
 	
 	#Creamos los directorios
-	directorio='C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects\\pythonProject2\\'+dir+'\\'
+	directorio='C:\\Users\\Ana Cuevas de Cózar\\PycharmProjects\\
+	pythonProject2\\'+dir+'\\'
 	cuerda=directorio + 'Imagenes Cuerda\\'
 	onda= directorio+ 'Imagenes Onda\\'
 	try:
@@ -221,17 +242,20 @@ Creamos y guardamos las imágenes de la posición de la cuerda en varios instantes
 	datos = np.load(directorio+'u.npy', mmap_mode='r')
 	t = np.load(directorio+'t.npy', mmap_mode='r')
 	x = np.load(directorio+'x.npy', mmap_mode='r')
-	[f, m,h,n,k,mu,tmax]= np.load(directorio+'constantes.npy', mmap_mode='r')
+	[f, m,h,n,k,mu,tmax]= np.load(directorio+'constantes.npy', 
+	mmap_mode='r')
 	
 	n=int(n)
 	m=int(m)
 	
-	#Vamos a pintar las imagenes de a posición de la cuerda en instantes selecionados
+	#Vamos a pintar las imagenes de a posición de la cuerda en
+	# instantes selecionados
 	plt.plot(x, datos[:, 0], 'k')
 	plt.ylim(-1,1)
 	plt.xlabel('x')
 	plt.ylabel('u')
-	plt.title(f'Cuerda en el instante {t[0]},\nmin={min(datos[:,0])}, max={max(datos[:,0])}')
+	plt.title(f'Cuerda en el instante {t[0]},\nmin={min(datos[:,0])},
+	 max={max(datos[:,0])}')
 	plt.savefig(cuerda+f'Cuerda_instante_{0}.png')
 	plt.close()
 	
@@ -242,18 +266,21 @@ Creamos y guardamos las imágenes de la posición de la cuerda en varios instantes
 	plt.ylim(-1,1)
 	plt.xlabel('x')
 	plt.ylabel('u')
-	plt.title(f'Cuerda en el instante {t[j]},\nmin={min(datos[:,j])}, max={max(datos[:,j])}')
+	plt.title(f'Cuerda en el instante {t[j]},\nmin={min(datos[:,j])},
+	 max={max(datos[:,j])}')
 	plt.savefig(cuerda+f'Cuerda_instante_{j}.png')
 	plt.close()
 	
 	
-	#Pintamos la imagen de la onda en los 1000 primeros instantes en cada punto
+	#Pintamos la imagen de la onda en los 1000 primeros instantes
+	# en cada punto
 	for j in range(0, m + 1):
 	plt.plot(t[0:1000], datos[j,0:1000],'r')
 	plt.plot(t[0:1000], datos[j,n-999:n+1],'b')
 	plt.xlabel('t')
 	plt.ylabel('u')
-	plt.title(f'Movimiento del punto {x[j]} en el espacio')  #axis tight
+	#axis tight
+	plt.title(f'Movimiento del punto {x[j]} en el espacio')  
 	plt.savefig(onda+f'Punto_{j}.png')
 	plt.close()
 \end{verbatim}

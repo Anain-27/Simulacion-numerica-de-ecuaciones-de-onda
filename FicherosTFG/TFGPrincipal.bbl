@@ -26,6 +26,17 @@ Patricia Camarena.
 Agust{\'i}n.
 \newblock Apuntes de vibraciones y ondas.
 
+\bibitem{Ganzha}
+Victor~G. Ganzha and Evgenii~V. Vorozhtsov.
+\newblock {\em Numerical solutions for partial differential equations: problem
+  solving using Mathematica}.
+\newblock CRC Press, Boca Raton (Florida) [etc.], 1996.
+
+\bibitem{strauss}
+W.A. Strauss.
+\newblock {\em Partial Differential Equations: An Introduction}.
+\newblock Wiley, 2008.
+
 \bibitem{Software}
 Shoichiro Nakamura.
 \newblock {\em Métodos numéricos aplicados con software}.

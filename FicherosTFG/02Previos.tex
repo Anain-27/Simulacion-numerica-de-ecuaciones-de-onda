@@ -3,60 +3,91 @@
 \chapter{Definición de la ecuación de onda}
 \label{cha:Comenzamos}
 
-Comenzaremos dando una introducción a la ecuación de ondas en $\mathbb{R}^n$, con $n \geq 1$ \citep{Wazwaz,AnIntroduction}
-
-
+Comenzaremos dando una introducción a la ecuación de onda en $\mathbb{R}^n$, con $n \geq 1$, siguiendo \citep{Wazwaz,AnIntroduction}. Para simplificar la notación denotaremos a la función $u(x,t)$, como $u$, ahora la ecuacion general de la ecuación de onda será,
 
 \begin{equation}\label{eq:onda}
-	u_{tt}- c^2 \bigtriangleup u = f , x\in \Omega \subset \mathbb{R}^n,\ \ \  t\in[0,+\infty].
+	u_{tt}- c^2 \Delta u = f ,\quad \Omega \times[0,+\infty).
 \end{equation}
-
-Donde $f$ es una función de valores reales, $c>0$ es una constante de propagación y el operador 
+donde $\Omega \subset \mathbb{R}^n$, $f$ es una función de valores reales, $c>0$ es una constante de propagación y el operador 
 \begin{equation}
-	\bigtriangleup u = \sum_{j=1}^{N}\frac{\delta^2u}{\delta x^2_j},
+	\Delta u = \sum_{j=1}^{N}\frac{\partial^2u}{\partial x^2_j},
 \end{equation}
-
-es conocida como el Laplaciano. En este tipo de ecuaciones la variable $t$ denota el tiempo transcurrido y las variables $x_i, i=1,...,n$ denotan la posición de la onda en cada dirección del espacio $\mathbb{R}^n$. \\
+es conocido como el laplaciano. En esta ecuación la variable $t$ denota el tiempo transcurrido y las variables $x_i ,\  i=1,...,n$ denotan la posición de la onda en cada dirección del espacio $\mathbb{R}^n$. \\
 
 Podemos observar que se trata de una ecuación lineal y, siempre que $f\not\equiv 0$, la ecuación será no homogénea, es decir, tendrá termino independiente.\\
 
 \section{Ecuación de onda de segundo orden}
-Ya que nos hemos situado en la ecuación de onda, nosotros nos centraremos en la de segundo orden, es decir, una sola dimensión en el espacio. Comenzaremos explicando el modelado de dicha función, apoyándonos en \citep{Camarena2004LaTD, MartinDomingo}.
 
-Supongamos que tenemos una cuerda uniforme y tensa, sujeta por los extremos, tal como lo estaría, por ejemplo, en una guitarra. Esta cuerda estaría colocada en nuestro esquema en el eje $X$ entre $0$ y $l$, siendo $l$ el largo de la misma. Así vemos que cada punto de la cuerda se desplazará en el tiempo. Por lo tanto la función que describa el movimiento de la cuerda será del tipo $u(x,t)$.\\
+Ya que habiéndonos situado en la ecuación de onda, a partir de esta sección nos centraremos en la de segundo orden, es decir, una sola dimensión en el espacio. Comenzaremos explicando el modelado de dicha función, apoyándonos en \citep{Camarena2004LaTD, MartinDomingo}.
 
-Nuestra cuerda en un instante $t$ podría tener una forma parecida a alguna de las siguientes\\
+Supongamos que tenemos una cuerda uniforme y tensa, sujeta por los extremos, tal como lo estaría, por ejemplo, en una guitarra. Esta cuerda estaría colocada en nuestro esquema en el eje $X$ entre $0$ y $L$, siendo $L$ el largo de la misma. Así vemos que cada punto de la cuerda se desplazará en el tiempo.
+Por lo tanto, la función que describa el movimiento de la cuerda será del tipo $u(x,t)$.\\
+
+Nuestra cuerda en un instante $t$ podría tener una forma parecida a alguna de las siguientes:\\
+
 \includegraphics[scale=0.45]{Ejemplo1.png}
 \includegraphics[scale=0.45]{Ejemplo2.png}\\
 
-Supongamos que la cuerda no está en reposo habrán una fuerza tensora $T$, producidas por los puntos en los que está sujeta. Nos apoyaremos en la siguiente figura para ver como se describiría la ecuación: 
+Supongamos que la cuerda no está en reposo, habrá una fuerza tensora $T$, producidas por los puntos en los que está sujeta. Nos apoyaremos en la siguiente figura para ver como se describiría la ecuación: 
+\newpage
 
-\begin{center}
-	\includegraphics[scale=0.6]{modelado.png}
-\end{center}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.45]{modelado.png}
+	\caption{Representación de una sección diferencial de la cuerda y las fuerzas asociadas a la misma.}
+\end{figure}
 
-Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto la fuerza tensora que produce cada pu, no tendrán la misma dirección y sentido opuesto, sino que tendrán componente vertical.  Las componentes verticales son:
+Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto la fuerza tensora que produce cada punto en el que está fijado, no tendrán la misma dirección y sentido opuesto, sino que tendrán componente vertical.  Las componentes verticales son:
 
-$$T_y= -Tsen(\alpha), $$
-$$T'_y= Tsen(\beta).$$
+$$T_y= -\mathbb{F_T}sen(\alpha), $$
+$$T'_y= F_Tsen(\beta).$$
 
-Luego la fuerza vertical quedaría $F=T(sen(\beta)-sen(\alpha))$, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos decir $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\alpha) \approxeq tan(\alpha)$ quedando
+Luego la fuerza vertical quedaría $F=F_T(sen(\beta)-sen(\alpha))$, donde $F_T$ es la fuerza generada por la tensión, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos decir $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\beta) \approxeq tan(\beta)$ quedando
 
-$$F=T(tan(\beta)-tan(\alpha)).$$
+$$F=F_T(tan(\beta)-tan(\alpha)).$$
 
-Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos $x$ y $x+\Delta x$ respectivamente, entonces podemos expresarlos como la primera derivada en los puntos correspondientes $tan(\alpha)=u_x(x,t)$ y $tan(\beta)=u_x(x+\Delta x,t)$. Obtenemos $F=T(u_x(x+\Delta x,t)-u_x(x,t))$.\\
+Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos $x$ y $x+\Delta x$ respectivamente, entonces podemos expresarlos como la primera derivada en los puntos correspondientes $tan(\alpha)=u_x(x,t)$ y $tan(\beta)=u_x(x+\Delta x,t)$. Obtenemos $F=F_T(u_x(x+\Delta x,t)-u_x(x,t))$.\\
+
 Aplicando ahora la segunda Ley de Newton, la fuerza debe ser la masa por la aceleración. Luego será la masa $\rho_l \Delta S$, donde $\rho_l $ es la densidad lineal de masa de la cuerda y como estamos en un ambiente diferencial podemos aproximar $\Delta S \approxeq \Delta x $, y la aceleración $u_{tt}(x,t)$. Reestructurando la ecuación queda:
 
-$$u_{tt}(x,t)=\frac{T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}$$
+$$u_{tt}(x,t)=\frac{F_T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}$$
 
-Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{T}{\rho_l}$ la ecuación queda de la siguiente forma:
+Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{F_T}{\rho_l}$ la ecuación queda de la siguiente forma:
 \begin{equation}\label{eq:basica}
-	u_{tt}=c^2u_{xx}.
+	u_{tt}=c^2u_{xx},\quad (0,l) \times[0,T).
 \end{equation}
 
+En este caso podemos tomamos el dominio como $\Omega^1\subset \mathbb{R}$, donde $T$ es un parámetro dado que representa el instante final de la observación. Añadiendo las condiciones de frontera y contorno mas usadas, para más información sobre el tema \citep{Ganzha}, nuestro esquema nos queda. 
 
-Ahora  las ecuaciones en derivadas parciales se clasifican en: elípticas, hiperbólicas y parabólicas. Para ello tendremos que estandarizarla. Aunque las ecuaciones se pueden clasificar y estandarizar siempre, nosotros por simplicidad lo haremos solo para las de segundo orden.
-\newpage
+\begin{equation}\label{ecuaciononda}
+	\begin{array}{lc}   
+		u_{tt}-c^2u_{xx}=0, & (x,t)\in (0,L)\times(0,T),
+	\end{array}
+\end{equation} 
+\begin{equation}\label{eq:frontera1}
+	\begin{array}{lc}   
+		u(x,0)=f(x), &   x\in (0,L),
+	\end{array}
+\end{equation} 
+\begin{equation}\label{eq:frontera2}
+	\begin{array}{lc}   
+		u_t(x,0)=g(x), &  x \in(0,L),
+	\end{array}
+\end{equation} 
+\begin{equation}\label{eq:frontera3}
+	\begin{array}{lc}   
+		u(0,t)=u(l,t)=0, &  t\in(0,T),
+	\end{array}
+\end{equation} 
+
+ Estas última condición, \eqref{eq:frontera3}, se llaman de tipo Dirichlet homogenea.
+
+
+
+
+\section{Clasificación de la ecuación de onda}
+En esta sección clasificaremos la EDP, estas se clasifican en: elípticas, hiperbólicas y parabólicas. Para poder realizar la clasificación primero tendremos que estandarizarla. Aunque las ecuaciones se pueden clasificar y estandarizar siempre, nosotros por simplicidad lo haremos solo para las de segundo orden.
+
 Una ecuación de segundo orden en forma estándar sería como sigue:
 \begin{equation}\label{eq:estandarizacion}
 	Au_{tt}+Bu_{tx}+Cu_{xx}+Du_{t}+Eu_{x}+Fu= G,
@@ -66,7 +97,7 @@ Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones caracte
 
 \begin{definicion}[label={clasificacion},nameref={Title or anything else}]{Clasificación de las EDP de segundo orden}	
 	
-	Si en todos los puntos $(x,t)$ de una región $\Omega\subset \mathbb{R}^2$ se cumple que:
+	Si en todos los puntos $(x,t)$ de una región $W\subset \mathbb{R}^2$ se cumple que:
 	\begin{itemize}
 		\item $B^2(x,t)-4A(x,t)C(x,t)>0$, entonces la EDP \eqref{eq:estandarizacion} se dice hiperbólica.
 		\item $B^2(x,t)-4A(x,t)C(x,t)=0$, entonces la EDP \eqref{eq:estandarizacion} se dice parabólica.
@@ -75,92 +106,162 @@ Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones caracte
 	\end{itemize}
 \end{definicion}
 
-Vemos que en \eqref{eq:basica}, $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
-Este tipo de clasificación de las ecuaciones se usa para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
+Vemos que siguiendo la notación de  \eqref{eq:basica}, $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. Ahora tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
+Este tipo de clasificación de las ecuaciones la usaremos para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
 
 
 
 
 
-\section{Ecuaciones de transporte}
+\section{Soluciones de tipo onda viajera}
 \label{sec:Ecuaciontransporte}
-
-Una vez definida nuestra ecuación de onda, es interesante ver que esta se puede descomponer en dos ecuaciones de transporte. Para ello comenzaremos suponiendo que la solución $u(x,t)$ se puede descomponer en dos funciones de propagación, donde $c$ sabemos que es la velocidad de la onda,
+Una vez definida nuestra ecuación de onda, es interesante ver que esta admite dos soluciones de tipo onda viajera uno de los dos sentidos del eje $X$. Para ello comenzaremos suponiendo que la solución $u(x,t)$ se puede descomponer en dos funciones de propagación, donde $c$ sabemos que es la velocidad de la onda,
 
 \begin{equation}\label{eq:propagacion}
-	u(x,t)=p^+(x+ct)+p^-(x-ct),
+	u(x,t)=p_+(x-ct)+p_-(x+ct),
 \end{equation}
-aquí llamamos $p^+$ a la propagación hacia la derecha y $p^-$ hacia la izquierda. Ahora veremos como se comportan las mismas al derivarlas. 
+aquí llamamos $p_+$ a la propagación hacia la derecha y $p_-$ hacia la izquierda. Ahora siguiendo \citep{strauss}, veamos como sería la resolución del problema de valores iniciales, \eqref{ecuaciononda} a \eqref{eq:frontera3} teniendo en cuenta \eqref{eq:propagacion}. Para ello necesitaremos suponer la derivabilidad de $f$.\\
+
+Comenzamos utilizando \eqref{eq:frontera1}, para $t=0$ tendremos,
+
+\begin{equation}\label{eq:fsustituidop}
+	f(x)=u(x,0)=p_+(x)+p_-(x),
+\end{equation}
+derivando \eqref{eq:fsustituidop} en $x$,
+\begin{equation}\label{eq:fderivadop}
+	f'(x)=p_{+\ x}(x)+p_{-\ x}(x).
+\end{equation}
+
+Ahora queremos sustituir el valor de $u_t(x,0)$ en la condición \eqref{eq:frontera2}, para ello derivemos antes \eqref{eq:propagacion} respecto a $t$,
+
+\begin{equation}\label{eq:derivadasp}
+	u_t=\frac{\partial}{\partial t}(p_+(x-ct)+p_-(x-ct))=cp_+'(x+ct)-cp_-'(x-ct),
+\end{equation}
+entonces,
+\begin{equation}\label{eq:gsustituidop}
+	g(x)=u_t(x,0)=-cp_+(x)+cp_-(x),
+\end{equation}
+dividiendo la igualdad por $c$,
+
+\begin{equation}\label{eq:gderivadop}
+	\frac{1}{c}g(x)=-p_+(x)+p_-(x).
+\end{equation}
+
+Haciendo \eqref{eq:fsustituidop} $+$  \eqref{eq:gsustituidop} y \eqref{eq:fsustituidop} $-$  \eqref{eq:gsustituidop}:
+
+$$f'(x) + \frac{1}{c}g(x)= 2p_-'(x),\quad \textbf{y}\quad f'(x) - \frac{1}{c}g(x)= 2p_+'(x).$$
+
+Luego despejando, 
+
+$$p_-'(x)= \frac{1}{2}f'(x) + \frac{1}{2c}g(x),\quad \textbf{y}\quad p_+'(x)= \frac{1}{2}f'(x) - \frac{1}{2c}g(x).$$
+
+Como todo este proceso podría hacerse para todo $x\in \mathbb{R}$, integrando respecto a $x$ y sustituyéndolo por $x+ct$ y $x-ct$, respectivamente, obtendremos las representaciones siguientes de $p_-$ y $p_+$.
+\begin{equation}\label{repp-}
+	p_-(x+ct)=\frac{1}{2}f(x+ct) + \frac{1}{2c}\int_{0}^{x+ct}g(s)\partial s +A,
+\end{equation}
+\begin{equation}\label{repp+}
+	p_+(x+ct)=\frac{1}{2}f(x-ct) - \frac{1}{2c}\int_{0}^{x-ct}g(s)\partial s +B,
+\end{equation}
+donde $A,B$ son constantes que tomaremos como 0 al saber que $A+B=$ gracias a \ref{eq:propagacion}. Nuestras integrales comienzan en $0$ por el dominio de \ref{ecuaciononda}.\\
+
+Finalmente llegamos. a que  la solución del problema de valores iniciales, será:
+\begin{equation*}
+	u(x,t)= \frac{1}{2}\left(f'(x+ct)+f'(x-ct)\right) + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\partial s 
+\end{equation*}
+
+
+
+\section{La energía en la ecuación de onda}
+\label{sec:energiaondas}
+
+En esta sección nos centraremos en analizar la ley de energía en la ecuación de onda. Llamemos $S=(0,L)$. Para poder obtener el la energía de la ecuación haremos el producto interior \ref{Inner} de la misma con $u_t$:
+
+\begin{equation*}
+	\left<u_t(\cdot,t),u_{tt}(\cdot,t)\right>_S = c^2\left<u_{t}(\cdot,t),u_{xx}(\cdot,t)\right>_S
+\end{equation*} 
+
+Para facilitar el entendimiento de la sección simplificaremos la notación de la siguiente forma:
+\begin{equation}\label{ondaut}
+	\left<u_t,u_{tt}\right>_S = c^2\left<u_{t},u_{xx}\right>_S.
+\end{equation} 
+
+Sabiendo que siempre estaremos fijando el instante t. Cada uno de los términos de la energía tendremos que ponerlo de la forma $\frac{\partial}{\partial t}\left(\cdot\right)$, comenzaremos por el termino de la izquierda. Para desarrollarlo necesitaremos la siguiente igualdad, derivada de la integración por partes,
+
+\begin{equation}\label{eq:intpartes}
+	\left<u_{t},u_{tt}\right>_S= \int_S u_tu_{tt} \partial x = \left.u_tu_t\right|_S- \int_S u_{tt}u_{t} \partial x = \left.u_tu_t\right|_S- \left<u_{tt},u_{t}\right>_S .
+\end{equation}
+
+Por otro lado necesitaremos ver como se puede descomponer $\frac{\partial}{\partial t}||u_t||_S^2$, utilizando la definición de norma \ref{Inner},
+
+\begin{equation*}
+	\frac{\partial}{\partial t}||u_t||_S^2 = \frac{\partial}{\partial t}\int_S u_tu_t \partial x. 
+\end{equation*}
+Ya que, $\frac{\partial}{\partial t}$ independiente de $x$, y suponiendo que se dan en $u$ y en $u_t$ condiciones de continuidad adecuadas, podremos permutar de sitio la integral y la derivada, y por tanto,
+\begin{equation*}
+	\frac{\partial}{\partial t}||u_t||_S^2 = \int_S \frac{\partial}{\partial t} u_t u_t \partial x, 
+\end{equation*}
+derivando, usando la regla de la cadena, y separando en dos integrales obtenemos la igualdad
+
+\begin{equation}\label{eq:normau}
+	\begin{split}
+		\frac{\partial}{\partial t}||u_t||_S^2 &= \int_S u_{tt} u_{t}+u_{t} u_{tt} \partial x\\
+		&=\int_S u_{tt} u_{t}\partial x +\int_S u_{t} u_{tt} \partial x\\
+		&=\left<u_{tt},u_{t}\right>_S+\left<u_{t},u_{tt}\right>_S.
+	\end{split}
+\end{equation}
+
+Continuando ahora desde nuestro factor inicial $\left<u_{t},u_{tt}\right>_S$, usando la igualdad \eqref{eq:normau},
+
+\begin{equation*}
+	\left<u_{t},u_{tt}\right>_S=\int_S u_{t}u_{tt}\partial x=\frac{\partial}{\partial t}||u_t||_S^2 -\int_S u_{tt}u_{t}\partial x.
+\end{equation*}
+
+Utilizando \eqref{eq:intpartes} en el último sumando,
+
+\begin{equation*}
+	\left<u_{t},u_{tt}\right>_S=\frac{\partial}{\partial t}||u_t||_S^2 -\left(\left.u_tu_t\right|_S-\int_S u_{t}u_{tt}\partial x  \right).
+\end{equation*}
+
+Agrupando los términos tendremos,
+\begin{equation*}
+	2\left<u_{t},u_{tt}\right>_S= \frac{\partial}{\partial t}||u_t||_S^2 - \left.u_tu_t\right|_S.
+\end{equation*}
+\begin{equation}\label{eq:primerfactor}
+	\left<u_{t},u_{tt}\right>_S=\frac{1}{2} \frac{\partial}{\partial t}||u_t||_S^2 -\frac{1}{2} \left.u_tu_t\right|_S.
+\end{equation}
+
+
+
+Ahora nos centraremos en el termino de la derecha, comenzamos utilizando la igualdad \eqref{eq:intpartes}, y pasamos el producto interior hacia la izquierda en \eqref{ondaut}, quedando,
+\begin{equation}\label{ondau_t2}
+	\left<u_t,u_{tt}\right>_S  -c^2\left<u_{tx},u_{x}\right>_S = \left.u_tu_x\right|_S
+\end{equation} 
+
+Siguiendo con el análisis de  $\left<u_{tx},u_{x}\right>_S$, análogamente a como lo hicimos con $\left<u_t,u_{tt}\right>_S$, obtendremos 
+
+\begin{equation}\label{eq:segundofactor}
+	\left<u_{tx},u_{x}\right>_S=\frac{1}{2}\frac{\partial}{\partial t}\int_{\mathbb{R}}u_{x}u_{x} \partial x -\frac{1}{2} \left.u_xu_x\right|_S=\frac{1}{2} \frac{\partial }{\partial t}||u_{x}||^2 -\frac{1}{2} \left.u_xu_x\right|_S.
+\end{equation}
+
+Introduciendo \eqref{eq:primerfactor} y \eqref{eq:segundofactor} en la ecuación \eqref{ondau_t2} queda:
+
+$$\frac{\partial}{\partial t}\left( \frac{1}{2}||u_t||^2+\frac{c^2}{2}||u_x||^2\right)= c^2\left.u_tu_x\right|_S-\frac{c^2}{2} \left.u_xu_x\right|_S -\frac{1}{2} \left.u_tu_t\right|_S .$$
+
+
+Definiremos $\mathfrak{B}\triangleq  c^2\left.u_tu_x\right|_S+\frac{c^2}{2} \left.u_xu_x\right|_S +\frac{1}{2} \left.u_tu_t\right|_S $.\\
+Ahora podremos separar en energía cinética $K= \frac{1}{2}||u_t||^2$ y la energía potencial $P = \frac{c^2}{2}||u_x||^2 $ de donde se sigue que la energía total será
+$$\mathfrak{H}= K+ P= \frac{1}{2}||u_t||^2 +\frac{\mu^2}{2}||u_x||^2 .$$
+Por otro lado, tenemos que $\frac{\partial}{\partial t}\mathfrak{H}=\mathfrak{B}$, para que se diese conservación de la energía tendrá que ser $\mathfrak{B}=0$. Desarrollandolo,
 
 \begin{equation*}
 	\begin{split}
-		u_t&= \frac{d}{dt}(p^+(x+ct)+p^-(x-ct))=cp_t^+(x+ct)-cp_t^-(x-ct),\\
-		u_{tt}&= \frac{d^2}{dt^2}(p^+(x+ct)+p^-(x-ct))=c^2p_{tt}^+(x+ct)+c^2p_{tt}^-(x-ct),\\
-		u_x&= \frac{d}{dx}(p^+(x+ct)+p^-(x-ct))=p_x^+(x+ct)+p_x^-(x-ct),\\
-		u_{xx}&= \frac{d^2}{dx^2}(p^+(x+ct)+p^-(x-ct))=p_{xx}^+(x+ct)+p_{xx}^-(x-ct).
+		0=\mathfrak{B}&=c^2(u_t(l,t)u_x(l,t)-u_t(0,t)u_x(0,t))+\frac{c^2}{2} \left(u_x(l,t)u_x(l,t)-u_x(0,t)u_x(0,t)\right)\\
+		& +\frac{1}{2} \left(u_t(l,t)u_t(l,t)-u_t(0,t)u_t(0,t)\right)
 	\end{split}
 \end{equation*}
 
 
-Por lo tanto la ecuación nos queda de la siguiente forma,
-
-\begin{equation}\label{eq:transporte}
-	c^2p_{tt}^+(x+ct)+c^2p_{tt}^-(x-ct)=c^2(p_{xx}^+(x+ct)+p_{xx}^-(x-ct))
-\end{equation}
-
-
-
-
-\section{La energía en la ecuación de ondas}
-\label{sec:energiaondas}
-
-En esta sección nos centraremos en analizar la ley de energía an la ecuación de ondas. Para poder ver como se comportará la energía en nuestro esquema deberemos comenzar viéndolo en la ecuación \eqref{eq:basica}, suponiendo que en este caso el espacio está definido sobre todo $\mathbb{R}$.\\
- Para poder obtener el la energía de la ecuación haremos el producto interior \ref{Inner} de la misma con $u_t$ (PORQUE SE HACE ESTO?):
-
-\begin{equation*}
-	\left<u_{t},u_{tt}\right> = c^2\left<u_{t},u_{xx}\right>
-\end{equation*} 
-
-
-Para poder obtener cada uno de los términos de la energía tendremos que ponerlo de la forma $\frac{d}{dt}\left(\cdot\right)$, comenzaremos por el termino de la izquierda. Comencemos desarrollándolo:
-
-$$\left<u_{t},u_{tt}\right>=\int_{\mathbb{R}}u_{t}u_{tt}dx=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}.dx$$
-
-
-Utilizando la integración por partes en una de las integrales obtendremos,
-$$\left<u_{t},u_{tt}\right>=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{tt}u_{t}dx + \left.u_{tt}^2\right|_\mathbb{R}.$$
-Como $\left.u_{tt}^2\right|_\mathbb{R}=0$ y utilizando la regla de la cadena tenemos que
-
-$$\left<u_{t},u_{tt}\right>=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}dx+\frac{1}{2}\int_{\mathbb{R}}u_{tt}u_{t}dx=\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{tt}+u_{tt}u_{t} dx=\frac{1}{2}\int_{\mathbb{R}}\frac{d}{dt}u_{t}u_{t} dx .$$
-
-Por último, al ser $\frac{d}{dt}$ independiente de $x$, suponiendo que se dan en $u$ y en $u_t$ condiciones de continuidad adecuadas y utilizando la definición de norma \ref{Inner},
-
-$$\left<u_{t},u_{tt}\right>=\frac{d}{dt}\frac{1}{2}\int_{\mathbb{R}}u_{t}u_{t} dx = \frac{d}{dt}\frac{1}{2}||u_{t}||^2 dx.$$
-
-
-Ahora nos centraremos en el termino de la derecha, y de manera totalmente análoga al anterior,
-
-$$\left<u_{t},u_{xx}\right>=\frac{d}{dt}\frac{1}{2}\int_{\mathbb{R}}u_{x}u_{x} dx = \frac{d}{dt}\frac{1}{2}||u_{x}||^2 dx,$$
-
-por consiguiente nos quedaría,
-
-$$0= \frac{d}{dt}\left( \frac{1}{2}||u_t||^2+\frac{c^2}{2}||u_x||^2\right).$$
-
-
-(EXPLICAR PORQUE CADA TERMINO ES ASÍ O REFERENCIAR)\\
-Ahora podremos separar en energía cinética $\mathfrak{T}= \frac{1}{2}||u_t||^2$ y la energía potencial $\mathfrak{B} = \frac{\mu^2}{2}||u_x||^2 $ de donde se sigue que la energía total será
-$$\mathfrak{H}= \mathfrak{T}+ \mathfrak{B}= \frac{1}{2}||u_t||^2 +\frac{\mu^2}{2}||u_x||^2 .$$
-Por otro lado, tenemos que $\frac{d}{dt}\mathfrak{H}=0$, ya que tanto $\mathfrak{T}$, como $\mathfrak{B}$ son no negativas implicará que 
-
-
-
-\begin{equation*}
-	\begin{array}{ccc}   
-		\mathfrak{H}(t)= \mathfrak{H}(0) \geq 0,\ \ \ \  &  ||u_t||_\mathbb{R}\leq \sqrt{2\mathfrak{H}(0)}  & \ \ \text{y}\ \ \ ||u_x||_\mathbb{R}\leq \frac{\sqrt{2\mathfrak{H}(0)}}{2}.
-	\end{array}
-\end{equation*}
-
-Vemos que esto nos impone ciertas restricciones a nuestra ecuación, estos se traducirán a condiciones de contorno en nuestro esquema.
+Vemos que esto nos impone ciertas restricciones a nuestra ecuación, estas se traducirán a condiciones de contorno en nuestro esquema.
 
 
 

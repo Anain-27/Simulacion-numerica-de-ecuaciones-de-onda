@@ -59,6 +59,7 @@
 \usepackage{eucal}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[perpage]{footmisc}
+\usepackage{hyperref}
 
 
 \usepackage[round, sort, numbers, authoryear]{natbib}
@@ -735,7 +736,9 @@
 \newtcolorbox[auto counter, number within=section]{corolario}[2][]
 {fonttitle=\bfseries, title=COROLARIO~\thetcbcounter: #2,#1}
 
-
+%para los lemas
+\newtcolorbox[auto counter, number within=section]{lema}[2][]
+{fonttitle=\bfseries, title=LEMA~\thetcbcounter: #2,#1}
 %\theoremstyle{plain}% default
 %\newtheorem{teorema}{Teorema}[chapter] 
 %\newtheorem{proposicion}{Proposici\'on}[chapter] 
