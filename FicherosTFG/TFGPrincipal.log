@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  23 JUN 2023 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  23 JUN 2023 20:36
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -2104,10 +2104,10 @@ Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
 (rerunfilecheck)             Checksum: 0D1758D6FDD3D3F602EF297A511BDBD6;533.
  ) 
 Here is how much of TeX's memory you used:
- 28622 strings out of 478927
- 512900 string characters out of 2845389
- 877469 words of memory out of 3000000
- 45567 multiletter control sequences out of 15000+600000
+ 28629 strings out of 478927
+ 512969 string characters out of 2845389
+ 878485 words of memory out of 3000000
+ 45573 multiletter control sequences out of 15000+600000
  449672 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,20n,122p,1028b,670s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2138,9 +2138,9 @@ fb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw
 X/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local
 /Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cóza
 r/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (66 pages, 1836157 bytes).
+Output written on TFGPrincipal.pdf (66 pages, 1837067 bytes).
 PDF statistics:
- 911 PDF objects out of 1000 (max. 8388607)
- 200 named destinations out of 1000 (max. 500000)
+ 912 PDF objects out of 1000 (max. 8388607)
+ 201 named destinations out of 1000 (max. 500000)
  510 words of extra memory for PDF output out of 10000 (max. 10000000)
 

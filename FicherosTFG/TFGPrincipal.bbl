@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{royden2010real}
+H.L. Royden and P.~Fitzpatrick.
+\newblock {\em Real Analysis}.
+\newblock Prentice Hall, 2010.
+
 \bibitem{Wazwaz}
 Abdul-Majid Wazwaz.
 \newblock {\em Partial Differential Equations and Solitary Waves Theory}.
@@ -10,11 +15,6 @@ K.~W. Morton, D.~F. Mayers, and D.~F. Mayers.
 \newblock {\em Numerical solution of partial differential equations: an
   introduction}.
 \newblock Cambridge University Press, Cambridge, 2nd edition, 2005.
-
-\bibitem{royden2010real}
-H.L. Royden and P.~Fitzpatrick.
-\newblock {\em Real Analysis}.
-\newblock Prentice Hall, 2010.
 
 \bibitem{Camarena2004LaTD}
 Patricia Camarena.
@@ -97,5 +97,11 @@ Stig Larsson and Vidar Thom{\'e}e.
 \newblock {\em Partial differential equations with numerical methods},
   volume~45.
 \newblock Springer, Berlin, 1st softcover pr. edition, 2009.
+
+\bibitem{CHEN}
+E.W. Chen, Q.~Luo, N.S. Ferguson, and Y.M. Lu.
+\newblock A reflected wave superposition method for vibration and energy of a
+  travelling string.
+\newblock {\em Journal of Sound and Vibration}, 400:40--57, 2017.
 
 \end{thebibliography}
