@@ -32,6 +32,6 @@
 \contentsline {chapter}{\numberline {6}Conclusiones}{43}{chapter.6}%
 \contentsline {chapter}{\numberline {A}Anexo}{45}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Resoluci\'on num\'erica}{45}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Wave}{48}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Im\'agenes}{50}{section.A.3}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{53}{appendix*.28}%
+\contentsline {section}{\numberline {A.2}Wave}{52}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Im\'agenes}{54}{section.A.3}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{59}{appendix*.28}%

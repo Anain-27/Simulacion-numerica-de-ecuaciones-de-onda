@@ -6,7 +6,7 @@
 Comenzaremos dando una introducción a la ecuación de onda en $\mathbb{R}^n$, con $n \geq 1$, siguiendo \citep{Wazwaz,AnIntroduction}. Para simplificar la notación denotaremos a la función $u(x,t)$, como $u$, ahora la ecuacion general de la ecuación de onda será,
 
 \begin{equation}\label{eq:onda}
-	u_{tt}- c^2 \Delta u = f ,\quad \Omega \times[0,+\infty).
+	u_{tt}- c^2 \Delta u = f ,\quad \Omega \times[0,+\infty),
 \end{equation}
 donde $\Omega \subset \mathbb{R}^n$, $f$ es una función de valores reales, $c>0$ es una constante de propagación y el operador 
 \begin{equation}
@@ -50,7 +50,7 @@ Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos
 
 Aplicando ahora la segunda Ley de Newton, la fuerza debe ser la masa por la aceleración. Luego será la masa $\rho_l \Delta S$, donde $\rho_l $ es la densidad lineal de masa de la cuerda y como estamos en un ambiente diferencial podemos aproximar $\Delta S \approxeq \Delta x $, y la aceleración $u_{tt}(x,t)$. Reestructurando la ecuación queda:
 
-$$u_{tt}(x,t)=\frac{F_T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}$$
+$$u_{tt}(x,t)=\frac{F_T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}.$$
 
 Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{F_T}{\rho_l}$ la ecuación queda de la siguiente forma:
 \begin{equation}\label{eq:basica}
@@ -76,7 +76,7 @@ En este caso podemos tomamos el dominio como $\Omega^1\subset \mathbb{R}$, donde
 \end{equation} 
 \begin{equation}\label{eq:frontera3}
 	\begin{array}{lc}   
-		u(0,t)=u(l,t)=0, &  t\in(0,T),
+		u(0,t)=u(l,t)=0, &  t\in(0,T).
 	\end{array}
 \end{equation} 
 
@@ -166,7 +166,7 @@ donde $A,B$ son constantes que tomaremos como 0 al saber que $A+B=$ gracias a \r
 
 Finalmente llegamos. a que  la solución del problema de valores iniciales, será:
 \begin{equation*}
-	u(x,t)= \frac{1}{2}\left(f'(x+ct)+f'(x-ct)\right) + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\partial s 
+	u(x,t)= \frac{1}{2}\left(f'(x+ct)+f'(x-ct)\right) + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\partial s. 
 \end{equation*}
 
 
@@ -177,7 +177,7 @@ Finalmente llegamos. a que  la solución del problema de valores iniciales, será:
 En esta sección nos centraremos en analizar la ley de energía en la ecuación de onda. Llamemos $S=(0,L)$. Para poder obtener el la energía de la ecuación haremos el producto interior \ref{Inner} de la misma con $u_t$:
 
 \begin{equation*}
-	\left<u_t(\cdot,t),u_{tt}(\cdot,t)\right>_S = c^2\left<u_{t}(\cdot,t),u_{xx}(\cdot,t)\right>_S
+	\left<u_t(\cdot,t),u_{tt}(\cdot,t)\right>_S = c^2\left<u_{t}(\cdot,t),u_{xx}(\cdot,t)\right>_S.
 \end{equation*} 
 
 Para facilitar el entendimiento de la sección simplificaremos la notación de la siguiente forma:
@@ -196,6 +196,7 @@ Por otro lado necesitaremos ver como se puede descomponer $\frac{\partial}{\part
 \begin{equation*}
 	\frac{\partial}{\partial t}||u_t||_S^2 = \frac{\partial}{\partial t}\int_S u_tu_t \partial x. 
 \end{equation*}
+
 Ya que, $\frac{\partial}{\partial t}$ independiente de $x$, y suponiendo que se dan en $u$ y en $u_t$ condiciones de continuidad adecuadas, podremos permutar de sitio la integral y la derivada, y por tanto,
 \begin{equation*}
 	\frac{\partial}{\partial t}||u_t||_S^2 = \int_S \frac{\partial}{\partial t} u_t u_t \partial x, 
@@ -224,7 +225,7 @@ Utilizando \eqref{eq:intpartes} en el último sumando,
 
 Agrupando los términos tendremos,
 \begin{equation*}
-	2\left<u_{t},u_{tt}\right>_S= \frac{\partial}{\partial t}||u_t||_S^2 - \left.u_tu_t\right|_S.
+	2\left<u_{t},u_{tt}\right>_S= \frac{\partial}{\partial t}||u_t||_S^2 - \left.u_tu_t\right|_S,
 \end{equation*}
 \begin{equation}\label{eq:primerfactor}
 	\left<u_{t},u_{tt}\right>_S=\frac{1}{2} \frac{\partial}{\partial t}||u_t||_S^2 -\frac{1}{2} \left.u_tu_t\right|_S.
@@ -251,12 +252,13 @@ $$\frac{\partial}{\partial t}\left( \frac{1}{2}||u_t||^2+\frac{c^2}{2}||u_x||^2\
 Definiremos $\mathfrak{B}\triangleq  c^2\left.u_tu_x\right|_S+\frac{c^2}{2} \left.u_xu_x\right|_S +\frac{1}{2} \left.u_tu_t\right|_S $.\\
 Ahora podremos separar en energía cinética $K= \frac{1}{2}||u_t||^2$ y la energía potencial $P = \frac{c^2}{2}||u_x||^2 $ de donde se sigue que la energía total será
 $$\mathfrak{H}= K+ P= \frac{1}{2}||u_t||^2 +\frac{\mu^2}{2}||u_x||^2 .$$
+
 Por otro lado, tenemos que $\frac{\partial}{\partial t}\mathfrak{H}=\mathfrak{B}$, para que se diese conservación de la energía tendrá que ser $\mathfrak{B}=0$. Desarrollandolo,
 
 \begin{equation*}
 	\begin{split}
 		0=\mathfrak{B}&=c^2(u_t(l,t)u_x(l,t)-u_t(0,t)u_x(0,t))+\frac{c^2}{2} \left(u_x(l,t)u_x(l,t)-u_x(0,t)u_x(0,t)\right)\\
-		& +\frac{1}{2} \left(u_t(l,t)u_t(l,t)-u_t(0,t)u_t(0,t)\right)
+		& +\frac{1}{2} \left(u_t(l,t)u_t(l,t)-u_t(0,t)u_t(0,t)\right).
 	\end{split}
 \end{equation*}
 

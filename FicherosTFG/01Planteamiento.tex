@@ -98,7 +98,6 @@ Una vez ya definido este mallado veamos como se extendería la definición  \ref{P
 	\left<u(\cdot,t_r),w(\cdot,t_r)\right>'_D= \sum_{j=1}^{m}h u(x_j,t_r)w(x_j,t_r),
 \end{equation}
 donde $D=\{x_1,\dots,x_m\}$ definido en nuestro mallado.\\
-
 Para este tipo de casos usaremos la siguiente notación:
 
 \begin{equation}\label{eq:notacioninteriordiscretomalla}
@@ -135,13 +134,12 @@ Para segundo orden definimos,
 	\begin{equation*}
 		\begin{split}
 			\delta_{x}u_{j,r}&=  \delta_{x^+}\delta_{x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2+e_{x^-}u_{j,r}\right)=\\
-			&=\frac{1}{h^2}\left(u_{j+1,r}-2+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}
+			&=\frac{1}{h^2}\left(u_{j+1,r}-2+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}.
 		\end{split}
 	\end{equation*} 
 \end{definicion}
 
 Al igual que la definición anterior esto será análogo en el eje temporal.\\
-
 Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes.
 \begin{lema}[label={SumaPartes},nameref={Title or anything else}]{Representación de la suma por partes}
 	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m\}$, la representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
@@ -150,7 +148,7 @@ Para finalizar la sección, hay otro concepto que tendremos que introducir. Este 
 		\begin{split}
 			\left<u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right>'_D&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
 			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}=\\
-			&=-\left<\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right>'_D+u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
+			&=-\left<\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right>'_D+u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}.
 		\end{split}
 	\end{equation}
 	
@@ -158,7 +156,7 @@ Para finalizar la sección, hay otro concepto que tendremos que introducir. Este 
 		\begin{split}
 			\left<u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right>'_D&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
 			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}=\\
-			&=-\left<\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right>'_D-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}
+			&=-\left<\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right>'_D-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
 		\end{split}
 	\end{equation}
 \end{lema}

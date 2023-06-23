@@ -18,6 +18,7 @@ $$\begin{array}{lcc}
 	x_j=jh & para &  j=1,\dots,m, \\
 	\\t_r = rk & para & r=0,1,\dots,n.
 \end{array} $$
+
 En este caso elegimos un entero m y el tamaño de paso de tiempo correspondiente $k>0$. El tamaño de paso del espacio será $h=\frac{l}{m}$ y con esto haremos un mallado del tipo $(x_j,t_r)$.\\
 
 Vemos que los puntos $(x_j,t_r)$ del interior del dominio espacio temporal podrían escribirse como:
@@ -61,6 +62,7 @@ A continuación nos centraremos en dichas condiciones, siguiendo \citep{strauss}.
  		u_{j,0}=f(x_j), & \text{    para    } & j=0,1,\dots,m.
  	\end{array}
  \end{equation*}
+ 
   Por otra parte, las condiciones de tipo Dirichlet \eqref{eq:frontera3} quedarán como $u_{0,r}=u_{m,r}=0 $ para $r=0,1,\dots,n$.\\
   
   Para la condición que falta \ref{eq:frontera2} utilizaremos, haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$, que servirá ya sean las $f$ y $g$ derivables o no. Para esta podría haber muchas mas opciones. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
@@ -97,6 +99,7 @@ Nuestro esquema al completo quedaría:
 
 Para poder comprobar el orden del esquema que hemos elegido \eqref{eq:ondadespejado} vamos a hacer un análisis de la consistencia, que comenzaremos dividiendo la ecuación \eqref{eq:ondametodo} de la siguiente forma,
 $$\underbrace{\frac{u(j,r+1)-2u(j,r)+u(j,r-1)}{k^2}}_{(1)}-c^2\underbrace{\frac{u(j+1,r)-2u(j,r)+u(j-1,r)}{h^2}}_{(2)}=0.$$
+
 Haremos ahora el desarrollo de Taylor para cada una de las componentes anteriores,denotando para las derivadas a partir de orden dos  $u_{xxx}=u_{3x}$ y $u_{ttt}=u_{3t}$ respectivamente. Suponiendo que nuestra solución $u$ sea suficientemente regular, es decir, que se pueda derivar tantas veces como haga fatal obtendremos.
 \begin{equation*}
 	\begin{split}
@@ -170,7 +173,6 @@ Comenzamos relacionando cada solución numérica del esquema con la solución exact
 \begin{equation}\label{eq:num,ex,error}
 	u_{j,r}=u(x_j,t_r)+\varepsilon_{j,r}
 \end{equation}
-
 donde $\varepsilon_{j,r}$ denotará el error en cada uno de los puntos del retículo que hemos formado.\\
 
 
@@ -179,14 +181,14 @@ Ahora  vamos a aplicarlo a la ecuación de onda, para profundizar en la estabilid
 \begin{equation*}
 	\begin{split}
 			&\left(\frac{u(x_j,t_{r+1}) - 2u(x_{j},t_{r}) +u(x_j,t_{r-1})}{k^2} - c^2 \frac{u(x_{j+1},t_{r}) - 2u(x_{j},t_{r}) +u(x_{j-1},t_{r})}{h^2}\right)+\\
-			&+\left(\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}\right)=0 
+			&+\left(\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}\right)=0 .
 	\end{split}
 \end{equation*}
 
 Como cualquier esquema numérico lineal se satisface de manera exacta por $u(x_{j},t_{r})$, los errores también serán soluciones de la ecuación discretizada, obteniendo.\\
 
 \begin{equation*}
-	\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}=0
+	\frac{\varepsilon_{j,r+1} - 2v_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}=0.
 \end{equation*}
 
 Tomando la solución de tipo onda $\varepsilon_{j,r}=g^re^{ij\beta h}$ donde i es la unidad imaginaria, g denota el factor de amplitud y $\beta$ se corresponderá con el número de onda de la ecuación de Fourier.
@@ -247,10 +249,11 @@ Vamos a ver que pasará dependiendo de los valores posibles de $A$. Como $2\mu ^2
 	 $$1-2\mu^2\geq-1,$$
 	 $$2\mu^2\leq2,$$
 	 \begin{equation}\label{mu}
-	 	\mu\leq 1.
+	 	\mu\leq 1,
 	 \end{equation}
-	 llegamos que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, la condición CFL.		
+	 llegamos a que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, la condición CFL.		
 \end{itemize}
+
 Por lo tanto nuestro esquema será condicionalmente estable.
 En este caso, tal y como podemos extraer de \citep{AnIntroduction}, mirando el dominio de dependencia (\ref{domdep}) nos damos cuenta de que, cuando se de la igualdad a uno, este coincidirá con los puntos de nuestra discretización, es decir, dependerá del menor número de puntos posibles, mientras cumple la condición CFL.\\
 
@@ -283,7 +286,7 @@ Partiendo de las representaciones de las soluciones \eqref{repp-} y \eqref{repp+
 \begin{equation*}
 	\begin{split}
 		p_-(x_j+ct_r)&=\frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j+ct_r}g(s)\partial s =\\
-		&= \frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j}g(s)\partial s + \frac{1}{2c}\int_{x_j}^{x_j+ct_r}g(s)\partial s
+		&= \frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j}g(s)\partial s + \frac{1}{2c}\int_{x_j}^{x_j+ct_r}g(s)\partial s.
 	\end{split}
 \end{equation*}
 
@@ -291,7 +294,7 @@ Realizamos una aproximación de cada una de las integrales utilizando el método d
 \begin{equation*}
 	\begin{split}
 		w^-_{j,r}&= \frac{1}{2}f(x_j+ct_r) + \frac{h}{4c}\left(g(x_0)+2\sum_{i=1}^{j-1}g(x_i)+ g(x_j)\right)\\
-		& + \frac{ck}{4c}\left(g(x_j+ct_0)+2\sum_{i=1}^{r-1}g(x_j+ct_i)+ g(x_j+ct_r)\right)
+		& + \frac{ck}{4c}\left(g(x_j+ct_0)+2\sum_{i=1}^{r-1}g(x_j+ct_i)+ g(x_j+ct_r)\right).
 	\end{split}
 \end{equation*}
 
@@ -330,8 +333,8 @@ Ahora para desarrollar la parte derecha de la igualdad usaremos la observación \
 
 \begin{equation}\label{deltaxx}
 	\begin{split}
-		\left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D &\underset{\ref{derivada2}}{=} \left<\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right>'_D\\
-		\underset{\eqref{eq:rep2}}{=}-\left<\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right>'_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r})
+		\left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D &\underset{\ref{derivada2}}{=} \left<\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right>'_D,\\
+		\underset{\eqref{eq:rep2}}{=}-\left<\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right>'_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}).
 	\end{split}
 \end{equation}
 
@@ -352,7 +355,7 @@ Identificamos los términos, de la energía total $\mathfrak{h}$, energía cinética
 
 Y por lo tanto se dará la conservación de energía cuando $\mathfrak{b}=0$, es decir cuando 
 \begin{equation}\label{energiacero}
-	(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})= (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r})
+	(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})= (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}).
 \end{equation}
 
 Esto se puede dar de muchas maneras, pero las mas sencillas y estudiadas son que ambas sean cero. Para el lado izquierdo de \eqref{energiacero} se traduciría en:
@@ -367,7 +370,7 @@ Esto se puede dar de muchas maneras, pero las mas sencillas y estudiadas son que
 \end{equation*}
 \begin{equation}\label{segundacond}
 	\begin{array}{lc}
-		\delta_{x^-}u_{0,r} &   r=0,1,\dots,n,\\
+		\delta_{x^-}u_{0,r} &   r=0,1,\dots,n.\\
 	\end{array} 
 \end{equation}
 
@@ -396,7 +399,7 @@ Miramos ahora el lado derecho de la igualdad \eqref{energiacero} e igualando a c
 		\delta_{x^-}u_{m,r} &   r=0,1,\dots,n,\\
 	\end{array} 
 \end{equation}
-(AQUÍ EL PROBLEMA ES Que NO SE REALMENTE COMO INTERPRETAR ESTO. PORQUE LA PRIMERA CONDICIÓN SE REFIERE A UNA RECTA DE PUNTOS VIRTUALES (queda $u_{m+1,r}=0$) Y LA SEGUNDA UNOS PUNTOS QUE YA TENEMOS DEFINIDOS POR NUESTRO ESQUEMA\eqref{esquemacompletoonda} ($u_{m,r}=u_{m-1,r}$ LO QUE AL METERLO EN EL ESQUEMA \eqref{eq:ondadespejado},ME QUEDA $u_{m,r+1}=(2-\mu^2)u_{m,r} + \mu^2u_{m+1,r}-u_{m,r-1}$) Y AL TENER NODOS VIRTUALES TAMPOCO SE COMO SE COMO CONTINUAR)\\
+(AQUÍ EL PROBLEMA ES QUE NO SE REALMENTE COMO INTERPRETAR ESTO. PORQUE LA PRIMERA CONDICIÓN SE REFIERE A UNA RECTA DE PUNTOS VIRTUALES (queda $u_{m+1,r}=0$) Y LA SEGUNDA UNOS PUNTOS QUE YA TENEMOS DEFINIDOS POR NUESTRO ESQUEMA\eqref{esquemacompletoonda} ($u_{m,r}=u_{m-1,r}$ LO QUE AL METERLO EN EL ESQUEMA \eqref{eq:ondadespejado},ME QUEDA $u_{m,r+1}=(2-\mu^2)u_{m,r} + \mu^2u_{m+1,r}-u_{m,r-1}$) Y AL TENER NODOS VIRTUALES TAMPOCO SE COMO SE COMO CONTINUAR)\\
 
  En el capítulo siguiente modificaremos estas expresiones obtenidas, para ver que pasa cuando no se da conservación de la energía.
 
