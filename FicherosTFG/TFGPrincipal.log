@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  23 JUN 2023 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  23 JUN 2023 19:26
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -138,6 +138,316 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/natbib\n
+atbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip58
+\bibsep=\skip59
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count195
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\ift
+hen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tools\mu
+lticol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count196
+\mult@box=\box50
+\multicol@leftmargin=\dimen147
+\c@unbalance=\count197
+\c@collectmore=\count198
+\doublecol@number=\count199
+\multicoltolerance=\count266
+\multicolpretolerance=\count267
+\full@width=\dimen148
+\page@free=\dimen149
+\premulticols=\dimen150
+\postmulticols=\dimen151
+\multicolsep=\skip60
+\multicolbaselineskip=\skip61
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen152
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@gfirstbox=\box55
+\mult@firstbox=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\c@minrows=\count268
+\c@columnbadness=\count269
+\c@finalcolumnbadness=\count270
+\last@try=\dimen153
+\multicolovershoot=\dimen154
+\multicolundershoot=\dimen155
+\mult@nat@firstbox=\box94
+\colbreak@box=\box95
+\mc@col@check@num=\count271
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tocbibin
+d\tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/xifthen\
+xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tools\ca
+lc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count272
+\calc@Bcount=\count273
+\calc@Adimen=\dimen156
+\calc@Bdimen=\dimen157
+\calc@Askip=\skip62
+\calc@Bskip=\skip63
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count274
+\calc@Cskip=\skip64
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/ifmtarg\
+ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+))
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\mak
+eidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\inp
+utenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\lat
+in1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+))
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
+amsmath.sty
+Package: amsmath 2021/04/20 v2.17j AMS math features
+\@mathmargin=\skip65
+
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
+amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
+amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen158
+))
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
+amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen159
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
+amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count275
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count276
+\leftroot@=\count277
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count278
+\DOTSCASE@=\count279
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box96
+\strutbox@=\box97
+\big@size=\dimen160
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count280
+\c@MaxMatrixCols=\count281
+\dotsspace@=\muskip16
+\c@parentequation=\count282
+\dspbrk@lvl=\count283
+\tag@help=\toks22
+\row@=\count284
+\column@=\count285
+\maxfields@=\count286
+\andhelp@=\toks23
+\eqnshift@=\dimen161
+\alignsep@=\dimen162
+\tagshift@=\dimen163
+\tagwidth@=\dimen164
+\totwidth@=\dimen165
+\lineht@=\dimen166
+\@envbody=\toks24
+\multlinegap=\skip66
+\multlinetaggap=\skip67
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
+babel.sty
+Package: babel 2021/07/22 3.63 The Babel package
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
+babel.def
+File: babel.def 2021/07/22 3.63 Babel common definitions
+\babel@savecnt=\count287
+\U@D=\dimen167
+\l@unhyphenated=\language79
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
+txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count288
+
+*************************************
+* Local config file bblopts.cfg used
+*
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bb
+lopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-sp
+anish\spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks26
+\es@quotdepth=\count289
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+Package babel Info: Making ' an active character on input line 740.
+)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-en
+glish\british.ldf
+Language: british 2017/06/06 v3.3r English support from the babel system
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-en
+glish\english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+)))
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/nomencl\
+nomencl.sty
+Package: nomencl 2020/12/29 v5.5 Nomenclature package
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\
+xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyva
+l\xkeyval.tex
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyva
+l\xkvutils.tex
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count290
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
+ipt\tocbasic.sty
+Package: tocbasic 2021/06/25 v3.34 KOMA-Script package (handling toc-files)
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
+ipt\scrbase.sty
+Package: scrbase 2021/06/25 v3.34 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
+ipt\scrlfile.sty
+Package: scrlfile 2021/06/25 v3.34 KOMA-Script package (file load hooks)
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
+ipt\scrlfile-hook.sty
+Package: scrlfile-hook 2021/06/25 v3.34 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
+ipt\scrlogo.sty
+Package: scrlogo 2021/06/25 v3.34 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)
+\scr@dte@tocline@numberwidth=\skip68
+\scr@dte@tocline@numbox=\box98
+)
+Package tocbasic Info: setting babel extension for `nlo' on input line 187.
+Package tocbasic Info: setting babel extension for `nls' on input line 188.
+\nomlabelwidth=\dimen168
+\nom@tempdim=\dimen169
+\nomitemsep=\skip69
+)
+\@nomenclaturefile=\write3
+\openout3 = `TFGPrincipal.nlo'.
+
+Package nomencl Info: Writing nomenclature file TFGPrincipal.nlo on input line 
+120.
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\
+ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\
+iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref
 \hyperref.sty
 Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
@@ -145,10 +455,6 @@ Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmd
 s\ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\
-iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/pdftex
 cmds\pdftexcmds.sty
@@ -191,9 +497,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 s\kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen147
-\Hy@linkcounter=\count195
-\Hy@pagecounter=\count196
+\@linkdim=\dimen170
+\Hy@linkcounter=\count291
+\Hy@pagecounter=\count292
 
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref
 \pd1enc.def
@@ -214,7 +520,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count197
+\Hy@SavedSpaceFactor=\count293
 
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref
 \puenc.def
@@ -222,39 +528,84 @@ File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Option `plainpages' set `false' on input line 4073.
+Package hyperref Info: Option `pdfpagelabels' set `true' on input line 4073.
+
+
+Package hyperref Warning: Values of option `pdfpagelayout':
+(hyperref)                * `SinglePage'
+(hyperref)                * `OneColumn'
+(hyperref)                * `TwoColumnLeft'
+(hyperref)                * `TwoColumnRight'
+(hyperref)                * `TwoPageLeft' (PDF 1.5)
+(hyperref)                * `TwoPageRight' (PDF 1.5)
+(hyperref)                * An empty value disables the option.
+(hyperref)                Unknown value `useoutlines' on input line 4073.
+
+Package hyperref Info: Option `bookmarks' set `true' on input line 4073.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4073.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4073
+.
+Package hyperref Info: Option `breaklinks' set `true' on input line 4073.
+Package hyperref Info: Option `linktocpage' set `true' on input line 4073.
+Package hyperref Info: Option `colorlinks' set `false' on input line 4073.
+Package hyperref Info: Option `hyperindex' set `true' on input line 4073.
+Package hyperref Info: Option `hyperfigures' set `true' on input line 4073.
+Package hyperref Info: Hyper figures ON on input line 4190.
 Package hyperref Info: Link nesting OFF on input line 4197.
 Package hyperref Info: Hyper index ON on input line 4200.
 Package hyperref Info: Plain pages OFF on input line 4207.
-Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Backreferencing ON on input line 4210.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count198
 
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/url\url.
-sty
-\Urlmuskip=\muskip16
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref
+\backref.sty
+Package: backref 2021/02/04 v1.41 Bibliographical back referencing
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/rerunfil
+echeck\rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\atv
+eryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
 )
-LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen148
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/bitset
-\bitset.sty
-Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/unique
+counter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/bigint
 calc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count199
-\Field@Width=\dimen149
-\Fld@charsize=\dimen150
-Package hyperref Info: Hyper figures OFF on input line 6076.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+))
+\c@Hy@tempcnt=\count294
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/url\url.
+sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen171
+
+(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/bitset
+\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+)
+\Fld@menulength=\count295
+\Field@Width=\dimen172
+\Fld@charsize=\dimen173
+Package hyperref Info: Hyper figures ON on input line 6074.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
-Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: backreferencing ON on input line 6089.
 Package hyperref Info: Link coloring OFF on input line 6096.
 Package hyperref Info: Link coloring with OCG OFF on input line 6101.
 Package hyperref Info: PDF/A mode OFF on input line 6106.
@@ -266,369 +617,19 @@ egshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count266
-\c@Item=\count267
-\c@Hfootnote=\count268
+\Hy@abspage=\count296
+\c@Item=\count297
+\c@Hfootnote=\count298
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver: hpdftex.
 
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref
 \hpdftex.def
 File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\atv
-eryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
-e
-with kernel methods
+\Fld@listcount=\count299
+\c@bookmark@seq@number=\count300
+\Hy@SectionHShift=\skip70
 )
-\Fld@listcount=\count269
-\c@bookmark@seq@number=\count270
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/rerunfil
-echeck\rerunfilecheck.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/unique
-counter\uniquecounter.sty
-Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
-)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-86.
-)
-\Hy@SectionHShift=\skip58
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/natbib\n
-atbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip59
-\bibsep=\skip60
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count271
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\ift
-hen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tools\mu
-lticol.sty
-Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count272
-\mult@box=\box50
-\multicol@leftmargin=\dimen151
-\c@unbalance=\count273
-\c@collectmore=\count274
-\doublecol@number=\count275
-\multicoltolerance=\count276
-\multicolpretolerance=\count277
-\full@width=\dimen152
-\page@free=\dimen153
-\premulticols=\dimen154
-\postmulticols=\dimen155
-\multicolsep=\skip61
-\multicolbaselineskip=\skip62
-\partial@page=\box51
-\last@line=\box52
-\maxbalancingoverflow=\dimen156
-\mult@rightbox=\box53
-\mult@grightbox=\box54
-\mult@gfirstbox=\box55
-\mult@firstbox=\box56
-\@tempa=\box57
-\@tempa=\box58
-\@tempa=\box59
-\@tempa=\box60
-\@tempa=\box61
-\@tempa=\box62
-\@tempa=\box63
-\@tempa=\box64
-\@tempa=\box65
-\@tempa=\box66
-\@tempa=\box67
-\@tempa=\box68
-\@tempa=\box69
-\@tempa=\box70
-\@tempa=\box71
-\@tempa=\box72
-\@tempa=\box73
-\@tempa=\box74
-\@tempa=\box75
-\@tempa=\box76
-\@tempa=\box77
-\@tempa=\box78
-\@tempa=\box79
-\@tempa=\box80
-\@tempa=\box81
-\@tempa=\box82
-\@tempa=\box83
-\@tempa=\box84
-\@tempa=\box85
-\@tempa=\box86
-\@tempa=\box87
-\@tempa=\box88
-\@tempa=\box89
-\@tempa=\box90
-\@tempa=\box91
-\@tempa=\box92
-\@tempa=\box93
-\c@minrows=\count278
-\c@columnbadness=\count279
-\c@finalcolumnbadness=\count280
-\last@try=\dimen157
-\multicolovershoot=\dimen158
-\multicolundershoot=\dimen159
-\mult@nat@firstbox=\box94
-\colbreak@box=\box95
-\mc@col@check@num=\count281
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tocbibin
-d\tocbibind.sty
-Package: tocbibind 2010/10/13 v1.5k extra ToC listings
-Package tocbibind Info: The document has chapter divisions on input line 50.
-
-
-Package tocbibind Note: Using chapter style headings, unless overridden.
-
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/xifthen\
-xifthen.sty
-Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/tools\ca
-lc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count282
-\calc@Bcount=\count283
-\calc@Adimen=\dimen160
-\calc@Bdimen=\dimen161
-\calc@Askip=\skip63
-\calc@Bskip=\skip64
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count284
-\calc@Cskip=\skip65
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/ifmtarg\
-ifmtarg.sty
-Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
-))
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\mak
-eidx.sty
-Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\inp
-utenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks19
-\inpenc@posthook=\toks20
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/base\lat
-in1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-))
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
-amsmath.sty
-Package: amsmath 2021/04/20 v2.17j AMS math features
-\@mathmargin=\skip66
-
-For additional information on amsmath, use the `?' option.
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
-amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
-amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
-\ex@=\dimen162
-))
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
-amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen163
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\
-amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
-)
-\inf@bad=\count285
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count286
-\leftroot@=\count287
-LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count288
-\DOTSCASE@=\count289
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box96
-\strutbox@=\box97
-\big@size=\dimen164
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count290
-\c@MaxMatrixCols=\count291
-\dotsspace@=\muskip17
-\c@parentequation=\count292
-\dspbrk@lvl=\count293
-\tag@help=\toks22
-\row@=\count294
-\column@=\count295
-\maxfields@=\count296
-\andhelp@=\toks23
-\eqnshift@=\dimen165
-\alignsep@=\dimen166
-\tagshift@=\dimen167
-\tagwidth@=\dimen168
-\totwidth@=\dimen169
-\lineht@=\dimen170
-\@envbody=\toks24
-\multlinegap=\skip67
-\multlinetaggap=\skip68
-\mathdisplay@stack=\toks25
-LaTeX Info: Redefining \[ on input line 2923.
-LaTeX Info: Redefining \] on input line 2924.
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
-babel.sty
-Package: babel 2021/07/22 3.63 The Babel package
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
-babel.def
-File: babel.def 2021/07/22 3.63 Babel common definitions
-\babel@savecnt=\count297
-\U@D=\dimen171
-\l@unhyphenated=\language79
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/babel\
-txtbabel.def)
-\bbl@readstream=\read2
-)
-\bbl@dirlevel=\count298
-
-*************************************
-* Local config file bblopts.cfg used
-*
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bb
-lopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-sp
-anish\spanish.ldf
-Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-\es@quottoks=\toks26
-\es@quotdepth=\count299
-Package babel Info: Making " an active character on input line 570.
-Package babel Info: Making . an active character on input line 675.
-Package babel Info: Making < an active character on input line 722.
-Package babel Info: Making > an active character on input line 722.
-Package babel Info: Making ' an active character on input line 740.
-)
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-en
-glish\british.ldf
-Language: british 2017/06/06 v3.3r English support from the babel system
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/babel-en
-glish\english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
-Package babel Info: Hyphen rules for 'canadian' set to \l@english
-(babel)             (\language0). Reported on input line 102.
-Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
-Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
-)))
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/nomencl\
-nomencl.sty
-Package: nomencl 2020/12/29 v5.5 Nomenclature package
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\
-xkeyval.sty
-Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyva
-l\xkeyval.tex
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyva
-l\xkvutils.tex
-\XKV@toks=\toks27
-\XKV@tempa@toks=\toks28
-)
-\XKV@depth=\count300
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
-ipt\tocbasic.sty
-Package: tocbasic 2021/06/25 v3.34 KOMA-Script package (handling toc-files)
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
-ipt\scrbase.sty
-Package: scrbase 2021/06/25 v3.34 KOMA-Script package (KOMA-Script-independent 
-basics and keyval usage)
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
-ipt\scrlfile.sty
-Package: scrlfile 2021/06/25 v3.34 KOMA-Script package (file load hooks)
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
-ipt\scrlfile-hook.sty
-Package: scrlfile-hook 2021/06/25 v3.34 KOMA-Script package (using LaTeX hooks)
-
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/koma-scr
-ipt\scrlogo.sty
-Package: scrlogo 2021/06/25 v3.34 KOMA-Script package (logo)
-)))
-Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
-Already applied: [0000/00/00] Usage of raw or classic option list on input line
- 368.
-)
-\scr@dte@tocline@numberwidth=\skip69
-\scr@dte@tocline@numbox=\box98
-)
-Package tocbasic Info: setting babel extension for `nlo' on input line 187.
-Package tocbasic Info: setting babel extension for `nls' on input line 188.
-\nomlabelwidth=\dimen172
-\nom@tempdim=\dimen173
-\nomitemsep=\skip70
-)
-\@nomenclaturefile=\write3
-\openout3 = `TFGPrincipal.nlo'.
-
-Package nomencl Info: Writing nomenclature file TFGPrincipal.nlo on input line 
-120.
-
-(C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\
-ifpdf.sty
-Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-)
-
-! LaTeX Error: Option clash for package hyperref.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.182 
-      
-The package hyperref has already been loaded with options:
-  []
-There has now been an attempt to load it with options
-  [ pdftex, plainpages = false, pdfpagelabels, pdfpagelayout = useoutlines, boo
-kmarks, bookmarksopen = true, bookmarksnumbered = true, breaklinks = true, link
-tocpage, pagebackref, colorlinks = false, linkcolor = blue, urlcolor = blue, ci
-tecolor = red, anchorcolor = green, hyperindex = true, hyperfigures ]
-Adding the global options:
-  , pdftex, plainpages = false, pdfpagelabels, pdfpagelayout = useoutlines, boo
-kmarks, bookmarksopen = true, bookmarksnumbered = true, breaklinks = true, link
-tocpage, pagebackref, colorlinks = false, linkcolor = blue, urlcolor = blue, ci
-tecolor = red, anchorcolor = green, hyperindex = true, hyperfigures 
-to your \documentclass declaration may fix this.
-Try typing  <return>  to proceed.
-
-
 (C:\Users\Ana Cuevas de Cózar\AppData\Local\Programs\MiKTeX\tex/latex/graphics
 \graphicx.sty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
@@ -1336,6 +1337,7 @@ LaTeX Info: Redefining \nameref on input line 53.
 \@outlinefile=\write6
 \openout6 = `TFGPrincipal.out'.
 
+Package backref Info: ** backref set up for natbib ** on input line 53.
 \c@lstlisting=\count383
 <SelloUCA.jpg, id=142, 612.2875pt x 612.2875pt>
 File: SelloUCA.jpg Graphic file (type jpg)
@@ -1385,8 +1387,8 @@ l.2 \begin{resumen}
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8 \end{resumen}
-                  [3])
+l.19 \end{resumen}
+                   [3])
 \openout2 = `agradecimientos.aux'.
 
  (agradecimientos.texpdfTeX warning (ext4): destination with the same identifie
@@ -1469,7 +1471,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
 [4]
-<mallado.png, id=268, 361.35pt x 238.8925pt>
+<mallado.png, id=270, 361.35pt x 238.8925pt>
 File: mallado.png Graphic file (type png)
 <use mallado.png>
 Package pdftex.def Info: mallado.png  used on input line 91.
@@ -1502,12 +1504,12 @@ LaTeX Info: Redefining \. on input line 182.
 LaTeX Info: Redefining \% on input line 182.
 
 [8]
-<UsadosPaso.png, id=306, 397.485pt x 255.95625pt>
+<UsadosPaso.png, id=308, 397.485pt x 255.95625pt>
 File: UsadosPaso.png Graphic file (type png)
 <use UsadosPaso.png>
 Package pdftex.def Info: UsadosPaso.png  used on input line 188.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-<UsadosTodos.png, id=307, 397.485pt x 255.95625pt>
+<UsadosTodos.png, id=309, 397.485pt x 255.95625pt>
 File: UsadosTodos.png Graphic file (type png)
 <use UsadosTodos.png>
 Package pdftex.def Info: UsadosTodos.png  used on input line 197.
@@ -1515,13 +1517,13 @@ Package pdftex.def Info: UsadosTodos.png  used on input line 197.
 LaTeX Info: Redefining \. on input line 204.
 LaTeX Info: Redefining \% on input line 204.
  [9 <./UsadosPaso.png (PNG copy)> <./UsadosTodos.png (PNG copy)>]
-<DominioDependenciaconvergente.png, id=316, 397.485pt x 255.95625pt>
+<DominioDependenciaconvergente.png, id=318, 397.485pt x 255.95625pt>
 File: DominioDependenciaconvergente.png Graphic file (type png)
 <use DominioDependenciaconvergente.png>
 Package pdftex.def Info: DominioDependenciaconvergente.png  used on input line 
 207.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-<DominioDependencianoconvergente.png, id=318, 397.485pt x 255.95625pt>
+<DominioDependencianoconvergente.png, id=320, 397.485pt x 255.95625pt>
 File: DominioDependencianoconvergente.png Graphic file (type png)
 <use DominioDependencianoconvergente.png>
 Package pdftex.def Info: DominioDependencianoconvergente.png  used on input lin
@@ -1545,12 +1547,12 @@ Package xcolor Warning: Incompatible color definition on input line 3.
 
 
 ]
-<Ejemplo1.png, id=338, 462.528pt x 346.896pt>
+<Ejemplo1.png, id=340, 462.528pt x 346.896pt>
 File: Ejemplo1.png Graphic file (type png)
 <use Ejemplo1.png>
 Package pdftex.def Info: Ejemplo1.png  used on input line 28.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<Ejemplo2.png, id=340, 462.528pt x 346.896pt>
+<Ejemplo2.png, id=342, 462.528pt x 346.896pt>
 File: Ejemplo2.png Graphic file (type png)
 <use Ejemplo2.png>
 Package pdftex.def Info: Ejemplo2.png  used on input line 29.
@@ -1558,7 +1560,7 @@ Package pdftex.def Info: Ejemplo2.png  used on input line 29.
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
  [12 <./Ejemplo1.png> <./Ejemplo2.png>]
-<modelado.png, id=349, 397.485pt x 266.9975pt>
+<modelado.png, id=351, 397.485pt x 266.9975pt>
 File: modelado.png Graphic file (type png)
 <use modelado.png>
 Package pdftex.def Info: modelado.png  used on input line 36.
@@ -1608,8 +1610,8 @@ Package xcolor Warning: Incompatible color definition on input line 3.
 LaTeX Info: Redefining \. on input line 57.
 LaTeX Info: Redefining \% on input line 57.
  [22]
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
  [23]
 LaTeX Info: Redefining \. on input line 153.
 LaTeX Info: Redefining \% on input line 153.
@@ -1650,97 +1652,101 @@ Package xcolor Warning: Incompatible color definition on input line 3.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
+(hyperref)                removing `math shift' on input line 12.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
+(hyperref)                removing `\pi' on input line 12.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
+(hyperref)                removing `math shift' on input line 12.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
+(hyperref)                removing `math shift' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 12.
 
 [33]
-<Seno1.png, id=578, 462.528pt x 346.896pt>
+<Seno1.png, id=580, 462.528pt x 346.896pt>
 File: Seno1.png Graphic file (type png)
 <use Seno1.png>
-Package pdftex.def Info: Seno1.png  used on input line 21.
+Package pdftex.def Info: Seno1.png  used on input line 22.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno2.png, id=579, 462.528pt x 346.896pt>
+<Seno2.png, id=581, 462.528pt x 346.896pt>
 File: Seno2.png Graphic file (type png)
 <use Seno2.png>
-Package pdftex.def Info: Seno2.png  used on input line 28.
+Package pdftex.def Info: Seno2.png  used on input line 29.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno3.png, id=580, 462.528pt x 346.896pt>
+<Seno3.png, id=582, 462.528pt x 346.896pt>
 File: Seno3.png Graphic file (type png)
 <use Seno3.png>
-Package pdftex.def Info: Seno3.png  used on input line 38.
+Package pdftex.def Info: Seno3.png  used on input line 39.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno4.png, id=581, 462.528pt x 346.896pt>
+<Seno4.png, id=583, 462.528pt x 346.896pt>
 File: Seno4.png Graphic file (type png)
 <use Seno4.png>
-Package pdftex.def Info: Seno4.png  used on input line 45.
+Package pdftex.def Info: Seno4.png  used on input line 46.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno5.png, id=582, 462.528pt x 346.896pt>
+<Seno5.png, id=584, 462.528pt x 346.896pt>
 File: Seno5.png Graphic file (type png)
 <use Seno5.png>
-Package pdftex.def Info: Seno5.png  used on input line 53.
+Package pdftex.def Info: Seno5.png  used on input line 54.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 64.
-LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
  [34 <./Seno1.png> <./Seno2.png> <./Seno3.png> <./Seno4.png> <./Seno5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 68.
 
-<Pico1.png, id=595, 462.528pt x 346.896pt>
+<Pico1.png, id=597, 462.528pt x 346.896pt>
 File: Pico1.png Graphic file (type png)
 <use Pico1.png>
-Package pdftex.def Info: Pico1.png  used on input line 75.
+Package pdftex.def Info: Pico1.png  used on input line 76.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico2.png, id=596, 462.528pt x 346.896pt>
+<Pico2.png, id=598, 462.528pt x 346.896pt>
 File: Pico2.png Graphic file (type png)
 <use Pico2.png>
-Package pdftex.def Info: Pico2.png  used on input line 82.
+Package pdftex.def Info: Pico2.png  used on input line 83.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico3.png, id=597, 462.528pt x 346.896pt>
+<Pico3.png, id=599, 462.528pt x 346.896pt>
 File: Pico3.png Graphic file (type png)
 <use Pico3.png>
-Package pdftex.def Info: Pico3.png  used on input line 92.
+Package pdftex.def Info: Pico3.png  used on input line 93.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico4.png, id=598, 462.528pt x 346.896pt>
+<Pico4.png, id=600, 462.528pt x 346.896pt>
 File: Pico4.png Graphic file (type png)
 <use Pico4.png>
-Package pdftex.def Info: Pico4.png  used on input line 99.
+Package pdftex.def Info: Pico4.png  used on input line 100.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
 [35 <./Pico1.png> <./Pico2.png> <./Pico3.png> <./Pico4.png>]
-<Pico5.png, id=609, 462.528pt x 346.896pt>
+<Pico5.png, id=611, 462.528pt x 346.896pt>
 File: Pico5.png Graphic file (type png)
 <use Pico5.png>
-Package pdftex.def Info: Pico5.png  used on input line 110.
+Package pdftex.def Info: Pico5.png  used on input line 111.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico6.png, id=610, 462.528pt x 346.896pt>
+<Pico6.png, id=612, 462.528pt x 346.896pt>
 File: Pico6.png Graphic file (type png)
 <use Pico6.png>
-Package pdftex.def Info: Pico6.png  used on input line 117.
+Package pdftex.def Info: Pico6.png  used on input line 118.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
 
 
@@ -1759,12 +1765,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 126.
 
-<Planog.png, id=611, 462.528pt x 346.896pt>
+<Planog.png, id=613, 462.528pt x 346.896pt>
 File: Planog.png Graphic file (type png)
 <use Planog.png>
 Package pdftex.def Info: Planog.png  used on input line 131.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Plano0.png, id=612, 462.528pt x 346.896pt>
+<Plano0.png, id=614, 462.528pt x 346.896pt>
 File: Plano0.png Graphic file (type png)
 <use Plano0.png>
 Package pdftex.def Info: Plano0.png  used on input line 143.
@@ -1772,7 +1778,7 @@ Package pdftex.def Info: Plano0.png  used on input line 143.
 LaTeX Info: Redefining \. on input line 151.
 LaTeX Info: Redefining \% on input line 151.
 [36 <./Pico5.png> <./Pico6.png> <./Planog.png> <./Plano0.png>]
-<Plano1.png, id=624, 462.528pt x 346.896pt>
+<Plano1.png, id=626, 462.528pt x 346.896pt>
 File: Plano1.png Graphic file (type png)
 <use Plano1.png>
 Package pdftex.def Info: Plano1.png  used on input line 157.
@@ -1782,7 +1788,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 157--158
  [][] 
  []
 
-<Plano2.png, id=625, 462.528pt x 346.896pt>
+<Plano2.png, id=627, 462.528pt x 346.896pt>
 File: Plano2.png Graphic file (type png)
 <use Plano2.png>
 Package pdftex.def Info: Plano2.png  used on input line 164.
@@ -1792,7 +1798,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 164--165
  [][] 
  []
 
-<Plano3.png, id=626, 462.528pt x 346.896pt>
+<Plano3.png, id=628, 462.528pt x 346.896pt>
 File: Plano3.png Graphic file (type png)
 <use Plano3.png>
 Package pdftex.def Info: Plano3.png  used on input line 171.
@@ -1802,7 +1808,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 171--172
  [][] 
  []
 
-<Plano4.png, id=627, 462.528pt x 346.896pt>
+<Plano4.png, id=629, 462.528pt x 346.896pt>
 File: Plano4.png Graphic file (type png)
 <use Plano4.png>
 Package pdftex.def Info: Plano4.png  used on input line 182.
@@ -1812,7 +1818,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 182--183
  [][] 
  []
 
-<Plano5.png, id=628, 462.528pt x 346.896pt>
+<Plano5.png, id=630, 462.528pt x 346.896pt>
 File: Plano5.png Graphic file (type png)
 <use Plano5.png>
 Package pdftex.def Info: Plano5.png  used on input line 189.
@@ -1822,7 +1828,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 189--190
  [][] 
  []
 
-<Plano6.png, id=629, 462.528pt x 346.896pt>
+<Plano6.png, id=631, 462.528pt x 346.896pt>
 File: Plano6.png Graphic file (type png)
 <use Plano6.png>
 Package pdftex.def Info: Plano6.png  used on input line 196.
@@ -1832,7 +1838,7 @@ Overfull \hbox (12.65683pt too wide) in paragraph at lines 196--197
  [][] 
  []
 
-<Planoonda.png, id=630, 462.528pt x 346.896pt>
+<Planoonda.png, id=632, 462.528pt x 346.896pt>
 File: Planoonda.png Graphic file (type png)
 <use Planoonda.png>
 Package pdftex.def Info: Planoonda.png  used on input line 204.
@@ -1843,7 +1849,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 214.
+(hyperref)                removing `\pi' on input line 214.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1853,12 +1859,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 214.
 
-<2Seno1.png, id=631, 462.528pt x 346.896pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+<2Seno1.png, id=633, 462.528pt x 346.896pt>
 File: 2Seno1.png Graphic file (type png)
 <use 2Seno1.png>
 Package pdftex.def Info: 2Seno1.png  used on input line 223.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<2Seno2.png, id=632, 462.528pt x 346.896pt>
+<2Seno2.png, id=634, 462.528pt x 346.896pt>
 File: 2Seno2.png Graphic file (type png)
 <use 2Seno2.png>
 Package pdftex.def Info: 2Seno2.png  used on input line 230.
@@ -1867,12 +1877,12 @@ LaTeX Info: Redefining \. on input line 234.
 LaTeX Info: Redefining \% on input line 234.
 [37 <./Plano1.png> <./Plano2.png> <./Plano3.png> <./Plano4.png> <./Plano5.png> 
 <./Plano6.png> <./Planoonda.png>]
-<2Seno3.png, id=649, 462.528pt x 346.896pt>
+<2Seno3.png, id=651, 462.528pt x 346.896pt>
 File: 2Seno3.png Graphic file (type png)
 <use 2Seno3.png>
 Package pdftex.def Info: 2Seno3.png  used on input line 242.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<2Seno4.png, id=650, 462.528pt x 346.896pt>
+<2Seno4.png, id=652, 462.528pt x 346.896pt>
 File: 2Seno4.png Graphic file (type png)
 <use 2Seno4.png>
 Package pdftex.def Info: 2Seno4.png  used on input line 249.
@@ -1880,27 +1890,27 @@ Package pdftex.def Info: 2Seno4.png  used on input line 249.
 LaTeX Info: Redefining \. on input line 259.
 LaTeX Info: Redefining \% on input line 259.
  [38 <./2Seno1.png> <./2Seno2.png> <./2Seno3.png> <./2Seno4.png>]
-<Senotrav1.png, id=662, 462.528pt x 346.896pt>
+<Senotrav1.png, id=664, 462.528pt x 346.896pt>
 File: Senotrav1.png Graphic file (type png)
 <use Senotrav1.png>
 Package pdftex.def Info: Senotrav1.png  used on input line 264.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav2.png, id=663, 462.528pt x 346.896pt>
+<Senotrav2.png, id=665, 462.528pt x 346.896pt>
 File: Senotrav2.png Graphic file (type png)
 <use Senotrav2.png>
 Package pdftex.def Info: Senotrav2.png  used on input line 271.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav3.png, id=664, 462.528pt x 346.896pt>
+<Senotrav3.png, id=666, 462.528pt x 346.896pt>
 File: Senotrav3.png Graphic file (type png)
 <use Senotrav3.png>
 Package pdftex.def Info: Senotrav3.png  used on input line 281.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav4.png, id=665, 462.528pt x 346.896pt>
+<Senotrav4.png, id=667, 462.528pt x 346.896pt>
 File: Senotrav4.png Graphic file (type png)
 <use Senotrav4.png>
 Package pdftex.def Info: Senotrav4.png  used on input line 296.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav6.png, id=666, 462.528pt x 346.896pt>
+<Senotrav6.png, id=668, 462.528pt x 346.896pt>
 File: Senotrav6.png Graphic file (type png)
 <use Senotrav6.png>
 Package pdftex.def Info: Senotrav6.png  used on input line 303.
@@ -1937,22 +1947,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 313.
 
-<Piconormal.png, id=679, 462.528pt x 346.896pt>
+<Piconormal.png, id=681, 462.528pt x 346.896pt>
 File: Piconormal.png Graphic file (type png)
 <use Piconormal.png>
 Package pdftex.def Info: Piconormal.png  used on input line 320.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picomu0.1.png, id=680, 462.528pt x 346.896pt>
+<Picomu0.1.png, id=682, 462.528pt x 346.896pt>
 File: Picomu0.1.png Graphic file (type png)
 <use Picomu0.1.png>
 Package pdftex.def Info: Picomu0.1.png  used on input line 327.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu1.png, id=681, 462.528pt x 346.896pt>
+<Picoondamu1.png, id=683, 462.528pt x 346.896pt>
 File: Picoondamu1.png Graphic file (type png)
 <use Picoondamu1.png>
 Package pdftex.def Info: Picoondamu1.png  used on input line 338.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu0.1.png, id=682, 462.528pt x 346.896pt>
+<Picoondamu0.1.png, id=684, 462.528pt x 346.896pt>
 File: Picoondamu0.1.png Graphic file (type png)
 <use Picoondamu0.1.png>
 Package pdftex.def Info: Picoondamu0.1.png  used on input line 345.
@@ -1973,12 +1983,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 353.
 
-<Pico38.png, id=693, 462.528pt x 346.896pt>
+<Pico38.png, id=695, 462.528pt x 346.896pt>
 File: Pico38.png Graphic file (type png)
 <use Pico38.png>
 Package pdftex.def Info: Pico38.png  used on input line 360.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico58.png, id=694, 462.528pt x 346.896pt>
+<Pico58.png, id=696, 462.528pt x 346.896pt>
 File: Pico58.png Graphic file (type png)
 <use Pico58.png>
 Package pdftex.def Info: Pico58.png  used on input line 367.
@@ -1987,7 +1997,7 @@ File: Picoondamu1.png Graphic file (type png)
 <use Picoondamu1.png>
 Package pdftex.def Info: Picoondamu1.png  used on input line 378.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu1.1.png, id=695, 462.528pt x 346.896pt>
+<Picoondamu1.1.png, id=697, 462.528pt x 346.896pt>
 File: Picoondamu1.1.png Graphic file (type png)
 <use Picoondamu1.1.png>
 Package pdftex.def Info: Picoondamu1.1.png  used on input line 384.
@@ -2066,7 +2076,11 @@ LaTeX Info: Redefining \% on input line 256.
 LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
 
-[52] (TFGPrincipal.bbl [53
+[52] (TFGPrincipal.bbl (TFGPrincipal.brf)
+\tf@brf=\write8
+\openout8 = `TFGPrincipal.brf'.
+
+ [53
 
 
 \FN@pp@footnotehinttrue 
@@ -2085,16 +2099,18 @@ planteamiento.aux) (02Previos.aux) (03PrimeraParte.aux) (04SegundaParte.aux) (0
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TFGPrincipal.out' has not changed.
-(rerunfilecheck)             Checksum: D052D1B06B8958F90C6CF91B58B3D5B3;6116.
+(rerunfilecheck)             Checksum: 663E0A78A177ECB26F9EA4225571B1B9;6831.
+Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
+(rerunfilecheck)             Checksum: 0D1758D6FDD3D3F602EF297A511BDBD6;533.
  ) 
 Here is how much of TeX's memory you used:
- 28394 strings out of 478927
- 508996 string characters out of 2845389
- 873110 words of memory out of 3000000
- 45346 multiletter control sequences out of 15000+600000
+ 28622 strings out of 478927
+ 512900 string characters out of 2845389
+ 877469 words of memory out of 3000000
+ 45567 multiletter control sequences out of 15000+600000
  449672 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,20n,122p,1028b,638s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 125i,20n,122p,1028b,670s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/
 base/8r.enc}<C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Loca
@@ -2122,9 +2138,9 @@ fb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw
 X/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local
 /Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cóza
 r/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (66 pages, 1830597 bytes).
+Output written on TFGPrincipal.pdf (66 pages, 1836157 bytes).
 PDF statistics:
- 898 PDF objects out of 1000 (max. 8388607)
+ 911 PDF objects out of 1000 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)
  510 words of extra memory for PDF output out of 10000 (max. 10000000)
 

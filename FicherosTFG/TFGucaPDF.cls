@@ -59,7 +59,7 @@
 \usepackage{eucal}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[perpage]{footmisc}
-\usepackage{hyperref}
+
 
 
 \usepackage[round, sort, numbers, authoryear]{natbib}

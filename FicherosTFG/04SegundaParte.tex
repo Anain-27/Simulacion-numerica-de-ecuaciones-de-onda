@@ -2,13 +2,14 @@
 
 \chapter{Modelado en Python y comparativa}
 \label{cha:Comparativa}
+
 En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos cómo varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de cómo afectan las condiciones de estabilidad \eqref{mu}, y de conservación de la energía \eqref{energiacero}.
 
 \section{Soluciones}
 En esta sección comenzaremos señalando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$.
 
 
-\subsection{$f(x)= sin(x)$, $g(x)=0$}
+\subsection{$f(x)= sin(\pi x)$, $g(x)=0$}
 \label{subsec:sin(x)}
 Cuando la posición inicial depende del seno y la velocidad inicial es $0$, se puede observar como nuestra solución oscila sin llegar a parar, al no tener en cuenta nuestro sistema \eqref{esquemacompletoonda}, fuerzas externas como el rozamiento. 
 
@@ -120,8 +121,7 @@ En este caso la forma de la onda en cada punto no es tan regular, y cambia mucho
 	\end{minipage}
 \end{figure}
 
-Se observa que la onda cambia bastante, y por ende, el sonido producido.(CAMBIAR FRASE)
-
+Se observa que la onda varía dependiendo de la posición de la cuerda en las que se haga la observación, por ende, también el sonido producido.
 
 \subsection{$f(x)= 0$, $g(x)$ tipo Struck}
 
@@ -208,12 +208,12 @@ Muestra de la solución con $m=200$:
 \end{wrapfigure}
 
 \vspace{1cm}
-Aún así, para los puntos en los que hacemos la resolución, el movimiento de la onda será prácticamente idéntico y la diferencia en el audio indistinguible.(CAMBIO FRASE) Un ejemplo es el esquema de la derecha.\\
+Aún así, para los puntos en los que hacemos la resolución, el movimiento de la onda será prácticamente idéntico y la diferencia en el audio indistinguible. Un ejemplo es el esquema de la derecha.\\
 
 
-\subsection{\textbf{$f(x)= sin(2x)$}, $g(x)=0$}
+\subsection{\textbf{$f(x)= sin(2\pi x)$}, $g(x)=0$}
 En cada uno de los casos anteriores, tal y como hemos dicho al principio de la sección, $c=440$ y como solo hay dos nodos, puntos en los que la amplitud es siempre $0$, en todos los casos la frecuencia será $440Hz$. Esta frecuencia corresponde a un La central (4ª octava), la hemos elegido al ser la más usual para ejemplificar este tipo de modelado.\\
-Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2x)$, La frecuencia se corresponderá a un La de 5ª octava.
+Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2\pi x)$, La frecuencia se corresponderá a un La de 5ª octava.
 
 
 \begin{figure}[ht]
@@ -233,7 +233,7 @@ Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2x)
 	\end{minipage}
 \end{figure}
 
-Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $x$, \ref{subsec:sin(x)},  y seno de $2x$. Vemos claramente que llega a su máxima amplitud el doble de veces.
+Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $\pi x$, \ref{subsec:sin(x)},  y seno de $2\pi x$. Vemos claramente que llega a su máxima amplitud el doble de veces.
 
 \begin{figure}[ht]
 	\centering
@@ -287,7 +287,7 @@ En esta sección nuestro objetivo será ejemplificar lo explicado en la sección  \
 Comprobamos que la suma de ambas soluciones nos da la posición de la cuerda en cada instante, coloreada de negro.\\
 
 \vspace{1.5cm}
-Esto se comprueba de manera incluso más clara con la función $sen(2x)$.
+Esto se comprueba de manera incluso más clara con la función $sen(2\pi x)$.
 
 \begin{figure}[ht]
 	\centering
