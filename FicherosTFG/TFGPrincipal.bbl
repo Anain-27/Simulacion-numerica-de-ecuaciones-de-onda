@@ -32,6 +32,11 @@ Victor~G. Ganzha and Evgenii~V. Vorozhtsov.
   solving using Mathematica}.
 \newblock CRC Press, Boca Raton (Florida) [etc.], 1996.
 
+\bibitem{amara}
+T.~Amaranath.
+\newblock {\em An Elementary Course in Partial Differential Equations}.
+\newblock Jones \& Bartlett Learning, 2009.
+
 \bibitem{strauss}
 W.A. Strauss.
 \newblock {\em Partial Differential Equations: An Introduction}.
@@ -39,13 +44,20 @@ W.A. Strauss.
 
 \bibitem{Software}
 Shoichiro Nakamura.
-\newblock {\em Métodos numéricos aplicados con software}.
-\newblock Prentice-Hall Hispanoamericana, México [etc.], 1992.
+\newblock {\em Métodos num{\'e}ricos aplicados con software}.
+\newblock Prentice-Hall Hispanoamericana, M{\'e}xico, 1992.
 
 \bibitem{smith1988analisis}
 W.A. Smith and F.J.S. Bernabe.
 \newblock {\em An{\'a}lisis num{\'e}rico}.
 \newblock Prentice Hall, 1988.
+
+\bibitem{Optimal}
+Enrique Zuazua.
+\newblock Optimal and approximate control of finite-difference approximation
+  schemes for the 1d wave equation.
+\newblock {\em Rendiconti di Matematica e delle sue Applicazioni. Serie VII},
+  2004.
 
 \bibitem{Bilbao}
 Stefan Bilbao.
@@ -67,13 +79,6 @@ J.~Vankka.
 M.E. Van~Valkenburg.
 \newblock {\em Network Analysis 3rd Edition}.
 \newblock Pearson Education, 2006.
-
-\bibitem{Optimal}
-Enrique Zuazua.
-\newblock Optimal and approximate control of finite-difference approximation
-  schemes for the 1d wave equation.
-\newblock {\em Rendiconti di Matematica e delle sue Applicazioni. Serie VII},
-  2004.
 
 \bibitem{STRAND}
 Bo~Strand.

@@ -3,9 +3,10 @@
 \chapter{Modelado en Python y comparativa}
 \label{cha:Comparativa}
 
-En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos cómo varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de cómo afectan las condiciones de estabilidad \eqref{mu}, y de conservación de la energía \eqref{energiacero}.
+En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos como varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de como afectan las condiciones de estabilidad \eqref{mu}, y de conservación de la energía \eqref{energiacero}.
 
 \section{Soluciones}
+\label{sec:soluciones}
 En esta sección comenzaremos señalando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$.
 
 
@@ -253,6 +254,7 @@ Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para 
 \end{figure}
 
 \section{Soluciones tipo onda viajera}
+\label{sec:solondaviajera}
 
 En esta sección nuestro objetivo será ejemplificar lo explicado en la sección  \ref{Ondaviajera}. Utilizando de nuevo la función seno, las soluciones de tipo onda viajera en los siguientes casos serían:
 
@@ -351,7 +353,7 @@ Aún viendo claramente las inestabilidades de forma gráfica, no es tan fácil escu
 
 
 \subsection{$\mu>1$}
-Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar cómo se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos.
+Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar como se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos.
 
 \begin{figure}[ht]
 	\centering
@@ -369,7 +371,7 @@ Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápi
 		\label{fig:Picomu1.1}
 	\end{minipage}
 \end{figure}
-En este caso, a mayor sea $m$ antes se propagarán las inestabilidades, por ello hemos elegido $m=40$, para observar cómo cambia la onda dependiendo del tiempo.
+En este caso, a mayor sea $m$ antes se propagarán las inestabilidades, por ello hemos elegido $m=40$, para observar como cambia la onda dependiendo del tiempo.
 
 \begin{figure}[ht]
 	\centering
@@ -396,7 +398,8 @@ Si intentamos reproducir el sonido de esta última situación no se escuchará nada
 
 
 \section{Comparar cambiando la energía}
-Cambio la energía y separo 
+\label{sec:ComparacionEnergia}
+Cambio la energía y comparo 
 
 
 

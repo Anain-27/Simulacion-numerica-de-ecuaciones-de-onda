@@ -25,10 +25,6 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
-You're missing a field name---line 18 of file bibliografia.bib
- : keywords={Análisis numérico; Proceso de datos},
- :                                                  ç
-I'm skipping whatever remains of this entry
 I was expecting a `,' or a `}'---line 31 of file bibliografia.bib
  :   author={Agust{\'i}n} 
  :                        Mart{\'i}n Domingo,
@@ -38,45 +34,45 @@ Warning--empty booktitle in Camarena2004LaTD
 Warning--empty booktitle in MartinDomingo
 Warning--empty year in MartinDomingo
 Warning--empty booktitle in Carreo2012AcercaDA
-You've used 19 entries,
+You've used 20 entries,
             1791 wiz_defined-function locations,
-            569 strings with 6361 characters,
-and the built_in function-call counts, 3164 in all, are:
-= -- 254
-> -- 113
+            573 strings with 6458 characters,
+and the built_in function-call counts, 3310 in all, are:
+= -- 266
+> -- 117
 < -- 1
-+ -- 48
-- -- 29
-* -- 131
-:= -- 509
-add.period$ -- 56
-call.type$ -- 19
++ -- 50
+- -- 30
+* -- 134
+:= -- 532
+add.period$ -- 59
+call.type$ -- 20
 change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 188
-empty$ -- 379
-format.name$ -- 29
-if$ -- 733
+cite$ -- 25
+duplicate$ -- 198
+empty$ -- 398
+format.name$ -- 30
+if$ -- 768
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 31
-newline$ -- 97
-num.names$ -- 19
-pop$ -- 109
+int.to.str$ -- 20
+missing$ -- 33
+newline$ -- 102
+num.names$ -- 20
+pop$ -- 116
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 50
+skip$ -- 52
 stack$ -- 0
 substring$ -- 51
-swap$ -- 20
+swap$ -- 21
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 22
-width$ -- 21
-write$ -- 196
-(There were 2 error messages)
+while$ -- 23
+width$ -- 22
+write$ -- 206
+(There was 1 error message)

@@ -65,7 +65,7 @@ A continuación nos centraremos en dichas condiciones, siguiendo \citep{strauss}.
  
   Por otra parte, las condiciones de tipo Dirichlet \eqref{eq:frontera3} quedarán como $u_{0,r}=u_{m,r}=0 $ para $r=0,1,\dots,n$.\\
   
-  Para la condición que falta \ref{eq:frontera2} utilizaremos, haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$, que servirá ya sean las $f$ y $g$ derivables o no. Para esta podría haber muchas mas opciones. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
+  Para la condición que falta \eqref{eq:frontera2} utilizaremos, haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$, que servirá ya sean las $f$ y $g$ derivables o no. Para esta podría haber muchas mas opciones. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
   
 Nuestro esquema al completo quedaría:
 
@@ -94,10 +94,70 @@ Nuestro esquema al completo quedaría:
 
 
 
+\section{Dominio de dependencia}
+
+Para el esquema que acabamos de definir intentaremos encontrar las condiciones, en las que nuestra solución se aproxime más fielmente a la realidad. El pensamiento inicial puede ser que a más pequeños elijamos $h$ y $k$ mejores resultados obtendremos, pero esto no es cierto en general. Por ello, se utilizan diversos métodos de análisis de estabilidad y convergencia.\\
+En esta sección nos centraremos en un concepto altamente relacionado con el tema, el dominio de dependencia.
+
+\begin{definicion}[label={domdep},nameref={Title or anything else}]{Dominio de dependencia}
+	Sea una función $u(x,t)$ y un conjunto $[a,b]\times[c,d]$. El dominio de dependencia de $u$ en un punto arbitrario $(x_1,t_1)$, es el conjunto de puntos de $[a,b]$ necesarios para dar la solución de $u$ en $(x_1,t_1)$.
+	
+\end{definicion}
+Como vemos, este concepto no solo estará definido para entornos discretos como lo que hemos estado tratando hasta ahora. Véase que para cada punto del mallado \ref{{Mallado}} $(x_j,t_r)$ tendremos un dominio de dependencia asociado.\\
+
+Es importante remarcar que el dominio de dependencia no es fácilmente calculable, de hecho en muchos casos no se obtiene en la práctica, pero es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema. Nuestro objetivo será que los puntos del mallado que hemos utilizado para aproximar la solución, contengan íntegramente al dominio de dependencia.\\
+
+Lo ilustramos con las siguiente figuras, utilizando como ejemplo nuestro esquema concreto.
+
+
+\begin{figure}[!ht]
+	
+	\centering
+	\includegraphics[scale=0.45]{UsadosPaso.png}
+	\caption{Puntos que usamos para aproximar  $u(x_j,t_r).$}
+\end{figure}
+
+A su vez para aproximar la solución de cada uno de los puntos coloreados de negro, necesitaremos de los anteriores, por lo tanto:
+
+\newpage
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.45]{UsadosTodos.png}
+	\caption{Todos los puntos que se usan para aproximar la solución de $(x_j,t_r)$.}
+	\label{fig:Puntosusados}
+\end{figure}
+
+Siendo la recta coloreada e azul, $\overline{QR}$, se podrían dar dos casos\\
+Que el dominio de dependencia quedase en el interior de los puntos de $[a,b]$ utilizados en el esquema en diferencias finitas (Coloreados de verde):
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.45]{DominioDependenciaconvergente.png}
+	\caption{En este caso si hay un cambio en cualquier punto de la recta $\overline{QR}$, los puntos verdes lo captarían, al contener íntegramente a la misma.}
+	\label{fig:Convergencia}
+\end{figure}
+
+Que el dominio de dependencia quedase fuera de los puntos $[a,b]$ utilizados (verdes):
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.45]{DominioDependencianoconvergente.png}
+	\caption{En este caso, si se da un cambio en la zona de la recta azul exterior a los puntos verdes, estos no lo captarían y por lo tanto la solución no variaría.}
+	\label{fig:noConvergencia}
+\end{figure}
+
+La situación más favorable, y por tanto la que busquemos, para nuestro esquema será la primera. En ese caso, al menos no tendremos el tipo de errores comentados en la Figura \ref{fig:noConvergencia}. 
+
+
+
+
+
+
 
 \section{Consistencia}
 
-Para poder comprobar el orden del esquema que hemos elegido \eqref{eq:ondadespejado} vamos a hacer un análisis de la consistencia, que comenzaremos dividiendo la ecuación \eqref{eq:ondametodo} de la siguiente forma,
+Para poder comprobar el orden del esquema que hemos elegido \eqref{eq:ondadespejado} vamos a hacer un análisis de la consistencia, que comenzaremos separando la ecuación \eqref{eq:ondametodo} de la siguiente forma,
 $$\underbrace{\frac{u(j,r+1)-2u(j,r)+u(j,r-1)}{k^2}}_{(1)}-c^2\underbrace{\frac{u(j+1,r)-2u(j,r)+u(j-1,r)}{h^2}}_{(2)}=0.$$
 
 Haremos ahora el desarrollo de Taylor para cada una de las componentes anteriores,denotando para las derivadas a partir de orden dos  $u_{xxx}=u_{3x}$ y $u_{ttt}=u_{3t}$ respectivamente. Suponiendo que nuestra solución $u$ sea suficientemente regular, es decir, que se pueda derivar tantas veces como haga fatal obtendremos.
@@ -163,6 +223,7 @@ Así hemos comprobado que el esquema tiene orden de consistencia dos en espacio y
 
 
 \section{Análisis de Von Neumann}
+\label{sec:VonNeumann}
 
 En la utilización de métodos multipaso, como el esquema que nos centramos en este trabajo, los errores globales finalmente observados pueden ser mucho mayores de lo que podría esperarse a partir del orden de consistencia local estudiado anteriormente. Esto es debido a que en el error global interviene un aumento del error que se propaga y que, a menudo, incluso se incrementa al disminuir la longitud de paso. Puede estar relacionado con varias factores como el método de inicialización, el truncamiento local y errores de redondeo. Esto se conoce como \textbf{inestabilidad}.
 
@@ -254,10 +315,12 @@ Vamos a ver que pasará dependiendo de los valores posibles de $A$. Como $2\mu ^2
 	 llegamos a que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, la condición CFL.		
 \end{itemize}
 
-Por lo tanto nuestro esquema será condicionalmente estable.
-En este caso, tal y como podemos extraer de \citep{AnIntroduction}, mirando el dominio de dependencia (\ref{domdep}) nos damos cuenta de que, cuando se de la igualdad a uno, este coincidirá con los puntos de nuestra discretización, es decir, dependerá del menor número de puntos posibles, mientras cumple la condición CFL.\\
+Por lo tanto, nuestro esquema será condicionalmente estable.\\
 
-En la comparativa del capítulo siguiente cambiaremos $\mu$ para ilustrar como afecta de manera muy positiva a la estabilidad de las soluciones el análisis anteriormente realizado.
+Volviendo al concepto de dominio de dependencia \ref{domdep}, tal y como se extrae de \citep{AnIntroduction}, cuanto más nos acerquemos a la igualdad  ($\mu=1$), cubriremos de manera mas óptima el dominio de dependencia con nuestra aproximación. Siempre respetando la condición CFL.\\
+
+
+En la comparativa del capítulo siguiente, variaremos $\mu$, para ilustrar como afecta de manera muy positiva a la estabilidad de las soluciones, el análisis realizado.
 
 
 
@@ -305,7 +368,7 @@ Por otro lado trabajando con $p_+(x_j+ct_r)$, por como hemos definido las aproxi
 	\end{split}
 \end{equation*}
 
-Con esto ya podríamos implementar cada una de las soluciones, para ver como se comportan las mismas a comparación de $u$.
+Con esto ya podríamos implementar las soluciones en caso de que $g$ no sea integrable. Más adelante, en la sección \ref{sec:solondaviajera}, ilustraremos la relación de esta soluciones, con la aproximación numérica.
 
 
 
@@ -320,12 +383,12 @@ en lugar de la del producto interior anteriormente utilizada en la sección \ref{
 
  Vamos a comenzar tomando como dominio mallado \ref{Mallado}, sabiendo que queremos hacer la suma por partes en el eje de la posición definimos $D$ los puntos del mismo. Veremos cuales son las condiciones que deberán cumplir nuestro esquema, utilizando la función $\delta$ definida en \ref{defdelta}, será.
 
-$$\left<\delta_tu,\delta_{tt}u\right>'_D= c^2 \left<\delta_t u,\delta_{xx}u\right>'_D. $$
+$$\left(\delta_tu,\delta_{tt}u\right)_D= c^2 \left<\delta_t u,\delta_{xx}u\right)_D. $$
 
 Siguiendo la notación que tomabamos en \ref{SumaPartes}, para cada $r=1,\dots,n$ tendremos:
 
 \begin{equation}\label{energia}
-	\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>'_D= c^2 \left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D. 
+	\left(\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right)_D= c^2 \left(\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right)_D. 
 \end{equation}
 
 Ahora para desarrollar la parte derecha de la igualdad usaremos la observación \ref{derivada2} y posteriormente la definición \ref{SumaPartes}.
@@ -333,13 +396,13 @@ Ahora para desarrollar la parte derecha de la igualdad usaremos la observación \
 
 \begin{equation}\label{deltaxx}
 	\begin{split}
-		\left<\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right>'_D &\underset{\ref{derivada2}}{=} \left<\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right>'_D,\\
-		\underset{\eqref{eq:rep2}}{=}-\left<\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right>'_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}).
+		\left(\delta_t u_{\cdot,r},\delta_{xx}u_{\cdot,r}\right)_{L^2(D)} &\underset{\ref{derivada2}}{=} \left(\delta_t u_{\cdot,r},\delta_{x^+x^-}u_{\cdot,r}\right)_{L^2(D)},\\
+		\underset{\eqref{eq:rep2}}{=}-\left(\delta_{x^+}\delta_{t} u_{\cdot,r},\delta_{x^+}u_{\cdot,r}\right)_{L^2(D)} - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})- (\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}).
 	\end{split}
 \end{equation}
 
 Insertando esto en la ecuación \eqref{energia} nos quedaría:
-$$\left<\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right>'_D + c^2 \left<\delta_t u_{\cdot,r},\delta_{x+}\delta_{t}u_{\cdot,r}\right>'_D = -c^2(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})+ c^2(\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}). $$
+$$\left(\delta_tu_{\cdot,r},\delta_{tt}u_{\cdot,r}\right)_D + c^2 \left(\delta_t u_{\cdot,r},\delta_{x+}\delta_{t}u_{\cdot,r}\right)_D= -c^2(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})+ c^2(\delta_{t} u_{m+1,r})(\delta_{x^-}u_{m,r}). $$
 
 
 Denotando al termino de la derecha como $\mathfrak{b}$ tendremos que
@@ -349,7 +412,8 @@ Identificamos los términos, de la energía total $\mathfrak{h}$, energía cinética
 
 \begin{equation*}
 	\begin{array}{ccc}   
-		\mathfrak{h}= \mathfrak{t}+\mathfrak{v},\ \ \ \  &  \mathfrak{t}= \frac{1}{2} ||\delta_{t-}u_{\cdot,r}||_D^2  & \ \ \text{y}\ \ \ \mathfrak{v}= \frac{\mu^2}{2}\left< \delta_{x+}u_{\cdot,r},e_{t-}\delta_{x+}u_{\cdot,r} \right>_D .
+		\mathfrak{h}= \mathfrak{t}+\mathfrak{v},\ \ \ \ & \mathfrak{t}= \frac{1}{2}||\delta_{t-}u_{\cdot,r}||_D &  \ \ \text{y}\ \ \ \mathfrak{v}= \frac{\mu^2}{2}\left( \delta_{x+}u_{\cdot,r},e_{t-}\delta_{x+}u_{\cdot,r} \right)_D.
+		
 	\end{array}
 \end{equation*}
 
@@ -374,9 +438,9 @@ Esto se puede dar de muchas maneras, pero las mas sencillas y estudiadas son que
 	\end{array} 
 \end{equation}
 
-Vemos que \ref{primeracond} se corresponde con la condición de Dirichlet en el borde izquierdo del mallado, esta será la misma condición que dábamos en \ref{eq:esquemafrontera3}. De la segunda,\ref{segundacond}, de la definición de \ref{defdelta} sabemos, $\delta_{x^-}u_{0,r}=\frac{1}{h}\left(u_{0,r}-u_{-1,r}\right)$ y por lo tanto $u_{j,0}= u_{j,-1}$ para $j=0,1,\dots,m$.\\
+Vemos que \eqref{primeracond} se corresponde con la condición de Dirichlet en el borde izquierdo del mallado, esta será la misma condición que dábamos en \eqref{eq:esquemafrontera3}. De la segunda,\eqref{segundacond}, de la definición de \eqref{defdelta} sabemos, $\delta_{x^-}u_{0,r}=\frac{1}{h}\left(u_{0,r}-u_{-1,r}\right)$ y por lo tanto $u_{j,0}= u_{j,-1}$ para $j=0,1,\dots,m$.\\
 
- En nuestro caso $j =-1$ no se encuentra en el esquema, pero gracias a la igualdad que acabamos de obtener podremos inicializar los puntos de la primera posición en espacio $j=0$ con nuestra expresión \ref{eq:ondadespejado}, quedando:
+ En nuestro caso $j =-1$ no se encuentra en el esquema, pero gracias a la igualdad que acabamos de obtener podremos inicializar los puntos de la primera posición en espacio $j=0$ con nuestra expresión \eqref{eq:ondadespejado}, quedando:
 \begin{equation*}
 	\begin{split}
 		u_{0,r+1} &= \mu ^2( u_{1,r}+u_{-1,r})  + 2(1-\mu^2)  u_{0,r} -  u_{0,r-1}\\
@@ -399,7 +463,7 @@ Miramos ahora el lado derecho de la igualdad \eqref{energiacero} e igualando a c
 		\delta_{x^-}u_{m,r} &   r=0,1,\dots,n,\\
 	\end{array} 
 \end{equation}
-(AQUÍ EL PROBLEMA ES QUE NO SE REALMENTE COMO INTERPRETAR ESTO. PORQUE LA PRIMERA CONDICIÓN SE REFIERE A UNA RECTA DE PUNTOS VIRTUALES (queda $u_{m+1,r}=0$) Y LA SEGUNDA UNOS PUNTOS QUE YA TENEMOS DEFINIDOS POR NUESTRO ESQUEMA\eqref{esquemacompletoonda} ($u_{m,r}=u_{m-1,r}$ LO QUE AL METERLO EN EL ESQUEMA \eqref{eq:ondadespejado},ME QUEDA $u_{m,r+1}=(2-\mu^2)u_{m,r} + \mu^2u_{m+1,r}-u_{m,r-1}$) Y AL TENER NODOS VIRTUALES TAMPOCO SE COMO SE COMO CONTINUAR)\\
+(AQUÍ EL PROBLEMA ES LA INTERPRETACIÓN DE ESTO. LA PRIMERA CONDICIÓN SE REFIERE A UNA RECTA DE PUNTOS VIRTUALES (queda $u_{m+1,r}=0$) Y LA SEGUNDA UNOS PUNTOS QUE YA TENEMOS DEFINIDOS POR NUESTRO ESQUEMA\eqref{esquemacompletoonda} ($u_{m,r}=u_{m-1,r}$ LO QUE AL METERLO EN EL ESQUEMA \eqref{eq:ondadespejado},ME QUEDA $u_{m,r+1}=(2-\mu^2)u_{m,r} + \mu^2u_{m+1,r}-u_{m,r-1}$) Y AL TENER NODOS VIRTUALES TAMPOCO SE COMO SE COMO CONTINUAR)\\
 
  En el capítulo siguiente modificaremos estas expresiones obtenidas, para ver que pasa cuando no se da conservación de la energía.
 

@@ -14,26 +14,30 @@ Para facilitar la comprensión del tema que vamos a tratar hay varios conceptos q
 Comenzaremos definiendo los espacios de Lebesgue. Un concepto clásico que se utiliza de manera recurrente en varios campos de las matemáticas \citep{royden2010real}.
 
 \begin{definicion}[label={Lebesgue},nameref={Title or anything else}]{Espacio de Lebesgue}
-	Para $E\subset \mathbb{R}$ medible y $p\in \mathbb{N}$ tal que  $1\leq p\leq \infty$ definimos, el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, iguales en casi todo que son p-integrables, es decir, las funciones $f$ para las cuales 
-	$$||f||_{L^p(E)}=\left(\int_{E}|f|^p\right)^{\frac{1}{p}}<\infty.$$
+	Para $E\subset \mathbb{R^n}$, con $n\in\mathbb{N}$
+	 medible y $p\in \mathbb{R}$ tal que  $1\leq p < \infty$ definimos, el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, en la que se realiza una identificación entre las funciones que son iguales en casi todo, que son p-integrables, es decir, las funciones $f$ para las cuales 
+	\begin{equation}\label{normaLp}
+		||f||_{L^p(E)}=\left(\int_{E}|f|^p\right)^{\frac{1}{p}}<\infty.
+	\end{equation}
+	
 \end{definicion}
 
-En lo que sigue del trabajo trabajaremos sobre este tipo de espacios. Sigamos viendo que características tendrán nuestros espacios.
+En lo que sigue del trabajo trabajaremos sobre este tipo de espacios. Sigamos viendo qué características tendrán nuestros espacios.
 
 \begin{definicion}[label={Banach},nameref={Title or anything else}]{Espacio de Banach}
 	Un espacio de Banach $(E,||\cdot||)$ es un espacio vectorial normado, en el que $E$ es completo bajo la métrica inducida por la norma $||\cdot||$. Es decir, cada serie de Cauchy en $E$ es una serie convergente.
 	
 \end{definicion}
 
-Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este será un espacio de Banach siempre que $E$ sea completo.
+Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este será un espacio de Banach.
 
 
 \begin{definicion}[label={Hilbert},nameref={Title or anything else}]{Espacio de Hilbert}
-	Un espacio vectorial  $E$ se llama de Hilbert si tiene un producto interior asociado y es completo bajo su métrica.
+	Un espacio de Banach $E$ se llama de Hilbert si tiene un producto interior asociado y es completo bajo su métrica.
 	
 \end{definicion}
 
-El producto interior elegido podría tomar muchas formas, en nuestro caso, solo trabajaremos sobre $L^2$ y por lo tanto vamos a definir un producto interior en el mismo.
+En nuestro caso trabajaremos sobre $L^2$, que será un espacio de Hilbert y por lo tanto vamos a definir un producto interior en el mismo.
 
 
 
@@ -47,32 +51,22 @@ El producto interior elegido podría tomar muchas formas, en nuestro caso, solo t
 
 \begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto interior en $L^2$}
 	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior en $L^2(E)$, de ellas como:
-	$$\left< f,g\right>_E= \int_{E}f(x)g(x)dx.$$
+	$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
+	
 	
 \end{definicion}
 
- La norma inducida por este producto interior, será la que utilizaremos. Por lo tanto $L^2(E)$, suponiendo $E$ completo, será un espacio de Hilbert \ref{Hilbert}.\\
- Para funciones que dependen de más de un parámetro, como por ejemplo del espacio y el tiempo, $u(x,t)$, fijando un instante t, quedará:
+ La norma inducida por este producto interior, será la que utilizaremos. Esta se corresponderá con la norma definida por \ref{normaLp}.
+ Para funciones que dependen de más de una variable, como por ejemplo del espacio y el tiempo, $u(x,t)$, fijando un instante t, quedará:
 
 \begin{equation}\label{innermallado}
-	\langle u_1(\cdot,t),u_2(\cdot,t)\rangle_E= \int_{E}u_1(x,t)u_2(x,t)dx, \ \ \ \ \ ||u(\cdot,t)||_E= \sqrt{\left< u(x,t),u(x,t)\right>_E}.
+	\langle u_1(\cdot,t),u_2(\cdot,t)\rangle_{L^2(E)}= \int_{E}u_1(x,t)u_2(x,t)dx, \ \ \ \ \ ||u(\cdot,t)||_{L^2(E)}= \sqrt{\left< u(x,t),u(x,t)\right>_{L^2(E)}}.
 \end{equation}
 
-Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_E$ y $||u||_E$ respectivamente.\\
+Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$ respectivamente.\\
 
 
-En este punto nuestro objetivo será llegar a una generalización discreta de este concepto, ya que lo usaremos en la sección \ref{energiadiscreta}.
-
-\begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
-	Sean $f$ y $g$ dos funciones definidas en un conjunto de puntos $D= \{x_1,x_2,\dots,x_m\}$ equidistantes, donde $h= x_{j+1}-x_j$. Definiremos el producto interior sobre $D$ como:
-	$$\left< f,g\right>'_D=\sum_{j=1}^{m}h f(x_j)g(x_j).$$ 
-	La norma asociada a este producto escalar es:
-	$||f||'_D= \sqrt{\left< f,f\right>_D}\geq 0$.
-\end{definicion}
-
-Ahora, necesitaremos extrapolar esta definición \ref{ProductoDiscreto} a un retículo o mallado.
-Para ello vamos a definirlo, tal y como lo usaremos.\\
-
+En este punto nuestro objetivo será llegar a una generalización discreta de este concepto, ya que lo usaremos en la sección \ref{energiadiscreta}. Para ello vamos a definir un mallado tal y como lo usaremos mas adelante.\\
 
 \begin{definicion}[label={Mallado},nameref={Title or anything else}]{Mallado}
 	Sea $[a,b]\times[c,d]$ con $b\ge a,d\ge c$ y sean $n,m\in \mathbb{N}$. Definimos $h$ como tamaño del mallado en espacio y el paso de tiempo $k$, de forma que los puntos de nuestro mallado serán:
@@ -89,30 +83,36 @@ Vemos que nuestro mallado sería del tipo:
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.6]{mallado.png}
-	\caption{Figura 1.}
+	\caption{Mallado}
 \end{figure}
 
-Una vez ya definido este mallado veamos como se extendería la definición  \ref{ProductoDiscreto} para unas funciones $u,w$ definidas en los puntos del mismo. Antes que nada tendremos que fijar el dominio en el que nos estaremos moviendo, ya que la definición es para un conjunto de puntos en una sola dimensión. Supongamos que nuestro mallado es el de la definició \ref{mallado} y que necesitamos aplicar el producto interior en la posición, $x$. En este caso, fijando el instante de tiempo $t_r$, nos quedará de la forma: 
+Una vez ya definido este mallado retomemos la generalización de \ref{innermallado}. 
 
-\begin{equation}\label{eq:interiordiscretomalla}
-	\left<u(\cdot,t_r),w(\cdot,t_r)\right>'_D= \sum_{j=1}^{m}h u(x_j,t_r)w(x_j,t_r),
-\end{equation}
-donde $D=\{x_1,\dots,x_m\}$ definido en nuestro mallado.\\
-Para este tipo de casos usaremos la siguiente notación:
+\begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
+	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y tomemos $D$ como la partición del interior del intervalo espacial, es decir, $D=\{ x_1,\dots,x_{m-1}\}$. Para ello debemos fijar un instante temporal $t_r$. En este contexto, definiremos el producto interior sobre $D$ como:
+	\begin{equation}\label{eq:interiordiscretomalla}
+		\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m}h u(x_j,t_r)w(x_j,t_r),
+	\end{equation}
+	Para este tipo de casos usaremos la siguiente notación:
+	
+	\begin{equation}\label{eq:notacioninteriordiscretomalla}
+		\left(u_{\cdot,r},w_{\cdot,r}\right)_{D}= \sum_{j=1}^{m}h u_{j,r}w_{j,r}.
+	\end{equation}
+	Observamos que estos últimos términos se salen del mallado definido, estos serán puntos virtuales del retículo.\\
+	La norma asociada a este producto escalar es:
+	$||u||_{D}= \sqrt{\left( u,u\right)_D}\geq 0$.
+\end{definicion}
 
-\begin{equation}\label{eq:notacioninteriordiscretomalla}
-	\left<u_{\cdot,r},w_{\cdot,r}\right>'_D= \sum_{j=1}^{m}h u_{j,r}w_{j,r}.
-\end{equation}
 
-En este punto, una vez definidas las operaciones que nos harán falta a lo largo del trabajo,  y para simplificar la notación que usaremos, necesitaremos los siguientes conceptos:
+Una vez definidas las operaciones que nos harán falta a lo largo del trabajo,  y para simplificar la notación que usaremos, necesitaremos los siguientes conceptos:
 \begin{definicion}[label={shift},nameref={asjajsa}]{Desplazamiento progresivo y regresivo}
-	Sean $u$ una función discretizada en el mallado antes descrito. Definiremos el forward shift o desplazamiento hacia delante (resp. backward o desplazamiento hacia atrás) como:
+	Sean $u$ una función discretizada en el mallado antes descrito. Definiremos el  desplazamiento hacia delante (resp. desplazamiento hacia atrás) como:
 	\begin{center}
 		$e_{x+}u_{j,r}=u_{j+1,r},$\hspace{1cm} $\ \text{(}e_{x-}u_{j,r}=u_{j-1,r}$ respectivamente.)
 	\end{center}
 \end{definicion}
 
-Siguiendo de esto podríamos aproximar la derivada de primer orden de la siguiente forma.
+Continuando con este concepto podríamos aproximar la derivada de primer orden de la siguiente forma.
 
 
 \begin{definicion}[label={defdelta},nameref={Title or anything else}]{Aproximaciones progresivas$\text{,}$ regresivas y centradas}
@@ -125,95 +125,55 @@ Siguiendo de esto podríamos aproximar la derivada de primer orden de la siguient
 	\end{itemize}
 	Podemos hacer lo mismo para el eje temporal, denotándolas como $\delta_{t^+},\delta_{t^-},\delta_{t}$
 \end{definicion}
-
 Para segundo orden definimos,
 \begin{definicion}[label={derivada2},nameref={Title or anything else}]{Aproximación centrada de la derivada de segundo orden}
-	
 	Sea $u$ una función discretizada en un mallado como el de la definición \ref{Mallado}.\\ Definimos la aproximación centrada de la derivada de segundo orden como:
 	
 	\begin{equation*}
 		\begin{split}
-			\delta_{x}u_{j,r}&=  \delta_{x^+}\delta_{x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2+e_{x^-}u_{j,r}\right)=\\
-			&=\frac{1}{h^2}\left(u_{j+1,r}-2+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}.
+			\delta_{x}u_{j,r}&=  \delta_{x^+}\delta_{x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2u_{j,r}+e_{x^-}u_{j,r}\right)=\\
+			&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}.
 		\end{split}
 	\end{equation*} 
 \end{definicion}
-
 Al igual que la definición anterior esto será análogo en el eje temporal.\\
 Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes.
 \begin{lema}[label={SumaPartes},nameref={Title or anything else}]{Representación de la suma por partes}
 	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m\}$, la representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
 	
 	\begin{equation}\label{eq:rep1}
-		\begin{split}
-			\left<u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right>'_D&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
-			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}=\\
-			&=-\left<\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right>'_D+u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}.
-		\end{split}
+		\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} + u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
 	\end{equation}
 	
 	\begin{equation}\label{eq:rep2}
-		\begin{split}
-			\left<u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right>'_D&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
-			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}=\\
-			&=-\left<\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right>'_D-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
-		\end{split}
+		\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}= -\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
 	\end{equation}
+	
+	Vemos que estos últimos términos se salen del mallado que hemos definido, estos serán puntos virtuales del retículo.
+	
 \end{lema}
 
-
-Vemos que estos últimos términos se salen del mallado que hemos definido, estos serán puntos virtuales del retículo.
-
-
-
-
-
-\section{Dominio de dependencia}
-
-Como en la sección anterior hemos definido el mallado \ref{Mallado} que usaremos, vamos ahora a definir el concepto de dominio de dependencia, que estará estrechamente relacionado con el mismo.
-
-\begin{definicion}[label={domdep},nameref={Title or anything else}]{Dominio de dependencia}
-	Sea una función $u(x,t)$ y un conjunto $[a,b]x[c,d]$. El dominio de dependencia de $u$ en $(x_1,t_1)$, es el conjunto de puntos de $[a,b]$ necesarios para dar la solución de $u$ en $(x_1,t_1)$.
+Estas igualdades son fácilmente demostrables.
+\begin{proof}
 	
-\end{definicion}
-Como vemos, este concepto no está aislado para entornos discretos como lo que hemos estado tratando hasta ahora, aún así, para cada punto del mallado $(x_j,t_r)$ tendremos un dominio de dependencia asociado.\\
-
-Ya que en el capítulo \ref{cha:Diferenciasfinitas}, daremos solución a la ecuación de onda de forma numérica, necesitaremos que los puntos del mallado que usemos para aproximar la solución en cada $(x_j,t_r)$ contengan al dominio de dependencia completo. Vamos a ilustrarlo con las siguiente figuras, centrándonos en un ejemplo concreto.
-
-\begin{figure}[!ht]
+	\begin{equation*}
+		\begin{split}
+			\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
+			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}=\\
+			&=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
+		\end{split}
+	\end{equation*}
 	
-	\centering
-	\includegraphics[scale=0.45]{UsadosPaso.png}
-	\caption{Ejemplo de los puntos que podríamos usar para aproximar la solución en $(x_j,t_r).$}
-\end{figure}
+	\begin{equation*}
+		\begin{split}
+			\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
+			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}=\\
+			&=-\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
+		\end{split}
+	\end{equation*}
+\end{proof}
 
-A su vez para aproximar la solución de cada uno de los puntos coloreados de negro, necesitaremos de los anteriores, por lo tanto:
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.45]{UsadosTodos.png}
-	\caption{Todos los puntos que se usan para aproximar la solución de $(x_j,t_r)$.}
-	\label{fig:Puntosusados}
-\end{figure}
 
-Siendo el triangulo interior de las líneas coloreadas de negro el dominio de dependencia del problema, podrían darse dos casos:\\
-Que el dominio de dependencia quedase en el interior de los puntos utilizados (Coloreados de negro en la Figura \ref{fig:Puntosusados}):
-\newpage
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.45]{DominioDependenciaconvergente.png}
-	\caption{En este caso si hay un cambio en cualquier punto de la recta $QR$ coloreada de azul, los puntos verdes lo captarían, al contener íntegramente a la misma.}
-	\label{fig:Convergencia}
-\end{figure}
-
-Que el dominio de dependencia quedase fuera de los puntos utilizados (Coloreados de negro en la Figura \ref{fig:Puntosusados}):
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.45]{DominioDependencianoconvergente.png}
-	\caption{En este caso, si se da un cambio en recta azul fuera de los puntos verdes, estos no lo captarían y por lo tanto la aproximación de la solución no reflejaría el mismo. }
-\end{figure}
-
-Querremos estar siempre en la primera situación \ref{fig:Convergencia}, para asegurar la convergencia del método de aproximación que utilicemos.
 

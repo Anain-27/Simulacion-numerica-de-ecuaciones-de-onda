@@ -1,8 +1,29 @@
 % !TeX encoding = ISO-8859-1
 % !TeX encoding = ISO-8859-1
 
-\chapter{Conclusiones}
+\chapter{Conclusiones y proyectos futuros }
 \label{Conclusiones}
+
+A lo largo de este trabajo, hemos examinado la solución numérica de la ecuación de onda mediante el método de las diferencias finitas, observando en \ref{sec:soluciones}, como se obtienen buenos resultados para la misma. Hemos comparado distintas condiciones iniciales que cumplen con los parámetros obtenidos mediante el análisis de Von Neumann \ref{sec:VonNeumann} y el análisis energético  \ref{energiadiscreta}, y hemos conseguido archivos de audio que lo corroboran.\\
+
+Por otro lado, hemos logrado la implementación de las soluciones de tipo onda viajera \ref{sec:solondaviajera}, de las que derivamos que la suma de las mismas describe inequívocamente el movimiento de la cuerda de nuestro esquema.\\
+
+A continuación hemos representado la relación entre la condición CFL y la inestabilidad de las soluciones, observando como pequeñas variaciones en ella generan dicha inestabilidad de forma acelerada.\\
+
+Por último se ha visualizado como si no se respeta la ley de la conservación de la energía, es decir, se incumplen las condiciones de contorno dadas en la sección \ref{energiadiscreta}, la solución numérica va perdiendo energía hasta pararse.(NO ESTOY SEGURA TENGO QUE COMPROBARLO CUANDO TERMINE LA SECCIÓN) Esto puede comprobarse en la sección \ref{sec:ComparacionEnergia}(COMPLETAR CUANDO ESTÉ HECHO)\\
+
+En definitiva, hemos podido realizar un estudio general de la ecuación de onda en derivadas parciales, abordando desde los conceptos fundamentales hasta la comprobación de como las condiciones teóricas encontradas afectan la solución numérica de la misma.\\
+
+Este estudio sería fácilmente ampliable tomando varios enfoques,
+
+\begin{itemize}
+	\item Utilizando argumentos similares a los encontrados en \cite{Optimal}, podríamos hablar de la controlabilidad y observabilidad de nuestro esquema, en lugar de en un ambiente semi-discreto como el que propone Enrique Zazua.
+	\item Se podría enriquecer el estudio comparando diferentes análisis usados asiduamente en el método de las diferencias finitas.
+	\item También sería interesante el uso de métodos de resolución diferentes, como por ejemplo los métodos espectrales.
+	\item Un enfoque menos teórico que se podría dar es, la utilización de los archivos .wav sintetizados para la creación de música, ya que hemos visto, que dependiendo de las condiciones iniciales, la forma de la onda obtenida cambia, de manera similar a como lo hace al tocar la misma nota en dos instrumentos diferentes.
+\end{itemize}
+
+
 
 
 
