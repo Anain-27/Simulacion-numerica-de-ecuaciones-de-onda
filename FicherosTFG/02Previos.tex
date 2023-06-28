@@ -166,11 +166,11 @@ Como todo este proceso podría hacerse para todo $x\in \mathbb{R}$, integrando re
 \end{equation}
 donde $A,B$ son constantes que tomaremos como 0 al saber que $A+B=0$ gracias a \eqref{eq:propagacion}. Nuestras integrales comienzan en $0$ por el dominio de \eqref{ecuaciononda}.\\
 
-Finalmente llegamos. a que  la solución del problema de contorno, será:
-\begin{equation*}
+Finalmente llegamos a que  la solución del problema de contorno, será:
+\begin{equation}\label{eq:uviajera}
 	u(x,t)= \frac{1}{2}\left(f(x+ct)+f(x-ct)\right) + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)
 	ds. 
-\end{equation*}
+\end{equation}
 
 
 
@@ -229,7 +229,7 @@ Definiendo de la siguiente forma,
 $$E(u)=\frac{1}{2}||u_t||_{L^2(\Omega)}^2+\frac{c^2}{2}||u_x||_{L^2(\Omega)}^2,$$
 donde $E$ es la energía, que depende de la solución $u$, vemos que,
 
-$$\frac{\partial}{\partial t}=0.$$ 
+$$\frac{\partial}{\partial t}E(u)=0.$$ 
 
 Por lo tanto para nuestro esquema se da la ley de la conservación de la energía.\\
 

@@ -2,25 +2,33 @@
 \chapter{Introducción}
 \label{cha:Introduction}
 
-Los grandes avances en la computación y la tecnología en los últimos años, han logrado que las matemáticas, y en particular el campo de las ecuaciones diferenciales, hayan cambiado notablemente.\\
+Los grandes avances en la computación y la tecnología en los últimos años, han logrado que las matemáticas, y en particular el campo de las ecuaciones diferenciales, hayan cambiado notablemente. Las EDP son una poderosa herramienta que nos permiten modelar un gran número situaciones en muchas disciplinas, a destacar los fenómenos físicos. Sin embargo, la exactitud con la que lo hagan dependerá dependerá de diversos factores. Conforme los fenómenos a modelar se compliquen, también lo harán estas, añadiendo nuevos términos, por ello en ocasiones resolver de manera exacta dichos modelos puede presentar dificultades.
 
-En la actualidad, los métodos numéricos nos brindan la oportunidad de obtener aproximaciones cada vez más precisas de la realidad en situaciones en las que antes teníamos que conformarnos con soluciones parciales o marcos muy específicos.\\
+En la actualidad, los métodos numéricos nos brindan la oportunidad de obtener aproximaciones cada vez más precisas de los modelos en ocasiones en las que antes teníamos que conformarnos con soluciones parciales o marcos muy específicos.\\
 
-A lo largo del trabajo, utilizaremos estás técnicas para observar la resolución de la ecuación de onda en derivadas parciales. \\
+En este trabajo nos centraremos en la EDP de onda. Esta fue modelada por Jean le Rond d\textquotesingle Alembert en 1752, de forma similar a como lo realizaremos en nuestro estudio \citep{MartinDomingo}. Esto provocó que pocos años más tarde, tanto D.Bernoulli, como  Leonhard Euler se interesasen en el estudio de las ondas acústicas. Este último utilizó lo que hoy conocemos como series de Fourier, para obtener una solución de la ecuación de onda, más tarde, se descubriría que cualquier solución de d'Alembert, se podría construir como suma de soluciones de tipo Euler y viceversa.\\
 
-La belleza de obtener numéricamente estas soluciones, es que, conforme la potencia de los dispositivos va incrementando, las gráficas y distintos tipos de archivos que podemos crear a partir de las mismas, mejorará de forma significativa.\\
+  
+A partir de entonces, se han realizado un gran despliegue de modelos para describir diversos fenómenos observables en la realidad. Podríamos destacar su uso en los campos de la sismica \citep{Seismic}, la acústica \citep{acoustics} y la óptica \citep{optics}, usando asiduamente los métodos numéricos para la aproximación de soluciones.\\
 
-Nosotros nos centraremos en dar una visión general de la resolución de la ecuación de onda, en el capítulo \ref{cha:preliminares} nos adentraremos en los conceptos previos necesarios para la comprensión del trabajo, como los Espacios de Lebesgue, el concepto de producto interior, o el mallado que utilizaremos para definir nuestro esquema numérico.\\
+La belleza de estas aproximaciones numéricas, es que, conforme la potencia de los dispositivos va incrementando, a la par que los métodos numéricos, las gráficas y distintos tipos de archivos que podemos crear a partir de las mismas, mejorarán de forma significativa.\\
 
-En el capítulo siguiente, \ref{cha:Comenzamos}, introduciremos la ecuación de onda desde un marco físico y realizaremos una clasificación de la misma. Posteriormente nos centraremos en las soluciones de tipo onda viajera. Por último, analizaremos la energía de la ecuación y veremos en qué condiciones se cumplirá la Ley de la conservación de la energía. \\
-
-Una vez tenemos todos los cimientos construidos, en el capítulo \ref{cha:Comparativa}, haremos uso de uno de los métodos más utilizados para la resolución numérica, el método de las diferencias finitas. Continuando el capítulo, analizaremos la consistencia y estabilidad de las soluciones obtenidas. Acabaremos trasladando tanto las soluciones de tipo onda viajera como la conservación de la energía al ámbito discreto.\\
-
-
-Concluiremos el grueso del trabajo, llevando a la práctica la teoría de los capítulos anteriores mediante un script de Python. Este se puede encontrar en el Anexo \ref{cha:Anexo} y en el Github del trabajo  \href{https://github.com/Anain-27/Simulacion-numerica-de-ecuaciones-de-onda}{\textbf{Simulación numérica de ecuaciones de onda}}. En el capítulo \ref{cha:Comparativa}, comparamos las soluciones obtenidas en varios sentidos, desde cambiando las condiciones iniciales del sistema, hasta variar las variables obtenidas en los capítulos anteriores.\\
+Retomando la ecuación de onda, nos encontramos con diversos métodos numéricos utilizados, como el método de las diferencias finitas \citep{Finitedifference}, el de los elementos finitos \citep{FiniteElements}, o los métodos espectrales \citep{NumericalModels}.\\
 
 
-Como cierre, en el apartado de conclusiones \ref{Conclusiones}, sintetizaremos los hallazgos obtenidos y presentaremos sugerencias para seguir explorando en esta área de estudio.
+Nosotros nos centraremos en dar una visión general de la resolución de la ecuación de onda, utilizando el método de las diferencias finitas anteriormente mencionado.\\
+
+En el capítulo \ref{cha:preliminares} nos adentraremos en los conceptos previos necesarios para la comprensión del trabajo, como los Espacios de Lebesgue, el concepto de producto interior, o el mallado que utilizaremos para definir nuestro esquema numérico.\\
+
+En el capítulo siguiente, \ref{cha:Comenzamos}, introduciremos la ecuación de onda desde un marco físico y realizaremos una clasificación de la misma. Posteriormente nos centraremos en las soluciones de tipo onda viajera. Por último, analizaremos la energía de la ecuación.\\
+
+Una vez tenemos todos los cimientos construidos, en el capítulo \ref{cha:Diferenciasfinitas}, haremos uso de uno de los métodos más utilizados para la resolución numérica, el método de las diferencias finitas, para aproximar numéricamente la ecuación de ondas. Continuando el capítulo, analizaremos la consistencia y estabilidad de las aproximaciones obtenidas. Acabaremos trasladando tanto las soluciones de tipo onda viajera como la conservación de la energía al ámbito discreto.\\
+
+
+Concluiremos el grueso del trabajo, llevando a la práctica la teoría de los capítulos anteriores elaborando un script de Python, que nos permita computar las aproximaciones propuestas. Este se puede encontrar en el Anexo \ref{cha:Anexo} y en el repositorio de Github del trabajo  \href{https://github.com/Anain-27/Simulacion-numerica-de-ecuaciones-de-onda}{\textbf{Simulación numérica de ecuaciones de onda}}. En el capítulo \ref{cha:Comparativa}, compararemos las aproximaciones obtenidas desde distintos puntos de vista. Comprobaremos cuanto se aproximan a la solución exacta, y como se relacionan con las soluciones de tipo onda viajera obtenidas, variaremos ciertos parámetros para observar su implicación en la estabilidad de las aproximaciones, y sintetizaremos la onda, obteniendo  archivos de audio.\\
+
+
+Como cierre, en el apartado de conclusiones \ref{Conclusiones}, sintetizaremos los puntos mas importantes de este trabajo y presentaremos sugerencias para seguir explorando en esta área de estudio.
 
 
 

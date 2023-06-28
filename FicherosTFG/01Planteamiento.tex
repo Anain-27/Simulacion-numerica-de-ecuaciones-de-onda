@@ -86,23 +86,23 @@ Vemos que nuestro mallado sería del tipo:
 	\caption{Mallado}
 \end{figure}
 
-Una vez ya definido este mallado retomemos la generalización de \ref{innermallado}. 
+Una vez ya definido este mallado retomemos la generalización de \ref{innermallado}. Más información sobre como se aproxima al producto interior se puede encontrar en \citep{STRAND}.
 
 \begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
-	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y tomemos $D$ como la partición del interior del intervalo espacial, es decir, $D=\{ x_1,\dots,x_{m-1}\}$. Para ello debemos fijar un instante temporal $t_r$. En este contexto, definiremos el producto interior sobre $D$ como:
+	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y tomemos $D$ como la partición del interior del intervalo espacial $[a,b]$, es decir, $D=\{ x_1,\dots,x_{m-1}\}$. Para ello debemos fijar un instante temporal $t_r$. En este contexto, definiremos el producto interior sobre $D$ como:
 	\begin{equation}\label{eq:interiordiscretomalla}
-		\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m}h u(x_j,t_r)w(x_j,t_r),
+		\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m-1}h u(x_j,t_r)w(x_j,t_r),
 	\end{equation}
 	Para este tipo de casos usaremos la siguiente notación:
 	
 	\begin{equation}\label{eq:notacioninteriordiscretomalla}
-		\left(u_{\cdot,r},w_{\cdot,r}\right)_{D}= \sum_{j=1}^{m}h u_{j,r}w_{j,r}.
+		\left(u_{\cdot,r},w_{\cdot,r}\right)_{D}= \sum_{j=1}^{m-1}h u_{j,r}w_{j,r}.
 	\end{equation}
-	Observamos que estos últimos términos se salen del mallado definido, estos serán puntos virtuales del retículo.\\
+
 	La norma asociada a este producto escalar es:
 	$||u||_{D}= \sqrt{\left( u,u\right)_D}\geq 0$.
 \end{definicion}
-
+El producto interior discreto, no tiene porque ser definido expresamente un un mallado, pero, ya que este será el contexto en el que lo utilizaremos a lo largo de el trabajo, es conveniente definirlo en el interior del mismo.\\
 
 Una vez definidas las operaciones que nos harán falta a lo largo del trabajo,  y para simplificar la notación que usaremos, necesitaremos los siguientes conceptos:
 \begin{definicion}[label={shift},nameref={asjajsa}]{Desplazamiento progresivo y regresivo}
@@ -131,29 +131,56 @@ Para segundo orden definimos,
 	
 	\begin{equation*}
 		\begin{split}
-			\delta_{x}u_{j,r}&=  \delta_{x^+}\delta_{x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2u_{j,r}+e_{x^-}u_{j,r}\right)=\\
+			\delta_{xx}u_{j,r}&=  \delta_{x^+x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2u_{j,r}+e_{x^-}u_{j,r}\right)=\\
 			&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}.
 		\end{split}
 	\end{equation*} 
 \end{definicion}
 Al igual que la definición anterior esto será análogo en el eje temporal.\\
-Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes.
+Veamos ahora la relación que guarda este concepto con \ref{defdelta}.
+\begin{equation*}
+	\begin{split}
+		\delta_{x^+}(\delta_{x^-}(u_{j,r}))&= \delta_{x^+}(\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right))\\
+		&=\frac{1}{h}\left(\delta_{x^+}u_{j,r}-\delta_{x^+}u_{j-1,r}\right)\\
+		&=\frac{1}{h}\left(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)-\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)\right)\\
+		&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\\
+		&=\delta_{xx}u_{j,r},
+	\end{split}
+\end{equation*}
+\begin{equation*}
+	\begin{split}
+		\delta_{x^-}(\delta_{x^+}(u_{j,r}))&= \delta_{x^-}(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right))\\
+		&=\frac{1}{h}\left(\delta_{x^-}u_{j+1,r}-\delta_{x^-}u_{j,r}\right)\\
+		&=\frac{1}{h}\left(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)-\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)\right)\\
+		&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\\
+		&=\delta_{xx}u_{j,r}.
+	\end{split}
+\end{equation*} 
+
+Por lo tanto, podemos concluir que la posición de $\delta_{x^+}$ y $\delta_{x^-}$ en este contexto es intercambiable, es decir, $	\delta_{xx}u_{j,r}=  \delta_{x^+}(\delta_{x^-}(u_{j,r}))=\delta_{x^-}(\delta_{x^+}(u_{j,r})) $.\\
+
+Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes. 
 \begin{lema}[label={SumaPartes},nameref={Title or anything else}]{Representación de la suma por partes}
-	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m\}$, la representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
+	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m-1\}$,una partición del interior del intervalo [a,b], tal y como en la definición \ref{ProductoDiscreto}. La representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
 	
 	\begin{equation}\label{eq:rep1}
-		\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} + u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
+		\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} + u_{m-1,r}w_{m,r}-u_{0,r}w_{-1,r}
 	\end{equation}
 	
 	\begin{equation}\label{eq:rep2}
-		\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}= -\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
+		\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}= -\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{1,r}w_{0,r}+u_{m,r}w_{m-1,r}.
 	\end{equation}
-	
-	Vemos que estos últimos términos se salen del mallado que hemos definido, estos serán puntos virtuales del retículo.
 	
 \end{lema}
 
-Estas igualdades son fácilmente demostrables.
+Al igual que en la definición \ref{ProductoDiscreto}, este lema se podría dar en $D'=\{x_0,\dots x-m\}$, pero utilizando como ejemplo \eqref{eq:rep1}, nos quedaría 
+\begin{equation}\label{eq:nodovirtual}
+	\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D'}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D'} + u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r},
+\end{equation}
+podemos observar que en los últimos términos quedan fuera del mallado definido, estos se llaman puntos virtuales del mallado.
+\newpage
+
+Este lema es fácilmente demostrable siguiendo las igualdades.
 \begin{proof}
 	
 	\begin{equation*}

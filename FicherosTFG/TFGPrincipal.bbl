@@ -1,9 +1,51 @@
 \begin{thebibliography}{10}
 
+\bibitem{MartinDomingo}
+Agust{\'i}n Mart{\'i}n~Domingo.
+\newblock {\em Apuntes de vibraciones y ondas}.
+\newblock El autor, Madrid, Septiembre 2020.
+
+\bibitem{Seismic}
+Xiaobo Liu, Jingyi Chen, Zhencong Zhao, Haiqiang Lan, and Fuping Liu.
+\newblock Simulating seismic wave propagation in viscoelastic media with an
+  irregular free surface.
+\newblock {\em Pure and applied geophysics}, 175(10):3419--3439, 2018.
+
+\bibitem{acoustics}
+L.E. Kinsler, A.R. Frey, A.B. Coppens, and J.V. Sanders.
+\newblock {\em Fundamentals of Acoustics}.
+\newblock Wiley, 2000.
+
+\bibitem{optics}
+E.~Hecht.
+\newblock {\em Optics}.
+\newblock Pearson Education, 2016.
+
+\bibitem{Finitedifference}
+J.~W. Thomas.
+\newblock {\em Numerical partial differential equations: Finite difference
+  methods}, volume~22.
+\newblock Springer, 1995.
+
+\bibitem{FiniteElements}
+Alexandre Ern and Jean-Luc Guermond.
+\newblock {\em Theory and practice of finite elements}, volume 159.
+\newblock Springer, New York, 2004.
+
+\bibitem{NumericalModels}
+Alfio Quarteroni, Tom Hou, and Claude Le~Bris.
+\newblock {\em Numerical Models Differential Problems}, volume~2.
+\newblock Springer Milan, 2009.
+
 \bibitem{royden2010real}
 H.L. Royden and P.~Fitzpatrick.
 \newblock {\em Real Analysis}.
 \newblock Prentice Hall, 2010.
+
+\bibitem{STRAND}
+Bo~Strand.
+\newblock Summation by parts for finite difference approximations for d/dx.
+\newblock {\em Journal of Computational Physics}, 110(1):47--67, 1994.
 
 \bibitem{Wazwaz}
 Abdul-Majid Wazwaz.
@@ -11,7 +53,7 @@ Abdul-Majid Wazwaz.
 \newblock 01 2009.
 
 \bibitem{AnIntroduction}
-K.~W. Morton, D.~F. Mayers, and D.~F. Mayers.
+K.~W. Morton and D.~F. Mayers.
 \newblock {\em Numerical solution of partial differential equations: an
   introduction}.
 \newblock Cambridge University Press, Cambridge, 2nd edition, 2005.
@@ -20,17 +62,13 @@ K.~W. Morton, D.~F. Mayers, and D.~F. Mayers.
 Patricia Camarena.
 \newblock La transferencia del conocimiento: ecuaciones diferenciales parciales
   hacia una cuerda que vibra.
-\newblock 2004.
-
-\bibitem{MartinDomingo}
-Agust{\'i}n.
-\newblock Apuntes de vibraciones y ondas.
+\newblock pages 156--162, 2004.
 
 \bibitem{Ganzha}
 Victor~G. Ganzha and Evgenii~V. Vorozhtsov.
 \newblock {\em Numerical solutions for partial differential equations: problem
   solving using Mathematica}.
-\newblock CRC Press, Boca Raton (Florida) [etc.], 1996.
+\newblock CRC Press, 1996.
 
 \bibitem{amara}
 T.~Amaranath.
@@ -42,10 +80,21 @@ W.A. Strauss.
 \newblock {\em Partial Differential Equations: An Introduction}.
 \newblock Wiley, 2008.
 
+\bibitem{Strikwerda}
+John~C. Strikwerda.
+\newblock {\em Finite Difference Schemes and Partial Differential Equations,
+  Second Edition}.
+\newblock Society for Industrial and Applied Mathematics, 2004.
+
+\bibitem{mcowen}
+R.C. McOwen.
+\newblock {\em Partial Differential Equations: Methods and Applications}.
+\newblock Tsinghua University Press, 2004.
+
 \bibitem{Software}
 Shoichiro Nakamura.
-\newblock {\em Métodos num{\'e}ricos aplicados con software}.
-\newblock Prentice-Hall Hispanoamericana, M{\'e}xico, 1992.
+\newblock {\em M{\'e}todos num{\'e}ricos aplicados con software}.
+\newblock Prentice-Hall Hispanoamericana, 1992.
 
 \bibitem{smith1988analisis}
 W.A. Smith and F.J.S. Bernabe.
@@ -59,6 +108,18 @@ Enrique Zuazua.
 \newblock {\em Rendiconti di Matematica e delle sue Applicazioni. Serie VII},
   2004.
 
+\bibitem{Russell}
+David~L. Russell.
+\newblock Controllability and stabilizability theory for linear partial
+  differential equations: Recent progress and open questions.
+\newblock {\em SIAM Review}, 20(4):639--739, 1978.
+
+\bibitem{Stig}
+Stig Larsson and Vidar Thom{\'e}e.
+\newblock {\em Partial differential equations with numerical methods},
+  volume~45.
+\newblock Springer, 2009.
+
 \bibitem{Bilbao}
 Stefan Bilbao.
 \newblock {\em Numerical Sound Synthesis: Finite Difference Schemes and
@@ -68,45 +129,6 @@ Stefan Bilbao.
 \bibitem{Carreo2012AcercaDA}
 Juan Carlos~Solares Carre{\~n}o and Rosalba~Mendoza Su{\'a}res.
 \newblock Acerca de algunas soluciones de ciertas ecuaciones de onda.
-\newblock 2012.
-
-\bibitem{vankka2005digital}
-J.~Vankka.
-\newblock {\em Digital Synthesizers and Transmitters for Software Radio}.
-\newblock Springer US, 2005.
-
-\bibitem{van2006network}
-M.E. Van~Valkenburg.
-\newblock {\em Network Analysis 3rd Edition}.
-\newblock Pearson Education, 2006.
-
-\bibitem{STRAND}
-Bo~Strand.
-\newblock Summation by parts for finite difference approximations for d/dx.
-\newblock {\em Journal of Computational Physics}, 110(1):47--67, 1994.
-
-\bibitem{Russell}
-David~L. Russell.
-\newblock Controllability and stabilizability theory for linear partial
-  differential equations: Recent progress and open questions.
-\newblock {\em SIAM Review}, 20(4):639--739, 1978.
-
-\bibitem{Strikwerda}
-John~C. Strikwerda.
-\newblock {\em Finite Difference Schemes and Partial Differential Equations,
-  Second Edition}.
-\newblock Society for Industrial and Applied Mathematics, 2004.
-
-\bibitem{Stig}
-Stig Larsson and Vidar Thom{\'e}e.
-\newblock {\em Partial differential equations with numerical methods},
-  volume~45.
-\newblock Springer, Berlin, 1st softcover pr. edition, 2009.
-
-\bibitem{CHEN}
-E.W. Chen, Q.~Luo, N.S. Ferguson, and Y.M. Lu.
-\newblock A reflected wave superposition method for vibration and energy of a
-  travelling string.
-\newblock {\em Journal of Sound and Vibration}, 400:40--57, 2017.
+\newblock {\em Bolet{\'i}n de Matem{\'a}ticas}, 19(2), jul. 2012.
 
 \end{thebibliography}
