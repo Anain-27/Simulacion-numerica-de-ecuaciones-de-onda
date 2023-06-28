@@ -3,6 +3,7 @@ import time
 import os as os
 from shutil import rmtree
 import matplotlib.pyplot as plt
+from scipy.integrate import quad
 
 #Funciones necesarias
 
@@ -26,7 +27,7 @@ def g(x):
 def g(x):
     if( x<=0.1):
         return 50000*x
-    if (x <= 0.2):
+    elif (x <= 0.2):
         return 50000*(0.2-x)
     else:
         return 0
@@ -48,7 +49,6 @@ def f(x):
     for i in x:
         aux.append(np.sin(2*np.pi*i))
     return aux # Tener cuidado con la función por si se sale del rango
-
 
 '''
 #Condición de contorno en el eje de posición tipo pico
@@ -85,7 +85,7 @@ def f(x):
 '''
 
 '''
-#condicioón de tipo c_rc con x_hw= 0.2 x_0 = 0.5 c_0= 1
+#condición de tipo c_rc con x_hw= 0.2 x_0 = 0.5 c_0= 1
 def f(x):
     aux = []
     for i in x:
@@ -133,7 +133,7 @@ os.mkdir(directoriofinal)
 #Constantes necesarias
 l=1
 tmax= 1
-m = int(l*300)# Constante representativa del número de trozos en los que separamos el espacio
+m = int(l*100)# Constante representativa del número de trozos en los que separamos el espacio
 h=l/m  #Cambiamos la h para que sea entera
 
 k =h/c #Lo tomamos de esta forma para ganar en exactitud pagina 133 numerical sound synthesis
@@ -197,23 +197,9 @@ wr = np.empty((m + 1, n + 1), float) #Solo para mu=1
 
 #Inicializamos la solución
 for i in range(0, m+1):
-    if i==0:
-        sumx =2* g(x[0])
-    elif i==1:
-        sumx = g(x[0])+g(x[1])
-    else:
-        sumx += g(x[i-1])+g(x[i])
-    wl[i, 0] = 1 / 2 * f([x[i]])[0] + h / (4 * c) * (sumx) + k / 4 * 2*g(x[i]+c*t[0]) #Prueba apendice libro Bilbao
-wr[0:m+1,0]=wl[0:m+1,0]
-
-
-for j in range(1, n + 1):
-    temp1 = wr[m,j-1]
-    temp2 = wl[0,j-1]
-    wr[1:m+1,j] = wr[0:m,j-1]
-    wl[0:m ,j] = wl[1:m+1,j-1]
-    wr[0,j] = -temp2
-    wl[m,j] = -temp1
+    for j in range(0,n+1):
+        wl[i,j]= (1/2)*f([x[i]+c*t[j]])[0]+(1/(2*c))*quad(g, 0, x[i]+c*t[j])[0]
+        wr[i,j]= (1/2)*f([x[i]-c*t[j]])[0]+(1/(2*c))*quad(g, 0, x[i]-c*t[j])[0]
 
 
 end = time.time()

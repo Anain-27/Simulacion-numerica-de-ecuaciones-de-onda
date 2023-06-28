@@ -12,13 +12,14 @@ donde $\Omega \subset \mathbb{R}^n$, $f$ es una función de valores reales, $c>0$
 \begin{equation}
 	\Delta u = \sum_{j=1}^{N}\frac{\partial^2u}{\partial x^2_j},
 \end{equation}
-es conocido como el laplaciano. En esta ecuación la variable $t$ denota el tiempo transcurrido, $x_i ,\  i=1,...,n$ denotan las variables espaciales en cada dirección de $\mathbb{R}^n$ y $u(x,t)$ será la posición la posición de la onda en cada punto del dominio espacio-temporal. \\
+es conocido como el laplaciano. En esta ecuación la variable $t$ denota el tiempo transcurrido, $x_i ,\  i=1,...,n$ denotan las variables espaciales en cada dirección de $\mathbb{R}^n$ y $u$, será una función en $(x,t)$ que denote la posición la posición de la onda en cada punto del dominio espacio-temporal. \\
 
 Podemos observar que se trata de una ecuación lineal y, siempre que $f\not\equiv 0$, la ecuación será no homogénea, es decir, tendrá termino independiente no nulo.\\
 
 \section{La ecuación de onda unidimensional}
+\label{sec:fisica}
 
-Ya que habiéndonos situado en la ecuación de onda, a partir de esta sección nos centraremos en el caso unidimensional, es decir en el que dominio  $\Omega\subset\mathbb{R}$. Comenzaremos explicando el modelado de dicho fenómeno, apoyándonos en \citep{Camarena2004LaTD, MartinDomingo}.
+Una vez situados en la ecuación de onda, a partir de esta sección nos centraremos en el caso unidimensional, es decir en el que dominio  $\Omega\subset\mathbb{R}$. Comenzaremos explicando el modelado de dicho fenómeno, basándonos en los trabajos de \citep{Camarena2004LaTD, MartinDomingo}.
 
 Supongamos que tenemos una cuerda uniforme y tensa, sujeta por los extremos, tal como lo estaría, por ejemplo, en una guitarra. Esta cuerda estaría colocada en nuestro esquema en el eje $X$ entre $0$ y $L$, siendo $L$ el largo de la misma. Así vemos que cada punto de la cuerda se desplazará en el tiempo.
 Por lo tanto, la función que describa el movimiento de la cuerda será del tipo $u(x,t)$.\\
@@ -37,12 +38,12 @@ Supongamos que la cuerda no está en reposo, habrá una fuerza tensora $T$, produc
 	\caption{Representación de una sección diferencial de la cuerda y las fuerzas asociadas a la misma.}
 \end{figure}
 
-Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto la fuerza tensora que produce cada punto en el que está fijado, no tendrán la misma dirección y sentido opuesto, sino que tendrán componente vertical.  Las componentes verticales son:
+Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto, las fuerzas tensoras derivadas de los dos puntos fijados, tendrán componente vertical.  Las componentes verticales son:
 
 $$T_y= -F_Tsen(\alpha), $$
 $$T'_y= F_Tsen(\beta).$$
 
-Luego la fuerza vertical quedaría $F=F_T(sen(\beta)-sen(\alpha))$, donde $F_T$ es la fuerza generada por la tensión, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos decir $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\beta) \approxeq tan(\beta)$ quedando
+Luego la fuerza vertical quedaría $F=F_T(sen(\beta)-sen(\alpha))$, donde $F_T$ es la fuerza generada por la tensión, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos aproximar $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\beta) \approxeq tan(\beta)$ quedando
 
 $$F=F_T(tan(\beta)-tan(\alpha)).$$
 
@@ -57,7 +58,7 @@ Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{F_T}{\rho_l}$ la ecua
 	u_{tt}=c^2u_{xx},\quad (0,L) \times[0,T).
 \end{equation}
 
-En este caso podemos tomamos el dominio como $\Omega \mathbb{R}$, donde $T$ es un parámetro dado que representa el instante final de la observación. Añadiendo las condiciones de contorno usuales (valores conocidos de la solución sobre la fontera del dominio, $x=0$ y $x=L$), para más información ver \citep{Ganzha}, obtendremos el siguiente modelo. 
+En este caso podemos tomamos el dominio como $\Omega \mathbb{R}$, donde $T$ es un parámetro dado que representa el instante final de la observación. Añadiendo las condiciones de contorno usuales (valores conocidos de la solución sobre la frontera del dominio, $x=0$ y $x=L$), para más información ver \citep{Ganzha}, obtendremos el siguiente modelo. 
 
 \begin{equation}\label{ecuaciononda}
 	\begin{array}{lc}   
@@ -80,7 +81,7 @@ En este caso podemos tomamos el dominio como $\Omega \mathbb{R}$, donde $T$ es u
 	\end{array}
 \end{equation} 
 
- Estas última condiciones de contorno, \eqref{eq:frontera3}, se llaman de tipo Dirichlet homogéneas. En lo que sigue, supondremos que $f$ y $g$ son funciones suficientemente regulares para que el problema anterior esté bien planteado y tenga solución, es decir, exista una función $u$ dos veces derivable con respecto a t y x que verifica \eqref{ecuaciononda} a \eqref{eq:frontera3}.\\
+ Estas últimas condiciones de contorno, \eqref{eq:frontera3}, se denominan de tipo Dirichlet homogéneas. En lo que sigue, supondremos que $f$ y $g$ son funciones suficientemente regulares para que el problema anterior esté bien planteado y tenga solución, es decir, exista una función $u$ dos veces derivable con respecto a t y x, que verifique \eqref{ecuaciononda} a \eqref{eq:frontera3}.\\
  
  La solución de este esquema será única, la demostración de la unicidad se puede encontrar en \citep{amara}.
 
@@ -235,7 +236,7 @@ Por lo tanto para nuestro esquema se da la ley de la conservación de la energía.
 
 Cabe recalcar que si en lugar de las condiciones de tipo Dirichlet impuestas en \eqref{eq:frontera3} se diesen unas condiciones de tipo Neumann homogéneas en dichos puntos, es decir 
 $$u_x(0,t)=u_x(L,t)=0, \text{para }t\in(0,T),$$
-tambien se cumpliría dicha afirmación.\\
+también se cumplirá dicha afirmación.\\
 
 
 

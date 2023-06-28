@@ -5,7 +5,7 @@
 
 \section{Métodos principales de resolución}
 
-Las ecuaciones en derivadas parciales, en general, no se pueden resolver con métodos exactos, como separación de variables, transformada de Fourier, etc. Con la excepción de ecuaciones muy sencillas sobre dominios espaciales no acotados o muy estructurados, como intervalos, rectángulos o esferas, que en la practica pueden no resultar útiles para capturar todos los matices de la realidad. Esto nos lleva a la creación de métodos numéricos que consiguen aproximar sus soluciones, pero con errores tan pequeños como sea preciso siempre que podamos asumir el coste computacional.\\
+Las ecuaciones en derivadas parciales, en general, no se pueden resolver con métodos exactos, como separación de variables, transformada de Fourier, etc. Con la excepción de ecuaciones muy sencillas sobre dominios espaciales no acotados o muy estructurados, como intervalos, rectángulos o esferas,  que en la practica pueden no resultar útiles para capturar todos los matices de la realidad. Esto nos lleva a la creación de métodos numéricos que consiguen aproximar sus soluciones, pero con errores tan pequeños como sea preciso siempre que podamos asumir el coste computacional.\\
 
 En este apartado nos centraremos en el método de diferencias finitas, y veremos las características principales que nos atañen del mismo. Más tarde, en el capítulo \ref{cha:Comparativa}, implementaremos este método en Python.
 
@@ -66,7 +66,7 @@ A continuación nos centraremos en dichas condiciones, siguiendo \citep{strauss}.
  
   Por otra parte, las condiciones de contorno de tipo Dirichlet \eqref{eq:frontera3} quedarán como $u_{0,r}=u_{m,r}=0 $ para $r=0,1,\dots,n$.\\
   
-  Para la condición que falta \eqref{eq:frontera2} utilizaremos, haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$. Para esta podría haber muchas mas opciones. En nuestro caso no ahondaremos mas en este tema y utilizaremos la expresión mas sencilla descrita anteriormente.\\
+  Para la condición faltante, \eqref{eq:frontera2}, podrían elegirse diversas opciones, podemos encontrar abundantes textos al respecto, como por ejemplo \citep{leveque}.  En nuestro caso no ahondaremos mas en este tema y emplearemos la expresión más frecuente. Haciendo una aproximación por cociente incremental en los dos primeros instantes, $u_{j,1}=u_{j,0}+k g(x_j)$.\\
   
 Nuestro esquema al completo quedaría:
 
@@ -121,7 +121,7 @@ Lo ilustramos con las siguiente figuras, utilizando como ejemplo nuestro esquema
 	\caption{Puntos que usamos para aproximar  $u(x_j,t_r).$}
 \end{figure}
 
-A su vez para aproximar la solución de cada uno de los puntos coloreados de negro, necesitaremos de los anteriores, por lo tanto:
+A su vez para aproximar la solución de cada uno de los puntos coloreados de negro, necesitaremos de los anteriores, por lo tanto:\\
 
 \begin{figure}[!ht]
 	\centering
@@ -130,25 +130,29 @@ A su vez para aproximar la solución de cada uno de los puntos coloreados de negr
 	\label{fig:Puntosusados}
 \end{figure}
 
-Siendo la recta coloreada e azul, $\overline{QR}$, se podrían dar dos casos\\
-Que el dominio de dependencia quedase en el interior de los puntos de $[a,b]$ utilizados en el esquema en diferencias finitas (Coloreados de verde):
+Siendo la recta coloreada e azul, $\overline{QR}$, se podrían dar dos casos:\\
+\begin{itemize}
+	\item[a)] Que el dominio de dependencia quedase en el interior de los puntos de $[a,b]$ utilizados en el esquema en diferencias finitas (Coloreados de verde):
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.45]{DominioDependenciaconvergente.png}
+		\caption{En este caso si hay un cambio en cualquier punto de la recta $\overline{QR}$, los puntos verdes lo captarían, al contener íntegramente a la misma.}
+		\label{fig:Convergencia}
+	\end{figure}
+	\item[b)]
+		Que el dominio de dependencia quedase fuera de los puntos $[a,b]$ utilizados (verdes):
+		\newpage
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[scale=0.45]{DominioDependencianoconvergente.png}
+			\caption{En este caso, si se da un cambio en la zona de la recta azul exterior a los puntos verdes, estos no lo captarían y por lo tanto la solución no variaría.}
+			\label{fig:noConvergencia}
+		\end{figure}
+\end{itemize}
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.45]{DominioDependenciaconvergente.png}
-	\caption{En este caso si hay un cambio en cualquier punto de la recta $\overline{QR}$, los puntos verdes lo captarían, al contener íntegramente a la misma.}
-	\label{fig:Convergencia}
-\end{figure}
 
-Que el dominio de dependencia quedase fuera de los puntos $[a,b]$ utilizados (verdes):
-\newpage
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.45]{DominioDependencianoconvergente.png}
-	\caption{En este caso, si se da un cambio en la zona de la recta azul exterior a los puntos verdes, estos no lo captarían y por lo tanto la solución no variaría.}
-	\label{fig:noConvergencia}
-\end{figure}
 
 La situación más favorable, y por tanto la que busquemos, para nuestro esquema será la primera. En ese caso, al menos no tendremos el tipo de errores comentados en la Figura \ref{fig:noConvergencia}. 
 
@@ -231,9 +235,10 @@ Así hemos comprobado que el esquema tiene orden de consistencia dos en espacio y
 \section{Análisis de Von Neumann}
 \label{sec:VonNeumann}
 
-En la utilización de métodos multipaso, como el esquema en el que nos centramos en este trabajo, los errores globales finalmente observados pueden ser mucho mayores de lo que podría esperarse a partir del orden de consistencia local estudiado anteriormente. Esto es debido a que en el error global interviene un aumento del error que se propaga y que, a menudo, incluso se incrementa al disminuir la longitud de paso temporal. Dicho error que se propaga, puede estar relacionado con varias factores, como el método de inicialización, el truncamiento local y errores de redondeo. Esto se conoce como \textbf{inestabilidad}.
+En la utilización de métodos multipaso, como el esquema en el que nos centramos en este trabajo, los errores globales finalmente observados pueden ser mucho mayores de lo que podría esperarse según el orden de convergencia. Esto es debido, a que en el error global interviene una propagación que, a menudo, incluso se incrementa al disminuir la longitud de paso temporal.  Esto se conoce como \textbf{inestabilidad}.
+Dicho error que se propaga, puede estar relacionado con varias factores, como el método de inicialización, el truncamiento local y errores de redondeo.
 
-En esta sección nos centraremos en el análisis de Estabilidad de Fourier o Von Neumman. Este aunque no garantizará la estabilidad total del esquema, suele dar muy buenos resultados en la practica, y es el más empleado.\\
+En esta sección nos centraremos en el análisis de Estabilidad de Von Neumman. Este aunque no garantizará la estabilidad total del esquema, suele dar muy buenos resultados en la practica, y es el más empleado.\\
 Podemos encontrar diversas notaciones y formas de hacer este análisis en libros clásicos y modernos, véase \cite{Software, smith1988analisis, Strikwerda}.\\
 Comenzamos relacionando cada solución numérica del esquema con la solución exacta y el error del mismo, de la forma:
 \begin{equation}\label{eq:num,ex,error}
@@ -329,7 +334,7 @@ $$2\mu^2\leq2,$$
 \begin{equation}\label{mu}
 	\mu\leq 1,
 \end{equation}
-llegamos a que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, la condición CFL.\\
+llegamos a que para que el esquema sea estable necesitamos que se de esta última condición $\mu\leq 1$, denominada condición CFL.\\
 
 
 Volviendo al concepto de dominio de dependencia \ref{domdep}, tal y como se extrae de \citep{AnIntroduction}, cuanto más nos acerquemos a la igualdad  ($\mu=1$), cubriremos de manera mas óptima el dominio de dependencia con nuestra aproximación. Siempre respetando la condición CFL.\\
@@ -343,7 +348,7 @@ En el capítulo \ref{cha:Comparativa} mostraremos una comparación entre las difer
 
 \section{Resolución numérica para las soluciones de tipo viajero}	
 \label{Ondaviajera}
-Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} de la ecuación de onda se puedesn obtener dos soluciones de tipo onda viajera \eqref{eq:propagacion}. Ahora nos centraremos en implementar numéricamente dichas soluciones, esta técnica podría ser necesaria en caso de que no sea sencillo integrar g de forma exacta, tal y como haríamos en \eqref{eq:uviajera}\\
+Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} se pueden obtener dos soluciones de tipo onda viajera \eqref{eq:propagacion} de la EDP de onda. Ahora nos centraremos en implementar numéricamente dichas soluciones. Esta técnica podría ser necesaria en caso de que no sea sencillo integrar g de manera exacta, tal y como haríamos en \eqref{eq:uviajera}\\
 
 Querremos ver dichas soluciones en cada uno de nuestro puntos del mallado, para ello llamaremos a las aproximaciones de las mismas en cada uno como:
 
@@ -359,7 +364,7 @@ Ahora tendremos que la aproximación de la solución de $u$ será,
 	u_{j,r}=w^+_{j,r}+w^-_{j,r}.
 \end{equation}
 
-Partiendo de las representaciones de las soluciones \eqref{repp-} y \eqref{repp+}, aproximaremos $w^+_{j,r}$ y $w^-_{j,r}$. Esto lo haremos primeramente separando en dos la integral, trabajemos con $p_-(x_j+ct_r)$:
+Partiendo de las representaciones de las soluciones \eqref{repp-} y \eqref{repp+}, aproximaremos $w^+_{j,r}$ y $w^-_{j,r}$. Para ello, inicialmente separaremos la integral en dos, trabajemos con $p_-(x_j+ct_r)$:
 
 \begin{equation*}
 	\begin{split}
@@ -368,7 +373,7 @@ Partiendo de las representaciones de las soluciones \eqref{repp-} y \eqref{repp+
 	\end{split}
 \end{equation*}
 
-Realizamos una aproximación de cada una de las integrales utilizando el método del trapecio y los puntos ya definidos en el mallado. El tamaño de paso en la primera integral será $h$, y en la segunda será $ck$, por tanto la aproximación es.
+Realizamos una aproximación de cada una de las integrales utilizando el método del trapecio y los puntos ya definidos en el mallado. Comprobamos que el tamaño de paso en la primera integral será $h$, y en la segunda será $ck$, por tanto la aproximación queda:
 \begin{equation*}
 	\begin{split}
 		w^-_{j,r}&= \frac{1}{2}f(x_j+ct_r) + \frac{h}{4c}\left(g(x_0)+2\sum_{i=1}^{j-1}g(x_i)+ g(x_j)\right)\\
@@ -398,10 +403,10 @@ Con esto ya podríamos implementar las soluciones en caso de que $g$ no sea integ
 \section{Ley de energía discreta}
 \label{energiadiscreta}
 
-En este punto nos preguntamos como se traduciría la ley de energía a nuestro esquema. Al ser el esquema discreto, tendremos que usar la definición de producto interior discreto \ref{ProductoDiscreto},
+Tal y como hacíamos en \ref{energia}, querremos verificar si el principio de la conservación de la energía se cumple en nuestro esquema numérico. Al ser el esquema discreto, tendremos que usar la definición de producto interior discreto \ref{ProductoDiscreto},
 en lugar de la del producto interior anteriormente utilizada en la sección \ref{sec:energiaondas}.\\
 
-Como queremos comprobar que en nuestra aproximación se sigue dando la conservación de la energía, vamos a comenzar tomando como dominio el mallado \ref{Mallado}. Sabiendo que vamos a utilizar el concepto de suma por partes, parece conveniente definir $D$ como la partición del interior del eje espacial, ya que, en el interior es donde tenemos definido nuestro esquema \eqref{esquemacompletoonda}.\\
+Comenzaremos tomando como espacio a tratar el mallado \ref{Mallado}. Puesto vamos a utilizar el concepto de suma por partes, parece conveniente definir $D$ como la partición del interior del eje espacial, ya que, es en este donde tenemos definido nuestro esquema \eqref{esquemacompletoonda}.\\
 
 Sin embargo, en nuestro caso nos beneficiaremos enormemente de utilizar $\hspace{2cm} D=\{x_0,x_1,\dots, x_{m-1}\}$. Por tanto, vamos a analizar de que forma podría definirse nuestro esquema para los puntos de la forma $(x_0,t_r)$, con $r=1,\dots, n-1$.\\
 

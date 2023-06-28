@@ -86,6 +86,11 @@ John~C. Strikwerda.
   Second Edition}.
 \newblock Society for Industrial and Applied Mathematics, 2004.
 
+\bibitem{leveque}
+Randall~J. LeVeque.
+\newblock {\em Finite Volume Methods for Hyperbolic Problems}.
+\newblock Cambridge University Press, 2002.
+
 \bibitem{mcowen}
 R.C. McOwen.
 \newblock {\em Partial Differential Equations: Methods and Applications}.
@@ -100,6 +105,11 @@ Shoichiro Nakamura.
 W.A. Smith and F.J.S. Bernabe.
 \newblock {\em An{\'a}lisis num{\'e}rico}.
 \newblock Prentice Hall, 1988.
+
+\bibitem{ScienceSound}
+T.D. Rossing, P.A. Wheeler, and F.R. Moore.
+\newblock {\em The Science of Sound}.
+\newblock Addison-Wesley series in physics. Addison Wesley, 2002.
 
 \bibitem{Optimal}
 Enrique Zuazua.

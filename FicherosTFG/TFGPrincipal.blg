@@ -32,45 +32,45 @@ I was expecting a `,' or a `}'---line 46 of file bibliografia.bib
 I'm skipping whatever remains of this entry
 Warning--empty publisher in Wazwaz
 Warning--empty booktitle in Camarena2004LaTD
-You've used 24 entries,
+You've used 26 entries,
             1791 wiz_defined-function locations,
-            600 strings with 6985 characters,
-and the built_in function-call counts, 4204 in all, are:
-= -- 348
-> -- 154
+            610 strings with 7197 characters,
+and the built_in function-call counts, 4539 in all, are:
+= -- 377
+> -- 169
 < -- 5
-+ -- 64
-- -- 40
-* -- 187
-:= -- 666
-add.period$ -- 72
-call.type$ -- 24
++ -- 70
+- -- 44
+* -- 199
+:= -- 721
+add.period$ -- 79
+call.type$ -- 26
 change.case$ -- 7
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 243
-empty$ -- 480
-format.name$ -- 40
-if$ -- 980
+cite$ -- 28
+duplicate$ -- 263
+empty$ -- 518
+format.name$ -- 44
+if$ -- 1060
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 42
-newline$ -- 123
-num.names$ -- 24
-pop$ -- 133
+int.to.str$ -- 26
+missing$ -- 46
+newline$ -- 133
+num.names$ -- 26
+pop$ -- 145
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 78
+skip$ -- 82
 stack$ -- 0
 substring$ -- 91
-swap$ -- 37
+swap$ -- 39
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 29
-width$ -- 26
-write$ -- 253
+while$ -- 31
+width$ -- 28
+write$ -- 274
 (There was 1 error message)

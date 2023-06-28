@@ -28,7 +28,8 @@
 \contentsline {subsection}{\numberline {5.3.1}$\mu \ll 1$}{42}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}$\mu >1$}{43}{subsection.5.3.2}%
 \contentsline {section}{\numberline {5.4}Archivos .wav y s\IeC {\'\i }ntesis de sonido}{45}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}\textbf {$f(x)= sin(2\pi x)$}, $g(x)=0$}{45}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.1}Frecuencia}{45}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}\textbf {$f(x)= sin(2\pi x)$}, $g(x)=0$}{45}{subsection.5.4.2}%
 \contentsline {chapter}{\numberline {6}Conclusiones y proyectos futuros }{47}{chapter.6}%
 \contentsline {chapter}{\numberline {A}Anexo}{49}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Resoluci\'on num\'erica}{49}{section.A.1}%

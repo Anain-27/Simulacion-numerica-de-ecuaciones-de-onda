@@ -433,31 +433,48 @@ Si intentamos reproducir el sonido de esta última situación no se escuchará nada
 
 
 \section{Archivos .wav y síntesis de sonido}
-Continuando con la reflexión anterior, es importante mencionar como se ha conseguido la síntesis del sonido, y el guardado del mismo.\\
+Continuando con la reflexión anterior, es importante mencionar como se ha conseguido la síntesis de sonido, y el guardado del mismo.\\
+
+En este trabajo se ha utilizado una síntesis de modelado físico, puesto que nos centramos en la recreación del movimiento de una cuerda. En general existen diversos tipos de síntesis de sonido, síntesis aditiva, síntesis de modulación de frecuencia, etc.\\
+
+\subsection{Frecuencia}
+Comencemos la sección abordando la frecuencia de la onda, ya que esta repercutirá en el sonido final.\\ 
+
+En este caso, vamos a estudiar la velocidad de propagación $c$, al estar estrechamente relacionada con la frecuencia de la onda. En el libro \citep{ScienceSound}, el autor obtiene  $c=\lambda \text{f}$, donde $\lambda$ denota la longitud de onda y $\text{f}$ representa la frecuencia de la onda. Por tanto tendremos,
+$$\text{f}=\frac{c}{\lambda}.$$
+
+En este caso $c$ será un parámetro que definiremos dependiendo de la frecuencia a obtener, puesto que, normalmente, depende de la tensión de la cuerda y la densidad de la misma, tal y como vimos en la sección \ref{sec:fisica}. Por otro lado, $\lambda$  dependerá del largo de la cuerda, $L$, y del número de nodos que se presenten en la misma, $N$. Un nodo es un punto en el que la amplitud se mantiene 0 en el tiempo.
+
 
 
 \subsection{\textbf{$f(x)= sin(2\pi x)$}, $g(x)=0$}
-(CAMBIAR PARA QUE SEA ACORDE AL SONIDO)
-En cada uno de los casos anteriores, tal y como hemos dicho al principio de la sección, $c=440$ y como solo hay dos nodos, puntos en los que la amplitud es siempre $0$, en todos los casos la frecuencia será $440Hz$. Esta frecuencia corresponde a un La central (4ª octava), la hemos elegido al ser la más usual para ejemplificar este tipo de modelado.\\
-Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2\pi x)$, La frecuencia se corresponderá a un La de 5ª octava.
-
+Si tomamos como ejemplo una cuerda, en la que la posición inicial sea $f(x)= sin(2\pi x)$, observamos como el número de nodos es 3.
+\newpage
 
 \begin{figure}[ht]
 	\centering
 	\begin{minipage}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{2Seno1.png}
-		\caption{Posición inicial.}
+		\caption{Posición inicial.\\ $\ $\\}
 		\label{fig:2Seno1}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{2Seno2.png}
-		\caption{}
+		\caption{Imagen realizada con $m=100$, $h=\frac{1}{100}$, $\mu=1$ y $k=\frac{1}{44000}$}
 		\label{fig:2Seno2}
 	\end{minipage}
 \end{figure}
+
+Luego, si queremos obtener $\textbf{f}=440Hz$, frecuencia del La central, será $\lambda= \frac{2L}{N}=\frac{2}{3}$,  $c=\lambda \textbf{f}=\frac{2}{3}*440 \approx 263$. Con estos parámetros obtenemos
+
+
+
+En cada uno de los casos anteriores, tal y como hemos dicho al principio de la sección, $c=440$ y como solo hay dos nodos, puntos en los que la amplitud es siempre $0$, en todos los casos la frecuencia será $440Hz$. Esta frecuencia corresponde a un La central (4ª octava), la hemos elegido al ser la más usual para ejemplificar este tipo de modelado.\\
+Ahora, elijamos un caso en el que tengamos $3$ nodos, por ejemplo $f(x)= sen(2\pi x)$, La frecuencia se corresponderá a un La de 5ª octava.
+
 
 Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $\pi x$, \ref{subsec:sin(x)},  y seno de $2\pi x$. Vemos claramente que llega a su máxima amplitud el doble de veces.
 
