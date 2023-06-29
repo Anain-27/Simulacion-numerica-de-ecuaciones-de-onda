@@ -29,14 +29,19 @@ Nuestra cuerda en un instante $t$ podría tener una forma parecida a alguna de la
 \includegraphics[scale=0.45]{Ejemplo1.png}
 \includegraphics[scale=0.45]{Ejemplo2.png}\\
 
-Supongamos que la cuerda no está en reposo, habrá una fuerza tensora $T$, producida por los puntos en los que está sujeta. Nos apoyaremos en la siguiente figura para ver como se describiría la ecuación: 
-\newpage
 
-\begin{figure}[!ht]
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-1.5cm}
 	\centering
 	\includegraphics[scale=0.45]{modelado.png}
 	\caption{Representación de una sección diferencial de la cuerda y las fuerzas asociadas a la misma.}
-\end{figure}
+	
+\end{wrapfigure}
+
+\vspace{2cm}
+Supongamos que la cuerda no está en reposo, habrá una fuerza tensora $T$, producida por los puntos en los que está sujeta. Nos apoyaremos en la siguiente figura para ver como se describiría la ecuación: 
+
+\newpage
 
 Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuenta de que la cuerda se habrá desplazado perpendicularmente una cantidad $u$. Por lo tanto, las fuerzas tensoras derivadas de los dos puntos fijados, tendrán componente vertical.  Las componentes verticales son:
 
@@ -55,10 +60,10 @@ $$u_{tt}(x,t)=\frac{F_T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}.$$
 
 Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{F_T}{\rho_l}$ la ecuación queda de la siguiente forma:
 \begin{equation}\label{eq:basica}
-	u_{tt}=c^2u_{xx},\quad (0,L) \times[0,T).
+	u_{tt}=c^2u_{xx},\quad en (0,L) \times(0,T).
 \end{equation}
 
-En este caso podemos tomamos el dominio como $\Omega \mathbb{R}$, donde $T$ es un parámetro dado que representa el instante final de la observación. Añadiendo las condiciones de contorno usuales (valores conocidos de la solución sobre la frontera del dominio, $x=0$ y $x=L$), para más información ver \citep{Ganzha}, obtendremos el siguiente modelo. 
+En este caso podemos tomamos el dominio como $(0,L) \times(0,T)$, donde $T$ representa el instante final de la observación y $L$ el largo de la cuerda. Añadiendo las condiciones de contorno usuales (valores conocidos de la solución sobre la frontera del dominio, $x=0$ y $x=L$), para más información ver \citep{Ganzha}, obtendremos el siguiente modelo. 
 
 \begin{equation}\label{ecuaciononda}
 	\begin{array}{lc}   
@@ -110,7 +115,7 @@ Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones caracte
 \end{definicion}
 
 Vemos que siguiendo la notación de  \eqref{eq:basica}, $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. En el caso de la ecuación de onda, tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
-Este tipo de clasificación de las ecuaciones la usaremos para separar los distinto métodos numéricos que se pueden usar, ya que estos suelen diferir dependiendo de la misma.
+Este tipo de clasificación ayuda a la hora de abordar el estudio de las mismas, ya que los distintos tipos de problemas plantean problemáticas diferentes. En particular, los métodos numéricos para aproximar las soluciones también suelen diferir.
 
 
 
@@ -118,7 +123,7 @@ Este tipo de clasificación de las ecuaciones la usaremos para separar los distin
 
 \section{Soluciones de tipo onda viajera}
 \label{sec:Ecuaciontransporte}
-Una vez definida nuestra ecuación de onda, es interesante ver que esta admite dos soluciones de tipo onda viajera para cada uno de los dos sentidos del eje $X$. Para ello comenzaremos suponiendo que la solución $u(x,t)$ se puede descomponer en dos funciones de propagación, donde $c$ sabemos que es la velocidad de la onda,
+Una vez definida nuestra ecuación de onda \ref{ecuaciononda}-\ref{eq:frontera3}, es interesante ver que esta admite soluciones de tipo onda viajera para cada uno de los dos sentidos del eje $X$. Para ello comenzaremos suponiendo que la solución $u(x,t)$ se puede descomponer en dos funciones de propagación, donde $c$ sabemos que es la velocidad de la onda,
 
 \begin{equation}\label{eq:propagacion}
 	u(x,t)=p_+(x-ct)+p_-(x+ct),
@@ -158,14 +163,25 @@ Luego despejando,
 
 $$p_-'(x)= \frac{1}{2}f'(x) + \frac{1}{2c}g(x),\quad \textbf{y}\quad p_+'(x)= \frac{1}{2}f'(x) - \frac{1}{2c}g(x).$$
 
-Como todo este proceso podría hacerse para todo $x\in \mathbb{R}$, integrando respecto a $x$ y sustituyéndolo por $x+ct$ y $x-ct$, respectivamente, obtendremos las representaciones siguientes de $p_-$ y $p_+$.
+Integrando entre $0$ y $x+ct$ la primera expresión y entre $0$ y $x-ct$, obtendremos las representaciones siguientes de $p_-$ y $p_+$:
+\begin{equation*}
+	p_-(x+ct)-p_-(0)=\frac{1}{2}\left(f(x+ct)-f(0)\right) + \frac{1}{2c}\int_{0}^{x+ct}g(s) ds +A,
+\end{equation*}
+\begin{equation*}
+	p_+(x-ct)-p_-(0)=\frac{1}{2}\left(f(x-ct)-f(0)\right) - \frac{1}{2c}\int_{0}^{x-ct}g(s) ds +B,
+\end{equation*}
+
+Eliminamos el termino $f(0)$ utilizando las condiciones de contorno \ref{eq:frontera1} y \ref{eq:frontera3}. Por lo tanto, $u(0,0)=f(0)=0$, utilizando la continuidad de f.\\
+ 
+ Por otro lado, utilizando \ref{eq:frontera2} y \ref{eq:frontera3}, $p_-(0)=\fra{1}{2}f(0)-\fra{1}{2c} g(0)=\fra{1}{2} u(0,0)-\fra{1}{2c}u_t(0,0)=0 $. Análogamente  $p_+(0)=0$.
+
 \begin{equation}\label{repp-}
 	p_-(x+ct)=\frac{1}{2}f(x+ct) + \frac{1}{2c}\int_{0}^{x+ct}g(s) ds +A,
 \end{equation}
 \begin{equation}\label{repp+}
-	p_+(x+ct)=\frac{1}{2}f(x-ct) - \frac{1}{2c}\int_{0}^{x-ct}g(s) ds +B,
+	p_+(x-ct)=\frac{1}{2}f(x-ct) - \frac{1}{2c}\int_{0}^{x-ct}g(s) ds +B,
 \end{equation}
-donde $A,B$ son constantes que tomaremos como 0 al saber que $A+B=0$ gracias a \eqref{eq:propagacion}. Nuestras integrales comienzan en $0$ por el dominio de \eqref{ecuaciononda}.\\
+donde $A,B$ son constantes que tomaremos como 0 al saber que $A+B=0$ gracias a \eqref{eq:propagacion}.
 
 Finalmente llegamos a que  la solución del problema de contorno, será:
 \begin{equation}\label{eq:uviajera}
@@ -178,13 +194,13 @@ Finalmente llegamos a que  la solución del problema de contorno, será:
 \section{La energía en la ecuación de onda}
 \label{sec:energiaondas}
 
-En esta sección nos centraremos en analizar la ley de energía en la ecuación de onda. Para poder obtener el la energía de la ecuación haremos, para todo $t\in [0,T]$, el producto interior \ref{Inner} de la misma con $u_t$:
+En esta sección nos centraremos en analizar la ley de energía en la ecuación de onda \ref{ecuaciononda}-\ref{eq:frontera3}. Para poder obtener el la energía de la ecuación haremos, para todo $t\in (0,T)$, el producto interior \ref{Inner} de la misma con $u_t$:
 
 \begin{equation*}
 	\left<u_t(\cdot,t),u_{tt}(\cdot,t)\right>_{L^2(\Omega)} = c^2\left<u_{t}(\cdot,t),u_{xx}(\cdot,t)\right>_{L^2(\Omega)}.
 \end{equation*} 
 
-Para facilitar el entendimiento de la sección simplificaremos la notación de la siguiente forma:
+Para facilitar el entendimiento de la sección simplificaremos la forma de la igualdad anterior, la escribiremos como sigue:
 \begin{equation}\label{ondaut}
 	\left<u_t,u_{tt}\right>_{L^2(\Omega)} = c^2\left<u_{t},u_{xx}\right>_{L^2(\Omega)}.
 \end{equation} 
@@ -205,16 +221,17 @@ Introduciendolo, en la ecuación \eqref{ondaut},
 	\end{split}
 \end{equation} 
 
-El termino $\left.u_tu_x\right|_0^L$ se anula para nuestro esquema, gracias a la condición \eqref{eq:frontera3}. Esto es:
- $$u(0,t)=u(L,t)=0, \text{para} t\in(0,T).$$
+Gracias a la condición \eqref{eq:frontera3},
+ $$u(0,t)=u(L,t)=0, \text{para } t\in(0,T),$$
  
- Por lo tanto derivando en t,
+derivando en t,
  $$u_t(0,t)=u_t(L,t)=0, \text{para }t\in(0,T).$$
  
- Luego,
-$$\left.u_tu_x\right|_0^L= u_t(\cdot,L)u_x(\cdot,L) - u_t(\cdot,0)u_x(\cdot,0)=0 $$
+Por tanto,
+$$\left.u_tu_x\right|_0^L= u_t(\cdot,L)u_x(\cdot,L) - u_t(\cdot,0)u_x(\cdot,0), $$
+de lo que se obtiene, que el término $\left.u_tu_x\right|_0^L$ se anula en para nuestra ecuación.\\
 
-Continuando con \eqref{eq:sutituyendo}, utilizando la regla de la cadena obtenemos:
+Continuando con \eqref{eq:sutituyendo}, y utilizando la regla de la cadena obtenemos:
 
 \begin{equation*}
 	\begin{split}
@@ -228,15 +245,15 @@ Continuando con \eqref{eq:sutituyendo}, utilizando la regla de la cadena obtenem
 Definiendo de la siguiente forma,
 
 $$E(u)=\frac{1}{2}||u_t||_{L^2(\Omega)}^2+\frac{c^2}{2}||u_x||_{L^2(\Omega)}^2,$$
-donde $E$ es la energía, que depende de la solución $u$, vemos que,
+donde $E$ es el funcional de energía, que depende de la solución $u$, vemos que,
 
 $$\frac{\partial}{\partial t}E(u)=0.$$ 
 
-Por lo tanto para nuestro esquema se da la ley de la conservación de la energía.\\
+Por lo tanto nuestra ecuación satisface la ley de conservación de la energía.\\
 
-Cabe recalcar que si en lugar de las condiciones de tipo Dirichlet impuestas en \eqref{eq:frontera3} se diesen unas condiciones de tipo Neumann homogéneas en dichos puntos, es decir 
+Cabe recalcar que si en lugar de las condiciones de tipo Dirichlet impuestas en \eqref{eq:frontera3} se diesen unas condiciones de tipo Neumann homogéneas en dichos puntos, es decir,
 $$u_x(0,t)=u_x(L,t)=0, \text{para }t\in(0,T),$$
-también se cumplirá dicha afirmación.\\
+también se cumplirá la ley de conservación de la energía.
 
 
 
