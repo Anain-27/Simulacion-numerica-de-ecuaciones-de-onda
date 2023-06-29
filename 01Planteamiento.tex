@@ -1,0 +1,206 @@
+% !TeX encoding = ISO-8859-1
+\chapter{Conceptos previos}
+\label{cha:preliminares}
+
+
+Para facilitar la comprensión del tema que vamos a tratar hay varios conceptos que debemos explicar con anterioridad, en ello nos centraremos en este capítulo.
+
+
+
+
+
+\section{Espacios de Lebesgue}
+
+Comenzaremos definiendo los espacios de Lebesgue. Un concepto clásico que se utiliza de manera recurrente en varios campos de las matemáticas \citep{royden2010real}.
+
+\begin{definicion}[label={Lebesgue},nameref={Title or anything else}]{Espacio de Lebesgue}
+	Para $E\subset \mathbb{R^n}$, con $n\in\mathbb{N}$
+	 medible y $p\in \mathbb{R}$ tal que  $1\leq p < \infty$ definimos, el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, en la que se realiza una identificación entre las funciones que son iguales en casi todo, que son p-integrables, es decir, las funciones $f$ para las cuales 
+	\begin{equation}\label{normaLp}
+		||f||_{L^p(E)}=\left(\int_{E}|f|^p\right)^{\frac{1}{p}}<\infty.
+	\end{equation}
+	
+\end{definicion}
+
+En lo que sigue del trabajo trabajaremos sobre este tipo de espacios. Sigamos viendo qué características tendrán nuestros espacios.
+
+\begin{definicion}[label={Banach},nameref={Title or anything else}]{Espacio de Banach}
+	Un espacio de Banach $(E,||\cdot||)$ es un espacio vectorial normado, en el que $E$ es completo bajo la métrica inducida por la norma $||\cdot||$. Es decir, cada serie de Cauchy en $E$ es una serie convergente.
+	
+\end{definicion}
+
+Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este será un espacio de Banach.
+
+
+\begin{definicion}[label={Hilbert},nameref={Title or anything else}]{Espacio de Hilbert}
+	Un espacio de Banach $E$ se llama de Hilbert si tiene un producto interior asociado y es completo bajo su métrica.
+	
+\end{definicion}
+
+En nuestro caso trabajaremos sobre $L^2$, que será un espacio de Hilbert y por lo tanto vamos a definir un producto interior en el mismo.
+
+
+
+
+
+
+
+
+\section{Producto interior y suma por partes en $L^2$}
+
+
+\begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto interior en $L^2$}
+	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior en $L^2(E)$, de ellas como:
+	$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
+	
+	
+\end{definicion}
+
+ La norma inducida por este producto interior, será la que utilizaremos. Esta se corresponderá con la norma definida por \ref{normaLp}.
+ Para funciones que dependen de más de una variable, como por ejemplo del espacio y el tiempo, $u(x,t)$, fijando un instante t, quedará:
+
+\begin{equation}\label{innermallado}
+	\langle u_1(\cdot,t),u_2(\cdot,t)\rangle_{L^2(E)}= \int_{E}u_1(x,t)u_2(x,t)dx, \ \ \ \ \ ||u(\cdot,t)||_{L^2(E)}= \sqrt{\left< u(x,t),u(x,t)\right>_{L^2(E)}}.
+\end{equation}
+
+Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$ respectivamente.\\
+
+
+En este punto nuestro objetivo será llegar a una generalización discreta de este concepto, ya que lo usaremos en la sección \ref{energiadiscreta}. Para ello vamos a definir un mallado tal y como lo usaremos mas adelante.\\
+
+\begin{definicion}[label={Mallado},nameref={Title or anything else}]{Mallado}
+	Sea $[a,b]\times[c,d]$ con $b\ge a,d\ge c$ y sean $n,m\in \mathbb{N}$. Definimos $h$ como tamaño del mallado en espacio y el paso de tiempo $k$, de forma que los puntos de nuestro mallado serán:
+	$$(x,t)_{j.r}=(x_j,t_r), \ \ \  \text{donde}$$
+	$$\begin{array}{lcc}   
+		x_j=jh & para &  j=0,1,\dots,m,\\
+		t_r = rk & para & r=0,1,\dots,n.\\
+		
+	\end{array} $$
+	
+\end{definicion}
+
+Vemos que nuestro mallado sería del tipo:
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.6]{mallado.png}
+	\caption{Mallado}
+\end{figure}
+
+Una vez ya definido este mallado retomemos la generalización de \ref{innermallado}. Más información sobre como se aproxima al producto interior se puede encontrar en \citep{STRAND}.
+
+\begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
+	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y tomemos $D$ como la partición del interior del intervalo espacial $[a,b]$, es decir, $D=\{ x_1,\dots,x_{m-1}\}$. Para ello debemos fijar un instante temporal $t_r$. En este contexto, definiremos el producto interior sobre $D$ como:
+	\begin{equation}\label{eq:interiordiscretomalla}
+		\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m-1}h u(x_j,t_r)w(x_j,t_r),
+	\end{equation}
+	Para este tipo de casos usaremos la siguiente notación:
+	
+	\begin{equation}\label{eq:notacioninteriordiscretomalla}
+		\left(u_{\cdot,r},w_{\cdot,r}\right)_{D}= \sum_{j=1}^{m-1}h u_{j,r}w_{j,r}.
+	\end{equation}
+
+	La norma asociada a este producto escalar es:
+	$||u||_{D}= \sqrt{\left( u,u\right)_D}\geq 0$.
+\end{definicion}
+El producto interior discreto, no tiene porque ser definido expresamente un un mallado, pero, ya que este será el contexto en el que lo utilizaremos a lo largo de el trabajo, es conveniente definirlo en el interior del mismo.\\
+
+Una vez definidas las operaciones que nos harán falta a lo largo del trabajo,  y para simplificar la notación que usaremos, necesitaremos los siguientes conceptos:
+\begin{definicion}[label={shift},nameref={asjajsa}]{Desplazamiento progresivo y regresivo}
+	Sean $u$ una función discretizada en el mallado antes descrito. Definiremos el  desplazamiento hacia delante (resp. desplazamiento hacia atrás) como:
+	\begin{center}
+		$e_{x+}u_{j,r}=u_{j+1,r},$\hspace{1cm} $\ \text{(}e_{x-}u_{j,r}=u_{j-1,r}$ respectivamente.)
+	\end{center}
+\end{definicion}
+
+Continuando con este concepto podríamos aproximar la derivada de primer orden de la siguiente forma.
+
+
+\begin{definicion}[label={defdelta},nameref={Title or anything else}]{Aproximaciones progresivas$\text{,}$ regresivas y centradas}
+	
+	Sea $u$ una función discretizada en un mallado como el la definición \ref{Mallado}.\\ Definiremos las diferencias aproximadas hacia adelante, atrás o centradas (más conocidas como \textit{Forward}, \textit{backward} y  \textit{centered difference approximations}) respectivamente, como:
+	\begin{itemize}
+		\item $\delta_{x^+}u_{j,r}= \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)$, 
+		\item $\delta_{x^-}u_{j,r}=\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)$, 
+		\item $\delta_{x}u_{j,r}= \frac{1}{2h}\left(u_{j+1,r}-u_{j-1,r}\right)$. 
+	\end{itemize}
+	Podemos hacer lo mismo para el eje temporal, denotándolas como $\delta_{t^+},\delta_{t^-},\delta_{t}$
+\end{definicion}
+Para segundo orden definimos,
+\begin{definicion}[label={derivada2},nameref={Title or anything else}]{Aproximación centrada de la derivada de segundo orden}
+	Sea $u$ una función discretizada en un mallado como el de la definición \ref{Mallado}.\\ Definimos la aproximación centrada de la derivada de segundo orden como:
+	
+	\begin{equation*}
+		\begin{split}
+			\delta_{xx}u_{j,r}&=  \delta_{x^+x^-}(u_{j,r})=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2u_{j,r}+e_{x^-}u_{j,r}\right)=\\
+			&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\approxeq\frac{\partial^2}{\partial x^2}u_{j,r}.
+		\end{split}
+	\end{equation*} 
+\end{definicion}
+Al igual que la definición anterior esto será análogo en el eje temporal.\\
+Veamos ahora la relación que guarda este concepto con \ref{defdelta}.
+\begin{equation*}
+	\begin{split}
+		\delta_{x^+}(\delta_{x^-}(u_{j,r}))&= \delta_{x^+}(\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right))\\
+		&=\frac{1}{h}\left(\delta_{x^+}u_{j,r}-\delta_{x^+}u_{j-1,r}\right)\\
+		&=\frac{1}{h}\left(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)-\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)\right)\\
+		&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\\
+		&=\delta_{xx}u_{j,r},
+	\end{split}
+\end{equation*}
+\begin{equation*}
+	\begin{split}
+		\delta_{x^-}(\delta_{x^+}(u_{j,r}))&= \delta_{x^-}(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right))\\
+		&=\frac{1}{h}\left(\delta_{x^-}u_{j+1,r}-\delta_{x^-}u_{j,r}\right)\\
+		&=\frac{1}{h}\left(\frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)-\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)\right)\\
+		&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)\\
+		&=\delta_{xx}u_{j,r}.
+	\end{split}
+\end{equation*} 
+
+Por lo tanto, podemos concluir que la posición de $\delta_{x^+}$ y $\delta_{x^-}$ en este contexto es intercambiable, es decir, $	\delta_{xx}u_{j,r}=  \delta_{x^+}(\delta_{x^-}(u_{j,r}))=\delta_{x^-}(\delta_{x^+}(u_{j,r})) $.\\
+
+Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes. 
+\begin{lema}[label={SumaPartes},nameref={Title or anything else}]{Representación de la suma por partes}
+	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m-1\}$,una partición del interior del intervalo [a,b], tal y como en la definición \ref{ProductoDiscreto}. La representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
+	
+	\begin{equation}\label{eq:rep1}
+		\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} + u_{m-1,r}w_{m,r}-u_{0,r}w_{-1,r}
+	\end{equation}
+	
+	\begin{equation}\label{eq:rep2}
+		\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}= -\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{1,r}w_{0,r}+u_{m,r}w_{m-1,r}.
+	\end{equation}
+	
+\end{lema}
+
+Al igual que en la definición \ref{ProductoDiscreto}, este lema se podría dar en $D'=\{x_0,\dots x-m\}$, pero utilizando como ejemplo \eqref{eq:rep1}, nos quedaría 
+\begin{equation}\label{eq:nodovirtual}
+	\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D'}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D'} + u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r},
+\end{equation}
+podemos observar que en los últimos términos quedan fuera del mallado definido, estos se llaman puntos virtuales del mallado.
+\newpage
+
+Este lema es fácilmente demostrable siguiendo las igualdades.
+\begin{proof}
+	
+	\begin{equation*}
+		\begin{split}
+			\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
+			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}=\\
+			&=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
+			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}=\\
+			&=-\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
+		\end{split}
+	\end{equation*}
+\end{proof}
+
+
+
+
+

@@ -1,0 +1,524 @@
+% !TeX encoding = ISO-8859-1
+
+\chapter{Modelado en Python y comparativa}
+\label{cha:Comparativa}
+
+En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos como varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de como afectan las condiciones de estabilidad \eqref{mu}.\\ 
+A lo largo del capítulo se irán discutiendo varios archivos de audio realizados con el código de python del Anexo \ref{cha:Anexo}, estos se pueden encontrar en el repositorio de Github del trabajo, \href{https://github.com/Anain-27/Simulacion-numerica-de-ecuaciones-de-onda}{\textbf{Simulación numérica de ecuaciones de onda}}.
+
+\section{Soluciones}
+\label{sec:soluciones}
+En esta sección comenzaremos señalando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$, y $\mu=1$. Por lo tanto los demás parámetros serán 
+
+
+\subsection{$f(x)= sin(\pi x)$, $g(x)=0$}
+\label{subsec:sin(x)}
+Cuando la posición inicial depende del seno y la velocidad inicial es $0$, se puede observar como nuestra solución oscila sin llegar a parar, al no tener en cuenta nuestro sistema \eqref{esquemacompletoonda}, fuerzas externas como el rozamiento. Utilizaremos como número de puntos en el espacio $m=100$, por lo tanto los demás parámetros serán $h=\frac{L-0}{m}= \frac{1}{100}$ y como $\mu=\frac{ck}{h}=1$, $k= \frac{1}{44000}$.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno1.png}
+		\caption{Posición inicial de la cuerda.}
+		\label{fig:Seno1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno2.png}
+		\caption{La cuerda comienza a bajar.}
+		\label{fig:Seno2}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno3.png}
+		\caption{Sigue bajando hasta llegar a la posición de máxima amplitud.}
+		\label{fig:Seno3}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Seno4.png}
+		\caption{La cuerda comienza a subir de nuevo.}
+		\label{fig:Seno4}
+	\end{minipage}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace{-2cm}
+	\includegraphics[width=0.45\textwidth]{Seno5.png}
+	\caption{Se puede escuchar este sonido en el archivo figura5-5.wav adjunto.}
+	\label{fig:Seno5}
+	
+\end{wrapfigure}
+
+\vspace{0.5cm}
+
+Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo. Esta cadena de datos será la que guardemos en el archivo de audio. En este caso por la elección de $c=440$, se escuchará un La central, y por la elección del punto, estará a máxima amplitud y por tanto volumen.
+
+
+\newpage
+
+
+\subsection{$f(x)$ tipo Struck, $g(x)=0$}
+\label{sub:fStuck}
+
+Cuando la posición inicial es de tipo Struck, es decir, un "pico" en la zona central de la cuerda, y la velocidad inicial es $0$, la solución no es tan suave, al ser $f$ no derivable en un punto.\\
+La expresión de $f$ es la siquiente,
+$$
+f(x) = 
+\begin{cases}
+	0 & \text{si } 0\leq x \leq \frac{1}{4} \\
+	4x-1 & \text{si } \frac{1}{4}  < x \leq \frac{1}{2}  \\
+	3-4x & \text{si } \frac{1}{2}  < x \leq \frac{3}{4}  \\
+	0 & \text{si }  \frac{1}{4}< x \leq 1
+\end{cases}
+$$
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico1.png}
+		\caption{Posición inicial de la cuerda.}
+		\label{fig:Pico1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico2.png}
+		\caption{Se crean picos en la cuerda.\\}
+		\label{fig:Pico2}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico3.png}
+		\caption{}
+		\label{fig:Pico3}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico4.png}
+		\caption{}
+		\label{fig:Pico4}
+	\end{minipage}
+\end{figure}
+En este caso, si aumentamos el número de puntos del dominio espacial, los picos propios del punto no derivable irán desapareciendo. Lo ilustramos con tres imágenes en instantes similares, para $m=100$, $m=300$ y $m=400$, siempre con $\mu=1$ y $c=440$.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{picom100.png}
+		\caption{$m=100,\\ h=\frac{1}{100}$ y $k= \frac{1}{44000}$.}
+		\label{fig:Pico100}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{picom300.png}
+		\caption{$m=300,\\ h=\frac{1}{300}$ y $k= \frac{1}{132000}$.}
+		\label{fig:Pico300}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{picom400.png}
+		\caption{$m=400,\\ h=\frac{1}{400}$ y $k= \frac{1}{176000}$.}
+		\label{fig:Pico400}
+	\end{minipage}
+\end{figure}
+\newpage
+La forma de la onda en cada punto no es tan regular como en la sección \ref{subsec:sin(x)}, y cambia mucho dependiendo del punto que observemos, como ejemplo visualizaremos el movimiento de los puntos $x=0.07$  y $x=0.5$.\\
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico5.png}
+		\caption{Archivo figura5-10.wav}
+		\label{fig:Pico5}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico6.png}
+		\caption{Archivo figura5-11.wav}
+		\label{fig:Pico6}
+	\end{minipage}
+\end{figure}
+
+Se observa que la onda varía dependiendo de la posición de la cuerda en las que se haga la observación, por ende, también el sonido producido, y el volumen del mismo.
+
+\subsection{$f(x)= 0$, $g(x)$ tipo Struck}
+
+
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-2.2cm}
+	\includegraphics[width=0.45\textwidth]{Planog.png}
+	\caption{Velocidad inicial.}
+	\label{fig:Planog}
+	
+\end{wrapfigure}
+
+\vspace{0.5cm}
+
+En este caso partimos de una onda en reposo, con una velocidad inicial tipo Struck. A la derecha vemos una gráfica de la forma que tiene esta velocidad inicial.\\ 
+
+La definición de la función $g$ es la siguiente:
+$$
+g(x) = 
+\begin{cases}
+	50000x & \text{si } 0\leq x \leq \frac{1}{10} \\
+	50000(0.2-x) & \text{si } \frac{1}{10}  < x \leq \frac{1}{5}  \\
+	0 & \text{si }  \frac{1}{5}< x \leq 1
+\end{cases}
+$$
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace{-1.6cm}
+	\includegraphics[width=0.45\textwidth]{Plano0.png}
+	\caption{Posición inicial de la cuerda.}
+	\label{fig:Plano0}
+	
+\end{wrapfigure}
+\vspace{1cm}
+En esta imagen vemos la posición inicial. Dependiendo del número de puntos que elijamos en nuestro mallado, podremos ver que la solución se hace más suave, lo ilustraremos eligiendo 50 y 200 puntos en el eje espacial, respetando $\mu=1$ y $c=440$.\\
+
+
+Muestra de la solución con $m=50$, $h=\frac{1}{50}$ y $k= \frac{1}{22000}$.
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano1.png}
+		\label{fig:Plano1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano2.png}
+		\label{fig:Plano2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano3.png}
+		\label{fig:Plano3}
+	\end{minipage}
+	\caption{Observamos como la onda se desplaza hasta el lado derecho de la cuerda hasta desaparecer para luego aparecer en la parte inferior.}
+\end{figure}
+\newpage
+Muestra de la solución con $m=200$, $h=\frac{1}{200}$ y $k= \frac{1}{88000}$.:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano4.png}
+		\label{fig:Plano4}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano5.png}
+		\label{fig:Plano5}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{Plano6.png}
+		\label{fig:Plano6}
+	\end{minipage}
+	\caption{En este caso, el movimiento se mantiene pero la solución es mucho más suave, sin ondulaciones en la misma.}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace{-1cm}
+	\includegraphics[width=0.45\textwidth]{Planoonda.png}
+	\caption{Archivo figura5-20.wav}
+	\label{fig:PlanoOnda}
+	
+\end{wrapfigure}
+
+\vspace{2cm}
+Aún así, para los puntos del mallado, en los que se aproxima la solución, el movimiento del mismo respecto al tiempo será prácticamente idéntico independientemente de si $m=50$ o $m=200$ y la diferencia en el audio indistinguible. Un ejemplo es el esquema de la derecha, hecho para $x=0.48$.\\
+\vspace{1.5cm}
+
+
+
+
+
+\section{Soluciones tipo onda viajera}
+\label{sec:solondaviajera}
+
+En esta sección nuestro objetivo será ejemplificar lo explicado en la sección  \ref{sec:Ecuaciontransporte}, añadiendo además la solución exacta de la ecuación para comprobar cuanto variará nuestra aproximación respecto a la misma. Utilizando los parámetros $c= 400$, $\mu = 1$, $m=100$ y por lo tanto, $h=\frac{1}{100}$ y $k= \frac{1}{44000}$ de nuevo y la función seno, las soluciones de tipo onda viajera en los siguientes casos serían:
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav1.png}
+		\caption{Ambas soluciones se encuentran superpuestas.\\ $\ $\\}
+		\label{fig:Senotrav1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav2.png}
+		\caption{Coloreada de azul la solución que se desplaza a la derecha y de rojo la que se desplaza hacia la izquierda.}
+		\label{fig:Senotrav2}
+	\end{minipage}
+\end{figure}
+
+\vspace{2cm}
+
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+	\vspace{-0.8cm}
+	\includegraphics[width=0.45\textwidth]{Senotrav3.png}
+	\caption{Movimiento de las soluciones de tipo onda viajera. }
+	\label{fig:Senotrav3}
+	
+\end{wrapfigure}
+
+Agrandes rasgos parece que la suma de ambas soluciones, y por tanto la solución exacta \eqref{eq:uviajera}, se acercará mucho a la aproximación que hemos conseguido numéricamente, coloreada de negro. Para ver que es así ilustremoslo dibujando la solución exacta.\\
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senoexacto1.png}
+		\caption{Al principio la solución exacta, coloreada de naranja, y la aproximación se superponen. }
+		\label{fig:Senoex1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senoexacto2.png}
+		\caption{Conforme se acercan a la posición $u \equiv 0$, las diferencias son cada vez más notables.}
+		\label{fig:Senoex2}
+	\end{minipage}
+\end{figure}
+
+\vspace{1.5cm}
+Podemos observar de manera incluso más clara el movimiento de las soluciones de tipo onda viajera utilizando la función $f(x)=sen(2\pi x)$.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav4.png}
+		\caption{}
+		\label{fig:Senotrav4}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Senotrav6.png}
+		\caption{}
+		\label{fig:Senotrav5}
+	\end{minipage}
+\end{figure}
+
+\section{Comparación variando el valor de $\mu$}
+Ahora veremos como cambiando el parámetro $\mu$, las soluciones obtenidas propagarán inestabilidades.
+
+\subsection{$\mu\ll 1$}
+Cuando elegimos $\mu$ mucho menor que $1$, es decir, alejándonos de la solución óptima, poco a poco comienzan a generarse inestabilidades. Comparemos la solución con $\mu = 1$, para $f(x)$ de tipo Struck definida como en \ref{sub:fStuck},  es decir,
+
+$$
+f(x) = 
+\begin{cases}
+	0 & \text{si } 0\leq x \leq \frac{1}{4} \\
+	4x-1 & \text{si } \frac{1}{4}  < x \leq \frac{1}{2}  \\
+	3-4x & \text{si } \frac{1}{2}  < x \leq \frac{3}{4}  \\
+	0 & \text{si }  \frac{1}{4}< x \leq 1
+\end{cases}
+$$
+
+y tomando como parámetros $c= 440$, $m=100$ y $h=\frac{1}{100}$, compararemos estas soluciones.
+
+\newpage
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Piconormal.png}
+		\caption{Solución para $\mu=1$ y $k= \frac{1}{44000}$}
+		\label{fig:Piconormal}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picomu0.1.png}
+		\caption{Solución para $\mu=0.1$ y $k= \frac{1}{440000}$}
+		\label{fig:Picomu0.1}
+	\end{minipage}
+\end{figure}
+
+En la imagen de la derecha podemos observar las inestabilidades en forma de ondas por toda la cuerda. Por otro lado, vemos claramente las diferencias en las imágenes del movimiento de la onda dependiendo del tiempo, con  el punto $x=0.5$ fijado.
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.png}
+		\caption{Movimiento de la onda para $\mu=1$. Archivo figura5-32.wav}
+		\label{fig:Picoonda}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu0.1.png}
+		\caption{Movimiento de la onda para $\mu=0.1$. Archivo figura5-33.wav}
+		\label{fig:Picoondamu0.1}
+	\end{minipage}
+\end{figure}
+Aún viendo claramente las inestabilidades de forma gráfica, no es tan fácil escucharlas en los archivos de audio adjuntos.
+
+
+\subsection{$\mu>1$}
+Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar como se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos. Para esta caso utilizaremos $c= 440$, $m=40$, $h=\frac{1}{40}$, tomamos $\mu=1.001$, y por tanto $k= \frac{1}{16000}$
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico38.png}
+		\caption{Las inestabilidades comienzan rápidamente.}
+
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pico58.png}
+		\caption{Las inestabilidades cubren la cuerda al completo.}
+		\label{fig:Picomu1.1}
+	\end{minipage}
+\end{figure}
+En este caso, a mayor sea $m$ antes se propagarán las inestabilidades, por ello hemos elegido $m=40$, para observar como cambia la onda dependiendo del tiempo, en la posición $x=0.5$.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.png}
+		\caption{Movimiento de la onda para $\mu=1$.\ref{fig:Piconormal}}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Picoondamu1.1.png}
+		\caption{Movimiento de la onda para $\mu=1.1$. Archivo fig5-38.wav}
+		\label{fig:Picoondamu1.1}
+	\end{minipage}
+\end{figure}
+
+
+Si intentamos reproducir el sonido de esta última situación no se escuchará nada, puesto que las inestabilidades son tan grandes que hacen imposible su escucha, dos causas posibles son:
+\begin{itemize}
+	\item  El guardado en el formato .wav, puesto que cuando la amplitud es mayor que $1$, no lo capta de manera adecuada.
+	\item La frecuencia, al ser tan elevada, es imposible de escuchar para el oído humano.
+\end{itemize}
+
+
+\section{Archivos .wav y síntesis de sonido}
+Continuando con la reflexión anterior, es importante mencionar como se ha conseguido la síntesis de sonido, y el guardado del mismo.\\
+
+En este trabajo se ha utilizado una síntesis de modelado físico, puesto que nos centramos en la recreación del movimiento de una cuerda. En general, existen diversos tipos de síntesis de sonido, síntesis aditiva, síntesis de modulación de frecuencia, etc.\\
+
+\subsection{Frecuencia}
+Comencemos la sección abordando la frecuencia de la onda, ya que esta repercutirá en el sonido final.\\ 
+
+En este caso, vamos a estudiar la velocidad de propagación $c$, al estar estrechamente relacionada con la frecuencia de la onda. En el libro \citep{ScienceSound}, el autor obtiene  $c=\lambda \text{f}$, donde $\lambda$ denota la longitud de onda y $\text{f}$ representa la frecuencia de la onda. Por tanto tendremos,
+$$\text{f}=\frac{c}{\lambda}.$$
+
+$c$ será un parámetro que definiremos dependiendo de la frecuencia a obtener, puesto que normalmente, depende de la tensión de la cuerda y la densidad de la misma, tal y como vimos en la sección \ref{sec:fisica}. 
+
+
+
+\subsection{\textbf{$f(x)= sin(2\pi x)$}, $g(x)=0$}
+Si tomamos como ejemplo una cuerda en la que la posición inicial sea $f(x)= sin(2\pi x)$, en esta ocasión al estar en una onda estacionaria, tal y como se hace en el capítulo 15 de \citep{universitaria}, será extremadamente importante el número de nodos.  Un nodo es un punto en el que la amplitud se mantiene 0 en el tiempo, y dependiendo de el número de nodos nos encontraremos en un armónico distinto. $N=2$ corresponderá al primer armónico, $N=3$ al segundo, etc.
+\newpage
+\vspace{3cm}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{2Seno1.png}
+		\caption{Posición inicial.\\ $\ $\\}
+		\label{fig:2Seno1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{2Seno2.png}
+		\caption{Imagen realizada con $m=100$, $h=\frac{1}{100}$, $\mu=1$ y $k=\frac{1}{44000}$}
+		\label{fig:2Seno2}
+	\end{minipage}
+\end{figure}
+\vspace{1cm}
+Al encontrarnos en una onda estacionaria, $\lambda$  dependerá del largo de la cuerda, $L$, y del número de nodos que se presenten en la misma, $N$, de la siguiente forma $\lambda=\fra{2l}{N-1}$.\\
+
+\begin{wrapfigure}[6]{r}{0.45\textwidth}
+	\vspace{-1.5cm}
+	\includegraphics[width=0.45\textwidth]{2Seno4.png}
+	\caption{$sin(2\pi x)$ en $x=0.25$ Archivo figura5-24.wav}
+	\label{fig:2Seno4}
+	
+\end{wrapfigure}
+\vspace{2cm}
+Luego, si queremos obtener $\textbf{f}=440Hz$, frecuencia del La central, será $\lambda=\frac{2}{2}=1$,  $c=\lambda \textbf{f}=1*440 = 440$. Con estos parámetros, para el punto de máxima amplitud $x=0.25$\\
+
+\vspace{2cm}
+
+Si utilizásemos de igual forma $c=440$ para la posición inicial $f(x)= sin(\pi x)$,
+
+\newpage
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.55\textwidth]{SenoPuntos.png}
+	\caption{Número de nodos}
+	\label{fig:SenoPuntos}
+\end{figure}
+
+Ahora tendremos, $N=2$ y  $\lambda=\frac{2*L}{N-1}=2$, se sigue $\text{f}= \fra{440}{2}=220Hz$, por lo que el número de oscilaciones por segundo se reducirán a la mitad, siendo un La de 3ª octava. Lo ilustramos con la siguiente imagen.\\
+
+Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $\pi x$, \ref{subsec:sin(x)},  y seno de $2\pi x$. Vemos claramente que llega a su máxima amplitud el la mitad de veces.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.55\textwidth]{2Seno3.png}
+	\caption{$sin(\pi x)$ en $x=0.5$ Archivo figura5-24.wav}
+	\label{fig:2Seno3}
+\end{figure}
+
+
+\subsection{Guardado de las ondas de sonido}
+
+ Para conseguir guardar la aproximación de la onda obtenida en un archivo de tipo .wav, necesitaremos un único vector de datos. Este vector tendrá que contener datos entre $-1$ y $1$. Para conseguirlo hemos probado diferentes técnicas:
+ \begin{itemize}
+ 	\item Suma de las ondas producida en cada punto espacial, es decir, $\sum_{m}^{j=0}u_{j,r}$. Esto resultará en un vector de aproximaciones, que deberemos escalar para que se encuentren entre $-1$ y $1$. 
+ 	\item Uso de canales, guardamos el vector aproximación de cada punto de la cuerda, fijado  $j=0,\dots,m$ en un canal de audio distinto. Esto se hace usualmente para conseguir un sonido envolvente, cuando se tienen varios altavoces. La desventaja de este método es que la mayoría de reproductores tiene un número máximo de canales.
+ 	\item Elección de un punto de la cuerda, usualmente el de máxima amplitud. Si la onda es suficientemente regular, el sonido en cada punto es extremadamente parecido, y solo se irá disipando conforme nos acerquemos a los nodos. Por ello, no necesitamos más de un archivo de audio. La desventaja es que si la onda no es suficientemente regular tendremos que guardarlo en diferentes archivos, y por lo tanto realizar el proceso de guardado varias veces.
+ \end{itemize} 
+
+A lo largo del trabajo hemos utilizado este último método, ya que nos permite comparar las ondas en distintos puntos de la cuerda.
+
+
+
+
+% ----------------------------------------------------------------------
+
