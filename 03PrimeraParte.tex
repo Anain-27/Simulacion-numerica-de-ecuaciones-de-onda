@@ -107,7 +107,7 @@ En esta sección nos centraremos en un concepto altamente relacionado con la esta
 	Sea una función $u(x,t)$ y un conjunto $[a,b]\times[c,d]$. El dominio de dependencia de $u$ en un punto arbitrario $(x_1,t_1)$, es el conjunto de puntos de $[a,b]$ necesarios para dar la solución de $u$ en $(x_1,t_1)$.
 	
 \end{definicion}
-Como vemos, este concepto no solo estará definido para entornos discretos como lo que hemos estado tratando hasta ahora. Véase que para cada punto del mallado \ref{{Mallado}} $(x_j,t_r)$ tendremos un dominio de dependencia asociado.\\
+Como vemos, este concepto no solo estará definido para entornos discretos como lo que hemos estado tratando hasta ahora. Véase que para cada punto del mallado \ref{Mallado}, $(x_j,t_r)$, tendremos un dominio de dependencia asociado.\\
 
 Es importante remarcar que el dominio de dependencia no es fácilmente calculable, de hecho en muchos casos no se obtiene en la práctica, pero es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema. Nuestro objetivo será que los puntos del mallado que hemos utilizado para aproximar la solución, contengan íntegramente al dominio de dependencia.\\
 
@@ -239,7 +239,7 @@ En la utilización de métodos multipaso, como el esquema en el que nos centramos 
 Dicho error que se propaga, puede estar relacionado con varias factores, como el método de inicialización, el truncamiento local y errores de redondeo.
 
 En esta sección nos centraremos en el análisis de Estabilidad de Von Neumman. Este aunque no garantizará la estabilidad total del esquema, suele dar muy buenos resultados en la practica, y es el más empleado.\\
-Podemos encontrar diversas notaciones y formas de hacer este análisis en libros clásicos y modernos, véase \cite{Software, smith1988analisis, Strikwerda}.\\
+Podemos encontrar diversas notaciones y formas de realizar este análisis en libros clásicos y modernos, véanse \cite{Software, smith1988analisis, Strikwerda}.\\
 Comenzamos relacionando cada solución numérica del esquema con la solución exacta y el error del mismo, de la forma:
 \begin{equation}\label{eq:num,ex,error}
 	u_{j,r}=u(x_j,t_r)+\varepsilon_{j,r}
@@ -348,7 +348,7 @@ En el capítulo \ref{cha:Comparativa} mostraremos una comparación entre las difer
 
 \section{Resolución numérica para las soluciones de tipo viajero}	
 \label{Ondaviajera}
-Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} se pueden obtener dos soluciones de tipo onda viajera \eqref{eq:propagacion} de la EDP de onda. Ahora nos centraremos en implementar numéricamente dichas soluciones. Esta técnica podría ser necesaria en caso de que no sea sencillo integrar g de manera exacta, tal y como haríamos en \eqref{eq:uviajera}\\
+Tal y como comentamos en la sección \ref{sec:Ecuaciontransporte} se pueden obtener dos soluciones de tipo onda viajera \eqref{eq:propagacion} de la EDP de onda. Ahora nos centraremos en implementar numéricamente dichas soluciones. Esta técnica podría ser necesaria en el caso de que no sea sencillo integrar g, tal y como haríamos en \eqref{eq:uviajera}\\
 
 Querremos ver dichas soluciones en cada uno de nuestro puntos del mallado, para ello llamaremos a las aproximaciones de las mismas en cada uno como:
 
@@ -403,14 +403,12 @@ Con esto ya podríamos implementar las soluciones en caso de que $g$ no sea integ
 \section{Ley de energía discreta}
 \label{energiadiscreta}
 
-Tal y como hacíamos en \ref{energia}, querremos verificar si el principio de la conservación de la energía se cumple en nuestro esquema numérico. Al ser el esquema discreto, tendremos que usar la definición de producto interior discreto \ref{ProductoDiscreto},
-en lugar de la del producto interior anteriormente utilizada en la sección \ref{sec:energiaondas}.\\
+Retomando el argumento de la sección \ref{sec:energiaondas}, queremos verificar si el principio de la conservación de la energía se cumple en nuestro esquema numérico \eqref{esquemacompletoonda}-\eqref{eq:esquemafrontera3}. Al ser el esquema discreto, tendremos que usar la definición de producto interior discreto \ref{ProductoDiscreto},
+en lugar de la del producto interior anteriormente utilizado.\\
 
-Comenzaremos tomando como espacio a tratar el mallado \ref{Mallado}. Puesto vamos a utilizar el concepto de suma por partes, parece conveniente definir $D$ como la partición del interior del eje espacial, ya que, es en este donde tenemos definido nuestro esquema \eqref{esquemacompletoonda}.\\
+Comenzaremos tomando como espacio a tratar el mallado \ref{Mallado}. Puesto que vamos a utilizar el concepto de suma por partes, parece conveniente denotar $D$ como la partición del interior del eje espacial, que definen los puntos del mallado, $x_1,\dots,x_{m-1}$, ya que, en ellos, nuestro esquema está definido.\\
 
-Sin embargo, en nuestro caso nos beneficiaremos enormemente de utilizar $\hspace{2cm} D=\{x_0,x_1,\dots, x_{m-1}\}$. Por tanto, vamos a analizar de que forma podría definirse nuestro esquema para los puntos de la forma $(x_0,t_r)$, con $r=1,\dots, n-1$.\\
-
-Evaluemos la ecuación \ref{ecuaciononda}, en el punto $(x_0,t_r)$
+Sin embargo, en este caso nos beneficiaremos enormemente de utilizar $ D=\{x_0,x_1,\dots, x_{m-1}\}$. Para ello deberemos analizar como definir nuestro esquema para los puntos de la forma $(x_0,t_r)$, con $r=1,\dots, n-1$. Evaluemos la ecuación \ref{ecuaciononda}, en el punto $(x_0,t_r)$
   
 $$u_{tt}(x_0,t_r)=c^2u_{xx}(x_0,t_r).$$
   
@@ -421,19 +419,19 @@ y por lo tanto para que se verifique nuestro esquema, la aproximación en dicho p
   
 $$0=\frac{u_{1,r} - 2u_{0,r} +u_{-1,r}}{h^2}.$$
  
-Vemos que al igual que  \eqref{eq:nodovirtual}, obtenemos un nodo virtual, el cual, si definimos de la siguiente forma
+Al igual que en \eqref{eq:nodovirtual}, obtenemos un nodo virtual, exterior al mallado construido, si definimos de la siguiente forma
 
 \begin{equation*}
 	u_{-1,r} \triangleq -u_{1,r},
 \end{equation*}
  y volviendo a utilizar \eqref{eq:esquemafrontera3}, hará que se verifique nuestro esquema en el punto $(x_0,t_r)$.\\
  
-Retomando el tema que nos atañe, la energía en nuestro esquema, ya con  $D=\{x_0,x_1,\dots, x_{m-1}\}$, y utilizando en este caso la función $\delta$ definida en \ref{defdelta}, para hacer el producto interior discreto con $\delta_tu$, tendremos.
+Retomando el tema que nos atañe, la energía en nuestro esquema, tomando $D=\{x_0,x_1,\dots, x_{m-1}\}$, y utilizando en este caso la función $\delta$ definida en \ref{defdelta}, para hacer el producto interior discreto con $\delta_tu$, tendremos.
  
 
 $$\left(\delta_{tt}u,\delta_tu\right)_D= c^2 \left(\delta_{xx}u,\delta_tu\right)_D. $$
 
-Siguiendo la notación que tomábamos en \ref{SumaPartes}, para cada $r=1,\dots,n-1$ tendremos:
+Siguiendo la notación de \ref{SumaPartes}, para cada $r=1,\dots,n-1$ tendremos:
 
 \begin{equation}\label{energia}
 	\left(\delta_{tt}u_{\cdot,r},\delta_tu_{\cdot,r}\right)_D- c^2 \left(\delta_{xx}u_{\cdot,r},\delta_tu_{\cdot,r}\right)_D=0. 
@@ -445,20 +443,18 @@ Ahora para desarrollar el segundo termino de la igualdad usaremos la observación
 \begin{equation}\label{deltaxx}
 	\begin{split}
 		\left(\delta_{xx}u_{\cdot,r},\delta_t u_{\cdot,r}\right)_D &\underset{\ref{derivada2}}{=} \left(\delta_{x^+x^-}u_{\cdot,r},\delta_t u_{\cdot,r}\right)_D,\\
-		\underset{\eqref{eq:rep2}}{=}-\left(\delta_{x^+}u_{\cdot,r},\delta_{x^+}\delta_{t} u_{\cdot,r}\right)_D - (\delta_{t} &u_{0,r})(\delta_{x^-}u_{-1,r})+ (\delta_{t} u_{m,r})(\delta_{x^-}u_{m-1,r}).
+		\underset{\eqref{eq:rep2}}{=}-\left(\delta_{x^-}u_{\cdot,r},\delta_{x^-}\delta_{t} u_{\cdot,r}\right)_D - (\delta_{t} &u_{0,r})(\delta_{x^+}u_{-1,r})+ (\delta_{t} u_{m,r})(\delta_{x^+}u_{m-1,r}).
 	\end{split}
 \end{equation}
-(REVISAR)
+
 Insertando esto en la ecuación \eqref{energia} nos quedaría:
-$$\left(\delta_{tt}u_{\cdot,r},\delta_tu_{\cdot,r}\right)_D + c^2 \left(\delta_{x^+}u_{\cdot,r},\delta_{x^+}\delta_{t} u_{\cdot,r}\right)_D= c^2(\delta_{t} u_{0,r})(\delta_{x^-}u_{-1,r})- c^2(\delta_{t} u_{m,r})(\delta_{x^-}u_{m-1,r}).$$
+$$\left(\delta_{tt}u_{\cdot,r},\delta_tu_{\cdot,r}\right)_D + c^2 \left(\delta_{x^-}u_{\cdot,r},\delta_{x^-}\delta_{t} u_{\cdot,r}\right)_D= c^2(\delta_{t} u_{0,r})(\delta_{x^+}u_{-1,r})- c^2(\delta_{t} u_{m,r})(\delta_{x^+}u_{m-1,r}).$$
 
 
 Denotando al termino de la derecha de la igualdad como $\mathfrak{b}$ tendremos que
-$$\delta_{t}E(u)=\mathfrak{b}.$$
+$$\delta_{t}E(u)= \delta_t\left(||\delta_tu_{\cdot.r}||_D^2+||\delta_{x^-}u_{\cdot.r}||_D^2\right)=\mathfrak{b}.$$
 
-Por lo tanto, para que se conserve la energía tendrá que ser $\mathfrak{b}=0$. Veamos que es así.\\
-
-Utilizando la condición de contorno para \eqref{eq:esquemafrontera3}, para $r=1,\dots, n-1$,
+Por lo tanto, para que se conserve la energía tendrá que ser $\mathfrak{b}=0$. Veamos que es así. Utilizando la condición de contorno para \eqref{eq:esquemafrontera3}, para $r=1,\dots, n-1$,
 
 $$\delta_{t} u_{0,r}= \frac{1}{k}\left(u_{0,r+1}-u_{0,r-1}\right)=0,$$
 

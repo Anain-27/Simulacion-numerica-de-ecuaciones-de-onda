@@ -182,22 +182,22 @@ podemos observar que en los últimos términos quedan fuera del mallado definido, 
 
 Este lema es fácilmente demostrable siguiendo las igualdades.
 \begin{proof}
-	
 	\begin{equation*}
 		\begin{split}
-			\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
-			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}=\\
-			&=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} +u_{m,r}w_{m+1,r}-u_{-1,r}w_{0,r}
+			\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}&= \sum_{j=1}^{m-1}h u_{j,r}\frac{1}{h}\left(w_{j+1,r}-w_{j,r}\right)=\\
+			&=-\sum_{j=1}^{m-1}h \frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)w_{j,r} +u_{m-1,r}w_{m,r}-u_{0,r}w_{1,r}=\\
+			&=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} +u_{m-1,r}w_{m,r}-u_{0,r}w_{1,r}
 		\end{split}
 	\end{equation*}
 	
 	\begin{equation*}
 		\begin{split}
-			\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}&= \sum_{j=0}^{m}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
-			&=-\sum_{j=0}^{m}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}=\\
-			&=-\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{0,r}w_{-1,r}+u_{m+1,r}w_{m,r}.
+			\left(u_{\cdot,r},\delta_{x^-}w_{\cdot,r}\right)_{D}&= \sum_{j=1}^{m-1}h u_{j,r}\frac{1}{h}\left(w_{j,r}-w_{j-1,r}\right)=\\
+			&=-\sum_{j=1}^{m-1}h \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)w_{j,r} -u_{1,r}w_{-0,r}+u_{m,r}w_{m-1,r}=\\
+			&=-\left(\delta_{x^+}u_{\cdot,r},w_{\cdot,r}\right)_{D}-u_{1,r}w_{0,r}+u_{m,r}w_{m-1,r}.
 		\end{split}
-	\end{equation*}
+	\end{equation*}	
+
 \end{proof}
 
 
