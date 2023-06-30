@@ -30,9 +30,10 @@
 \contentsline {section}{\numberline {5.4}Archivos .wav y s\IeC {\'\i }ntesis de sonido}{45}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Frecuencia}{45}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}\textbf {$f(x)= sin(2\pi x)$}, $g(x)=0$}{45}{subsection.5.4.2}%
-\contentsline {chapter}{\numberline {6}Conclusiones y proyectos futuros }{47}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Anexo}{49}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Resoluci\'on num\'erica}{49}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Wave}{53}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Im\'agenes}{54}{section.A.3}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{57}{appendix*.30}%
+\contentsline {subsection}{\numberline {5.4.3}Guardado de las ondas de sonido}{48}{subsection.5.4.3}%
+\contentsline {chapter}{\numberline {6}Conclusiones y proyectos futuros }{49}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Anexo}{51}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Resoluci\'on num\'erica}{51}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Wave}{55}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Im\'agenes}{56}{section.A.3}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{59}{appendix*.32}%

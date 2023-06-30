@@ -2,23 +2,23 @@
 \chapter{Introducción}
 \label{cha:Introduction}
 
-Los grandes avances en la computación y la tecnología en los últimos años, han logrado que las matemáticas, y en particular el campo de las ecuaciones diferenciales, hayan cambiado notablemente. Las EDP son una poderosa herramienta que nos permiten modelar un gran número situaciones en muchas disciplinas, a destacar los fenómenos físicos. Sin embargo, la exactitud con la que lo hagan dependerá dependerá de diversos factores. Conforme los fenómenos a modelar se compliquen, también lo harán estas, añadiendo nuevos términos, por ello en ocasiones resolver de manera exacta dichos modelos puede presentar dificultades.
+Los grandes avances en la computación y la tecnología en los últimos años, han logrado que las matemáticas, y en particular el campo de las ecuaciones diferenciales, hayan cambiado notablemente. Las EDP son una poderosa herramienta que nos permiten modelar un gran número situaciones en muchas disciplinas, a destacar los fenómenos físicos. Sin embargo, la exactitud su exactitud dependerá de diversos factores. Conforme los fenómenos a modelar se compliquen, también lo harán estas, añadiendo nuevos términos, por ello en ocasiones resolver de manera exacta dichos modelos puede presentar dificultades.\\
 
-En la actualidad, los métodos numéricos nos brindan la oportunidad de obtener aproximaciones cada vez más precisas de los modelos en ocasiones en las que antes teníamos que conformarnos con soluciones parciales o marcos muy específicos.\\
+En la actualidad, los métodos numéricos nos brindan la oportunidad de aproximar de forma cada vez más precisa la solución de los modelos, en ocasiones en las que antes teníamos que conformarnos con soluciones parciales o marcos muy específicos.\\
 
-En este trabajo nos centraremos en la EDP de onda. Esta fue modelada por Jean le Rond d\textquotesingle Alembert en 1752, de forma similar a como lo realizaremos en nuestro estudio \citep{MartinDomingo}. Esto provocó que pocos años más tarde, tanto D.Bernoulli, como  Leonhard Euler se interesasen en el estudio de las ondas acústicas. Este último utilizó lo que hoy conocemos como series de Fourier, para obtener una solución de la ecuación de onda, más tarde, se descubriría que cualquier solución de d'Alembert, se podría construir como suma de soluciones de tipo Euler y viceversa.\\
+En este trabajo nos centraremos en la EDP de onda. Esta fue modelada por Jean le Rond d\textquotesingle Alembert en 1752, de forma similar a como lo realizaremos en nuestro estudio, siguiendo \citep{MartinDomingo}. Esto provocó que pocos años más tarde, tanto D.Bernoulli, como  Leonhard Euler se interesasen en el estudio de las ondas acústicas. Este último utilizó lo que hoy conocemos como series de Fourier, para obtener una solución de la ecuación de onda, luego se descubriría que cualquier solución de d'Alembert, se podría construir como suma de soluciones de tipo Euler y viceversa. El siguiente artículo retrata algunas soluciones posibles \citep{AcercaDe}. \\
 
   
 A partir de entonces, se han realizado un gran despliegue de modelos para describir diversos fenómenos observables en la realidad. Podríamos destacar su uso en los campos de la sismica \citep{Seismic}, la acústica \citep{acoustics} y la óptica \citep{optics}, usando asiduamente los métodos numéricos para la aproximación de soluciones.\\
 
-La belleza de estas aproximaciones numéricas, es que, conforme la potencia de los dispositivos va incrementando, a la par que los métodos numéricos, las gráficas y distintos tipos de archivos que podemos crear a partir de las mismas, mejorarán de forma significativa.\\
+La belleza del uso de aproximaciones numéricas es, que conforme la potencia de los dispositivos va incrementando, a la par que los métodos numéricos, las gráficas y distintos tipos de archivos que podemos crear a partir de las mismas, mejorarán de forma significativa.\\
 
 Retomando la ecuación de onda, nos encontramos con diversos métodos numéricos utilizados, como el método de las diferencias finitas \citep{Finitedifference}, el de los elementos finitos \citep{FiniteElements}, o los métodos espectrales \citep{NumericalModels}. Para todos estos métodos, los conceptos de estabilidad y convergencia serán de especial importancia.\\
 
-Si un método carece de estabilidad, querrá decir, que es posible obtener aproximaciones que crezcan indefinidamente y por tanto, los resultados obtenidos no tendrán sentido físico. Por otro lado, que el método no sea convergente, resulta en aproximaciones que no se acercarán a la solución exacta, lo que implica no serán confiables, esto se medirá utilizando el orden de convergencia del método.\\  
+Si un método carece de estabilidad, querrá decir, que es posible obtener aproximaciones que crezcan indefinidamente y por tanto, los resultados obtenidos no tendrán sentido físico. Por otro lado, que el método no sea convergente, resulta en aproximaciones que no se acercarán a la solución exacta, lo que implica no serán confiables. Esto se medirá utilizando el orden de convergencia del método.\\  
 
 
-Nosotros nos centraremos en dar una visión general de la resolución de la ecuación de onda, utilizando el método de las diferencias finitas anteriormente mencionado.\\
+Nosotros nos centraremos en dar una visión general de la resolución de la ecuación de onda, basandonos en el trabajo de Stefan Bilbao \cite{Bilbao}, utilizando el método de las diferencias finitas anteriormente mencionado.\\
 
 En el capítulo \ref{cha:preliminares} nos adentraremos en los conceptos previos necesarios para la comprensión del trabajo, como los Espacios de Lebesgue, el concepto de producto interior, o el mallado que utilizaremos para definir nuestro esquema numérico.\\
 
