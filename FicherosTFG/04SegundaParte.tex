@@ -3,12 +3,13 @@
 \chapter{Modelado en Python y comparativa}
 \label{cha:Comparativa}
 
-En este capítulo nos centraremos en ver el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos como varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de como afectan las condiciones de estabilidad \eqref{mu}.\\ 
+En este capítulo nos centraremos en el modelado en Python de nuestro esquema resuelto por el método de diferencias finitas, \eqref{esquemacompletoonda}. Veremos como varía la solución en varios instantes de tiempo, la forma que presenta la onda cambiando las condiciones iniciales \eqref{eq:esquemafrontera1} y \eqref{eq:esquemafrontera2}, y haremos una comparativa de como afectan las condiciones de estabilidad \eqref{mu}.\\ 
+
 A lo largo del capítulo se irán discutiendo varios archivos de audio realizados con el código de python del Anexo \ref{cha:Anexo}, estos se pueden encontrar en el repositorio de Github del trabajo, \href{https://github.com/Anain-27/Simulacion-numerica-de-ecuaciones-de-onda}{\textbf{Simulación numérica de ecuaciones de onda}}.
 
 \section{Soluciones}
 \label{sec:soluciones}
-En esta sección comenzaremos señalando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$, y $\mu=1$. Por lo tanto los demás parámetros serán 
+En esta sección comenzaremos ilustrando varias soluciones dependiendo de las condiciones iniciales. En toda la sección establecemos $c=440$, $L=1$ y $\mu=1$. Por lo tanto los demás parámetros serán 
 
 
 \subsection{$f(x)= sin(\pi x)$, $g(x)=0$}
@@ -59,7 +60,7 @@ Cuando la posición inicial depende del seno y la velocidad inicial es $0$, se pu
 
 \vspace{0.5cm}
 
-Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo. Esta cadena de datos será la que guardemos en el archivo de audio. En este caso por la elección de $c=440$, se escuchará un La central, y por la elección del punto, estará a máxima amplitud y por tanto volumen.
+Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo. Esta cadena de datos será la que guardemos en el archivo de audio. En este caso por la elección de $c=440$, se escuchará un La de tercera octava, y por la elección del punto, estará a máxima amplitud y por tanto volumen.
 
 
 \newpage
@@ -68,15 +69,15 @@ Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el m
 \subsection{$f(x)$ tipo Struck, $g(x)=0$}
 \label{sub:fStuck}
 
-Cuando la posición inicial es de tipo Struck, es decir, un "pico" en la zona central de la cuerda, y la velocidad inicial es $0$, la solución no es tan suave, al ser $f$ no derivable en un punto.\\
-La expresión de $f$ es la siquiente,
+Cuando la posición inicial es de tipo Struck, es decir, un ''pico'' en la zona central de la cuerda, y la velocidad inicial es $0$, la solución no es tan suave, al ser $f$ no derivable en un punto.\\
+La expresión de $f$ en este ejemplo es la siquiente,
 $$
 f(x) = 
 \begin{cases}
-	0 & \text{si } 0\leq x \leq \frac{1}{4} \\
-	4x-1 & \text{si } \frac{1}{4}  < x \leq \frac{1}{2}  \\
-	3-4x & \text{si } \frac{1}{2}  < x \leq \frac{3}{4}  \\
-	0 & \text{si }  \frac{1}{4}< x \leq 1
+	0 & \text{si }\ \  0\leq x \leq \frac{1}{4} \\
+	4x-1 & \text{si }\ \ \frac{1}{4}  < x \leq \frac{1}{2}  \\
+	3-4x & \text{si }\ \ \frac{1}{2}  < x \leq \frac{3}{4}  \\
+	0 & \text{si } \ \ \frac{1}{4}< x \leq 1
 \end{cases}
 $$
 
@@ -113,7 +114,7 @@ $$
 		\label{fig:Pico4}
 	\end{minipage}
 \end{figure}
-En este caso, si aumentamos el número de puntos del dominio espacial, los picos propios del punto no derivable irán desapareciendo. Lo ilustramos con tres imágenes en instantes similares, para $m=100$, $m=300$ y $m=400$, siempre con $\mu=1$ y $c=440$.
+En este caso, si aumentamos el número de puntos del dominio espacial, los picos propios del punto no derivable irán desapareciendo. Lo ilustramos con tres imágenes en instantes similares, para $m=100$, $m=300$ y $m=400$, siempre con $L=1$ $\mu=1$ y $c=440$.
 
 \begin{figure}[ht]
 	\centering
@@ -138,7 +139,7 @@ En este caso, si aumentamos el número de puntos del dominio espacial, los picos 
 		\label{fig:Pico400}
 	\end{minipage}
 \end{figure}
-\newpage
+
 La forma de la onda en cada punto no es tan regular como en la sección \ref{subsec:sin(x)}, y cambia mucho dependiendo del punto que observemos, como ejemplo visualizaremos el movimiento de los puntos $x=0.07$  y $x=0.5$.\\
 \begin{figure}[ht]
 	\centering
@@ -157,7 +158,7 @@ La forma de la onda en cada punto no es tan regular como en la sección \ref{subs
 	\end{minipage}
 \end{figure}
 
-Se observa que la onda varía dependiendo de la posición de la cuerda en las que se haga la observación, por ende, también el sonido producido, y el volumen del mismo.
+Se observa que la onda varía dependiendo de la posición de la cuerda que observemos, por ende, también el sonido producido, y el volumen del mismo.
 
 \subsection{$f(x)= 0$, $g(x)$ tipo Struck}
 
@@ -192,7 +193,7 @@ $$
 	
 \end{wrapfigure}
 \vspace{1cm}
-En esta imagen vemos la posición inicial. Dependiendo del número de puntos que elijamos en nuestro mallado, podremos ver que la solución se hace más suave, lo ilustraremos eligiendo 50 y 200 puntos en el eje espacial, respetando $\mu=1$ y $c=440$.\\
+En esta imagen vemos la posición inicial. Dependiendo del número de puntos que elijamos en nuestro mallado, podremos ver que la solución se hace más suave, lo ilustraremos eligiendo 50 y 200 puntos en el eje espacial, respetando $\mu=1$, $L=1$ y $\ \ \ \ \ \  c=440$.\\
 
 
 Muestra de la solución con $m=50$, $h=\frac{1}{50}$ y $k= \frac{1}{22000}$.
@@ -250,7 +251,7 @@ Muestra de la solución con $m=200$, $h=\frac{1}{200}$ y $k= \frac{1}{88000}$.:
 \end{wrapfigure}
 
 \vspace{2cm}
-Aún así, para los puntos del mallado, en los que se aproxima la solución, el movimiento del mismo respecto al tiempo será prácticamente idéntico independientemente de si $m=50$ o $m=200$ y la diferencia en el audio indistinguible. Un ejemplo es el esquema de la derecha, hecho para $x=0.48$.\\
+Aún así, para los puntos del mallado, en los que se realiza la aproximación de la solución, el movimiento del mismo respecto al tiempo será prácticamente idéntico independientemente de si $m=50$ o $m=200$ y la diferencia en el audio indistinguible. Un ejemplo es el esquema de la derecha, hecho para $x=0.48$.\\
 \vspace{1.5cm}
 
 
@@ -260,7 +261,7 @@ Aún así, para los puntos del mallado, en los que se aproxima la solución, el mov
 \section{Soluciones tipo onda viajera}
 \label{sec:solondaviajera}
 
-En esta sección nuestro objetivo será ejemplificar lo explicado en la sección  \ref{sec:Ecuaciontransporte}, añadiendo además la solución exacta de la ecuación para comprobar cuanto variará nuestra aproximación respecto a la misma. Utilizando los parámetros $c= 400$, $\mu = 1$, $m=100$ y por lo tanto, $h=\frac{1}{100}$ y $k= \frac{1}{44000}$ de nuevo y la función seno, las soluciones de tipo onda viajera en los siguientes casos serían:
+En esta sección nuestro objetivo será ejemplificar la sección \ref{sec:Ecuaciontransporte}, añadiendo además la solución exacta de la ecuación para comprobar cuanto variará nuestra aproximación respecto a la misma. Utilizando los parámetros $c= 440$, $L=1$, $\mu = 1$, $m=100$ y por lo tanto, $h=\frac{1}{100}$ y $k= \frac{1}{44000}$ de nuevo y la función seno, las soluciones de tipo onda viajera en los siguientes casos serían:
 
 
 \begin{figure}[ht]
@@ -309,7 +310,7 @@ Agrandes rasgos parece que la suma de ambas soluciones, y por tanto la solución 
 \end{figure}
 
 \vspace{1.5cm}
-Podemos observar de manera incluso más clara el movimiento de las soluciones de tipo onda viajera utilizando la función $f(x)=sen(2\pi x)$.
+Podemos observar de manera incluso más clara el movimiento de las soluciones de tipo onda viajera, utilizando la función $f(x)=sen(2\pi x)$.
 
 \begin{figure}[ht]
 	\centering
@@ -329,7 +330,7 @@ Podemos observar de manera incluso más clara el movimiento de las soluciones de 
 \end{figure}
 
 \section{Comparación variando el valor de $\mu$}
-Ahora veremos como cambiando el parámetro $\mu$, las soluciones obtenidas propagarán inestabilidades.
+Ahora veremos como variando el parámetro $\mu$, las soluciones obtenidas propagarán inestabilidades.
 
 \subsection{$\mu\ll 1$}
 Cuando elegimos $\mu$ mucho menor que $1$, es decir, alejándonos de la solución óptima, poco a poco comienzan a generarse inestabilidades. Comparemos la solución con $\mu = 1$, para $f(x)$ de tipo Struck definida como en \ref{sub:fStuck},  es decir,
@@ -344,7 +345,7 @@ f(x) =
 \end{cases}
 $$
 
-y tomando como parámetros $c= 440$, $m=100$ y $h=\frac{1}{100}$, compararemos estas soluciones.
+y tomando como parámetros $L=1$, $c= 440$, $m=100$ y $h=\frac{1}{100}$, compararemos estas soluciones.
 
 \newpage
 
@@ -388,7 +389,7 @@ Aún viendo claramente las inestabilidades de forma gráfica, no es tan fácil escu
 
 
 \subsection{$\mu>1$}
-Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar como se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos. Para esta caso utilizaremos $c= 440$, $m=40$, $h=\frac{1}{40}$, tomamos $\mu=1.001$, y por tanto $k= \frac{1}{16000}$
+Cuando violamos la condición CFL, las inestabilidades se propagarán aún más rápido. Utilizando el mismo ejemplo que en el apartado anterior, podremos comprobar como se propagan a todos los puntos de la cuerda antes de llegar a los $0.002$ segundos. Para esta caso utilizaremos $L=1$, $c= 440$, $m=40$, $h=\frac{1}{40}$, tomamos $\mu=1.001$, y por tanto $k= \frac{1}{16000}$.
 
 \begin{figure}[ht]
 	\centering
@@ -425,10 +426,10 @@ En este caso, a mayor sea $m$ antes se propagarán las inestabilidades, por ello 
 \end{figure}
 
 
-Si intentamos reproducir el sonido de esta última situación no se escuchará nada, puesto que las inestabilidades son tan grandes que hacen imposible su escucha, dos causas posibles son:
+Si intentamos reproducir el sonido de esta última situación no se escuchará nada, al ser tan grandes las inestabilidades, dos causas posibles son:
 \begin{itemize}
 	\item  El guardado en el formato .wav, puesto que cuando la amplitud es mayor que $1$, no lo capta de manera adecuada.
-	\item La frecuencia, al ser tan elevada, es imposible de escuchar para el oído humano.
+	\item La frecuencia, al ser tan elevada, es imposible de escuchar para el oído humano, y/o de reproducir por los altavoces.
 \end{itemize}
 
 
@@ -448,7 +449,7 @@ $c$ será un parámetro que definiremos dependiendo de la frecuencia a obtener, pu
 
 
 \subsection{\textbf{$f(x)= sin(2\pi x)$}, $g(x)=0$}
-Si tomamos como ejemplo una cuerda en la que la posición inicial sea $f(x)= sin(2\pi x)$, en esta ocasión al estar en una onda estacionaria, tal y como se hace en el capítulo 15 de \citep{universitaria}, será extremadamente importante el número de nodos.  Un nodo es un punto en el que la amplitud se mantiene 0 en el tiempo, y dependiendo de el número de nodos nos encontraremos en un armónico distinto. $N=2$ corresponderá al primer armónico, $N=3$ al segundo, etc.
+Si tomamos como ejemplo una cuerda cuya posición inicial sea $f(x)= sin(2\pi x)$, en esta ocasión al estar en una onda estacionaria, tal y como se hace en el capítulo 15 del libro  \citep{universitaria}, será extremadamente importante el número de nodos.  Un nodo es un punto en el que la amplitud se mantiene 0 en el tiempo, y dependiendo de el número de nodos nos encontraremos en un armónico distinto, $N=2$ corresponderá al primer armónico, $N=3$ al segundo, etc.
 \newpage
 \vspace{3cm}
 
@@ -469,17 +470,17 @@ Si tomamos como ejemplo una cuerda en la que la posición inicial sea $f(x)= sin(
 	\end{minipage}
 \end{figure}
 \vspace{1cm}
-Al encontrarnos en una onda estacionaria, $\lambda$  dependerá del largo de la cuerda, $L$, y del número de nodos que se presenten en la misma, $N$, de la siguiente forma $\lambda=\fra{2l}{N-1}$.\\
+Al encontrarnos en una onda estacionaria, $\lambda$  dependerá del largo de la cuerda, $L$, y del número de nodos que se presenten en la misma, $N$, de la siguiente forma $\lambda=\fra{2L}{N-1}$. Al igual que en las secciones anteriores elegiremos $L=1$.\\
 
-\begin{wrapfigure}[6]{r}{0.45\textwidth}
+\begin{wrapfigure}[6]{r}{0.55\textwidth}
 	\vspace{-1.5cm}
-	\includegraphics[width=0.45\textwidth]{2Seno4.png}
+	\includegraphics[width=0.5\textwidth]{2Seno4.png}
 	\caption{$sin(2\pi x)$ en $x=0.25$ Archivo figura5-37.wav}
 	\label{fig:2Seno4}
 	
 \end{wrapfigure}
 \vspace{2cm}
-Luego, si queremos obtener $\textbf{f}=440Hz$, frecuencia del La central, será $\lambda=\frac{2}{2}=1$,  $c=\lambda \textbf{f}=1*440 = 440$. Con estos parámetros, para el punto de máxima amplitud $x=0.25$\\
+Luego, si queremos obtener $\ \ \ \  \textbf{f}=440Hz$, frecuencia del La central, ya que  $\lambda=\frac{2}{2}=1$, tendremos que elegir $c=\lambda \textbf{f}=1*440 = 440$. Con estos parámetros, para el punto de máxima amplitud $x=0.25$\\
 
 \vspace{2cm}
 
@@ -495,8 +496,7 @@ Si utilizásemos de igual forma $c=440$ para la posición inicial $f(x)= sin(\pi x
 \end{figure}
 
 Ahora tendremos, $N=2$ y  $\lambda=\frac{2*L}{N-1}=2$, se sigue $\text{f}= \fra{440}{2}=220Hz$, por lo que el número de oscilaciones por segundo se reducirán a la mitad, siendo un La de 3ª octava. Lo ilustramos con la siguiente imagen.\\
-
-Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $\pi x$, \ref{subsec:sin(x)},  y seno de $2\pi x$. Vemos claramente que llega a su máxima amplitud el la mitad de veces.
+Podemos observar eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para seno de $\pi x$, \ref{subsec:sin(x)},  y seno de $2\pi x$. Vemos claramente que el número de oscilaciones se reduce a la mitad.
 
 \begin{figure}[!ht]
 	\centering
@@ -512,7 +512,7 @@ Podemos observar esto  eligiendo los puntos adecuados, $x=0.5$ y $x=0.25$, para 
  \begin{itemize}
  	\item Suma de las ondas producida en cada punto espacial, es decir, $\sum_{m}^{j=0}u_{j,r}$. Esto resultará en un vector de aproximaciones, que deberemos escalar para que se encuentren entre $-1$ y $1$. 
  	\item Uso de canales, guardamos el vector aproximación de cada punto de la cuerda, fijado  $j=0,\dots,m$ en un canal de audio distinto. Esto se hace usualmente para conseguir un sonido envolvente, cuando se tienen varios altavoces. La desventaja de este método es que la mayoría de reproductores tiene un número máximo de canales.
- 	\item Elección de un punto de la cuerda, usualmente el de máxima amplitud. Si la onda es suficientemente regular, el sonido en cada punto es extremadamente parecido, y solo se irá disipando conforme nos acerquemos a los nodos. Por ello, no necesitamos más de un archivo de audio. La desventaja es que si la onda no es suficientemente regular tendremos que guardarlo en diferentes archivos, y por lo tanto realizar el proceso de guardado varias veces.
+ 	\item Elección de un punto de la cuerda, usualmente el de máxima amplitud. Si la onda es suficientemente regular, el sonido en cada punto es extremadamente parecido, y solo se irá disipando conforme nos acerquemos a los nodos. Por ello, no necesitamos más de un archivo de audio. La desventaja es que si la onda no es suficientemente regular tendremos que guardarlo en diferentes archivos, y por lo tanto, realizar el proceso de guardado varias veces.
  \end{itemize} 
 
 A lo largo del trabajo hemos utilizado este último método, ya que nos permite comparar las ondas en distintos puntos de la cuerda.

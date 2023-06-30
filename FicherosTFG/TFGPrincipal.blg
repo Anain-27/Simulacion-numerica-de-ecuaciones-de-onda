@@ -32,45 +32,46 @@ I was expecting a `,' or a `}'---line 46 of file bibliografia.bib
 I'm skipping whatever remains of this entry
 Warning--empty publisher in Wazwaz
 Warning--empty booktitle in Camarena2004LaTD
-You've used 26 entries,
+Warning--empty year in universitaria
+You've used 28 entries,
             1791 wiz_defined-function locations,
-            610 strings with 7197 characters,
-and the built_in function-call counts, 4539 in all, are:
-= -- 377
-> -- 169
-< -- 5
-+ -- 70
-- -- 44
-* -- 199
-:= -- 721
-add.period$ -- 79
-call.type$ -- 26
-change.case$ -- 7
+            621 strings with 7565 characters,
+and the built_in function-call counts, 4933 in all, are:
+= -- 407
+> -- 200
+< -- 7
++ -- 81
+- -- 53
+* -- 222
+:= -- 787
+add.period$ -- 87
+call.type$ -- 28
+change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 263
-empty$ -- 518
-format.name$ -- 44
-if$ -- 1060
+cite$ -- 31
+duplicate$ -- 284
+empty$ -- 553
+format.name$ -- 53
+if$ -- 1151
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 46
-newline$ -- 133
-num.names$ -- 26
-pop$ -- 145
+int.to.str$ -- 28
+missing$ -- 51
+newline$ -- 143
+num.names$ -- 28
+pop$ -- 160
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 82
+skip$ -- 85
 stack$ -- 0
-substring$ -- 91
-swap$ -- 39
-text.length$ -- 5
+substring$ -- 76
+swap$ -- 43
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 31
-width$ -- 28
-write$ -- 274
+warning$ -- 3
+while$ -- 32
+width$ -- 30
+write$ -- 296
 (There was 1 error message)

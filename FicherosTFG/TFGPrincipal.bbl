@@ -5,6 +5,11 @@ Agust{\'i}n Mart{\'i}n~Domingo.
 \newblock {\em Apuntes de vibraciones y ondas}.
 \newblock El autor, Madrid, Septiembre 2020.
 
+\bibitem{AcercaDe}
+Juan Carlos~Solares Carre{\~n}o and Rosalba~Mendoza Su{\'a}res.
+\newblock Acerca de algunas soluciones de ciertas ecuaciones de onda.
+\newblock {\em Bolet{\'i}n de Matem{\'a}ticas}, 19(2), jul. 2012.
+
 \bibitem{Seismic}
 Xiaobo Liu, Jingyi Chen, Zhencong Zhao, Haiqiang Lan, and Fuping Liu.
 \newblock Simulating seismic wave propagation in viscoelastic media with an
@@ -37,15 +42,21 @@ Alfio Quarteroni, Tom Hou, and Claude Le~Bris.
 \newblock {\em Numerical Models Differential Problems}, volume~2.
 \newblock Springer Milan, 2009.
 
+\bibitem{Bilbao}
+Stefan Bilbao.
+\newblock {\em Numerical Sound Synthesis: Finite Difference Schemes and
+  Simulation in Musical Acoustics}.
+\newblock Wiley Publishing, 2009.
+
 \bibitem{royden2010real}
 H.L. Royden and P.~Fitzpatrick.
 \newblock {\em Real Analysis}.
 \newblock Prentice Hall, 2010.
 
-\bibitem{STRAND}
-Bo~Strand.
-\newblock Summation by parts for finite difference approximations for d/dx.
-\newblock {\em Journal of Computational Physics}, 110(1):47--67, 1994.
+\bibitem{TimeDependent}
+Bertil Gustafsson, Heinz-Otto Kreiss, and Joseph Oliger.
+\newblock {\em Time-Dependent Problems and Difference Methods}, volume 123.
+\newblock John Wiley \& Sons, Incorporated, New York, 2013.
 
 \bibitem{Wazwaz}
 Abdul-Majid Wazwaz.
@@ -96,6 +107,11 @@ R.C. McOwen.
 \newblock {\em Partial Differential Equations: Methods and Applications}.
 \newblock Tsinghua University Press, 2004.
 
+\bibitem{domain}
+J.~Kevorkian.
+\newblock {\em Partial Differential Equations: Analytical Solution Techniques}.
+\newblock The Wadsworth \& Brooks/Cole Mathematics Series. Springer US, 1990.
+
 \bibitem{Software}
 Shoichiro Nakamura.
 \newblock {\em M{\'e}todos num{\'e}ricos aplicados con software}.
@@ -110,6 +126,13 @@ W.A. Smith and F.J.S. Bernabe.
 T.D. Rossing, P.A. Wheeler, and F.R. Moore.
 \newblock {\em The Science of Sound}.
 \newblock Addison-Wesley series in physics. Addison Wesley, 2002.
+
+\bibitem{universitaria}
+H.D. Young, R.A. Freedman, F.W. Sears, V.A.F. Flores, A.L. Ford, and M.W.
+  Zemansky.
+\newblock {\em F{\'\i}sica universitaria 01}.
+\newblock Number v. 1 in F{\'\i}sica universitaria. Addison-Wesley; Pearson
+  Educaci{\'o}n.
 
 \bibitem{Optimal}
 Enrique Zuazua.
@@ -129,16 +152,5 @@ Stig Larsson and Vidar Thom{\'e}e.
 \newblock {\em Partial differential equations with numerical methods},
   volume~45.
 \newblock Springer, 2009.
-
-\bibitem{Bilbao}
-Stefan Bilbao.
-\newblock {\em Numerical Sound Synthesis: Finite Difference Schemes and
-  Simulation in Musical Acoustics}.
-\newblock Wiley Publishing, 2009.
-
-\bibitem{Carreo2012AcercaDA}
-Juan Carlos~Solares Carre{\~n}o and Rosalba~Mendoza Su{\'a}res.
-\newblock Acerca de algunas soluciones de ciertas ecuaciones de onda.
-\newblock {\em Bolet{\'i}n de Matem{\'a}ticas}, 19(2), jul. 2012.
 
 \end{thebibliography}

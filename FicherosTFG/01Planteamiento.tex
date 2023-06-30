@@ -14,22 +14,35 @@ Para facilitar la comprensión del tema que vamos a tratar hay varios conceptos q
 Comenzaremos definiendo los espacios de Lebesgue. Un concepto clásico que se utiliza de manera recurrente en varios campos de las matemáticas \citep{royden2010real}.
 
 \begin{definicion}[label={Lebesgue},nameref={Title or anything else}]{Espacio de Lebesgue}
-	Para $E\subset \mathbb{R^n}$, con $n\in\mathbb{N}$
-	 medible y $p\in \mathbb{R}$ tal que  $1\leq p < \infty$ definimos, el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, en la que se realiza una identificación entre las funciones que son iguales en casi todo, que son $p$-integrables, es decir, las funciones $f$ para las cuales 
+	Para $E\subset \mathbb{R}^n$, con $n\in\mathbb{N}$,
+	 medible y $p\in \mathbb{R}$ tal que  $1\leq p < \infty$, definimos el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, en la que se realiza una identificación entre las funciones que son iguales en casi todo, que son $p$-integrables, es decir, las funciones $f$ para las cuales 
 	\begin{equation}\label{normaLp}
 		||f||_{L^p(E)}=\left(\int_{E}|f|^p\right)^{\frac{1}{p}}<\infty.
 	\end{equation}
 	
 \end{definicion}
 
-En lo que sigue del trabajo trabajaremos sobre este tipo de espacios. Sigamos viendo qué características tendrán nuestros espacios.
+En lo que sigue del trabajo trabajaremos sobre este tipo de espacios. Sigamos viendo qué características tendrán.
 
 \begin{definicion}[label={Banach},nameref={Title or anything else}]{Espacio de Banach}
 	Un espacio de Banach $(E,||\cdot||)$ es un espacio vectorial normado, en el que $E$ es completo bajo la métrica inducida por la norma $||\cdot||$. Es decir, cada serie de Cauchy en $E$ es una serie convergente.
 	
 \end{definicion}
+Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este será un espacio de Banach.\\
+Para que un espacio de Banach sea espacio de Hilbert, será necesario que tenga un producto asociado. Definamos este concepto.
 
-Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este será un espacio de Banach.
+\begin{definicion}[label={Escalar},nameref={Title or anything else}]{Producto escalar o interno.}
+	Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow F $ se llamará producto escalar o interno si para todo $u,v,w\in E$ y los escalares $\alpha, \beta \in F$ se satisfacen las siguientes propiedades:
+	\begin{itemize}
+		\item Linealidad: $ (\alpha u+\beta v,w)= a(u,w)+b(v,w)$ .
+		\item Simetría: $ (u,v)=(v,u)$ .
+		\item Positividad: $ (u,u)\leq 0$ , y $ (u,u)=0$  si y solo si $x=0$ .
+		
+	\end{itemize}
+	
+\end{definicion}
+
+Así mismo, un espacio de Hilbert será:
 
 
 \begin{definicion}[label={Hilbert},nameref={Title or anything else}]{Espacio de Hilbert}
@@ -45,12 +58,12 @@ Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este s
 
 
 \section{Producto interior y suma por partes en $L^2$}
-En nuestro caso trabajaremos sobre $L^2(E)$, que será un espacio de Hilbert, que es un espacio de Hilbert con el siguiente producto interior.
+En nuestro caso trabajaremos sobre $L^2(E)$, que es un espacio de Hilbert con el siguiente producto interior:
 
 
 
 \begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto interior en $L^2$}
-	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior en $L^2(E)$, de ellas como:
+	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior sobre $L^2(E)$, de ellas como:
 	$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
 	
 	
@@ -66,10 +79,10 @@ En nuestro caso trabajaremos sobre $L^2(E)$, que será un espacio de Hilbert, que
 	\end{split}	
 \end{equation}
 
-Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$ respectivamente.
+Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$ respectivamente.\\
 
-\newpage
-En este punto nuestro objetivo será llegar a una generalización discreta de este concepto, ya que lo usaremos en la sección \ref{energiadiscreta}. Para ello vamos a definir un mallado tal y como lo usaremos mas adelante.
+
+En este punto nuestro objetivo será la definición de un producto escalar \ref{Escalar} para una subdivisión, o mallado, de nuestro dominio. Ya que, lo usaremos en la sección \ref{energiadiscreta}. Para ello, vamos a definamos tal mallado, de la misma forma que lo utilizaremos en capítulos posteriores.
 
 
 \begin{definicion}[label={Mallado},nameref={Title or anything else}]{Mallado}
@@ -82,16 +95,21 @@ En este punto nuestro objetivo será llegar a una generalización discreta de este
 	\end{array} $$
 	
 \end{definicion}
+
 Vemos que nuestro mallado sería del tipo:
+\newpage
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.6]{mallado.png}
 	\caption{Mallado}
 \end{figure}
-Una vez ya definido este mallado retomemos la generalización de \ref{innermallado}. Más información sobre como se aproxima al producto interior se puede encontrar en \citep{STRAND}.
+Una vez ya definido este mallado retomemos la definición del producto escalar para los puntos del mismo.\\
+
+Siguiendo la definición de producto escalar de \cite{TimeDependent}. Puesto que queremos utilizar el producto escalar sobre una partición del interior del intervalo espacial $(a,b)$, lo que utilizando nuestro mallado queda $D=\{ x_1,\dots,x_{m-1}\}$, definiremos el producto interior sobre $\mathbb{R}^{m-1}$.
 
 \begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
-	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y tomemos $D$ como la partición del interior del intervalo espacial $[a,b]$, es decir, $D=\{ x_1,\dots,x_{m-1}\}$. Para ello debemos fijar un instante temporal $t_r$. En este contexto, definiremos el producto interior sobre $D$ como:
+	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y sea $D=\{ x_1,\dots,x_{m-1}\}$. 
+	Fijando un instante temporal $t_r$, definimos el producto escalar sobre $\mathbb{R}^{m-1}$ como:
 	\begin{equation}\label{eq:interiordiscretomalla}
 		\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m-1}h u(x_j,t_r)w(x_j,t_r),
 	\end{equation}
@@ -104,7 +122,7 @@ Una vez ya definido este mallado retomemos la generalización de \ref{innermallad
 	La norma asociada a este producto escalar es:
 	$||u||_{D}= \sqrt{\left( u,u\right)_D}\geq 0$.
 \end{definicion}
-El producto interior discreto, no tiene porque ser definido expresamente un un mallado, pero, ya que este será el contexto en el que lo utilizaremos a lo largo de el trabajo, es conveniente definirlo sobre el mismo.\\
+El producto interior discreto, usualmente no está definido expresamente en un mallado, pero, ya que este será el contexto en el que lo utilizaremos a lo largo de el trabajo, es conveniente definirlo sobre el mismo.\\
 Una vez definidas las operaciones que nos harán falta a lo largo del trabajo,  y para simplificar la notación que usaremos, necesitaremos los siguientes conceptos:
 \begin{definicion}[label={shift},nameref={asjajsa}]{Desplazamiento progresivo y regresivo}
 	Sean $u$ una función discretizada en el mallado antes descrito. Definiremos el  desplazamiento hacia delante (resp. desplazamiento hacia atrás) como:

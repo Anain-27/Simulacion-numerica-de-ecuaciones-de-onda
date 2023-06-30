@@ -1,4 +1,5 @@
 \backcite {MartinDomingo}{{1}{1}{chapter.1}}
+\backcite {AcercaDe}{{2}{1}{chapter.1}}
 \backcite {Seismic}{{2}{1}{chapter.1}}
 \backcite {acoustics}{{2}{1}{chapter.1}}
 \backcite {optics}{{2}{1}{chapter.1}}
@@ -7,7 +8,7 @@
 \backcite {NumericalModels}{{2}{1}{chapter.1}}
 \backcite {Bilbao}{{2}{1}{chapter.1}}
 \backcite {royden2010real}{{5}{2.1}{section.2.1}}
-\backcite {STRAND}{{7}{2.2}{figure.caption.2}}
+\backcite {TimeDependent}{{8}{2.2}{figure.caption.2}}
 \backcite {Wazwaz}{{13}{3}{chapter.3}}
 \backcite {AnIntroduction}{{13}{3}{chapter.3}}
 \backcite {MartinDomingo}{{14}{3.1}{section.3.1}}
@@ -19,11 +20,13 @@
 \backcite {strauss}{{23}{4.2}{equation.4.2.5}}
 \backcite {leveque}{{23}{4.2}{equation.4.2.5}}
 \backcite {mcowen}{{24}{4.3}{section.4.3}}
+\backcite {domain}{{24}{4.3}{section.4.3}}
 \backcite {Strikwerda}{{28}{4.5}{section.4.5}}
 \backcite {Software}{{28}{4.5}{section.4.5}}
 \backcite {smith1988analisis}{{28}{4.5}{section.4.5}}
-\backcite {AnIntroduction}{{30}{4.5}{equation.4.5.12}}
+\backcite {AnIntroduction}{{31}{4.5}{equation.4.5.12}}
 \backcite {ScienceSound}{{45}{5.4.1}{subsection.5.4.1}}
+\backcite {universitaria}{{45}{5.4.2}{subsection.5.4.2}}
 \backcite {Optimal}{{50}{6}{chapter.6}}
 \backcite {Optimal}{{50}{6}{chapter.6}}
 \backcite {Russell}{{50}{6}{chapter.6}}

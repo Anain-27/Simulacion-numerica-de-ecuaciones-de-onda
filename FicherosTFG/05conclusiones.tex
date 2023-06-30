@@ -3,7 +3,7 @@
 
 \chapter{Conclusiones y proyectos futuros }
 \label{Conclusiones}
-A lo largo de este trabajo, hemos introducido conceptos importantes, tales como los espacios de Lebesgue y el producto interior, los hemos generalizado para el caso discreto, en un mallado definido para dicho ambiente.\\
+A lo largo de este trabajo, hemos introducido conceptos matemáticos, tales como los espacios de Lebesgue y el producto interior, los hemos generalizado para el caso discreto, en un mallado definido para dicho ambiente. Ha sido fundamental definir distintos tipos de aproximaciones (progresivas, regresivas y centradas), que usadas adecuadamente nos llevan a esquemas numéricos estables\\
 
 Se ha contextualizado la ecuación en derivadas parciales de onda, utilizando una perspectiva física. También se han analizado ciertas soluciones de la ecuación, y la Ley de la conservación de energía en la misma.\\
 
@@ -11,17 +11,19 @@ Una vez hecho esto, hemos examinado la solución numérica de la ecuación de onda 
 
 Por otro lado, hemos logrado la implementación de las soluciones de tipo onda viajera \ref{sec:solondaviajera}, de las que derivamos que la suma de las mismas describe inequívocamente el movimiento de la cuerda del esquema estudiado.\\
 
-A continuación hemos representado la relación entre la condición CFL y la inestabilidad de las soluciones, observando como su incumplimiento lleva a una aproximación muy mala que presenta multitud de oscilaciones espúreas.\\
+A continuación hemos representado la relación entre la condición CFL y la inestabilidad de las soluciones, observando como su incumplimiento conduce a aproximaciones incorrectas, que llevan que presentan multitud de oscilaciones espúreas.\\
 
-En definitiva, hemos podido realizar un estudio general de la ecuación de onda en derivadas parciales, abordando desde los conceptos fundamentales hasta la comprobación de como las condiciones teóricas encontradas afectan la solución numérica de la misma.\\
+En definitiva, hemos podido realizar un estudio general de la ecuación de onda en derivadas parciales, abordando desde los conceptos fundamentales hasta la comprobación de como las condiciones teóricas son fundamentales para obtener una correcta solución numérica de la misma.\\
 
 Este estudio sería fácilmente ampliable tomando varios enfoques,
 
 \begin{itemize}
 	\item Utilizando argumentos similares a los encontrados en \cite{Optimal}, podríamos hablar de la controlabilidad y observabilidad de nuestro esquema, en lugar de en un ambiente semi-discreto como el que propone Enrique Zuazua.
-	\item Se podría enriquecer el estudio comparando diferentes esquemas usados asiduamente en el método de las diferencias finitas, o revisando diversos conceptos para nuestro esquema, como la controlabilidad y la observabilidad \citep{Russell, Optimal}.
-	\item También sería interesante el uso de métodos de resolución diferentes, como por ejemplo los métodos espectrales, o elementos finitos \citep{Stig}.
-	\item Un enfoque más aplicado que se podría dar es, la utilización de los archivos .wav sintetizados para la creación de música, ya que hemos visto, que dependiendo de las condiciones iniciales, la forma de la onda obtenida cambia, de manera similar a como lo hace al tocar la misma nota en dos instrumentos diferentes.
+	\item Se podría enriquecer el estudio comparando diferentes esquemas usados asiduamente en el método de las diferencias finitas, \citep{Russell, Optimal}.
+	\item También sería interesante estudiar si es adecuado el uso de métodos de resolución diferentes, como por ejemplo los métodos espectrales, o elementos finitos \citep{Stig}.
+	\item Considerar ecuaciones de ondas en dominios bidimensionales, como la piel de un tambor que vibra al ser golpeado por una baqueta.
+	\item Un enfoque más aplicado que podríamos abordar es, la utilización de los archivos .wav sintetizados para la creación de música, ya que hemos visto, que dependiendo de las condiciones iniciales, la forma de la onda obtenida cambia, de manera similar a como lo hace al tocar la misma nota en dos instrumentos diferentes.
+	
 \end{itemize}
 
 
