@@ -98,7 +98,7 @@ En esta sección comenzaremos ilustrando varias soluciones dependiendo de las con
 
 \subsection{$f(x)= sin(\pi x)$, $g(x)=0$}
 \label{subsec:sin(x)}
-Volviendo al ejemplo de la posición inicial $f(x)= sin(\pi x)$y la velocidad inicial $g(x)=0$, se puede observar como nuestra solución oscila sin llegar a parar, al no tener en cuenta nuestro sistema \eqref{esquemacompletoonda}, fuerzas externas como el rozamiento. Utilizaremos como número de puntos en el espacio $m=100$, por lo tanto los demás parámetros serán $h=\frac{L-0}{m}= \frac{1}{100}$ y como $\mu=\frac{ck}{h}=1$, $k= \frac{1}{44000}$.
+Volviendo al ejemplo de la posición inicial $f(x)= sin(\pi x)$ y la velocidad inicial $g(x)=0$, se puede observar como la cuerda oscilará sin llegar a parar, al no tener en cuenta nuestro sistema \eqref{esquemacompletoonda}, fuerzas externas como el rozamiento. Para la simulación utilizaremos como número de puntos en el espacio $m=100$, por lo tanto los demás parámetros serán $h=\frac{L-0}{m}= \frac{1}{100}$ y eligiendo $\mu=\frac{ck}{h}=1$, $k= \frac{1}{44000}$.
 
 \begin{figure}[ht]
 	\centering
@@ -133,24 +133,29 @@ Volviendo al ejemplo de la posición inicial $f(x)= sin(\pi x)$y la velocidad ini
 		\label{fig:Seno4}
 	\end{minipage}
 \end{figure}
+\newpage
 
-\begin{wrapfigure}{r}{0.45\textwidth}
-	\vspace{-0.5 cm}
+\vskip 1cm
+
+\begin{wrapfigure}[6]{r}{0.5\textwidth}
+	\vspace{-0.7 cm}
 	\includegraphics[width=0.45\textwidth]{Seno5.png}
 	\caption{Se puede escuchar este sonido en el archivo figura5-5.wav adjunto.}
 	\label{fig:Seno5}
 	
 \end{wrapfigure}
 
-\vspace{0.5cm}
+\vspace{2.5cm}
 
-Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo. Esta cadena de datos será la que guardemos en el archivo de audio. En este caso, por la elección de $c=440$, se escuchará un La de 3ª octava, y por la elección del punto, se dará la máxima amplitud y por tanto volumen.
+Este tipo de movimiento es muy regular, podemos observarlo, por ejemplo, en el movimiento del punto el punto $x=0.5$ respecto al tiempo. Esta cadena de datos será la que guardemos en el archivo de audio. 
+
+\vspace{1 cm}
 
 \subsection{$f(x)$ tipo Struck, $g(x)=0$}
 \label{sub:fStuck}
 
 Cuando la posición inicial es de tipo Struck, es decir, un ``pico'' en la zona central de la cuerda, y la velocidad inicial es $0$, la solución no es tan suave, al ser $f$ no derivable en un punto.\\
-La expresión de $f$ en este ejemplo es la siquiente,
+La expresión de $f$ en este ejemplo es la siguiente,
 $$
 f(x) = 
 \begin{cases}
@@ -160,7 +165,7 @@ f(x) =
 	0 & \text{si } \ \ \frac{1}{4}< x \leq 1.
 \end{cases}
 $$
-
+\vspace{0.7 cm}
 \begin{figure}[ht]
 	\centering
 	\begin{minipage}[b]{0.45\textwidth}
@@ -173,7 +178,7 @@ $$
 	\begin{minipage}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Pico2.png}
-		\caption{Se crean picos en la cuerda.\\}
+		\caption{Se crean picos en la cuerda.}
 		\label{fig:Pico2}
 	\end{minipage}
 \end{figure}
