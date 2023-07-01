@@ -19,7 +19,7 @@ Podemos observar que se trata de una ecuación lineal y, siempre que $f\not\equiv
 \section{La ecuación de onda unidimensional}
 \label{sec:fisica}
 
-Una vez situados en la ecuación de onda, a partir de esta sección nos centraremos en el caso unidimensional, es decir en el que dominio  $\Omega\subset\mathbb{R}$. Comenzaremos explicando el modelado de dicho fenómeno, basándonos en los trabajos de \citep{Camarena2004LaTD, MartinDomingo}.
+Una vez situados en la ecuación de onda, a partir de esta sección nos centraremos en el caso unidimensional, es decir en el que dominio  $\Omega\subset\mathbb{R}$. Comenzaremos explicando el modelado de dicho fenómeno, basándonos en los trabajos de \citep{Camarena2004LaTD, strauss}.
 
 Supongamos que tenemos una cuerda uniforme y tensa, sujeta por los extremos, tal como lo estaría, por ejemplo, en una guitarra. Esta cuerda estaría colocada en nuestro esquema en el eje $X$ entre $0$ y $L$, siendo $L$ el largo de la misma. Así vemos que cada punto de la cuerda se desplazará en el tiempo.
 Por lo tanto, la función que describa el movimiento de la cuerda será del tipo $u(x,t)$.\\
@@ -48,11 +48,12 @@ Elegido un segmento diferencial del arco de la cuerda $\Delta S$, nos damos cuen
 $$T_y= -F_Tsen(\alpha), $$
 $$T'_y= F_Tsen(\beta).$$
 
-Luego la fuerza vertical quedaría $F=F_T(sen(\beta)-sen(\alpha))$, donde $F_T$ es la fuerza generada por la tensión, por otro lado, al encontrarnos en una sección diferencial los ángulos son tan pequeños que podemos aproximar $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\beta) \approxeq tan(\beta)$ quedando
+Luego, la componente vertical de la fuerza quedaría $F=F_T(sen(\beta)-sen(\alpha))$, donde $F_T$ es la fuerza generada por la tensión. Por otro lado, al encontrarnos en una sección diferencial, los ángulos son tan pequeños que podemos aproximar $sen(\alpha) \approxeq tan(\alpha)$ y $sen(\beta) \approxeq tan(\beta)$ quedando:
 
 $$F=F_T(tan(\beta)-tan(\alpha)).$$
 
-Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos $x$ y $x+\Delta x$ respectivamente, entonces podemos expresarlos como la primera derivada en los puntos correspondientes $tan(\alpha)=u_x(x,t)$ y $tan(\beta)=u_x(x+\Delta x,t)$. Obtenemos $F=F_T(u_x(x+\Delta x,t)-u_x(x,t))$.\\
+Además $tan(\alpha)$ y $tan(\beta)$ son las pendientes de la curva en los puntos $x$ y $x+\Delta x$ respectivamente, entonces podemos expresarlos como la primera derivada en los puntos correspondientes $tan(\alpha)=u_x(x,t)$ y $tan(\beta)=u_x(x+\Delta x,t)$.
+ Obtenemos  $F=F_T(u_x(x+\Delta x,t) - u_x(x,t))$.\\
 
 Aplicando ahora la segunda Ley de Newton, la fuerza debe ser la masa por la aceleración. Luego será la masa $\rho_l \Delta S$, donde $\rho_l $ es la densidad lineal de masa de la cuerda y como estamos en un ambiente diferencial podemos aproximar $\Delta S \approxeq \Delta x $, y la aceleración $u_{tt}(x,t)$. Reestructurando la ecuación queda:
 
@@ -115,6 +116,7 @@ Clasificaremos \eqref{eq:estandarizacion} dependiendo de  las ecuaciones caracte
 \end{definicion}
 
 Vemos que siguiendo la notación de  \eqref{eq:basica}, $A=1, C=-c^2, G=f$ y cada una de las demás funciones es 0. En el caso de la ecuación de onda, tenemos $B^2-4AC=4c^2>0$ y por lo tanto nuestra ecuación es hiperbólica.\\
+
 Este tipo de clasificación ayuda a la hora de abordar el estudio de las mismas, ya que los distintos tipos de problemas plantean problemáticas diferentes. En particular, los métodos numéricos para aproximar las soluciones también suelen diferir.
 
 

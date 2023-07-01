@@ -25,53 +25,46 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
-I was expecting a `,' or a `}'---line 46 of file bibliografia.bib
- : 
- : @inproceedings{Camarena2004LaTD,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--empty publisher in Wazwaz
 Warning--empty booktitle in Camarena2004LaTD
-Warning--empty year in universitaria
-You've used 28 entries,
+You've used 27 entries,
             1791 wiz_defined-function locations,
-            621 strings with 7565 characters,
-and the built_in function-call counts, 4933 in all, are:
-= -- 407
-> -- 200
+            607 strings with 7186 characters,
+and the built_in function-call counts, 4817 in all, are:
+= -- 411
+> -- 184
 < -- 7
-+ -- 81
-- -- 53
-* -- 222
-:= -- 787
-add.period$ -- 87
-call.type$ -- 28
++ -- 75
+- -- 48
+* -- 194
+:= -- 761
+add.period$ -- 85
+call.type$ -- 27
 change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 284
-empty$ -- 553
-format.name$ -- 53
-if$ -- 1151
+cite$ -- 28
+duplicate$ -- 283
+empty$ -- 539
+format.name$ -- 48
+if$ -- 1140
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 51
-newline$ -- 143
-num.names$ -- 28
-pop$ -- 160
+int.to.str$ -- 27
+missing$ -- 49
+newline$ -- 138
+num.names$ -- 27
+pop$ -- 154
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 85
+skip$ -- 96
 stack$ -- 0
-substring$ -- 76
-swap$ -- 43
+substring$ -- 83
+swap$ -- 50
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
+warning$ -- 1
 while$ -- 32
-width$ -- 30
-write$ -- 296
-(There was 1 error message)
+width$ -- 29
+write$ -- 287
+(There was 1 warning)

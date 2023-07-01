@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 01:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 05:02
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -1486,16 +1486,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 60.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 71.
-LaTeX Info: Redefining \% on input line 71.
- [6]
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+[6]
 LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
-
-[7]
+ [7]
 <mallado.png, id=315, 361.35pt x 238.8925pt>
 File: mallado.png Graphic file (type png)
 <use mallado.png>
@@ -1552,26 +1548,26 @@ Overfull \hbox (0.8959pt too wide) in paragraph at lines 36--37
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
 [14 <./Ejemplo1.png> <./Ejemplo2.png> <./modelado.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
  [15]
 LaTeX Info: Redefining \. on input line 119.
 LaTeX Info: Redefining \% on input line 119.
 
 [16]
-LaTeX Info: Redefining \. on input line 156.
-LaTeX Info: Redefining \% on input line 156.
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
  [17]
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 176.
+(amsmath)                 on input line 178.
 
-LaTeX Info: Redefining \. on input line 201.
-LaTeX Info: Redefining \% on input line 201.
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
 [18]
-LaTeX Info: Redefining \. on input line 243.
-LaTeX Info: Redefining \% on input line 243.
+LaTeX Info: Redefining \. on input line 245.
+LaTeX Info: Redefining \% on input line 245.
  [19])
 LaTeX Info: Redefining \. on input line 133.
 LaTeX Info: Redefining \% on input line 133.
@@ -1598,17 +1594,17 @@ LaTeX Info: Redefining \% on input line 71.
 LaTeX Info: Redefining \. on input line 116.
 LaTeX Info: Redefining \% on input line 116.
  [24]
-<UsadosPaso.png, id=529, 397.485pt x 255.95625pt>
+<UsadosPaso.png, id=528, 397.485pt x 255.95625pt>
 File: UsadosPaso.png Graphic file (type png)
 <use UsadosPaso.png>
 Package pdftex.def Info: UsadosPaso.png  used on input line 125.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-<UsadosTodos.png, id=530, 397.485pt x 255.95625pt>
+<UsadosTodos.png, id=529, 397.485pt x 255.95625pt>
 File: UsadosTodos.png Graphic file (type png)
 <use UsadosTodos.png>
 Package pdftex.def Info: UsadosTodos.png  used on input line 133.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-<DominioDependenciaconvergente.png, id=531, 397.485pt x 255.95625pt>
+<DominioDependenciaconvergente.png, id=530, 397.485pt x 255.95625pt>
 File: DominioDependenciaconvergente.png Graphic file (type png)
 <use DominioDependenciaconvergente.png>
 Package pdftex.def Info: DominioDependenciaconvergente.png  used on input line 
@@ -1617,36 +1613,36 @@ Package pdftex.def Info: DominioDependenciaconvergente.png  used on input line
 LaTeX Info: Redefining \. on input line 147.
 LaTeX Info: Redefining \% on input line 147.
  [25 <./UsadosPaso.png (PNG copy)> <./UsadosTodos.png (PNG copy)>]
-<DominioDependencianoconvergente.png, id=540, 397.485pt x 255.95625pt>
+<DominioDependencianoconvergente.png, id=539, 397.485pt x 255.95625pt>
 File: DominioDependencianoconvergente.png Graphic file (type png)
 <use DominioDependencianoconvergente.png>
 Package pdftex.def Info: DominioDependencianoconvergente.png  used on input lin
-e 153.
+e 152.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-LaTeX Info: Redefining \. on input line 172.
-LaTeX Info: Redefining \% on input line 172.
+LaTeX Info: Redefining \. on input line 169.
+LaTeX Info: Redefining \% on input line 169.
  [26 <./DominioDependenciaconvergente.png (PNG copy)> <./DominioDependencianoco
 nvergente.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+LaTeX Info: Redefining \. on input line 208.
+LaTeX Info: Redefining \% on input line 208.
  [27]
-LaTeX Info: Redefining \. on input line 256.
-LaTeX Info: Redefining \% on input line 256.
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
  [28]
-LaTeX Info: Redefining \. on input line 301.
-LaTeX Info: Redefining \% on input line 301.
+LaTeX Info: Redefining \. on input line 296.
+LaTeX Info: Redefining \% on input line 296.
  [29]
-LaTeX Info: Redefining \. on input line 336.
-LaTeX Info: Redefining \% on input line 336.
+LaTeX Info: Redefining \. on input line 332.
+LaTeX Info: Redefining \% on input line 332.
  [30]
-LaTeX Info: Redefining \. on input line 372.
-LaTeX Info: Redefining \% on input line 372.
+LaTeX Info: Redefining \. on input line 361.
+LaTeX Info: Redefining \% on input line 361.
  [31]
-LaTeX Info: Redefining \. on input line 414.
-LaTeX Info: Redefining \% on input line 414.
+LaTeX Info: Redefining \. on input line 404.
+LaTeX Info: Redefining \% on input line 404.
  [32]
-LaTeX Info: Redefining \. on input line 444.
-LaTeX Info: Redefining \% on input line 444.
+LaTeX Info: Redefining \. on input line 431.
+LaTeX Info: Redefining \% on input line 431.
  [33]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 457
 .
@@ -1665,434 +1661,433 @@ Cap\'{\i }tulo 5.
 
 Package xcolor Warning: Incompatible color definition on input line 3.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 15.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pi' on input line 15.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 15.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 15.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 15.
-
 [35
 
 
 
 
 ]
-<Seno1.png, id=646, 462.528pt x 346.896pt>
-File: Seno1.png Graphic file (type png)
-<use Seno1.png>
-Package pdftex.def Info: Seno1.png  used on input line 23.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno2.png, id=647, 462.528pt x 346.896pt>
-File: Seno2.png Graphic file (type png)
-<use Seno2.png>
-Package pdftex.def Info: Seno2.png  used on input line 30.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno3.png, id=648, 462.528pt x 346.896pt>
-File: Seno3.png Graphic file (type png)
-<use Seno3.png>
-Package pdftex.def Info: Seno3.png  used on input line 40.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno4.png, id=649, 462.528pt x 346.896pt>
-File: Seno4.png Graphic file (type png)
-<use Seno4.png>
-Package pdftex.def Info: Seno4.png  used on input line 47.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Seno5.png, id=650, 462.528pt x 346.896pt>
-File: Seno5.png Graphic file (type png)
-<use Seno5.png>
-Package pdftex.def Info: Seno5.png  used on input line 55.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
- [36 <./Seno1.png> <./Seno2.png> <./Seno3.png> <./Seno4.png> <./Seno5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 69.
+(hyperref)                removing `math shift' on input line 25.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 69.
+(hyperref)                removing `\pi' on input line 25.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 69.
+(hyperref)                removing `math shift' on input line 25.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 69.
-
-<Pico1.png, id=663, 462.528pt x 346.896pt>
-File: Pico1.png Graphic file (type png)
-<use Pico1.png>
-Package pdftex.def Info: Pico1.png  used on input line 88.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico2.png, id=664, 462.528pt x 346.896pt>
-File: Pico2.png Graphic file (type png)
-<use Pico2.png>
-Package pdftex.def Info: Pico2.png  used on input line 95.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico3.png, id=665, 462.528pt x 346.896pt>
-File: Pico3.png Graphic file (type png)
-<use Pico3.png>
-Package pdftex.def Info: Pico3.png  used on input line 105.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico4.png, id=666, 462.528pt x 346.896pt>
-File: Pico4.png Graphic file (type png)
-<use Pico4.png>
-Package pdftex.def Info: Pico4.png  used on input line 112.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<picom100.png, id=667, 462.528pt x 346.896pt>
-File: picom100.png Graphic file (type png)
-<use picom100.png>
-Package pdftex.def Info: picom100.png  used on input line 123.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 123--124
- [][] 
- []
-
-<picom300.png, id=668, 462.528pt x 346.896pt>
-File: picom300.png Graphic file (type png)
-<use picom300.png>
-Package pdftex.def Info: picom300.png  used on input line 130.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 130--131
- [][] 
- []
-
-<picom400.png, id=669, 462.528pt x 346.896pt>
-File: picom400.png Graphic file (type png)
-<use picom400.png>
-Package pdftex.def Info: picom400.png  used on input line 137.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 137--138
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
-[37 <./Pico1.png> <./Pico2.png> <./Pico3.png> <./Pico4.png>]
-<Pico5.png, id=682, 462.528pt x 346.896pt>
-File: Pico5.png Graphic file (type png)
-<use Pico5.png>
-Package pdftex.def Info: Pico5.png  used on input line 148.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico6.png, id=683, 462.528pt x 346.896pt>
-File: Pico6.png Graphic file (type png)
-<use Pico6.png>
-Package pdftex.def Info: Pico6.png  used on input line 155.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+(hyperref)                removing `math shift' on input line 25.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 25.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
-
-<Planog.png, id=684, 462.528pt x 346.896pt>
-File: Planog.png Graphic file (type png)
-<use Planog.png>
-Package pdftex.def Info: Planog.png  used on input line 168.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
-[38 <./picom100.png> <./picom300.png> <./picom400.png> <./Pico5.png> <./Pico6.p
-ng> <./Planog.png>]
-<Plano0.png, id=699, 462.528pt x 346.896pt>
-File: Plano0.png Graphic file (type png)
-<use Plano0.png>
-Package pdftex.def Info: Plano0.png  used on input line 190.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Plano1.png, id=700, 462.528pt x 346.896pt>
-File: Plano1.png Graphic file (type png)
-<use Plano1.png>
-Package pdftex.def Info: Plano1.png  used on input line 204.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 204--206
- [][] 
- []
-
-<Plano2.png, id=701, 462.528pt x 346.896pt>
-File: Plano2.png Graphic file (type png)
-<use Plano2.png>
-Package pdftex.def Info: Plano2.png  used on input line 210.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 210--212
- [][] 
- []
-
-<Plano3.png, id=702, 462.528pt x 346.896pt>
-File: Plano3.png Graphic file (type png)
-<use Plano3.png>
-Package pdftex.def Info: Plano3.png  used on input line 216.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 216--218
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
-[39 <./Plano0.png> <./Plano1.png> <./Plano2.png> <./Plano3.png>]
-<Plano4.png, id=713, 462.528pt x 346.896pt>
-File: Plano4.png Graphic file (type png)
-<use Plano4.png>
-Package pdftex.def Info: Plano4.png  used on input line 227.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 227--229
- [][] 
- []
-
-<Plano5.png, id=714, 462.528pt x 346.896pt>
-File: Plano5.png Graphic file (type png)
-<use Plano5.png>
-Package pdftex.def Info: Plano5.png  used on input line 233.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 233--235
- [][] 
- []
-
-<Plano6.png, id=715, 462.528pt x 346.896pt>
-File: Plano6.png Graphic file (type png)
-<use Plano6.png>
-Package pdftex.def Info: Plano6.png  used on input line 239.
-(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
-
-Overfull \hbox (12.65683pt too wide) in paragraph at lines 239--241
- [][] 
- []
-
-<Planoonda.png, id=716, 462.528pt x 346.896pt>
-File: Planoonda.png Graphic file (type png)
-<use Planoonda.png>
-Package pdftex.def Info: Planoonda.png  used on input line 247.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav1.png, id=718, 462.528pt x 346.896pt>
-File: Senotrav1.png Graphic file (type png)
-<use Senotrav1.png>
-Package pdftex.def Info: Senotrav1.png  used on input line 271.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav2.png, id=719, 462.528pt x 346.896pt>
-File: Senotrav2.png Graphic file (type png)
-<use Senotrav2.png>
-Package pdftex.def Info: Senotrav2.png  used on input line 278.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav3.png, id=720, 462.528pt x 346.896pt>
-File: Senotrav3.png Graphic file (type png)
-<use Senotrav3.png>
-Package pdftex.def Info: Senotrav3.png  used on input line 288.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 294.
-LaTeX Info: Redefining \% on input line 294.
-[40 <./Plano4.png> <./Plano5.png> <./Plano6.png> <./Planoonda.png>]
-<Senoexacto1.png, id=732, 462.528pt x 346.896pt>
-File: Senoexacto1.png Graphic file (type png)
-<use Senoexacto1.png>
-Package pdftex.def Info: Senoexacto1.png  used on input line 299.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senoexacto2.png, id=733, 462.528pt x 346.896pt>
-File: Senoexacto2.png Graphic file (type png)
-<use Senoexacto2.png>
-Package pdftex.def Info: Senoexacto2.png  used on input line 306.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 314.
-LaTeX Info: Redefining \% on input line 314.
- [41 <./Senotrav1.png> <./Senotrav2.png> <./Senotrav3.png> <./Senoexacto1.png> 
-<./Senoexacto2.png>]
-<Senotrav4.png, id=746, 462.528pt x 346.896pt>
-File: Senotrav4.png Graphic file (type png)
-<use Senotrav4.png>
-Package pdftex.def Info: Senotrav4.png  used on input line 319.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Senotrav6.png, id=747, 462.528pt x 346.896pt>
-File: Senotrav6.png Graphic file (type png)
-<use Senotrav6.png>
-Package pdftex.def Info: Senotrav6.png  used on input line 326.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 335.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 335.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\ll' on input line 335.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 335.
-
-LaTeX Info: Redefining \. on input line 350.
-LaTeX Info: Redefining \% on input line 350.
-[42 <./Senotrav4.png> <./Senotrav6.png>]
-<Piconormal.png, id=756, 462.528pt x 346.896pt>
-File: Piconormal.png Graphic file (type png)
-<use Piconormal.png>
-Package pdftex.def Info: Piconormal.png  used on input line 356.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picomu0.1.png, id=757, 462.528pt x 346.896pt>
-File: Picomu0.1.png Graphic file (type png)
-<use Picomu0.1.png>
-Package pdftex.def Info: Picomu0.1.png  used on input line 363.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu1.png, id=758, 462.528pt x 346.896pt>
-File: Picoondamu1.png Graphic file (type png)
-<use Picoondamu1.png>
-Package pdftex.def Info: Picoondamu1.png  used on input line 376.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu0.1.png, id=759, 462.528pt x 346.896pt>
-File: Picoondamu0.1.png Graphic file (type png)
-<use Picoondamu0.1.png>
-Package pdftex.def Info: Picoondamu0.1.png  used on input line 383.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 391.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 391.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 391.
-
-<Pico38.png, id=760, 462.528pt x 346.896pt>
-File: Pico38.png Graphic file (type png)
-<use Pico38.png>
-Package pdftex.def Info: Pico38.png  used on input line 398.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Pico58.png, id=761, 462.528pt x 346.896pt>
-File: Pico58.png Graphic file (type png)
-<use Pico58.png>
-Package pdftex.def Info: Pico58.png  used on input line 405.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 411.
-LaTeX Info: Redefining \% on input line 411.
-[43 <./Piconormal.png> <./Picomu0.1.png> <./Picoondamu1.png> <./Picoondamu0.1.p
-ng>]
-File: Picoondamu1.png Graphic file (type png)
-<use Picoondamu1.png>
-Package pdftex.def Info: Picoondamu1.png  used on input line 416.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-<Picoondamu1.1.png, id=773, 462.528pt x 346.896pt>
-File: Picoondamu1.1.png Graphic file (type png)
-<use Picoondamu1.1.png>
-Package pdftex.def Info: Picoondamu1.1.png  used on input line 422.
-(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 438.
-LaTeX Info: Redefining \% on input line 438.
- [44 <./Pico38.png> <./Pico58.png> <./Picoondamu1.1.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pi' on input line 451.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
-
-LaTeX Info: Redefining \. on input line 453.
-LaTeX Info: Redefining \% on input line 453.
-[45]
-<2Seno1.png, id=792, 559.56421pt x 430.23895pt>
+<2Seno1.png, id=647, 559.56421pt x 430.23895pt>
 File: 2Seno1.png Graphic file (type png)
 <use 2Seno1.png>
-Package pdftex.def Info: 2Seno1.png  used on input line 460.
+Package pdftex.def Info: 2Seno1.png  used on input line 32.
 (pdftex.def)             Requested size: 177.97069pt x 136.8324pt.
-<2Seno2.png, id=793, 597.60106pt x 448.83473pt>
+<2Seno2.png, id=648, 597.60106pt x 448.83473pt>
 File: 2Seno2.png Graphic file (type png)
 <use 2Seno2.png>
-Package pdftex.def Info: 2Seno2.png  used on input line 467.
+Package pdftex.def Info: 2Seno2.png  used on input line 39.
 (pdftex.def)             Requested size: 177.97069pt x 133.66525pt.
-<2Seno4.png, id=794, 462.528pt x 346.896pt>
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+[36 <./2Seno1.png> <./2Seno2.png>]
+<2Seno4.png, id=660, 462.528pt x 346.896pt>
 File: 2Seno4.png Graphic file (type png)
 <use 2Seno4.png>
-Package pdftex.def Info: 2Seno4.png  used on input line 477.
-(pdftex.def)             Requested size: 197.74655pt x 148.31015pt.
-LaTeX Info: Redefining \. on input line 489.
-LaTeX Info: Redefining \% on input line 489.
- [46 <./2Seno1.png> <./2Seno2.png> <./2Seno4.png>]
-<SenoPuntos.png, id=804, 597.60106pt x 450.10263pt>
+Package pdftex.def Info: 2Seno4.png  used on input line 50.
+(pdftex.def)             Requested size: 217.52242pt x 163.14171pt.
+<SenoPuntos.png, id=661, 597.60106pt x 450.10263pt>
 File: SenoPuntos.png Graphic file (type png)
 <use SenoPuntos.png>
-Package pdftex.def Info: SenoPuntos.png  used on input line 493.
+Package pdftex.def Info: SenoPuntos.png  used on input line 63.
 (pdftex.def)             Requested size: 217.52242pt x 163.82936pt.
-<2Seno3.png, id=806, 462.528pt x 346.896pt>
+<2Seno3.png, id=662, 462.528pt x 346.896pt>
 File: 2Seno3.png Graphic file (type png)
 <use 2Seno3.png>
-Package pdftex.def Info: 2Seno3.png  used on input line 503.
-(pdftex.def)             Requested size: 217.52242pt x 163.14171pt.
-LaTeX Info: Redefining \. on input line 514.
-LaTeX Info: Redefining \% on input line 514.
- [47 <./SenoPuntos.png> <./2Seno3.png>])
+Package pdftex.def Info: 2Seno3.png  used on input line 77.
+(pdftex.def)             Requested size: 197.74655pt x 148.31015pt.
+
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [37 <./2Seno4.png> <./SenoPuntos.png>]
+LaTeX Info: Redefining \. on input line 97.
+LaTeX Info: Redefining \% on input line 97.
+ [38 <./2Seno3.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\pi' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 99.
+
+<Seno1.png, id=679, 462.528pt x 346.896pt>
+File: Seno1.png Graphic file (type png)
+<use Seno1.png>
+Package pdftex.def Info: Seno1.png  used on input line 107.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Seno2.png, id=680, 462.528pt x 346.896pt>
+File: Seno2.png Graphic file (type png)
+<use Seno2.png>
+Package pdftex.def Info: Seno2.png  used on input line 114.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Seno3.png, id=681, 462.528pt x 346.896pt>
+File: Seno3.png Graphic file (type png)
+<use Seno3.png>
+Package pdftex.def Info: Seno3.png  used on input line 124.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Seno4.png, id=682, 462.528pt x 346.896pt>
+File: Seno4.png Graphic file (type png)
+<use Seno4.png>
+Package pdftex.def Info: Seno4.png  used on input line 131.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Seno5.png, id=683, 462.528pt x 346.896pt>
+File: Seno5.png Graphic file (type png)
+<use Seno5.png>
+Package pdftex.def Info: Seno5.png  used on input line 139.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 147.
+LaTeX Info: Redefining \% on input line 147.
+[39 <./Seno1.png> <./Seno2.png> <./Seno3.png> <./Seno4.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+<Pico1.png, id=694, 462.528pt x 346.896pt>
+File: Pico1.png Graphic file (type png)
+<use Pico1.png>
+Package pdftex.def Info: Pico1.png  used on input line 168.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Pico2.png, id=695, 462.528pt x 346.896pt>
+File: Pico2.png Graphic file (type png)
+<use Pico2.png>
+Package pdftex.def Info: Pico2.png  used on input line 175.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Pico3.png, id=696, 462.528pt x 346.896pt>
+File: Pico3.png Graphic file (type png)
+<use Pico3.png>
+Package pdftex.def Info: Pico3.png  used on input line 185.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Pico4.png, id=697, 462.528pt x 346.896pt>
+File: Pico4.png Graphic file (type png)
+<use Pico4.png>
+Package pdftex.def Info: Pico4.png  used on input line 192.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 197.
+LaTeX Info: Redefining \% on input line 197.
+[40 <./Seno5.png> <./Pico1.png> <./Pico2.png>]
+<picom100.png, id=707, 462.528pt x 346.896pt>
+File: picom100.png Graphic file (type png)
+<use picom100.png>
+Package pdftex.def Info: picom100.png  used on input line 204.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 204--205
+ [][] 
+ []
+
+<picom300.png, id=708, 462.528pt x 346.896pt>
+File: picom300.png Graphic file (type png)
+<use picom300.png>
+Package pdftex.def Info: picom300.png  used on input line 211.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 211--212
+ [][] 
+ []
+
+<picom400.png, id=709, 462.528pt x 346.896pt>
+File: picom400.png Graphic file (type png)
+<use picom400.png>
+Package pdftex.def Info: picom400.png  used on input line 218.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 218--219
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 225.
+LaTeX Info: Redefining \% on input line 225.
+[41 <./Pico3.png> <./Pico4.png> <./picom100.png> <./picom300.png> <./picom400.p
+ng>]
+<Pico5.png, id=722, 462.528pt x 346.896pt>
+File: Pico5.png Graphic file (type png)
+<use Pico5.png>
+Package pdftex.def Info: Pico5.png  used on input line 231.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Pico6.png, id=723, 462.528pt x 346.896pt>
+File: Pico6.png Graphic file (type png)
+<use Pico6.png>
+Package pdftex.def Info: Pico6.png  used on input line 238.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 246.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 246.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 246.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 246.
+
+<Planog.png, id=724, 462.528pt x 346.896pt>
+File: Planog.png Graphic file (type png)
+<use Planog.png>
+Package pdftex.def Info: Planog.png  used on input line 251.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Plano0.png, id=725, 462.528pt x 346.896pt>
+File: Plano0.png Graphic file (type png)
+<use Plano0.png>
+Package pdftex.def Info: Plano0.png  used on input line 272.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Plano1.png, id=726, 462.528pt x 346.896pt>
+File: Plano1.png Graphic file (type png)
+<use Plano1.png>
+Package pdftex.def Info: Plano1.png  used on input line 286.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 286--288
+ [][] 
+ []
+
+<Plano2.png, id=727, 462.528pt x 346.896pt>
+File: Plano2.png Graphic file (type png)
+<use Plano2.png>
+Package pdftex.def Info: Plano2.png  used on input line 292.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 292--294
+ [][] 
+ []
+
+<Plano3.png, id=728, 462.528pt x 346.896pt>
+File: Plano3.png Graphic file (type png)
+<use Plano3.png>
+Package pdftex.def Info: Plano3.png  used on input line 298.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 298--300
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 303.
+LaTeX Info: Redefining \% on input line 303.
+[42 <./Pico5.png> <./Pico6.png> <./Planog.png> <./Plano0.png>]
+<Plano4.png, id=740, 462.528pt x 346.896pt>
+File: Plano4.png Graphic file (type png)
+<use Plano4.png>
+Package pdftex.def Info: Plano4.png  used on input line 310.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 310--312
+ [][] 
+ []
+
+<Plano5.png, id=741, 462.528pt x 346.896pt>
+File: Plano5.png Graphic file (type png)
+<use Plano5.png>
+Package pdftex.def Info: Plano5.png  used on input line 316.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 316--318
+ [][] 
+ []
+
+<Plano6.png, id=742, 462.528pt x 346.896pt>
+File: Plano6.png Graphic file (type png)
+<use Plano6.png>
+Package pdftex.def Info: Plano6.png  used on input line 322.
+(pdftex.def)             Requested size: 139.21751pt x 104.41365pt.
+
+Overfull \hbox (12.65683pt too wide) in paragraph at lines 322--324
+ [][] 
+ []
+
+<Planoonda.png, id=743, 462.528pt x 346.896pt>
+File: Planoonda.png Graphic file (type png)
+<use Planoonda.png>
+Package pdftex.def Info: Planoonda.png  used on input line 330.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 348.
+LaTeX Info: Redefining \% on input line 348.
+[43 <./Plano1.png> <./Plano2.png> <./Plano3.png> <./Plano4.png> <./Plano5.png> 
+<./Plano6.png> <./Planoonda.png>]
+<Senotrav1.png, id=760, 462.528pt x 346.896pt>
+File: Senotrav1.png Graphic file (type png)
+<use Senotrav1.png>
+Package pdftex.def Info: Senotrav1.png  used on input line 353.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Senotrav2.png, id=761, 462.528pt x 346.896pt>
+File: Senotrav2.png Graphic file (type png)
+<use Senotrav2.png>
+Package pdftex.def Info: Senotrav2.png  used on input line 360.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Senotrav3.png, id=762, 462.528pt x 346.896pt>
+File: Senotrav3.png Graphic file (type png)
+<use Senotrav3.png>
+Package pdftex.def Info: Senotrav3.png  used on input line 369.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 377.
+LaTeX Info: Redefining \% on input line 377.
+ [44 <./Senotrav1.png> <./Senotrav2.png> <./Senotrav3.png>]
+<Senoexacto1.png, id=773, 462.528pt x 346.896pt>
+File: Senoexacto1.png Graphic file (type png)
+<use Senoexacto1.png>
+Package pdftex.def Info: Senoexacto1.png  used on input line 384.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Senoexacto2.png, id=774, 462.528pt x 346.896pt>
+File: Senoexacto2.png Graphic file (type png)
+<use Senoexacto2.png>
+Package pdftex.def Info: Senoexacto2.png  used on input line 391.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Senotrav4.png, id=776, 462.528pt x 346.896pt>
+File: Senotrav4.png Graphic file (type png)
+<use Senotrav4.png>
+Package pdftex.def Info: Senotrav4.png  used on input line 406.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Senotrav6.png, id=779, 462.528pt x 346.896pt>
+File: Senotrav6.png Graphic file (type png)
+<use Senotrav6.png>
+Package pdftex.def Info: Senotrav6.png  used on input line 413.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 419.
+LaTeX Info: Redefining \% on input line 419.
+ [45 <./Senoexacto1.png> <./Senoexacto2.png> <./Senotrav4.png> <./Senotrav6.png
+>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 420.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 420.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 420.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ll' on input line 423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 423.
+
+<Piconormal.png, id=791, 462.528pt x 346.896pt>
+File: Piconormal.png Graphic file (type png)
+<use Piconormal.png>
+Package pdftex.def Info: Piconormal.png  used on input line 443.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Picomu0.1.png, id=792, 462.528pt x 346.896pt>
+File: Picomu0.1.png Graphic file (type png)
+<use Picomu0.1.png>
+Package pdftex.def Info: Picomu0.1.png  used on input line 450.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Picoondamu1.png, id=793, 462.528pt x 346.896pt>
+File: Picoondamu1.png Graphic file (type png)
+<use Picoondamu1.png>
+Package pdftex.def Info: Picoondamu1.png  used on input line 463.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Picoondamu0.1.png, id=794, 462.528pt x 346.896pt>
+File: Picoondamu0.1.png Graphic file (type png)
+<use Picoondamu0.1.png>
+Package pdftex.def Info: Picoondamu0.1.png  used on input line 470.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 478.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 478.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 478.
+
+LaTeX Info: Redefining \. on input line 480.
+LaTeX Info: Redefining \% on input line 480.
+[46 <./Piconormal.png> <./Picomu0.1.png>]
+<Pico38.png, id=802, 462.528pt x 346.896pt>
+File: Pico38.png Graphic file (type png)
+<use Pico38.png>
+Package pdftex.def Info: Pico38.png  used on input line 485.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Pico58.png, id=803, 462.528pt x 346.896pt>
+File: Pico58.png Graphic file (type png)
+<use Pico58.png>
+Package pdftex.def Info: Pico58.png  used on input line 492.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+File: Picoondamu1.png Graphic file (type png)
+<use Picoondamu1.png>
+Package pdftex.def Info: Picoondamu1.png  used on input line 503.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+<Picoondamu1.1.png, id=804, 462.528pt x 346.896pt>
+File: Picoondamu1.1.png Graphic file (type png)
+<use Picoondamu1.1.png>
+Package pdftex.def Info: Picoondamu1.1.png  used on input line 509.
+(pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
+LaTeX Info: Redefining \. on input line 519.
+LaTeX Info: Redefining \% on input line 519.
+ [47 <./Picoondamu1.png> <./Picoondamu0.1.png> <./Pico38.png> <./Pico58.png>])
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
- [48]
+ [48 <./Picoondamu1.1.png>]
 \openout2 = `05conclusiones.aux'.
 
- (05conclusiones.tex
+
+(05conclusiones.tex
 Cap\'{\i }tulo 6.
 
 Package xcolor Warning: Incompatible color definition on input line 4.
@@ -2155,9 +2150,9 @@ LaTeX Info: Redefining \. on input line 202.
 LaTeX Info: Redefining \% on input line 202.
  [54]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 248.
-LaTeX Info: Redefining \. on input line 262.
-LaTeX Info: Redefining \% on input line 262.
+nput line 247.
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
 
 [55]
 LaTeX Info: Redefining \. on input line 318.
@@ -2165,8 +2160,8 @@ LaTeX Info: Redefining \% on input line 318.
  [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 374.
-LaTeX Info: Redefining \% on input line 374.
+LaTeX Info: Redefining \. on input line 375.
+LaTeX Info: Redefining \% on input line 375.
  [57])
 LaTeX Info: Redefining \. on input line 161.
 LaTeX Info: Redefining \% on input line 161.
@@ -2182,8 +2177,8 @@ LaTeX Info: Redefining \% on input line 161.
 
 
 ]
-LaTeX Info: Redefining \. on input line 136.
-LaTeX Info: Redefining \% on input line 136.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
  [60])
 LaTeX Info: Redefining \. on input line 181.
 LaTeX Info: Redefining \% on input line 181.
@@ -2195,15 +2190,15 @@ LaTeX Info: Redefining \% on input line 32.
 ) (03PrimeraParte.aux) (04SegundaParte.aux) (05conclusiones.aux)
 (06conclusiones2.aux))
 Package rerunfilecheck Info: File `TFGPrincipal.out' has not changed.
-(rerunfilecheck)             Checksum: F436383F4EE1B0443A0E83912BAD3122;7394.
+(rerunfilecheck)             Checksum: 7FEA0208D152EF809E2341B97EDB35AB;7394.
 Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
-(rerunfilecheck)             Checksum: F8BD84030CFCD09AD9930DB982E85F17;1514.
+(rerunfilecheck)             Checksum: 35A15B982A9C36581642CBA5CDD9DFC5;1502.
  ) 
 Here is how much of TeX's memory you used:
- 29451 strings out of 478927
- 524144 string characters out of 2845389
- 928110 words of memory out of 3000000
- 45980 multiletter control sequences out of 15000+600000
+ 29442 strings out of 478927
+ 523977 string characters out of 2845389
+ 928358 words of memory out of 3000000
+ 45973 multiletter control sequences out of 15000+600000
  450457 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,20n,122p,1028b,2008s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2233,9 +2228,9 @@ Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs
 /MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (73 pages, 2376523 bytes).
+Output written on TFGPrincipal.pdf (73 pages, 2377559 bytes).
 PDF statistics:
- 1500 PDF objects out of 1728 (max. 8388607)
- 600 named destinations out of 1000 (max. 500000)
+ 1499 PDF objects out of 1728 (max. 8388607)
+ 598 named destinations out of 1000 (max. 500000)
  556 words of extra memory for PDF output out of 10000 (max. 10000000)
 

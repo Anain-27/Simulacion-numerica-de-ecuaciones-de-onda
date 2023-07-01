@@ -3,17 +3,20 @@
 
 \chapter{Conclusiones y proyectos futuros }
 \label{Conclusiones}
-A lo largo de este trabajo, hemos introducido conceptos matemáticos, tales como los espacios de Lebesgue y el producto interior, los hemos generalizado para el caso discreto, en un mallado definido para dicho ambiente. Ha sido fundamental definir distintos tipos de aproximaciones (progresivas, regresivas y centradas), que usadas adecuadamente nos llevan a esquemas numéricos estables\\
+A lo largo de este trabajo, hemos introducido conceptos matemáticos, tales como los espacios de Lebesgue y el producto interior, los hemos generalizado para el caso discreto, en un mallado definido en ambiente discreto. Ha sido fundamental definir distintos tipos de aproximaciones (progresivas, regresivas y centradas), que usadas adecuadamente nos llevan a esquemas numéricos estables\\
 
-Se ha contextualizado la ecuación en derivadas parciales de onda, utilizando una perspectiva física. También se han analizado ciertas soluciones de la ecuación, y la Ley de la conservación de energía en la misma.\\
+Se ha contextualizado la ecuación en derivadas parciales de onda, utilizando una perspectiva física. También se han analizado ciertas soluciones de la ecuación, y la Ley de la conservación de energía que satisface la misma.\\
 
-Una vez hecho esto, hemos examinado la solución numérica de la ecuación de onda mediante el método de las diferencias finitas, observando en \ref{sec:soluciones}, como se obtienen buenos resultados para la misma. Hemos comparado distintas condiciones iniciales que cumplen con los parámetros obtenidos mediante el análisis de Von Neumann \ref{sec:VonNeumann} y hemos conseguido archivos de audio que corroboran la estabilidad dentro del marco obtenido.\\
+Posteriormente, nos centramos en aproximar la ecuación de onda mediante el método de diferencias finitas. Luego, examinamos las características del esquema de aproximación obtenido, constatamos la estabilidad del esquema bajo ciertas condiciones, la consistencia y la ley de conservación de energía discreta.\\
 
-Por otro lado, hemos logrado la implementación de las soluciones de tipo onda viajera \ref{sec:solondaviajera}, de las que derivamos que la suma de las mismas describe inequívocamente el movimiento de la cuerda del esquema estudiado.\\
+Proseguimos implementando en Python el esquema modelado, realizando diversas simulaciones. Abordamos la influencia de la frecuencia en la onda sonora obtenida y la hemos sintetizado de manera numérica.\\
 
-A continuación hemos representado la relación entre la condición CFL y la inestabilidad de las soluciones, observando como su incumplimiento conduce a aproximaciones incorrectas, que llevan que presentan multitud de oscilaciones espúreas.\\
 
-En definitiva, hemos podido realizar un estudio general de la ecuación de onda en derivadas parciales, abordando desde los conceptos fundamentales hasta la comprobación de como las condiciones teóricas son fundamentales para obtener una correcta solución numérica de la misma.\\
+Por otro lado, hemos logrado la implementación de las soluciones de tipo onda viajera \ref{sec:solondaviajera}, reiterando que la suma de las mismas describe inequívocamente el movimiento de la cuerda.\\
+
+A continuación, observamos el comportamiento de las aproximaciones, a comparación de la solución exacta. Variamos las condiciones obtenidas mediante el análisis de la estabilidad, representado la relación entre la condición CFL y la inestabilidad de las soluciones. Observando como su incumplimiento conduce a aproximaciones incorrectas, que llevan que presentan multitud de oscilaciones espúreas.\\
+
+En definitiva, hemos podido realizar un estudio general de la ecuación de onda en derivadas parciales, abordando desde los conceptos fundamentales, hasta la comprobación de como las condiciones teóricas son fundamentales para obtener una correcta solución numérica de la misma.\\
 
 Este estudio sería fácilmente ampliable tomando varios enfoques,
 
@@ -22,7 +25,7 @@ Este estudio sería fácilmente ampliable tomando varios enfoques,
 	\item Se podría enriquecer el estudio comparando diferentes esquemas usados asiduamente en el método de las diferencias finitas, \citep{Russell, Optimal}.
 	\item También sería interesante estudiar si es adecuado el uso de métodos de resolución diferentes, como por ejemplo los métodos espectrales, o elementos finitos \citep{Stig}.
 	\item Considerar ecuaciones de ondas en dominios bidimensionales, como la piel de un tambor que vibra al ser golpeado por una baqueta.
-	\item Un enfoque más aplicado que podríamos abordar es, la utilización de los archivos .wav sintetizados para la creación de música, ya que hemos visto, que dependiendo de las condiciones iniciales, la forma de la onda obtenida cambia, de manera similar a como lo hace al tocar la misma nota en dos instrumentos diferentes.
+	\item Un enfoque más aplicado que podríamos abordar es la utilización de los archivos .wav sintetizados para la creación de música, ya que hemos visto, que dependiendo de las condiciones iniciales, la forma de la onda obtenida cambia, de manera similar a como lo hace al tocar la misma nota en dos instrumentos diferentes.
 	
 \end{itemize}
 

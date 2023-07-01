@@ -32,7 +32,7 @@ Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este s
 Para que un espacio de Banach sea espacio de Hilbert, será necesario que tenga un producto asociado. Definamos este concepto.
 
 \begin{definicion}[label={Escalar},nameref={Title or anything else}]{Producto escalar o interno.}
-	Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow F $ se llamará producto escalar o interno si para todo $u,v,w\in E$ y los escalares $\alpha, \beta \in F$ se satisfacen las siguientes propiedades:
+	Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow F $ se llamará producto escalar o interno, si para todo $u,v,w\in E$ y  $\alpha, \beta \in F$ escalares, se satisfacen las siguientes propiedades:
 	\begin{itemize}
 		\item Linealidad: $ (\alpha u+\beta v,w)= a(u,w)+b(v,w)$ .
 		\item Simetría: $ (u,v)=(v,u)$ .
@@ -46,7 +46,7 @@ Así mismo, un espacio de Hilbert será:
 
 
 \begin{definicion}[label={Hilbert},nameref={Title or anything else}]{Espacio de Hilbert}
-	Un espacio de Banach $E$ se llama de Hilbert si tiene un producto interior asociado y es completo bajo su métrica.
+	Un espacio de Banach $E$, se llama de Hilbert, si tiene un producto interior asociado y es completo bajo su métrica.
 	
 \end{definicion}
 
@@ -63,13 +63,13 @@ En nuestro caso trabajaremos sobre $L^2(E)$, que es un espacio de Hilbert con el
 
 
 \begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto interior en $L^2$}
-	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior sobre $L^2(E)$, de ellas como:
+	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior sobre $L^2(E)$ de ellas como:
 	$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
 	
 	
 \end{definicion}
 
- La norma inducida por este producto interior, será la que utilizaremos. Esta se corresponderá con la norma definida por \ref{normaLp}.
+ La norma inducida por este producto interior será la que utilizaremos. Esta se corresponderá con la norma definida por \ref{normaLp}.
  Para funciones que dependen de más de una variable, como por ejemplo del espacio y el tiempo, $u(x,t)$, fijando un instante t, quedará:
 
 \begin{equation}\label{innermallado}
@@ -79,10 +79,10 @@ En nuestro caso trabajaremos sobre $L^2(E)$, que es un espacio de Hilbert con el
 	\end{split}	
 \end{equation}
 
-Esto a partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$ respectivamente.\\
+A partir de ahora lo denotaremos como $\left< u_1,u_2\right>_{L^2(E)}$ y $||u||_{L^2(E)}$, respectivamente.\\
 
 
-En este punto nuestro objetivo será la definición de un producto escalar \ref{Escalar} para una subdivisión, o mallado, de nuestro dominio. Ya que, lo usaremos en la sección \ref{energiadiscreta}. Para ello, vamos a definamos tal mallado, de la misma forma que lo utilizaremos en capítulos posteriores.
+En este punto, nuestro objetivo será la definición de un producto escalar \ref{Escalar}, para una subdivisión, o mallado, de nuestro dominio. Ya que, lo usaremos en la sección \ref{energiadiscreta}. Para ello, vamos a definamos tal mallado, de la misma forma que lo utilizaremos en capítulos posteriores.
 
 
 \begin{definicion}[label={Mallado},nameref={Title or anything else}]{Mallado}
@@ -103,9 +103,9 @@ Vemos que nuestro mallado sería del tipo:
 	\includegraphics[scale=0.6]{mallado.png}
 	\caption{Mallado}
 \end{figure}
-Una vez ya definido este mallado retomemos la definición del producto escalar para los puntos del mismo.\\
+Una vez definido este mallado retomemos la definición del producto escalar para los puntos del mismo.\\
 
-Siguiendo la definición de producto escalar de \cite{TimeDependent}. Puesto que queremos utilizar el producto escalar sobre una partición del interior del intervalo espacial $(a,b)$, lo que utilizando nuestro mallado queda $D=\{ x_1,\dots,x_{m-1}\}$, definiremos el producto interior sobre $\mathbb{R}^{m-1}$.
+Siguiendo la definición de producto escalar de \cite{TimeDependent}. Puesto que queremos utilizar el producto escalar sobre una partición del interior del intervalo espacial $(a,b)$, el cual utilizando nuestro mallado queda $D=\{ x_1,\dots,x_{m-1}\}$, definiremos el producto interior sobre $\mathbb{R}^{m-1}$.
 
 \begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
 	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y sea $D=\{ x_1,\dots,x_{m-1}\}$. 

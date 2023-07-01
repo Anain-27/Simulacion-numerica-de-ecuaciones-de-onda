@@ -102,7 +102,7 @@ Nuestro esquema al completo quedaría:
 
 \section{Dominio de dependencia}
 
-Para el esquema que acabamos de definir intentaremos encontrar las condiciones en las que la solución de nuestro esquema aproxime lo mejor posible a la ecuación de ondas \eqref{ecuaciononda}-\eqref{eq:frontera3}. El pensamiento inicial puede ser que a más pequeños elijamos $h$ y $k$ mejores resultados obtendremos, pero esto no es cierto en general, si la aproximación obtenida no converge a la solución exacta. Por ello, se utilizan diversos métodos de análisis de estabilidad y convergencia.\\
+Para el esquema que acabamos de definir intentaremos encontrar las condiciones más optimas, en las que la solución de nuestro esquema aproxime lo mejor posible a la ecuación de ondas \eqref{ecuaciononda}-\eqref{eq:frontera3}. El pensamiento inicial puede ser, que a más pequeños elijamos $h$ y $k$ mejores resultados obtendremos, pero esto no es cierto en general, si la aproximación obtenida no converge a la solución exacta. Por ello, se utilizan diversos métodos de análisis de estabilidad y convergencia.\\
 
 En esta sección vamos a introducir, sin entrar en detalles, un concepto altamente relacionado con la estabilidad y energía del modelo \eqref{ecuaciononda}-\eqref{eq:frontera3}, tal y como se puede ver en \citep{mcowen}, el dominio de dependencia. Para más información se refiere al lector a, \citep{domain}.
 
@@ -112,11 +112,11 @@ En esta sección vamos a introducir, sin entrar en detalles, un concepto altament
 \end{definicion}
 Como vemos, este concepto no solo estará definido para entornos discretos como los que hemos estado tratando hasta ahora, sino que relacionará la solución exacta $u(x,t)$ con la aproximación $u_{j,r}$. Véase que para cada punto del mallado \ref{Mallado}, $(x_j,t_r)$, tendremos un dominio de dependencia asociado.\\
 
-Es importante remarcar que el dominio de dependencia no es fácilmente calculable, de hecho en muchos casos no se obtiene en la práctica, pero es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema.\\
+Es importante remarcar, que el dominio de dependencia no es fácilmente calculable, de hecho en muchos casos no se obtiene en la práctica. Aún así, es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema.\\
 
-Nuestro objetivo será que los puntos del mallado que hemos utilizado para aproximar la solución, contengan íntegramente al dominio de dependencia.\\
+Nuestro objetivo será, que los puntos del mallado que hemos utilizado para aproximar la solución, contengan íntegramente al dominio de dependencia.\\
  
-Lo ilustramos con las siguiente figuras, utilizando como ejemplo nuestro caso concreto, en el dominio $(0,1)\times(0,1)$:
+Lo ilustramos con las siguiente figuras, utilizando como ejemplo nuestro caso concreto en el dominio $(0,1)\times(0,1)$:
 
 
 \begin{figure}[!ht]
@@ -146,15 +146,15 @@ Siendo la recta coloreada de azul, $\overline{QR}$, el dominio de dependencia pa
 	\end{figure}
 	
 	En este caso, si hay un cambio en cualquier punto del dominio de dependencia, $\overline{QR}$, los puntos verdes lo captarían, al contener íntegramente a la misma.
-	\item[b)]
-		Que el dominio de dependencia quedase fuera de los puntos de $(0,1)$ utilizados (verdes):\\
+	\item[b)]Que el dominio de dependencia quedase fuera de los puntos de $(0,1)$ utilizados (verdes):\\
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[scale=0.45]{DominioDependencianoconvergente.png}
 			\caption{En azul el dominio de dependencia. En verde los puntos utilizados para obtener la aproximación $u_{j,r}$.}
 			\label{fig:noConvergencia}
 		\end{figure}
-		Al contrario del caso anterior, si se da un cambio en la zona de la recta azul exterior a los puntos verdes, estos no lo captarían y por lo tanto la aproximación $u_{j,r}$ no variaría, mientras que la solución exacta en el punto $u(x_j,t_r)$, si.
+
+		Al contrario del caso anterior, si se da un cambio en la zona de la recta azul exterior a los puntos verdes, estos no lo captarían y por lo tanto la aproximación $u_{j,r}$ no variaría, mientras que la solución exacta en el punto $u(x_j,t_r)$ si.
 \end{itemize}
 
 
