@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 05:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 05:40
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -1489,29 +1489,29 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Info: Redefining \. on input line 74.
 LaTeX Info: Redefining \% on input line 74.
 [6]
-LaTeX Info: Redefining \. on input line 100.
-LaTeX Info: Redefining \% on input line 100.
- [7]
-<mallado.png, id=315, 361.35pt x 238.8925pt>
+<mallado.png, id=308, 361.35pt x 238.8925pt>
 File: mallado.png Graphic file (type png)
 <use mallado.png>
 Package pdftex.def Info: mallado.png  used on input line 103.
 (pdftex.def)             Requested size: 216.81168pt x 143.3366pt.
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
- [8 <./mallado.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 164.
-LaTeX Info: Redefining \% on input line 164.
- [9]
-Underfull \vbox (badness 6236) has occurred while \output is active []
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [7 <./mallado.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 144.
+LaTeX Info: Redefining \% on input line 144.
+ [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 204.
-LaTeX Info: Redefining \% on input line 204.
- [10])
+LaTeX Info: Redefining \. on input line 176.
+LaTeX Info: Redefining \% on input line 176.
+ [9]
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
+
+[10])
 LaTeX Info: Redefining \. on input line 130.
 LaTeX Info: Redefining \% on input line 130.
-
-[11]
+ [11]
 \openout2 = `02Previos.aux'.
 
  (02Previos.tex [12
@@ -2195,7 +2195,7 @@ Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
 Here is how much of TeX's memory you used:
  29442 strings out of 478927
  523977 string characters out of 2845389
- 928417 words of memory out of 3000000
+ 928415 words of memory out of 3000000
  45973 multiletter control sequences out of 15000+600000
  450457 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2226,7 +2226,7 @@ Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs
 /MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (73 pages, 2377839 bytes).
+Output written on TFGPrincipal.pdf (73 pages, 2377901 bytes).
 PDF statistics:
  1499 PDF objects out of 1728 (max. 8388607)
  598 named destinations out of 1000 (max. 500000)
