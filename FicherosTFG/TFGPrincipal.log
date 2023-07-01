@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 06:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 12:50
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -1669,8 +1669,8 @@ File: DominioDependencianoconvergente.png Graphic file (type png)
 Package pdftex.def Info: DominioDependencianoconvergente.png  used on input lin
 e 152.
 (pdftex.def)             Requested size: 178.8666pt x 115.17923pt.
-LaTeX Info: Redefining \. on input line 169.
-LaTeX Info: Redefining \% on input line 169.
+LaTeX Info: Redefining \. on input line 162.
+LaTeX Info: Redefining \% on input line 162.
  [26 <./DominioDependenciaconvergente.png (PNG copy)> <./DominioDependencianoco
 nvergente.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 208.
@@ -1999,8 +1999,8 @@ File: Planoonda.png Graphic file (type png)
 <use Planoonda.png>
 Package pdftex.def Info: Planoonda.png  used on input line 335.
 (pdftex.def)             Requested size: 177.97069pt x 133.4786pt.
-LaTeX Info: Redefining \. on input line 353.
-LaTeX Info: Redefining \% on input line 353.
+LaTeX Info: Redefining \. on input line 348.
+LaTeX Info: Redefining \% on input line 348.
 [43 <./Plano1.png> <./Plano2.png> <./Plano3.png> <./Plano4.png> <./Plano5.png> 
 <./Plano6.png> <./Planoonda.png>]
 <Senotrav1.png, id=760, 462.528pt x 346.896pt>
@@ -2239,14 +2239,14 @@ LaTeX Info: Redefining \% on input line 33.
 ) (03PrimeraParte.aux) (04SegundaParte.aux) (05conclusiones.aux)
 (06conclusiones2.aux))
 Package rerunfilecheck Info: File `TFGPrincipal.out' has not changed.
-(rerunfilecheck)             Checksum: 7FEA0208D152EF809E2341B97EDB35AB;7394.
+(rerunfilecheck)             Checksum: FDF7B907205E95CE5DB54FAD7D0262B7;7389.
 Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
 (rerunfilecheck)             Checksum: 35A15B982A9C36581642CBA5CDD9DFC5;1502.
  ) 
 Here is how much of TeX's memory you used:
  30281 strings out of 478927
  539378 string characters out of 2845389
- 941858 words of memory out of 3000000
+ 941912 words of memory out of 3000000
  46788 multiletter control sequences out of 15000+600000
  450457 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2277,7 +2277,7 @@ Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs
 /MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (73 pages, 2377656 bytes).
+Output written on TFGPrincipal.pdf (73 pages, 2377738 bytes).
 PDF statistics:
  1499 PDF objects out of 1728 (max. 8388607)
  598 named destinations out of 1000 (max. 500000)

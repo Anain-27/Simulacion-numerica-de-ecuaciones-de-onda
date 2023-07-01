@@ -107,12 +107,12 @@ Para el esquema que acabamos de definir intentaremos encontrar las condiciones m
 En esta sección vamos a introducir, sin entrar en detalles, un concepto altamente relacionado con la estabilidad y energía del modelo \eqref{ecuaciononda}-\eqref{eq:frontera3}, tal y como se puede ver en \citep{mcowen}, el dominio de dependencia. Para más información se refiere al lector a, \citep{domain}.
 
 \begin{definicion}[label={domdep},nameref={Title or anything else}]{Dominio de dependencia}
-	Sea $u(x,t)$ la función solución de nuestro esquema \eqref{ecuaciononda}-\eqref{eq:frontera3}, definida sobre un conjunto $(0,L)\times(0,T)$. El dominio de dependencia de $u$ en un punto arbitrario $(x_j,t_r)$, es el conjunto de puntos de $(0,L)$ necesarios para dar la solución de $u$ en $(x_j,t_r)$.
+	Sea $u(x,t)$ la función solución de nuestro modelo \eqref{ecuaciononda}-\eqref{eq:frontera3}, definida sobre un conjunto $(0,L)\times(0,T)$. El dominio de dependencia de $u$ en un punto arbitrario $(x_j,t_r)$, es el conjunto de puntos de $(0,L)$ necesarios para dar la solución de $u$ en $(x_j,t_r)$.
 	
 \end{definicion}
 Como vemos, este concepto no solo estará definido para entornos discretos como los que hemos estado tratando hasta ahora, sino que relacionará la solución exacta $u(x,t)$ con la aproximación $u_{j,r}$. Véase que para cada punto del mallado \ref{Mallado}, $(x_j,t_r)$, tendremos un dominio de dependencia asociado.\\
 
-Es importante remarcar, que el dominio de dependencia no es fácilmente calculable, de hecho en muchos casos no se obtiene en la práctica. Aún así, es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema.\\
+Es importante remarcar, que el dominio de dependencia no es fácilmente calculable, de hecho, en muchos casos no se obtiene en la práctica. Aún así, es una herramienta muy útil para comprender las situaciones que se pueden dar en nuestro esquema.\\
 
 Nuestro objetivo será, que los puntos del mallado que hemos utilizado para aproximar la solución, contengan íntegramente al dominio de dependencia.\\
  
@@ -135,13 +135,13 @@ A su vez para aproximar la solución de cada uno de los puntos coloreados de negr
 	\label{fig:Puntosusados}
 \end{figure}
 
-Siendo la recta coloreada de azul, $\overline{QR}$, el dominio de dependencia para el punto $x_j,t_r$, se podrían dar dos casos:
+Siendo la recta coloreada de azul, $\overline{QR}$, el dominio de dependencia para el punto $(x_j,t_r)$, se podrían dar dos casos:
 \begin{itemize}
 	\item[a)] Que el dominio de dependencia quedase en el interior de los puntos de $(0,1)$ utilizados en el esquema en diferencias finitas (coloreados de verde):\\
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[scale=0.45]{DominioDependenciaconvergente.png}
-		\caption{En azul el dominio de dependencia, recta  $\overline{QR}$. En verde los puntos del mallado utilizados para obtener la aproximación $u_{j,r}$.}
+		\caption{En azul el dominio de dependencia, recta  $\overline{QR}$. En verde los puntos del mallado,definidos por las condiciones iniciales y de contorno, utilizados para obtener la aproximación $u_{j,r}$.}
 		\label{fig:Convergencia}
 	\end{figure}
 	
@@ -410,7 +410,7 @@ Con esto ya podríamos implementar las soluciones en caso de que $g$ no sea fácil
 \section{Ley de energía discreta}
 \label{energiadiscreta}
 
-Retomando el argumento de la sección \ref{sec:energiaondas}, queremos verificar si el principio de la conservación de la energía se cumple en nuestro esquema numérico \eqref{esquemacompletoonda}-\eqref{eq:esquemafrontera3}. Al ser el esquema discreto, tendremos que usar la definición de producto interior discreto \ref{ProductoDiscreto}.\\
+Retomando el argumento de la sección \ref{sec:energiaondas}, queremos verificar si el principio de la conservación de la energía se cumple en nuestro esquema numérico \eqref{esquemacompletoonda}-\eqref{eq:esquemafrontera3}. Al ser el esquema discreto, tendremos que usar la definición de producto escalar discreto \ref{ProductoDiscreto}.\\
 
 Comenzaremos tomando como espacio a tratar el mallado \ref{Mallado}. Puesto que vamos a utilizar el concepto de suma por partes, parece conveniente denotar $D$ como la partición del interior del eje espacial, que definen los puntos del mallado, $x_1,\dots,x_{m-1}$, ya que, en ellos, nuestro esquema está definido.\\
 
@@ -429,7 +429,7 @@ Al igual que en \eqref{eq:nodovirtual}, obtenemos un nodo virtual, exterior al m
 \end{equation*}
  y volviendo a utilizar \eqref{eq:esquemafrontera3}, hará que se verifique nuestro esquema en el punto $(x_0,t_r)$.\\
  
-Entonces, tomando $D=\{x_0,x_1,\dots, x_{m-1}\}$, y utilizando en este caso la función $\delta$ definida en \ref{defdelta}, para hacer el producto interior discreto con $\delta_tu$,
+Entonces, tomando $D=\{x_0,x_1,\dots, x_{m-1}\}$, y utilizando en este caso la función $\delta$ definida en \ref{defdelta}, para hacer el producto escalar discreto con $\delta_tu$,
  
 
 $$\left(\delta_{tt}u,\delta_tu\right)_D= c^2 \left(\delta_{xx}u,\delta_tu\right)_D. $$

@@ -32,11 +32,11 @@ Por lo tanto, tomando $||f||_{L^p(E)}$ como la norma asociada a $L^p(E)$, este s
 Para que un espacio de Banach sea espacio de Hilbert, será necesario que tenga un producto asociado. Definamos este concepto.
 
 \begin{definicion}[label={Escalar},nameref={Title or anything else}]{Producto escalar o interno.}
-	Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow F $ se llamará producto escalar o interno, si para todo $u,v,w\in E$ y  $\alpha, \beta \in F$ escalares, se satisfacen las siguientes propiedades:
+	Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow \mathbb{R} $ se llamará producto escalar o interno, si para todo $u,v,w\in E$ y  $\alpha, \beta \in \mathbb{R}$ escalares, se satisfacen las siguientes propiedades:
 	\begin{itemize}
-		\item Linealidad: $ (\alpha u+\beta v,w)= a(u,w)+b(v,w)$ .
+		\item Linealidad: $ (\alpha u+\beta v,w)= \alpha(u,w)+\beta(v,w)$ .
 		\item Simetría: $ (u,v)=(v,u)$ .
-		\item Positividad: $ (u,u)\leq 0$ , y $ (u,u)=0$  si y solo si $x=0$ .
+		\item Positividad: $ (u,u)\geq 0$ , y $ (u,u)=0$  si y solo si $u=0$ .
 		
 	\end{itemize}
 	
@@ -46,7 +46,7 @@ Así mismo, un espacio de Hilbert será:
 
 
 \begin{definicion}[label={Hilbert},nameref={Title or anything else}]{Espacio de Hilbert}
-	Un espacio de Banach $E$, se llama de Hilbert, si tiene un producto interior asociado y es completo bajo su métrica.
+	Un espacio de Banach $E$, se llama de Hilbert, si tiene un producto escalar asociado y es completo bajo su métrica.
 	
 \end{definicion}
 
@@ -57,19 +57,19 @@ Así mismo, un espacio de Hilbert será:
 
 
 
-\section{Producto interior y suma por partes en $L^2$}
-En nuestro caso trabajaremos sobre $L^2(E)$, que es un espacio de Hilbert con el siguiente producto interior:
+\section{Producto escalar y suma por partes en $L^2$}
+En nuestro caso trabajaremos sobre $L^2(E)$, que es un espacio de Hilbert con el siguiente producto escalar:
 
 
 
-\begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto interior en $L^2$}
-	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto interior sobre $L^2(E)$ de ellas como:
+\begin{definicion}[label={Inner},nameref={Title or anything else}]{Producto escalar en $L^2$}
+	Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto escalar sobre $L^2(E)$ de ellas como:
 	$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
 	
 	
 \end{definicion}
 
- La norma inducida por este producto interior será la que utilizaremos. Esta se corresponderá con la norma definida por \ref{normaLp}.
+ Utilizaremos la norma inducida por este producto escalar. Esta se corresponderá con la norma definida por \ref{normaLp}.
  Para funciones que dependen de más de una variable, como por ejemplo del espacio y el tiempo, $u(x,t)$, fijando un instante t, quedará:
 
 \begin{equation}\label{innermallado}
@@ -105,9 +105,9 @@ Vemos que nuestro mallado sería del tipo:
 \end{figure}
 Una vez definido este mallado retomemos la definición del producto escalar para los puntos del mismo.\\
 
-Siguiendo la definición de producto escalar de \cite{TimeDependent}. Puesto que queremos utilizar el producto escalar sobre una partición del interior del intervalo espacial $(a,b)$, el cual utilizando nuestro mallado queda $D=\{ x_1,\dots,x_{m-1}\}$, definiremos el producto interior sobre $\mathbb{R}^{m-1}$.
+Siguiendo la definición de producto escalar de \cite{TimeDependent}. Puesto que queremos utilizar el producto escalar sobre una partición del interior del intervalo espacial $[a,b]$, el cual utilizando nuestro mallado queda $D=\{ x_1,\dots,x_{m-1}\}$, definiremos el producto escalar sobre $\mathbb{R}^{m-1}$.
 
-\begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto interior en dominios discretos}
+\begin{definicion}[label={ProductoDiscreto},nameref={Title or anything else}]{Producto escalar en dominios discretos}
 	Sean $u$ y $w$ dos funciones definidas en nuestro mallado y sea $D=\{ x_1,\dots,x_{m-1}\}$. 
 	Fijando un instante temporal $t_r$, definimos el producto escalar sobre $\mathbb{R}^{m-1}$ como:
 	\begin{equation}\label{eq:interiordiscretomalla}
@@ -190,7 +190,7 @@ Veamos ahora la relación que guarda este concepto con \ref{defdelta}.
 
 Para finalizar la sección, hay otro concepto que tendremos que introducir. Este nos ayudará a hacer una representación discreta de la integración por partes. 
 \begin{lema}[label={SumaPartes},nameref={Title or anything else}]{Representación de la suma por partes}
-	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m-1\}$,una partición del interior del intervalo [a,b], tal y como en la definición \ref{ProductoDiscreto}. La representación de la suma por partes utilizando el producto interior que usaremos en lo que sigue es, fijando un instante temporal $r$:
+	Sean $u$, $w$ funciones definidas en el mallado \ref{Mallado} y sea $D=\{x_1,\dots,x_m-1\}$,una partición del interior del intervalo [a,b], tal y como en la definición \ref{ProductoDiscreto}. La representación de la suma por partes utilizando el producto escalar es, fijando un instante temporal $r$:
 	
 	\begin{equation}\label{eq:rep1}
 		\left(u_{\cdot,r},\delta_{x^+}w_{\cdot,r}\right)_{D}=-\left(\delta_{x^-}u_{\cdot,r},w_{\cdot,r}\right)_{D} + u_{m-1,r}w_{m,r}-u_{0,r}w_{-1,r}
