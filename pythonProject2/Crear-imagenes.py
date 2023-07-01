@@ -25,10 +25,11 @@ mkdir(cuerda)
 #Añadimos los datos
 datos = np.load(directorio+'u.npy', mmap_mode='r')
 
-#Solo para ondas viajeras, para mu=1
+'''
+#Solo para ondas viajeras.
 datoswl = np.load(directorio+'wl.npy', mmap_mode='r') #Solo para mu=1
 datoswr = np.load(directorio+'wr.npy', mmap_mode='r') #Solo para mu=1
-
+'''
 
 t = np.load(directorio+'t.npy', mmap_mode='r')
 x = np.load(directorio+'x.npy', mmap_mode='r')
@@ -38,15 +39,17 @@ n=int(n)
 m=int(m)
 
 #Vamos a pintar las imagenes de a posición de la cuerda en instantes selecionados
+'''
+#Solución exacta
 plt.plot(x, datoswr[:, 0]+datoswl[:, 0], color='orange', linewidth=2)  # Solo para mu=1
-
+'''
 plt.plot(x, datos[:, 0], 'k')
 
 '''
+#Soluciones de tipo onda viajera
 plt.plot(x, datoswl[:, 0], 'r') #Solo para mu=1
 plt.plot(x, datoswr[:, 0], 'b') #Solo para mu=1
 '''
-
 
 plt.ylim(-1.1,1.1)
 plt.xlabel('x')
@@ -64,15 +67,17 @@ else:
 for j in range(1, 2*int(2*n/f)+2):
 
     if j %aux ==0 :
+        '''
+        #Solución exacta
         plt.plot(x, datoswr[:, j] + datoswl[:, j], color='orange', linewidth=2)  # Solo para mu=1
-
+        '''
         plt.plot(x, datos[:, j], 'k')
 
         '''
-        plt.plot(x, datoswl[:, j], 'r') #Solo para mu=1
-        plt.plot(x, datoswr[:, j], 'b') #Solo para mu=1
+        #Soluciones de tipo onda viajera
+        plt.plot(x, datoswl[:, j], 'r') 
+        plt.plot(x, datoswr[:, j], 'b') 
         '''
-
 
         plt.ylim(-1.1,1.1)
         plt.xlabel('x')

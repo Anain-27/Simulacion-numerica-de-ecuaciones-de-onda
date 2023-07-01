@@ -141,12 +141,8 @@ k =h/c #Lo tomamos de esta forma para ganar en exactitud pagina 133 numerical so
 
 # Cambiamos k para hacer las comparaciones
 '''
-k =h/c * 0.9
-k =h/c * 0.5
-k =h/c * 0.1
 k =h/c * 0.01
 k =1.001*h/c
-k =1.005*h/c
 '''
 
 
@@ -187,20 +183,20 @@ aux.append(g(x[m]))
 for j in range(2, n + 1):
     u[1:m, j] = Explicito(u[2:m+1,j-1], u[0:m-1,j-1], u[1:m,j-1], u[1:m,j-2],mu)
 
-
-#Implementamos la solución de tipo onda viajera. #Solo para mu=1
+'''
+#Implementamos la solución de tipo onda viajera.
 
 # Creamos la matriz wl la solución viajera hacia la izquierda y wr hacia la derecha
 
-wl = np.empty((m + 1, n + 1), float) #Solo para mu=1
-wr = np.empty((m + 1, n + 1), float) #Solo para mu=1
+wl = np.empty((m + 1, n + 1), float) 
+wr = np.empty((m + 1, n + 1), float) 
 
 #Inicializamos la solución
 for i in range(0, m+1):
     for j in range(0,n+1):
         wl[i,j]= (1/2)*f([x[i]+c*t[j]])[0]+(1/(2*c))*quad(g, 0, x[i]+c*t[j])[0]
         wr[i,j]= (1/2)*f([x[i]-c*t[j]])[0]+(1/(2*c))*quad(g, 0, x[i]-c*t[j])[0]
-
+'''
 
 end = time.time()
 
@@ -217,10 +213,11 @@ np.save(directoriofinal+'u', u)
 np.save(directoriofinal+'x', x)
 np.save(directoriofinal+'t', t)
 
-
-np.save(directoriofinal+'wl', wl) #Solo para mu=1
-np.save(directoriofinal + 'wr', wr) #Solo para mu=1
-
+'''
+#Guardado de las soluciones de tipo onda viajera
+np.save(directoriofinal+'wl', wl) 
+np.save(directoriofinal + 'wr', wr) 
+'''
 
 np.save(directoriofinal+'constantes', [c, m,h,n,k,mu,tmax,l] ) #Guardar en cons las constantes que necesitemos para usarlas luego en el guardado del sonido
 
