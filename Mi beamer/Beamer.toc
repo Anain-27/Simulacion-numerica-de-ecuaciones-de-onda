@@ -1,0 +1,21 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{ Conceptos previos}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{ Espacios de Lebesgue}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Producto escalar en $L^2$}{8}{0}{1}
+\beamer@sectionintoc {2}{Definici\'on de la ecuaci\'on de onda}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{La ecuaci\'on de onda unidimensional}{13}{0}{2}
+\beamer@subsectionintoc {2}{2}{Soluciones de tipo onda viajera}{22}{0}{2}
+\beamer@subsectionintoc {2}{3}{La energ\IeC {\'\i }a en la ecuaci\'on de onda}{30}{0}{2}
+\beamer@sectionintoc {3}{Resoluci\'on num\'erica de la ecuaci\'on de onda}{36}{0}{3}
+\beamer@subsectionintoc {3}{1}{M\'etodo de las diferencias finitas}{37}{0}{3}
+\beamer@subsectionintoc {3}{2}{Dominio de dependencia}{46}{0}{3}
+\beamer@subsectionintoc {3}{3}{Consistencia}{50}{0}{3}
+\beamer@subsectionintoc {3}{4}{An\'alisis de Von Neumann}{55}{0}{3}
+\beamer@subsectionintoc {3}{5}{Resoluci\'on num\'erica para soluciones de tipo viajero}{66}{0}{3}
+\beamer@subsectionintoc {3}{6}{Ley de energ\IeC {\'\i }a discreta}{70}{0}{3}
+\beamer@sectionintoc {4}{Modelado en Python y comparativa}{77}{0}{4}
+\beamer@subsectionintoc {4}{1}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{78}{0}{4}
+\beamer@subsectionintoc {4}{2}{Aproximaciones}{87}{0}{4}
+\beamer@subsectionintoc {4}{3}{Soluciones de tipo onda viajera}{95}{0}{4}
+\beamer@subsectionintoc {4}{4}{Comparativa variando el valor de $\mu $}{97}{0}{4}
+\beamer@sectionintoc {5}{Bibliograf\IeC {\'\i }a}{103}{0}{5}

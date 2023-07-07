@@ -1,0 +1,174 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{ Conceptos previos}{3}{ Conceptos previos}{0}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{ Espacios de Lebesgue}}
+\headcommand {\slideentry {1}{1}{1}{4/5}{ Espacios de Lebesgue}{0}}
+\headcommand {\beamer@framepages {4}{5}}
+\headcommand {\slideentry {1}{1}{2}{6/7}{ Espacios de Lebesgue}{0}}
+\headcommand {\beamer@framepages {6}{7}}
+\headcommand {\beamer@subsectionpages {4}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Producto escalar en $L^2$}}
+\headcommand {\slideentry {1}{2}{1}{8/9}{Producto escalar en $L^2$}{0}}
+\headcommand {\beamer@framepages {8}{9}}
+\headcommand {\slideentry {1}{2}{2}{10/10}{Producto escalar en $L^2$}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@sectionpages {3}{10}}
+\headcommand {\beamer@subsectionpages {8}{10}}
+\headcommand {\sectionentry {2}{Definici\'on de la ecuaci\'on de onda}{11}{Definici\'on de la ecuaci\'on de onda}{0}}
+\headcommand {\slideentry {2}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {2}{0}{2}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{13}{La ecuaci\'on de onda unidimensional}}
+\headcommand {\slideentry {2}{1}{1}{13/13}{La ecuaci\'on de onda unidimensional}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {2}{1}{2}{14/16}{La ecuaci\'on de onda unidimensional}{0}}
+\headcommand {\beamer@framepages {14}{16}}
+\headcommand {\slideentry {2}{1}{3}{17/18}{La ecuaci\'on de onda unidimensional}{0}}
+\headcommand {\beamer@framepages {17}{18}}
+\headcommand {\slideentry {2}{1}{4}{19/19}{La ecuaci\'on de onda unidimensional}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {2}{1}{5}{20/21}{La ecuaci\'on de onda unidimensional}{0}}
+\headcommand {\beamer@framepages {20}{21}}
+\headcommand {\beamer@subsectionpages {13}{21}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{22}{Soluciones de tipo onda viajera}}
+\headcommand {\slideentry {2}{2}{1}{22/23}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {22}{23}}
+\headcommand {\slideentry {2}{2}{2}{24/25}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {24}{25}}
+\headcommand {\slideentry {2}{2}{3}{26/27}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {26}{27}}
+\headcommand {\slideentry {2}{2}{4}{28/29}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {28}{29}}
+\headcommand {\beamer@subsectionpages {22}{29}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{30}{La energ\IeC {\'\i }a en la ecuaci\'on de onda}}
+\headcommand {\slideentry {2}{3}{1}{30/32}{La energ\IeC {\'\i }a en la ecuaci\'on de onda}{0}}
+\headcommand {\beamer@framepages {30}{32}}
+\headcommand {\slideentry {2}{3}{2}{33/35}{La energ\IeC {\'\i }a en la ecuaci\'on de onda}{0}}
+\headcommand {\beamer@framepages {33}{35}}
+\headcommand {\beamer@sectionpages {11}{35}}
+\headcommand {\beamer@subsectionpages {30}{35}}
+\headcommand {\sectionentry {3}{Resoluci\'on num\'erica de la ecuaci\'on de onda}{36}{Resoluci\'on num\'erica de la ecuaci\'on de onda}{0}}
+\headcommand {\slideentry {3}{0}{1}{36/36}{}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\beamer@subsectionpages {36}{36}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{37}{M\'etodo de las diferencias finitas}}
+\headcommand {\slideentry {3}{1}{1}{37/38}{M\'etodo de las diferencias finitas}{0}}
+\headcommand {\beamer@framepages {37}{38}}
+\headcommand {\slideentry {3}{1}{2}{39/41}{M\'etodo de las diferencias finitas}{0}}
+\headcommand {\beamer@framepages {39}{41}}
+\headcommand {\slideentry {3}{1}{3}{42/43}{M\'etodo de las diferencias finitas}{0}}
+\headcommand {\beamer@framepages {42}{43}}
+\headcommand {\slideentry {3}{1}{4}{44/45}{M\'etodo de las diferencias finitas}{0}}
+\headcommand {\beamer@framepages {44}{45}}
+\headcommand {\beamer@subsectionpages {37}{45}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{46}{Dominio de dependencia}}
+\headcommand {\slideentry {3}{2}{1}{46/47}{Dominio de dependencia}{0}}
+\headcommand {\beamer@framepages {46}{47}}
+\headcommand {\slideentry {3}{2}{2}{48/48}{Dominio de dependencia}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {3}{2}{3}{49/49}{Dominio de dependencia}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\beamer@subsectionpages {46}{49}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{50}{Consistencia}}
+\headcommand {\slideentry {3}{3}{1}{50/52}{Consistencia}{0}}
+\headcommand {\beamer@framepages {50}{52}}
+\headcommand {\slideentry {3}{3}{2}{53/54}{Consistencia}{0}}
+\headcommand {\beamer@framepages {53}{54}}
+\headcommand {\beamer@subsectionpages {50}{54}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{55}{An\'alisis de Von Neumann}}
+\headcommand {\slideentry {3}{4}{1}{55/56}{An\'alisis de Von Neumann}{0}}
+\headcommand {\beamer@framepages {55}{56}}
+\headcommand {\slideentry {3}{4}{2}{57/59}{An\'alisis de Von Neumann}{0}}
+\headcommand {\beamer@framepages {57}{59}}
+\headcommand {\slideentry {3}{4}{3}{60/61}{An\'alisis de Von Neumann}{0}}
+\headcommand {\beamer@framepages {60}{61}}
+\headcommand {\slideentry {3}{4}{4}{62/65}{An\'alisis de Von Neumann}{0}}
+\headcommand {\beamer@framepages {62}{65}}
+\headcommand {\beamer@subsectionpages {55}{65}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{66}{Resoluci\'on num\'erica para soluciones de tipo viajero}}
+\headcommand {\slideentry {3}{5}{1}{66/67}{Resoluci\'on num\'erica para soluciones de tipo viajero}{0}}
+\headcommand {\beamer@framepages {66}{67}}
+\headcommand {\slideentry {3}{5}{2}{68/69}{Resoluci\'on num\'erica para soluciones de tipo viajero}{0}}
+\headcommand {\beamer@framepages {68}{69}}
+\headcommand {\beamer@subsectionpages {66}{69}}
+\headcommand {\beamer@subsectionentry {0}{3}{6}{70}{Ley de energ\IeC {\'\i }a discreta}}
+\headcommand {\slideentry {3}{6}{1}{70/71}{Ley de energ\IeC {\'\i }a discreta}{0}}
+\headcommand {\beamer@framepages {70}{71}}
+\headcommand {\slideentry {3}{6}{2}{72/73}{Ley de energ\IeC {\'\i }a discreta}{0}}
+\headcommand {\beamer@framepages {72}{73}}
+\headcommand {\slideentry {3}{6}{3}{74/76}{Ley de energ\IeC {\'\i }a discreta}{0}}
+\headcommand {\beamer@framepages {74}{76}}
+\headcommand {\beamer@sectionpages {36}{76}}
+\headcommand {\beamer@subsectionpages {70}{76}}
+\headcommand {\sectionentry {4}{Modelado en Python y comparativa}{77}{Modelado en Python y comparativa}{0}}
+\headcommand {\slideentry {4}{0}{1}{77/77}{}{0}}
+\headcommand {\beamer@framepages {77}{77}}
+\headcommand {\beamer@subsectionpages {77}{77}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{78}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}}
+\headcommand {\slideentry {4}{1}{1}{78/79}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{0}}
+\headcommand {\beamer@framepages {78}{79}}
+\headcommand {\slideentry {4}{1}{2}{80/81}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{0}}
+\headcommand {\beamer@framepages {80}{81}}
+\headcommand {\slideentry {4}{1}{3}{82/82}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {4}{1}{4}{83/83}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\slideentry {4}{1}{5}{84/86}{Archivos .wav y s\IeC {\'\i }ntesis de sonido}{0}}
+\headcommand {\beamer@framepages {84}{86}}
+\headcommand {\beamer@subsectionpages {78}{86}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{87}{Aproximaciones}}
+\headcommand {\slideentry {4}{2}{1}{87/87}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\slideentry {4}{2}{2}{88/88}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\slideentry {4}{2}{3}{89/89}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\slideentry {4}{2}{4}{90/90}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {4}{2}{5}{91/91}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {4}{2}{6}{92/92}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\slideentry {4}{2}{7}{93/93}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {93}{93}}
+\headcommand {\slideentry {4}{2}{8}{94/94}{Aproximaciones}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\beamer@subsectionpages {87}{94}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{95}{Soluciones de tipo onda viajera}}
+\headcommand {\slideentry {4}{3}{1}{95/95}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {95}{95}}
+\headcommand {\slideentry {4}{3}{2}{96/96}{Soluciones de tipo onda viajera}{0}}
+\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\beamer@subsectionpages {95}{96}}
+\headcommand {\beamer@subsectionentry {0}{4}{4}{97}{Comparativa variando el valor de $\mu $}}
+\headcommand {\slideentry {4}{4}{1}{97/97}{Comparativa variando el valor de $\mu $}{0}}
+\headcommand {\beamer@framepages {97}{97}}
+\headcommand {\slideentry {4}{4}{2}{98/99}{Comparativa variando el valor de $\mu $}{0}}
+\headcommand {\beamer@framepages {98}{99}}
+\headcommand {\slideentry {4}{4}{3}{100/100}{Comparativa variando el valor de $\mu $}{0}}
+\headcommand {\beamer@framepages {100}{100}}
+\headcommand {\slideentry {4}{4}{4}{101/101}{Comparativa variando el valor de $\mu $}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\slideentry {4}{4}{5}{102/102}{Comparativa variando el valor de $\mu $}{0}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\beamer@sectionpages {77}{102}}
+\headcommand {\beamer@subsectionpages {97}{102}}
+\headcommand {\sectionentry {5}{Bibliograf\IeC {\'\i }a}{103}{Bibliograf\IeC {\'\i }a}{0}}
+\headcommand {\slideentry {5}{0}{1}{103/103}{}{0}}
+\headcommand {\beamer@framepages {103}{103}}
+\headcommand {\slideentry {5}{0}{2}{104/104}{}{0}}
+\headcommand {\beamer@framepages {104}{104}}
+\headcommand {\beamer@partpages {1}{104}}
+\headcommand {\beamer@subsectionpages {103}{104}}
+\headcommand {\beamer@sectionpages {103}{104}}
+\headcommand {\beamer@documentpages {104}}
+\headcommand {\gdef \inserttotalframenumber {62}}

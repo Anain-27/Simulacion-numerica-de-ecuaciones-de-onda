@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  1 JUL 2023 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.8)  7 JUL 2023 13:51
 entering extended mode
 **./TFGPrincipal.tex
 (TFGPrincipal.tex
@@ -2246,7 +2246,7 @@ Package rerunfilecheck Info: File `TFGPrincipal.brf' has not changed.
 Here is how much of TeX's memory you used:
  30281 strings out of 478927
  539378 string characters out of 2845389
- 941912 words of memory out of 3000000
+ 941913 words of memory out of 3000000
  46788 multiletter control sequences out of 15000+600000
  450457 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2277,7 +2277,7 @@ Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmb8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/Ana Cuevas de Cózar/AppData/Local/Programs
 /MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TFGPrincipal.pdf (73 pages, 2377738 bytes).
+Output written on TFGPrincipal.pdf (73 pages, 2377709 bytes).
 PDF statistics:
  1499 PDF objects out of 1728 (max. 8388607)
  598 named destinations out of 1000 (max. 500000)

@@ -1,0 +1,1282 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  %\usetheme{Warsaw}
+  \usetheme{CambridgeUS}
+  \usecolortheme{whale}
+  %temas a ver cual me gusta más.
+  %1) Antibes
+  %6) Boadilla
+  %9) Copenhagen
+  %14) Goettingen
+  %17) JuanLesPins
+  %19) Luebeck
+  %20) Madrid
+  %26) Rochester
+  %27) shadow
+  %33) Warsaw
+  \setbeamercovered{invisible}%transparent
+}
+
+\providecommand{\norm}[1]{\lVert#1\rVert} %norma
+\providecommand{\abs}[1]{\lvert#1\rvert} %valor absoluto
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage{stackrel} %para el paquete stackbin
+\usepackage{wrapfig}
+\usepackage{movie15}
+
+
+\title{Simulación numérica de ecuaciones de onda.}
+
+\author{ \normalsize{Ana Cuevas de Cózar}}
+
+\newcommand{\tutores}{\hspace{0.25cm} Dr.José Rafael Rodríguez Galvan \newline  D. Daniel Acosta Soba}
+\date{Julio 2023} %
+
+\subject{Generación de presentaciones}
+
+\logo{\includegraphics[width=8mm]{SelloUCA.jpg}}
+
+
+
+%\beamerdefaultoverlayspecification{<+->}
+\bibliographystyle{plain}
+
+\begin{document}
+
+%añade una página como introducción a cada sección
+\AtBeginSection
+{
+\begin{frame}
+	\begin{structureenv}
+		\Large Sección \thesection\
+		\rule[-.6cm]{2pt}{1.5cm}
+		\insertsection
+	\end{structureenv}
+\end{frame}
+}
+
+\begin{frame}
+  \titlepage
+  \begin{center}
+  	\hspace{1.2cm}Tutores:\tutores
+  \end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+	\small{
+  	\tableofcontents[]}
+  %si quito pausesections se quita lo de que salgan uno a uno
+\end{frame}
+
+
+
+\section{ Conceptos previos}
+\subsection{ Espacios de Lebesgue}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Espacios de Lebesgue}}
+	\vspace{0.5cm}
+	
+	\begin{block}{Definición: Espacio de Lebesgue}
+		\footnotesize{	Para $E\subset \mathbb{R}^n$, con $n\in\mathbb{N}$,
+			medible y $p\in \mathbb{R}$ tal que  $1\leq p < \infty$, definimos el Espacio de Lebesgue $L^p(E)$, como la colección de funciones medibles, en la que se realiza una identificación entre las funciones que son iguales en casi todo, que son $p$-integrables, es decir, las funciones $f$ para las cuales 
+			\begin{equation*}
+				||f||_{L^p(E)}=\left(\int_{E}|f|^p\right)^{\frac{1}{p}}<\infty.
+			\end{equation*}}
+	\end{block}
+	
+	\vspace{0.75cm}
+	\pause
+	
+	\begin{block}{Definición: Espacio de Banach}
+		\footnotesize{Un espacio de Banach $(E,||\cdot||)$ es un espacio vectorial normado, en el que $E$ es completo bajo la métrica inducida por la norma $||\cdot||$. Es decir, cada serie de Cauchy en $E$ es una serie convergente.}
+	\end{block}
+	
+\end{frame}
+\begin{frame}
+
+	\begin{block}{Definición: Producto escalar o interno}
+		\footnotesize{Sea $E$ un espacio vectorial. Una función $(\cdot,\cdot):E\times E\rightarrow \mathbb{R} $ se llamará producto escalar o interno, si para todo $u,v,w\in E$ y  $\alpha, \beta \in \mathbb{R}$ escalares, se satisfacen las siguientes propiedades:
+		\begin{itemize}
+			\item Linealidad: $ (\alpha u+\beta v,w)= \alpha(u,w)+\beta(v,w)$ .
+			\item Simetría: $ (u,v)=(v,u)$ .
+			\item Positividad: $ (u,u)\geq 0$ , y $ (u,u)=0$  si y solo si $u=0$ .
+			
+		\end{itemize}
+		}
+	\end{block}
+	
+	\vspace{0.75cm}
+	\pause
+	
+	\begin{block}{Definición: Espacio de Hilbert}
+		\footnotesize{Un espacio de Banach $E$, se llama de Hilbert, si tiene un producto escalar asociado y es completo bajo su métrica.}
+	\end{block}
+	
+\end{frame}
+
+
+
+\subsection{Producto escalar en $L^2$}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Producto escalar en $L^2$}}
+	\vspace{0.5cm}
+	
+	\begin{block}{Definición: Producto escalar en $L^2$}
+		\footnotesize{Sean $f$ y $g$ dos funciones definidas en $E$, definimos el producto escalar sobre $L^2(E)$ de ellas como:
+			$$\left< f,g\right>_{L^2(E)}= \int_{E}f(x)g(x)dx.$$
+		}
+	\end{block}
+	\vspace{1cm}
+	\pause
+	Para funciones que dependen de más de una variable, como por ejemplo del espacio y el tiempo, $u(x,t)$:
+	
+	\begin{equation*}
+		\begin{split}
+			\langle u_1(\cdot,t),u_2(\cdot,t)\rangle_{L^2(E)}&= \int_{E}u_1(x,t)u_2(x,t)dx,\\
+			||u(\cdot,t)||_{L^2(E)}& = \sqrt{\left< u(x,t),u(x,t)\right>_{L^2(E)}}.
+		\end{split}	
+	\end{equation*}
+	
+\end{frame}
+
+
+
+\begin{frame}
+
+	\begin{block}{Definición:Producto escalar en dominios discretos}
+			\footnotesize{Sean $u$ y $w$ dos funciones definidas en nuestro mallado y sea $D=\{ x_1,\dots,x_{m-1}\}$. 
+			Fijando un instante temporal $t_r$, definimos el producto escalar sobre $\mathbb{R}^{m-1}$ como:
+			\begin{equation*}
+				\left(u(\cdot,t_r),w(\cdot,t_r)\right)_{D}= \sum_{j=1}^{m-1}h u(x_j,t_r)w(x_j,t_r),
+			\end{equation*}
+			Para este tipo de casos usaremos la siguiente notación:
+			
+			\begin{equation}\label{eq:notacioninteriordiscretomalla}
+				\left(u_{\cdot,r},w_{\cdot,r}\right)_{D}= \sum_{j=1}^{m-1}h u_{j,r}w_{j,r}.
+			\end{equation}
+			
+			La norma asociada a este producto escalar es:
+			$||u||_{D}= \sqrt{\left( u,u\right)_D}\geq 0$.}
+	\end{block}
+	
+\end{frame}
+
+
+
+\section{Definición de la ecuación de onda}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Definición de la ecuación de onda}}
+	\vspace{0.5cm}
+	
+	Denotamos a la función $u(x,t)$ como $u$.
+	\begin{equation*}
+		u_{tt}- c^2 \Delta u = f ,\quad \Omega \times[0,+\infty),
+	\end{equation*}
+	donde $\Omega \subset \mathbb{R}^n$, $f$ es una función de valores reales, $c>0$ es una constante de propagación y el operador 
+	\begin{equation*}
+		\Delta u = \sum_{j=1}^{N}\frac{\partial^2u}{\partial x^2_j},
+	\end{equation*}
+	es conocido como el laplaciano.
+\end{frame}
+
+
+
+\subsection{La ecuación de onda unidimensional}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{La ecuación de onda unidimensional}}\\
+	\vspace{0.5cm}
+	Posiciones posibles de la cuerda:
+	\begin{figure}[ht]
+		
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.35]{Ejemplo1.png}
+		\end{minipage}
+		\hspace{0.5cm}
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.35]{Ejemplo2.png}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+	\begin{figure}[ht]
+		\begin{minipage}{0.45\textwidth}
+			\includegraphics[scale=0.4]{modelado.png}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\pause
+			$$T_y= -F_Tsen(\alpha),$$
+			$$T'_y= F_Tsen(\beta).$$
+			\pause
+			
+			\begin{centering}
+				Aproximando
+			\end{centering}
+			$$sen(\alpha) \approxeq tan(\alpha) \text{ y }sen(\beta) \approxeq tan(\beta)$$\\
+			\begin{centering}
+				obtenemos:
+			\end{centering}
+			$$F=F_T(tan(\beta)-tan(\alpha)).$$
+		\end{minipage}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	 $$F=F_T(u_x(x+\Delta x,t) - u_x(x,t)).$$
+	 \pause
+	
+	 Masa de la cuerda: $\rho_l \Delta S$. Aceleración $u_{tt}(x,t)$.
+	
+	$$u_{tt}(x,t)=\frac{F_T}{\rho_l}\frac{u_x(x+\Delta x,t)-u_x(x,t)}{\Delta x}.$$
+	
+	Tomando limite cuando $\Delta x\rightarrow 0$ y $c^2=\frac{F_T}{\rho_l}$:
+	\begin{equation}\label{eq:basica}
+		u_{tt}=c^2u_{xx},\quad en (0,L) \times(0,T).
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	Esquema completo:\\
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{tt}-c^2u_{xx}=0, & (x,t)\in (0,L)\times(0,T),
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u(x,0)=f(x), &   x\in (0,L),
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_t(x,0)=g(x), &  x \in(0,L),
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u(0,t)=u(L,t)=0, &  t\in(0,T).
+		\end{array}
+	\end{equation*} 
+\end{frame}
+
+
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Clasificación de las EDP}}\\
+	\vspace{0.5cm}
+	
+	Una ecuación lineal de segundo orden en forma estándar sería como sigue:
+	\begin{equation*}
+		Au_{tt}+Bu_{tx}+Cu_{xx}+Du_{t}+Eu_{x}+Fu= G,
+	\end{equation*}
+	
+	\begin{block}{Definición: Clasificación de las EDP de segundo orden}	
+		
+		\footnotesize{Si en todos los puntos $(x,t)$ de una región $W\subset \mathbb{R}^2$ se cumple que:
+		\begin{itemize}
+			\item $B^2(x,t)-4A(x,t)C(x,t)>0$, entonces la EDP se dice hiperbólica.
+			\item $B^2(x,t)-4A(x,t)C(x,t)=0$, entonces la EDP se dice parabólica.
+			\item $B^2(x,t)-4A(x,t)C(x,t)<0$, entonces la EDP se dice elíptica.
+			
+		\end{itemize}}
+	\end{block}
+	\pause
+	Para la ecuación de onda, tenemos $B^2-4AC=4c^2>0$.\\
+	La ecuación es hiperbólica.
+\end{frame}
+
+
+
+\subsection{Soluciones de tipo onda viajera}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Soluciones de tipo onda viajera}}
+	\vspace{0.5cm}
+	
+	La ecuación admite  la siguiente solución de tipo onda viajera:
+	\begin{equation}\label{ondaviajera}
+		u(x,t)=p_+(x-ct)+p_-(x+ct),
+	\end{equation}
+	
+	\pause
+	Utilizando la condición $u(x,0)=f(x),$ para  $x\in (0,L)$,
+	\begin{equation*}
+		f(x)=u(x,0)=p_+(x)+p_-(x),
+	\end{equation*}
+	derivando respecto a $x$,
+	\begin{equation}\label{f}
+		f'(x)=p_{+\ x}(x)+p_{-\ x}(x).
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	La ecuación admite  la siguiente solución de tipo onda viajera:
+	\begin{equation}\label{ondaviajera}
+		u(x,t)=p_+(x-ct)+p_-(x+ct),
+	\end{equation}
+	
+	\pause
+	
+	Derivamos la ecuación \eqref{ondaviajera}, 
+	\begin{equation*}
+		u_t=\frac{\partial}{\partial t}(p_+(x-ct)+p_-(x+ct))=cp_+'(x-ct)-cp_-'(x+ct),
+	\end{equation*}
+	sustituyendo la condición $	u_t(x,0)=g(x)$ para  $x\in (0,L)$, 
+	\begin{equation}\label{g}
+		g(x)=u_t(x,0)=-cp_+(x)+cp_-(x),
+	\end{equation}
+\end{frame}
+
+
+\begin{frame}
+	De las igualdades \eqref{f} y \eqref{g} se sigue:
+	$$p_-'(x)= \frac{1}{2}f'(x) + \frac{1}{2c}g(x),\quad \textbf{y}\quad p_+'(x)= \frac{1}{2}f'(x) - \frac{1}{2c}g(x).$$
+	
+	\pause
+	Integrando entre $0$ y $x+ct$ y $0$ y $x-ct$ respectivamente,
+	\begin{equation*}
+		p_-(x+ct)-p_-(0)=\frac{1}{2}\left(f(x+ct)-f(0)\right) + \frac{1}{2c}\int_{0}^{x+ct}g(s) ds +A,
+	\end{equation*}
+	\begin{equation*}
+		p_+(x-ct)-p_-(0)=\frac{1}{2}\left(f(x-ct)-f(0)\right) - \frac{1}{2c}\int_{0}^{x-ct}g(s) ds +B.
+	\end{equation*}
+	
+\end{frame}
+
+\begin{frame}
+	\begin{equation*}
+		p_-(x+ct)=\frac{1}{2}f(x+ct) + \frac{1}{2c}\int_{0}^{x+ct}g(s) ds,
+	\end{equation*}
+	\begin{equation*}
+		p_+(x-ct)=\frac{1}{2}f(x-ct) - \frac{1}{2c}\int_{0}^{x-ct}g(s) ds,
+	\end{equation*}
+	\pause
+	La solución del problema de contorno es la siguiente:
+	\begin{equation}\label{eq:uviajera}
+		u(x,t)= \frac{1}{2}\left(f(x+ct)+f(x-ct)\right) + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)
+		ds. 
+	\end{equation}
+\end{frame}
+
+
+
+
+\subsection{La energía en la ecuación de onda}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{La energía en la ecuación de onda}}
+	\vspace{0.5cm}
+	\begin{equation}\label{ondaut}
+		\left<u_t,u_{tt}\right>_{L^2(\Omega)} = c^2\left<u_{t},u_{xx}\right>_{L^2(\Omega)}.
+	\end{equation} 
+	
+	Tendremos que ponerlo de la forma $\frac{\partial}{\partial t}\left(\cdot\right)$.
+	\pause
+	\begin{equation}\label{eq:sutituyendo}
+		\begin{split}
+			0&=\left<u_t,u_{tt}\right>_{L^2(\Omega)} -c^2\left<u_{t},u_{xx}\right>_{L^2(\Omega)}\\
+			&=\int_0^L u_{tt}u_{t} dx + c^2\left(\int_0^L u_{tx}u_{x} dx-\left.u_tu_x\right|_0^L\right)
+		\end{split}
+	\end{equation}
+	\pause
+	Utilizando las condiciones de contorno:
+	$$\left.u_tu_x\right|_0^L= u_t(\cdot,L)u_x(\cdot,L) - u_t(\cdot,0)u_x(\cdot,0)=0. $$
+	
+\end{frame}
+
+\begin{frame}
+	Usando la regla de la cadena obtenemos:
+	\begin{equation*}
+		0=\frac{\partial}{\partial t}\left( \frac{1}{2}||u_t||_{L^2(\Omega)}^2+\frac{c^2}{2}||u_x||_{L^2(\Omega)}^2\right)
+	\end{equation*} 
+
+
+	\pause
+	Denotamos:
+	$$E(u)=\frac{1}{2}||u_t||_{L^2(\Omega)}^2+\frac{c^2}{2}||u_x||_{L^2(\Omega)}^2,$$
+	
+	\pause
+
+	$$\frac{\partial}{\partial t}E(u)=0.$$ 
+	Satisface la ley de conservación de la energía.
+\end{frame}
+
+
+
+\section{Resolución numérica de la ecuación de onda}
+\subsection{Método de las diferencias finitas}
+\begin{frame}
+
+	\textcolor{blue}{\Large{Mallado}}
+	\vspace{0.5cm}
+	
+	\begin{block}{Definición: Mallado}
+		\footnotesize{Sea $[a,b]\times[c,d]$ con $b\ge a,d\ge c$ y sean $n,m\in \mathbb{N}$. Definimos $h$ como tamaño del mallado en espacio y el paso de tiempo $k$, de forma que los puntos de nuestro mallado serán:
+			$$(x,t)_{j.r}=(x_j,t_r), \ \ \  \text{donde}$$
+			$$\begin{array}{lcc}   
+				x_j=jh & para &  j=0,1,\dots,m,\\
+				t_r = rk & para & r=0,1,\dots,n.\\
+			\end{array} $$
+		}
+	\end{block}
+	\pause
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.48]{mallado.png}
+		\caption{Mallado}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	
+	Definimos el mallado:
+	$$x_j=jh \ \ \ \  \text{para} \ \ \ \  j=0,\dots,m,$$
+	con $x_0=0$, $x_m=L$.\\
+	\pause
+	
+	$$t_r = rk \ \ \ \  \text{para} \ \ \ \  r=0,1,\dots,n,$$
+	con $t_0=0$, $t_n=T$.\\
+	\pause
+	La ecuación evaluada en los puntos del mallado sería:
+	
+	\begin{equation*}
+		u_{tt}(x_j,t_r)=c^2u_{xx}(x_j,t_r).
+	\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Método de las diferencias finitas}}
+	\vspace{0.5cm}
+	
+	Aproximaremos la solución $u$, en estos puntos, llamándola  $u(x_j,t_r)\approx u_{j,r}$.
+	
+	Utilizando una aproximación centrada :
+	
+	\begin{equation*}
+		u_{xx}(x_j,t_r) \approx \frac{u_{j+1,r} - 2u_{j,r} +u_{j-1,r}}{h^2},
+	\end{equation*}
+	
+	\begin{equation*}
+		u_{tt}(x_j,t_r) \approx \frac{u_{j,r+1} - 2u_{j,r} +u_{j,r-1}}{k^2}.
+	\end{equation*}
+	
+	\pause
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.45]{UsadosPaso.png}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	
+	Definiendo $\mu  = \frac{ck}{h}$.
+	
+	$$ u_{j,r+1} = \mu ^2( u_{j+1,r}+u_{j-1,r})  + 2(1-\mu^2)  u_{j,r} -  u_{j,r-1}.$$
+	
+	\pause
+	
+	Añadiendo las condiciones de contorno:
+	
+	\begin{equation*}
+		\begin{split}
+			u_{j,r+1} &= \mu ^2( u_{j+1,r}+u_{j-1,r})  + 2(1-\mu^2)  u_{j,r} -u_{j,r-1},\\
+			&\text{para} \ j=1,\dots,m-1 \text{ y }r=1,\dots,n-1,
+		\end{split}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{j,0}=f(x_j), &   j=0,1,\dots,m-1,
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{j,1}=u_{j,0}+k g(x_j), &  j=0,1,\dots,m-1,
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{0,r}=u_{m,r}=0, &  r=0,1,\dots,n-1.
+		\end{array}
+	\end{equation*} 
+\end{frame}
+
+
+
+\subsection{Dominio de dependencia}
+
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Dominio de dependencia}}
+	\vspace{0.5cm}
+	\begin{block}{Definición: Dominio de dependencia}
+		\footnotesize{Sea $u(x,t)$ la función solución de nuestro modelo, definida sobre un conjunto $(0,L)\times(0,T)$. El dominio de dependencia de $u$ en un punto arbitrario $(x_j,t_r)$, es el conjunto de puntos de $(0,L)$ necesarios para dar la solución de $u$ en $(x_j,t_r)$.}
+	\end{block}
+	
+	
+	\pause
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.45]{UsadosPaso.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Definición: Dominio de dependencia}
+		\footnotesize{Sea $u(x,t)$ la función solución de nuestro modelo, definida sobre un conjunto $(0,L)\times(0,T)$. El dominio de dependencia de $u$ en un punto arbitrario $(x_j,t_r)$, es el conjunto de puntos de $(0,L)$ necesarios para dar la solución de $u$ en $(x_j,t_r)$.}
+	\end{block}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.45]{UsadosTodos.png}
+		\label{fig:Puntosusados}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+	Que el dominio de dependencia quedase comprendido o no en el interior de los puntos de $(0,1)$ que utilizamos (coloreados de verde):
+	\begin{figure}[ht]
+		
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.35]{DominioDependenciaconvergente.png}
+		\end{minipage}
+		\hspace{0.5cm}
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.35]{DominioDependencianoconvergente.png}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+	
+	
+\subsection{Consistencia}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Consistencia}}
+	\vspace{0.5cm}
+	\begin{equation*}
+		\underbrace{\frac{u(j,r+1)-2u(j,r)+u(j,r-1)}{k^2}}_{(1)}-c^2\underbrace{\frac{u(j+1,r)-2u(j,r)+u(j-1,r)}{h^2}}_{(2)}=0.
+	\end{equation*}
+	\pause
+	Desarrollando las series de Taylor en (1) y (2):
+	\begin{equation*}
+		\begin{split}
+			(1)=&\frac{u(j,r+1)-2u(j,r)+u(j,r-1)}{k^2}= u_{tt}+2\frac{k^2 u_{4t}}{4!}+2\frac{k^4 u_{6t}}{6!}+O(h^6),\\
+			(2)=&\frac{u(j+1,r)-2u(j,r)+u(j-1,r)}{h^2}=u_{xx}+2\frac{h^2 u_{4x}}{4!}+2\frac{h^4 u_{6x}}{6!}+O(k^6).
+		\end{split}
+	\end{equation*}
+	\pause
+	\begin{equation*}
+		\begin{split}
+			T_{h,k}u\mathrel{:=}&u_{tt}+2\frac{k^2 u_{4t}}{4!}+2\frac{k^4 u_{6t}}{6!}-c^2u_{xx}-2c^2 \frac{h^2 u_{4x}}{4!}-2c^2\frac{h^4 u_{6x}}{6!}\dots=\\
+			=&u_{tt}+2\frac{k^2 u_{4t}}{4!}-c^2u_{xx}-2c^2\frac{h^2 u_{4x}}{4!}+O(k^4)+O(h^4).
+		\end{split}
+	\end{equation*}
+\end{frame}
+
+
+
+\begin{frame}
+	De la solución exacta obtenemos $u_{4x}=\frac{u_{4t}}{c^4}$ y por tanto:
+	
+	\begin{equation*}
+		\begin{split}
+			T_{h,k}u=&u_{tt}+2\frac{k^2 u_{4t}}{4!}-c^2u_{xx}-2c^2\frac{h^2 u_{4x}}{4!}+O(k^4)+O(h^4) = \\
+			=&2\frac{k^2 u_{4t}}{4!}-2c^2\frac{h^2 u_{4t}}{4!c^4}+O(k^4)+O(h^4)=\\
+			=& \frac{2}{4!}(k^2-\frac{h^2}{c^2})u_{4t}+O(k^4)+O(h^4)=\\
+			=& O(k^2)+O(h^2).		
+		\end{split}
+	\end{equation*}
+	\pause
+	
+	Así hemos comprobado que el esquema tiene orden de consistencia dos en espacio y en tiempo.
+\end{frame}
+
+
+
+
+\subsection{Análisis de Von Neumann}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Análisis de Von Neumann}}
+	\vspace{0.5cm}
+	
+	Relacionamos cada aproximación numérica del esquema con la solución exacta y el error del mismo:
+	\begin{equation*}
+		u_{j,r}=u(x_j,t_r)+\varepsilon_{j,r}
+	\end{equation*}
+	\pause
+	Sustituyéndolo en el sistema:
+	\begin{equation*}
+		\begin{split}
+			&\Bigl(\frac{u(x_j,t_{r+1}) - 2u(x_{j},t_{r}) +u(x_j,t_{r-1})}{k^2}\\
+			&- c^2 \frac{u(x_{j+1},t_{r})- 2u(x_{j},t_{r}) +u(x_{j-1},t_{r})}{h^2}\Bigr)+\\
+			&+\left(\frac{\varepsilon_{j,r+1} - 2\varepsilon_{j,r} +\varepsilon_{j,r-1}}{k^2} - c^2 \frac{\varepsilon_{j+1,r} - 2\varepsilon_{j,r} +\varepsilon_{j-1,r}}{h^2}\right)=0.
+		\end{split}
+	\end{equation*}
+\end{frame}
+
+
+\begin{frame}
+	Utilizando el error de tipo onda $\varepsilon_{j,r}=g^re^{ij\beta h}$:
+	\pause
+	\begin{equation*}
+		g^{r+1}e^{ij\beta h} = \mu ^2( g^{r}e^{i(j+1)\beta h}+g^{r}e^{i(j-1)\beta h})  +2(1-\mu^2)  g^{r}e^{ij\beta h} -  g^{r-1}e^{ij\beta h}.
+	\end{equation*}
+	 \pause
+	 
+	 Realizando manipulaciones obtenemos y denotando $A=\left(1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right)\right)$:
+	 \begin{equation*}
+		\begin{split}
+			g= &\frac{2A\pm \sqrt{(-2A)^2-4}}{2}=A\pm \sqrt{A^2-1}=\\
+			= &1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right) \pm \sqrt{\left(1-2\mu ^2sin^2\left(\frac{\beta h}{2}\right)\right)^2-1}.
+		\end{split}
+	\end{equation*}
+	
+\end{frame}
+
+\begin{frame}
+	Vamos a estudiar cuando $|g|\leq1$:
+	
+	\begin{itemize}
+		\item Si $A<-1$:\\ La solución $g = A-\sqrt{A^2-1}<-1$ y por lo tanto siempre se da $|g|>1$ y el esquema será en cualquier caso inestable.
+		
+		\pause
+		
+		\item Si $ -1\leq A\leq 1$:\\ 
+		En este caso se tendrá que $g$ es un número complejo, ya que $-1\leq A^2-1\leq0$. 
+		$$g=A\pm \sqrt{A^2-1}=A\pm \sqrt{1-A^2}i.$$
+		
+		Por lo tanto, tomando módulo, ambas soluciones quedarían,
+		$$|g|= \sqrt{A^2+\sqrt{1-A^2}^2}=A^2+1-A^2=1, $$
+		luego nuestro esquema sería estable.
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	Veamos que condición se debe imponer sobre $\mu$ para que se tenga $$ -1\leq A\leq 1,$$ 
+	\pause
+	Centrándonos en $sin^2\left(\frac{\beta h}{2}\right)$, con esto tenemos
+	$$0\leq sin^2\left(\frac{\beta h}{2}\right)\leq 1,$$
+	\pause
+	$$1\geq 1-2\mu^2sin^2\left(\frac{\beta h}{2}\right)\geq 1-2\mu^2.$$
+	
+	
+	Ahora solo necesitamos que $1-2\mu^2\geq -1$, para lo cual debe ser
+	$$2\mu^2\leq2,$$
+	\pause
+	\begin{equation}\label{mu}
+		\mu\leq 1, \textbf{ (Condición CFL)}
+	\end{equation}
+\end{frame}
+
+
+
+\subsection{Resolución numérica para soluciones de tipo viajero}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Resolución numérica para soluciones de tipo viajero}}
+	\vspace{0.5cm}
+	\begin{equation*}
+		\begin{split}
+			w^+(x_j,t_r)&=p_+(x_j-ct_r),\\
+			w^-(x_j,t_r)&=p_-(x_j+ct_r).
+		\end{split}
+	\end{equation*} 
+	
+	Ahora tendremos que la aproximación de la solución de $u$ será,
+	\begin{equation}\label{eq:aproximacionw}
+		u_{j,r}=w^+_{j,r}+w^-_{j,r}.
+	\end{equation}
+	
+	\pause
+	\begin{equation*}
+		\begin{split}
+			p_-(x_j+ct_r)&=\frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j+ct_r}g(s)\partial s =\\
+			&= \frac{1}{2}f(x_j+ct_r) + \frac{1}{2c}\int_{0}^{x_j}g(s)d s + \frac{1}{2c}\int_{x_j}^{x_j+ct_r}g(s)d s.
+		\end{split}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}
+	Usando la regla del trapecio:
+	\begin{equation*}
+		\begin{split}
+			w^-_{j,r}&= \frac{1}{2}f(x_j+ct_r) + \frac{h}{4c}\left(g(x_0)+2\sum_{i=1}^{j-1}g(x_i)+ g(x_j)\right)\\
+			& + \frac{ck}{4c}\left(g(x_j)+2\sum_{i=1}^{r-1}g(x_j+ct_i)+ g(x_j+ct_r)\right).
+		\end{split}
+	\end{equation*}
+	\pause
+	
+	Análogamente para $p_+(x_j-ct_r)$
+	\begin{equation*}
+		\begin{split}
+			w^+_{j,r}&= \frac{1}{2}f(x_j+ct_r) + \frac{h}{4c}\left(g(x_0)+2\sum_{i=1}^{j-1}g(x_i)+ g(x_j)\right)\\
+			& - \frac{ck}{4c}\left(g(x_j-ct_r)+2\sum_{i=r-1}^{1}g(x_j-ct_i)+ g(x_j)\right).
+		\end{split}
+	\end{equation*}
+\end{frame}
+
+
+
+\subsection{Ley de energía discreta}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Ley de energía discreta}}\\
+	\vspace{0.5cm}
+	En caso continuo: 
+	\begin{equation*}
+		\left<u_t(\cdot,t),u_{tt}(\cdot,t)\right>_{L^2(\Omega)} = c^2\left<u_{t}(\cdot,t),u_{xx}(\cdot,t)\right>_{L^2(\Omega)}.
+	\end{equation*} 
+	
+	\pause
+	\begin{block}{Definición: Aproximaciones progresivas$\text{,}$ regresivas y centradas}
+		
+		Sea $u$ una aproximación de la solución definida en un mallado.\\ Definiremos las diferencias aproximadas hacia adelante, atrás o centradas respectivamente, como:
+		\begin{itemize}
+			\item $\delta_{x^+}u_{j,r}= \frac{1}{h}\left(u_{j+1,r}-u_{j,r}\right)$, 
+			\item $\delta_{x^-}u_{j,r}=\frac{1}{h}\left(u_{j,r}-u_{j-1,r}\right)$, 
+			\item $\delta_{x}u_{j,r}= \frac{1}{2h}\left(u_{j+1,r}-u_{j-1,r}\right)$. 
+		\end{itemize}
+		Podemos hacer lo mismo para el eje temporal, denotándolas como $\delta_{t^+},\delta_{t^-},\delta_{t}$
+	\end{block}
+	
+	
+\end{frame}
+
+
+\begin{frame}
+	\begin{block}{Definición: Aproximación centrada de la derivada de segundo orden}
+		Sea $u$ una aproximación de la solución definida en un mallado. Definimos la aproximación centrada de la derivada de segundo orden como:
+		
+		\begin{equation*}
+			\begin{split}
+				\delta_{xx}u_{j,r}&=\frac{1}{h^2}\left(e_{x^+}u_{j,r}-2u_{j,r}+e_{x^-}u_{j,r}\right)=\\
+				&=\frac{1}{h^2}\left(u_{j+1,r}-2u_{j,r}+u_{j-1,r}\right)
+			\end{split}
+		\end{equation*} 
+		Al igual que la definición anterior esto será análogo en el eje temporal.
+	\end{block}
+	
+	\pause
+	\vspace{0.5cm}
+	En caso discreto, tomando $D=\{x_0,x_1,\dots, x_{m-1}\}$:
+	$$\left(\delta_{tt}u,\delta_tu\right)_D= c^2 \left(\delta_{xx}u,\delta_tu\right)_D. $$
+\end{frame}
+
+\begin{frame}
+	De la definición anterior:
+	\begin{equation*}
+		\begin{split}
+			\left(\delta_{xx}u_{\cdot,r},\delta_t u_{\cdot,r}\right)_D &= \left(\delta_{x^+x^-}u_{\cdot,r},\delta_t u_{\cdot,r}\right)_D,\\
+		=-\left(\delta_{x^-}u_{\cdot,r},\delta_{x^-}\delta_{t} u_{\cdot,r}\right)_D - (\delta_{t} &u_{0,r})(\delta_{x^+}u_{-1,r})+ (\delta_{t} u_{m,r})(\delta_{x^+}u_{m-1,r}).
+		\end{split}
+	\end{equation*}
+	
+	\pause
+	
+	Estos últimos términos serán $0$, ya que, 
+	$$\delta_{t} u_{0,r}= \frac{1}{k}\left(u_{0,r+1}-u_{0,r-1}\right)=0,$$
+	
+	$$\delta_{t} u_{m,r}= \frac{1}{k}\left(u_{m,r+1}-u_{m,r-1}\right)=0.$$
+	
+	\pause
+	
+	El funcional de energía discreto asociado a nuestro esquema conserva la energía.
+	$$\delta_{t}E(u_{j,r})= \delta_t\left(||\delta_tu_{\cdot.r}||_D^2+||\delta_{x^-}u_{\cdot.r}||_D^2\right)=0.$$
+\end{frame}
+
+
+
+
+\section{Modelado en Python y comparativa}
+\subsection{Archivos .wav y síntesis de sonido}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Síntesis de sonido}}
+	\vspace{0.5cm}
+	
+	Síntesis de modelado físico.\\
+	\pause
+	
+	\begin{equation*}
+		\begin{split}
+			u_{j,r+1} &= \mu ^2( u_{j+1,r}+u_{j-1,r})  + 2(1-\mu^2)  u_{j,r} -u_{j,r-1},\\
+			&\text{para} \ j=1,\dots,m-1 \text{ y }r=1,\dots,n-1,
+		\end{split}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{j,0}=f(x_j), &   j=0,1,\dots,m-1,
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{j,1}=u_{j,0}+k g(x_j), &  j=0,1,\dots,m-1,
+		\end{array}
+	\end{equation*} 
+	\begin{equation*}
+		\begin{array}{lc}   
+			u_{0,r}=u_{m,r}=0, &  r=0,1,\dots,n-1.
+		\end{array}
+	\end{equation*} 
+\end{frame}
+
+\begin{frame}
+	De la definición de los parámetros se obtiene  $c=\lambda \text{f}$.\\
+	
+	\pause
+	
+	Elegimos $f(x)= sin(2\pi x)$, $g(x)=0$, y vemos que $N=3$:
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{2Seno1.png}
+			\caption{Posición inicial, de la cuerda, los puntos rojos se corresponden con los nodos.}
+			\label{fig:2Seno1}
+		\end{minipage}
+		\hspace{0.5cm}
+		\begin{minipage}[b]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{2Seno2.png}
+			\caption{Imagen realizada con $m=100$, $h=\frac{1}{100}$, $\ \ \ \mu=1$ y $k=\frac{1}{44000}$.}
+			\label{fig:2Seno2}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Para una onda estacionaria $\lambda=\frac{2L}{N-1}$. Eligiendo $L=1$.
+	
+	Sabiendo que, 
+	$$\lambda=\frac{2}{2}=1,$$
+	Para obtener una frecuencia de $\textbf{f}=440Hz$, tendremos que elegir  $$c=\lambda \textbf{f}=1*440 = 440.$$.
+	\begin{figure}
+		\vspace{-0.8cm}
+		\centering
+		\includegraphics[width=0.5\textwidth]{2Seno4.png}
+		\caption{Archivo figura5-3.wav}
+	\end{figure}
+
+	
+\end{frame}
+
+\begin{frame}
+	
+	\vspace{0.5cm}
+	Si utilizásemos $c=440$ para $f(x)= sin(\pi x)$.\\
+	
+	$N=2$ y  $\lambda=\frac{2*L}{N-1}=2$, se sigue $\text{f}= \frac{440}{2}=220Hz$.
+	\begin{figure}[ht]
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.28]{SenoPuntos.png}
+			\caption{Número de nodos de $f(x)= sin(\pi x)$}
+		\end{minipage}
+		\hspace{0.5cm}
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.35]{2Seno3.png}
+			\caption{Oscilaciones en el punto $x=0.5$, figura5-5.wav adjunto.}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Este vector tendrá que contener datos entre $-1$ y $1$. Para ello, hemos probado diferentes técnicas:
+	\vspace{0.75cm}
+	\begin{itemize}
+		\item Suma de las ondas producida en cada punto espacial. 
+		\pause
+		\item Uso de canales.
+		\pause
+		\item Elección de un punto de la cuerda.
+	\end{itemize} 
+\end{frame}
+
+\subsection{Aproximaciones}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Aproximaciones}}\\
+	\vspace{0.5cm}
+	Volviendo a $f(x)= sin(\pi x)$.
+	\begin{figure}
+		\includemovie[autoplay, loop, poster]{0.65\textwidth}{0.5\textwidth}{seno.mp4}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Para $f(x)$ tipo Struck, $g(x)=0$.\\
+	
+	$m=100$, $m=300$ y $m=400$, siempre con $L=1$ $\mu=1$ y $c=440$.
+	$$
+	f(x) = 
+	\begin{cases}
+		0 & \text{si }\ \  0\leq x \leq \frac{1}{4}, \\
+		4x-1 & \text{si }\ \ \frac{1}{4}  < x \leq \frac{1}{2},  \\
+		3-4x & \text{si }\ \ \frac{1}{2}  < x \leq \frac{3}{4},  \\
+		0 & \text{si } \ \ \frac{1}{4}< x \leq 1.
+	\end{cases}
+	$$
+\end{frame}
+
+\begin{frame}
+	Tomando como parámetros $L=1$, $\mu=1$ y $c=440$, $m=100,  h=\frac{1}{100}$ y $k= \frac{1}{44000}$.
+	\begin{figure}
+		\includemovie[autoplay, loop, poster]{0.66\textwidth}{0.5\textwidth}{pico.mp4}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Tomando como parámetros $L=1$, $\mu=1$ y $c=440$, $m=300,  h=\frac{1}{300}$ y $k= \frac{1}{132000}$.
+	\begin{figure}
+		\includemovie[autoplay, loop, poster]{0.66\textwidth}{0.5\textwidth}{pico300.mp4}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	La forma de la onda en cada punto no es tan regular como en $f(x)=sen(\pi x)$:
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Pico5.png}
+			\caption{Archivo figura5-18.wav}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Pico6.png}
+			\caption{Archivo figura5-19.wav}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Para $f(x)= 0$, $g(x)$ tipo Struck:
+	\begin{wrapfigure}[5]{r}{0.4\textwidth}
+		\includegraphics[width=0.4\textwidth]{Planog.png}
+		\caption{Velocidad inicial.}
+	\end{wrapfigure}
+	
+	La definición de la función $g$\\
+	es la siguiente:
+	$$g(x) = 
+		\begin{cases}
+			50000x & \text{si } \ \ 0\leq x \leq \frac{1}{10}, \\
+			50000(0.2-x) & \text{si } \ \ \frac{1}{10}  < x \leq \frac{1}{5},  \\
+			0 & \text{si } \ \  \frac{1}{5}< x \leq 1.
+		\end{cases}$$
+\end{frame}
+
+\begin{frame}
+	Tomando como parámetros $L=1$, $\mu=1$ y $c=440$, $m=200,  h=\frac{1}{200}$ y $k= \frac{1}{88000}$.
+	\begin{figure}
+		\includemovie[autoplay, loop, poster]{0.66\textwidth}{0.5\textwidth}{enmovimiento.mp4}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	Movimiento del punto $x=0.48$, en el tiempo.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{Planoonda.png}
+		\caption{Archivo figura5-24.wav}
+
+	\end{figure}
+\end{frame}
+
+\subsection{Soluciones de tipo onda viajera}
+\begin{frame}
+	
+	\textcolor{blue}{\Large{Soluciones de tipo onda viajera}}\\
+	\vspace{0.5cm}
+	Utilizando los parámetros $c= 440$, $L=1$, $\mu = 1$, $m=100$ y por lo tanto, $h=\frac{1}{100}$ y $k= \frac{1}{44000}$ de nuevo y $f(x)= sin(2\pi x)$, $g(x)=0$.
+	
+
+	\begin{figure}
+		\includemovie[autoplay, loop, poster]{0.66\textwidth}{0.5\textwidth}{senotrav.mp4}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Al pasar el tiempo comienzan a propagarse los errores.
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Senoexacto1.png}
+			\caption{La solución exacta, coloreada de naranja, y la aproximación, coloreada de negro, se superponen. }
+			\label{fig:Senoex1}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Senoexacto2.png}
+			\caption{Solución exacta coloreada de naranja y aproximación coloreada de negro.}
+			\label{fig:Senoex2}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+
+
+\subsection{Comparativa variando el valor de $\mu$}
+
+\begin{frame}
+	
+	\textcolor{blue}{\Large{$\mu\ll 1$}}
+	\vspace{0.5cm}
+	
+	Cuando elegimos $\mu$ mucho menor que $1$, es decir, alejándonos de la solución óptima, poco a poco comienzan a propagarse los errores. Comparemos la solución con $\mu = 1$, para $f(x)$ de tipo Struck,  es decir,
+
+	$$
+	f(x) = 
+	\begin{cases}
+		0 & \text{si } 0\leq x \leq \frac{1}{4}, \\
+		4x-1 & \text{si } \frac{1}{4}  < x \leq \frac{1}{2},  \\
+		3-4x & \text{si } \frac{1}{2}  < x \leq \frac{3}{4},  \\
+		0 & \text{si }  \frac{1}{4}< x \leq 1.
+	\end{cases}
+	$$
+\end{frame}
+
+\begin{frame}
+	Con los parámetros $L=1$, $c= 440$, $m=100$ y $h=\frac{1}{100}$, compararemos estas soluciones.
+	
+	\pause
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Piconormal.png}
+			\caption{Solución para $\mu=1$ y $k= \frac{1}{44000}$}
+			\label{fig:Piconormal}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Picomu0.1.png}
+			\caption{Solución para $\mu=0.1$ y $k= \frac{1}{440000}$}
+			\label{fig:Picomu0.1}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Movimiento de la onda en $x=0.5$, en ambos casos.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Picoondamu1.png}
+			\caption{Movimiento de la onda para $\mu=1$. Archivo figura5-34.wav}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Picoondamu0.1.png}
+			\caption{Movimiento de la onda para $\mu=0.1$. Archivo figura5-35.wav}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\vspace{0.2cm}
+	\textcolor{blue}{\Large{$\mu>1$}}
+	\vspace{0.5cm}
+	
+	Cuando violamos la condición CFL, se crean inestabilidades rápidamente.\\
+	Utilizando $L=1$, $c= 440$, $m=40$, $h=\frac{1}{40}$, tomamos $\mu=1.001$, y por tanto $k= \frac{1001}{16000000}$.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Pico38.png}
+			\caption{Las inestabilidades comienzan rápidamente.}
+			
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Pico58.png}
+			\caption{Las inestabilidades cubren la cuerda al completo.}
+			\label{fig:Picomu1.1}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	 En la posición $x=0.5$.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Picoondamu1.png}
+			\caption{Movimiento de la onda para $\mu=1$. Archivo figura5-34.wav}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Picoondamu1.1.png}
+			\caption{Movimiento de la onda para $\mu=1.1$. Archivo figura5-39.wav}
+			\label{fig:Picoondamu1.1}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+%----------------------------ABAJO VENIA HECHO---------------------------------
+
+
+%\begin{frame}
+ %   \frametitle{Título de la primera diapositiva}
+%\begin{columns}
+% \begin{column}{0.55\textwidth}
+%\begin{block}{Resultados}
+ %   \begin{itemize}[<+->]
+  %    \item  Primer item
+   %   \item  Segundo item
+    %  \item  Tercer item
+    %\end{itemize}
+    %\begin{enumerate}[<+-| alert@+>]
+     % \item  Primer item
+      %\item  Segundo item
+      %\item  Tercer item
+    %\end{enumerate}
+%\end{block}
+% \end{column} \ \
+% \begin{column}{0.40\textwidth}
+%      \only<4>{\includegraphics[width=0.8\textwidth]{knuth.jpg}}
+%      \only<5>{\includegraphics[width=0.9\textwidth]{forges.jpg}}
+%      \only<6>{\includegraphics[width=0.9\textwidth]{kill-bill-2.jpg}}
+% \end{column}
+%\end{columns}
+%\end{frame}
+
+
+%\subsection{Segunda subsección}
+
+%\begin{frame}
+ %   \frametitle{Título de la segunda diapositiva}
+%\begin{block}{}
+%Escribimos una pequeña fórmula
+%\end{block}
+
+%\begin{block}{Fórmula}
+%\begin{equation*}
+%\onslide<2->{V(x) = } \onslide<3->{\color<3>[rgb]{1,0,0} A\int_0^\infty\frac{dr}{r} +}
+%\onslide<4->{\color<4>[rgb]{0,1,0} B\int_0^\infty\frac{dr}{r^2} +}
+%\end{equation*}
+%\end{block}
+%\end{frame}
+
+%\begin{frame}
+%    \frametitle{Título de la tercera diapositiva}
+%\begin{block}{}
+%Ahora mostramos la fórmula de forma un poco diferente5
+%\end{block}
+
+%\begin{block}{Fórmula}
+%\begin{equation*}
+%V(x) =  {\color<2>[rgb]{1,0,0} A\int_0^\infty\frac{dr}{r}} +
+%{\color<3>[rgb]{1,0,0} B\int_0^\infty\frac{dr}{r^2}} +
+%{\color<4>[rgb]{1,0,0} C\int_0^\infty\left(\frac{1}{r^6} - \frac{1}{r^{12}}\right)dx}
+%\end{equation*}
+%\end{block}
+%\end{frame}
+
+%\begin{frame}
+%    \frametitle{Título de la tercera diapositiva}
+%\begin{block}{}
+%Otra forma un poco más compleja:
+%\end{block}
+%\begin{block}{Ecuación}
+%$\displaystyle
+%V(x) = \onslide<2->{\color<2>[rgb]{1,0,0} A\int_0^\infty\frac{dr}{r} +}
+%\onslide<3->{\color<3>[rgb]{0,1,0} B\int_0^\infty\frac{dr}{r^2} +}
+%\onslide<4->{\color<4>[rgb]{0,0,1} C\int_0^\infty\left(\frac{1}{r^6} - \frac{1}{r^{12}}\right)dx}$
+
+%\medskip
+%\hspace*{15mm} \onslide<2>{\color<2>[rgb]{1,0,0} Dipolo} \hspace{7mm}
+%\onslide<3>{\color<3>[rgb]{0,1,0} Coulomb} \hspace{4mm}
+%\onslide<4>{\color<4>[rgb]{0,0,1} Van der Waals}
+%\end{block}
+%\end{frame}
+
+%\begin{frame}[t]
+%    \frametitle{Título de la tercera diapositiva}
+%\begin{block}{}
+%Otra forma reemplazando elementos:
+%\end{block}
+%\only<2>{\visible<2>{\begin{block}{Ecuación 1}
+%$\displaystyle V(x) = A\int_0^\infty\frac{dr}{r} \color[rgb]{1,0,0} \longrightarrow \text{Dipolo}$
+%\end{block}}}%
+%\only<3->{\visible<3->{\begin{block}{Ecuación 2}
+%$\displaystyle W(x) = B\int_0^\infty\frac{dr}{r^2} +
+%C\int_0^\infty\left(\frac{1}{r^6} - \frac{1}{r^{12}}\right)dx \only<3>{ \longrightarrow \color[rgb]{1,0,0} \text{Coulomb + WdW}}$
+%\end{block}}}
+%\only<4>{\visible<4>{\begin{block}{otro bloque}
+%Otras cosas...
+%\end{block}}}
+%\end{frame}
+
+\section{Bibliografía}
+\begin{frame}[allowframebreaks]
+%\frametitle{Bibliografía}
+\nocite*
+{\scriptsize
+	\bibliography{BIBLIOGRAFIA}
+}
+\end{frame}
+
+
+\end{document}
+
+\usetheme{default}
+\usetheme{JuanLesPins}
+\usetheme{Goettingen}
+\usetheme{Szeged}
+\usetheme{Warsaw}
+
+\usecolortheme{crane}
+
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
